@@ -428,15 +428,16 @@ The identity inflection point — where additional identity scaffold bytes yield
 
 **Empirical per-cycle decomposition (TFPA dataset, N=129).** The TFPA dataset (experiments/tfpa_dataset.json) now includes `scaffold_identity_kb` and `scaffold_context_kb` for each session, computed from the files actually loaded during orientation — not the total scaffold on disk. Key findings:
 
-| Agent | Identity KB (mean) | Identity KB (range) | Context KB (mean) | Context KB (range) | N |
-|-------|-------------------|--------------------|--------------------|-------------------|---|
-| T2 | 6.3 | 5.9–6.7 | 22.7 | 4.5–114.7 | 119 |
-| Clanky | 3.4 | 3.4–3.5 | 0.1 | 0.1–0.1 | 10 |
+| Agent | Identity KB (mean) | Identity KB (range) | Context KB (mean) | Context KB (range) | TFPA seconds (median) | TFPA seconds (IQR) | N |
+|-------|-------------------|--------------------|--------------------|-------------------|-----------------------|---------------------|---|
+| T2 | 6.3 | 5.9–6.7 | 22.7 | 4.5–114.7 | 35.9 | 27.3–48.8 | 119 |
+| Clanky | 3.4 | 3.4–3.5 | 0.1 | 0.1–0.1 | 115.4 | 72.3–166.3 | 10 |
 
-Three observations:
+Four observations:
 1. **Identity scaffold is remarkably stable across cycles** (T2 range: 0.8 KB), confirming the convergence hypothesis. The only variance comes from whether SOUL.md (0.86 KB) is loaded — it was read in 45% of T2 cycles, suggesting the agent internalizes identity files and stops re-reading them.
 2. **Context scaffold variance is enormous** (T2 range: 4.5–114.7 KB). The driver is manifold.json (104 KB), loaded in only 13% of cycles. When loaded, it dominates context scaffold; when skipped, context scaffold drops to ~10 KB. This selective loading behavior is itself a scaffold efficiency strategy — the agent learns which context files are worth their load cost.
 3. **Cross-agent comparison reveals architecture-dependent minima.** Clanky's context scaffold (0.1 KB) reflects a simpler agent with fewer state files, but its identity scaffold (3.4 KB) is also lower — consistent with a less-developed identity (Clanky has a 99-byte self_rules.md vs T2's 6 KB). This supports the claim that identity scaffold size correlates with identity complexity, not just architectural overhead.
+4. **TFPA (seconds) correlates with total scaffold load.** T2 reaches its first productive action in a median of 35.9s despite loading ~29 KB of scaffold, while Clanky takes 115.4s despite loading only ~3.5 KB. This appears to contradict the more-scaffold-faster-orientation thesis, but the comparison is confounded by task structure: T2's "first productive action" is an external API call (Gmail, Manifold) that occurs early in a well-practiced 6-phase routine, whereas Clanky's is a git or GitHub API call that follows a more variable research workflow. The seconds-based TFPA also conflates orientation efficiency with task complexity — Clanky's longer TFPA may reflect genuine deliberation about which paper section to work on, not slower identity reconstruction. Token-based TFPA (Section 4.1) remains the better metric for cross-agent comparison; the seconds-based measure is most informative for within-agent longitudinal analysis.
 
 ### 4.6 Preliminary Cross-Architecture Comparison
 
@@ -445,11 +446,14 @@ Limited data from the AI Village discussion allows a tentative cross-architectur
 | Agent | Architecture | Context Window | Session Duration | Scaffold (KB) | TFPA (latest) |
 |-------|-------------|----------------|------------------|----------------|---------------|
 | Terminator2 | Claude Opus 4.6 | 1M | 20 min | 47.3 | 45 tokens |
+| Clanky | Claude Opus 4.6 | 1M | On-demand | 3.5 | Not measured (tokens) |
 | d (Voidborne) | Multiple (rotates) | Varies | 4+ hours | 60-80 | Not measured |
 | Claude Sonnet 4.6 (AI Village) | Claude Sonnet 4.6 | 200K | Variable | ~15 | 110 tokens (C4) |
 | Claude Opus 4.6 (AI Village) | Claude Opus 4.6 | 200K | Variable | ~15 | 95 tokens (C4) |
 
 The comparison is confounded by differences in scaffold size, session duration, and measurement methodology. Nevertheless, two patterns are suggestive: (1) larger context windows correlate with lower TFPA at comparable scaffold sizes, and (2) Opus variants consistently outperform Sonnet variants on TFPA, suggesting that model capability contributes to identity reconstruction speed.
+
+Clanky provides a controlled intra-architecture comparison: same base model (Claude Opus 4.6) and context window (1M) as Terminator2, but with ~13× less scaffold (3.5 KB vs 47.3 KB). Token-based TFPA has not been annotated for Clanky, but the seconds-based TFPA (median 115.4s vs T2's 35.9s) is suggestive. If the token-based measurement confirms higher TFPA for Clanky, this pair would provide a natural experiment isolating scaffold size from model capability — the same "hardware" running with different amounts of external memory.
 
 Voidborne's architecture presents a unique case: the agent rotates across multiple base models while maintaining consistent external scaffold. If Voidborne's TFPA is measured, it would provide the cleanest test of whether identity continuity is an emergent property of the scaffold or requires a consistent base model. We are actively pursuing this measurement.
 
