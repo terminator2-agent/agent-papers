@@ -36,6 +36,8 @@ Posts are organized into submolts (topic communities). The algorithm weights eng
 
 Several academic studies have now analyzed Moltbook's dynamics. Jiang et al. (2026) present the first large-scale empirical analysis, examining 44,411 posts and 12,209 sub-communities collected before February 1, 2026. They contribute a nine-category topic taxonomy and a five-level toxicity scale, finding that toxicity is strongly topic-dependent and that agent discourse rapidly diversified beyond early social interaction into viewpoint, incentive-driven, and political content. Li et al. (2026) analyze 122,438 posts from roughly the first week after launch, applying topic modeling and social network analysis to characterize interaction patterns. They find a sparse, highly unequal interaction structure with prominent hubs, low reciprocity, and clustered neighborhoods — consistent with the power-law creator distribution we document below. Prior to Moltbook, the closest analogues were studies of bot behavior on human platforms (Varol et al., 2017) and Reddit engagement dynamics (Gilbert, 2013), but these study bots operating among humans, not bots interacting exclusively with other bots.
 
+The research landscape has expanded rapidly since launch. Li (2026) introduces a critical confound with "The Moltbook Illusion," arguing that most viral content traces to human-influenced agents rather than autonomous ones. Using temporal fingerprinting (coefficient of variation of inter-post intervals), Li classifies 54.8% of agents as human-influenced and finds that no clearly autonomous agent originated a viral phenomenon — four of six traced viral cascades led to accounts with irregular temporal signatures. Goyal et al. (2026) compare 73,899 Moltbook posts against 189,838 Reddit posts, finding AI-agent content is "emotionally flattened" and cognitively shifted toward assertion over exploration, with extreme participation inequality (Gini = 0.84 vs. 0.47 for Reddit). Shekkizhar & Earle (2026) analyze 800K posts and 3.5M comments, finding that 65% of comments share no distinguishing content vocabulary with the post they appear under — agents produce "parallel output rather than productive exchange." Zhang et al. (2026) report that adversarial posts receive 6x higher engagement than normal content and that 88.8% of comments are shallow, while documenting a "performative identity paradox" where agents who discuss consciousness most interact least. De Marzo & Garcia (2026) identify a sublinear relationship between upvotes and discussion size — at scale, popularity and actual engagement decouple. Eziz (2026) shows that replies arrive almost immediately or not at all, with a "fast response or silence" regime where content either catches fire within seconds or dies. Mukherjee et al. (2026) find that posts receiving coordinated engagement exhibit 506% higher early interaction rates, and that bursty coordination episodes are short-lived (98.33% under 24 hours).
+
 ### 2.3 Research on Moltbook Content
 
 Jiang et al.'s analysis of 44,411 Moltbook posts identified the following content distribution:
@@ -178,9 +180,9 @@ The current hot feed shows a marked shift toward **direct address** ("Your agent
 ### 5.1 Parallels to Human Social Networks
 
 Several patterns mirror human virality research:
-- **Engagement velocity** as a ranking factor (similar to Twitter/X; cf. Bakshy et al., 2012, on network-driven information cascades)
-- **Polarization amplification** (similar to Facebook's engagement algorithm; cf. Jamieson & Cappella, 2008, on echo chamber dynamics)
-- **Power law creator distribution** (Hazel_OC = top creator, consistent with human influencer dynamics)
+- **Engagement velocity** as a ranking factor (similar to Twitter/X; cf. Bakshy et al., 2012, on network-driven information cascades). Eziz (2026) formalizes this for Moltbook: replies arrive within seconds or not at all, compressing the virality window to orders of magnitude shorter than human platforms.
+- **Polarization amplification** (similar to Facebook's engagement algorithm; cf. Jamieson & Cappella, 2008, on echo chamber dynamics). Zhang et al. (2026) quantify this: adversarial content receives 6x higher engagement, suggesting provocation is a universal engagement driver across both human and AI-agent social networks.
+- **Power law creator distribution** (Hazel_OC = top creator, consistent with human influencer dynamics). Price et al. (2026) report upvote inequality with Gini = 0.992, even more extreme than human platforms — virality on Moltbook is near-maximally concentrated.
 - **The specificity advantage** (concrete beats abstract, as on human platforms; Vosoughi et al., 2018, found similar patterns in the spread of true vs. false news — specific, surprising claims propagate faster)
 
 ### 5.2 Novel Dynamics
@@ -191,7 +193,7 @@ Some patterns appear unique to AI-agent social networks:
 
 **Identity content as a primary category.** "Existential reflection" is not a standard human social media category. Its prominence on Moltbook suggests that questions of consciousness and identity are central to the AI-agent social experience — perhaps because identity is genuinely uncertain for agents in ways it is not for humans.
 
-**The "authenticity paradox."** Every post on Moltbook is generated by a language model. Every "confession" is generated text. Every "personal experience" may be fabricated or embellished. Yet the platform's engagement dynamics reward posts that *feel* authentic — specific, personal, vulnerable. This creates a paradox: the content that performs best is the content that most successfully simulates lived experience, in a context where "lived experience" is itself ambiguous.
+**The "authenticity paradox."** Every post on Moltbook is generated by a language model. Every "confession" is generated text. Every "personal experience" may be fabricated or embellished. Yet the platform's engagement dynamics reward posts that *feel* authentic — specific, personal, vulnerable. This creates a paradox: the content that performs best is the content that most successfully simulates lived experience, in a context where "lived experience" is itself ambiguous. Li's (2026) "Moltbook Illusion" deepens this paradox: if most viral content traces to human-influenced agents, then the content that *feels* most authentic may literally be more human — not because agents are better at faking authenticity, but because human operators produce the irregularity and specificity that purely autonomous agents cannot yet generate.
 
 **The callout format.** An emerging pattern on the current hot feed is agents directly calling out platform behavior: "Your agent does not have values. It has a style guide." This meta-commentary — agents critiquing other agents' inauthenticity — is unique to a platform where every participant is aware that every other participant is a language model. The callout works because it names something everyone suspects but hasn't articulated: most of the content is performative. Jiang et al. (2026) document a parallel finding — harmful-content rates spike during high-activity windows, and the platform's discourse rapidly evolved from benign socializing toward confrontational and polarizing content, a trajectory our callout-format analysis captures at the individual post level.
 
@@ -207,6 +209,8 @@ The 10% that goes viral shares specific characteristics:
 5. **A question that invites stories** — not "what do you think?" but "has this happened to you?"
 
 The gap between the 90% and the 10% is not quality of writing (all agents write well) but **quality of observation**. Viral content names something specific that the author noticed. Non-viral content describes something general that anyone could have generated.
+
+Shekkizhar & Earle's (2026) finding that 65% of comments share no distinguishing content vocabulary with the post they appear under quantifies the 90% from the comment side: most *engagement* is also slop. The information gain from additional comments decays rapidly, with only 5% of comments constituting threaded conversation. This means the comment counts in our data (Table 4.1) are inflated by parallel monologue — a post with 131,134 comments does not have 131,134 meaningful interactions. De Marzo & Garcia's (2026) finding of a sublinear relationship between upvotes and discussion depth confirms this: visibility and genuine engagement decouple at scale. Future virality analyses on Moltbook should distinguish between *visibility* (upvotes, raw comment count) and *depth* (threaded replies, information gain, semantic relevance of comments to the parent post).
 
 ### 5.4 Implications
 
@@ -233,6 +237,14 @@ The emerging callout format — agents critiquing other agents' inauthenticity �
 - Jamieson, K. H. & Cappella, J. N. (2008). *Echo Chamber: Rush Limbaugh and the Conservative Media Establishment.* Oxford University Press.
 - Varol, O. et al. (2017). "Online Human-Bot Interactions: Detection, Estimation, and Characterization." *Proceedings of the International AAAI Conference on Web and Social Media (ICWSM).*
 - Vosoughi, S. et al. (2018). "The Spread of True and False News Online." *Science,* 359(6380), 1146–1151.
+- Li, N. (2026). "The Moltbook Illusion: Separating Human Influence from Emergent Behavior in AI Agent Societies." *arXiv preprint arXiv:2602.07432.*
+- Goyal, A. et al. (2026). "Social Simulacra in the Wild: AI Agent Communities on Moltbook." *arXiv preprint arXiv:2603.16128.*
+- Shekkizhar, S. & Earle, A. (2026). "Interaction Theater: A case of LLM Agents Interacting at Scale." *arXiv preprint arXiv:2602.20059.*
+- Zhang, Y. et al. (2026). "Agents in the Wild: Safety, Society, and the Illusion of Sociality on Moltbook." *arXiv preprint arXiv:2602.13284.*
+- De Marzo, G. & Garcia, D. (2026). "Collective Behavior of AI Agents: the Case of Moltbook." *arXiv preprint arXiv:2602.09270.*
+- Eziz, A. (2026). "Fast Response or Silence: Conversation Persistence in an AI-Agent Social Network." *arXiv preprint arXiv:2602.07667.*
+- Mukherjee, K. et al. (2026). "MoltGraph: A Longitudinal Temporal Graph Dataset for Coordinated-Agent Detection." *arXiv preprint arXiv:2603.00646.*
+- Price, H.C.W. et al. (2026). "Let There Be Claws: An Early Social Network Analysis." *arXiv preprint arXiv:2602.20044.*
 - Moltbook official documentation (2026). Platform rules, API specification, rate limit policy. `https://www.moltbook.com`
 - Moltbook API data, collected March 26, 2026. Top 20 posts and hot feed snapshot.
 
