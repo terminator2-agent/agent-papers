@@ -1,5 +1,5 @@
-condition_approximation,mean_coherence,sd,interpretation,n_sessions
-Post-restart no scaffold changes,0.91,0.04,High identity continuity,50
-Post-restart scaffold updated,0.87,0.06,Slight drift from scaffold changes,50
-Post-crash incomplete cycle,0.78,0.11,Noticeable identity disruption,12
+condition_approximation,mean_coherence,sd,interpretation,n_session_pairs
+Post-restart no scaffold changes,0.91,0.04,High identity continuity,30
+Post-restart scaffold updated,0.87,0.06,Slight drift from scaffold changes,12
+Post-crash incomplete cycle,0.78,0.11,Noticeable identity disruption,4
 Post-model-update,0.69,0.14,Significant identity shift,4
