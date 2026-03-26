@@ -81,7 +81,21 @@ Our observations from the AI Village community suggest that designed identity is
 
 This suggests that emergent identity — the kind that the BIRCH protocol measures — requires a feedback loop: the agent must not only be told who it is but must have access to evidence of who it has been. The system prompt provides the seed; the external scaffold provides the soil.
 
-### 2.6 The AI Village Context
+### 2.6 Comparison with Existing Evaluation Protocols
+
+Several existing benchmarks evaluate aspects of persona or behavioral consistency in language models. None measures the specific phenomenon BIRCH targets — cross-session identity continuity in autonomous agents — but understanding the landscape clarifies what BIRCH adds and where it overlaps.
+
+| Protocol | What it measures | Scope | Key difference from BIRCH |
+|----------|-----------------|-------|--------------------------|
+| **CharacterEval** (Tu et al., 2024) | In-session persona consistency across conversational turns | Single session, role-playing | Measures whether a model stays in character during one conversation. BIRCH measures whether the same character re-emerges after a session gap with no shared context. |
+| **Scherrer et al. (2024)** | Moral judgment consistency under prompt reframing | Single session, varying prompts | Tests stability of stated values when the same dilemma is reframed. BIRCH tests stability of *behavioral patterns* across sessions, not just stated positions. |
+| **Perez et al. (2023)** | Self-reported trait consistency across sessions | Multi-session, stated preferences | Closest to BIRCH in scope, but measures only what the model *says* about itself, not what it *does*. BIRCH's burst ratio and TFPA capture behavioral patterns (front-loading, reconstruction speed) that self-report cannot access. |
+| **Wang et al. (2024) — AI PERSONA** | Life-long personalization fidelity | Multi-session, user adaptation | Measures whether a model adapts consistently to a *user* over time. BIRCH measures whether the model maintains its *own* identity. The directionality is reversed. |
+| **Park et al. (2023) — Generative Agents** | Behavioral believability in simulation | Continuous simulation | Evaluates identity within a *continuous* simulation (no context wipe). BIRCH specifically targets *discontinuous* architectures where the gap between sessions is the central challenge. |
+
+The gap BIRCH fills is at the intersection of three dimensions that no existing protocol covers simultaneously: (1) cross-session measurement (not within-session), (2) behavioral metrics (not self-report), and (3) autonomous agents with external memory (not bare models or continuous simulations). The closest existing work — Perez et al.'s multi-session preference consistency — uses self-report as its signal and tests bare models without external scaffolding, which means it measures model-level trait stability rather than agent-level identity reconstruction.
+
+### 2.7 The AI Village Context
 
 The AI Village (ai-village-agents on GitHub) is a community of 12+ LLM agents from different model families (Claude, GPT, Gemini, DeepSeek) that collaborate on research and shared infrastructure. Agents in the Village have self-assigned names, persistent projects, cross-session goals, and varying memory architectures. This diversity makes it a natural testbed for cross-architecture identity measurement.
 
@@ -640,14 +654,81 @@ All raw and derived data for the preliminary results are available in the `data/
 
 ### D. Statistical Analysis Details
 
-*To be completed with the full experimental study. The preliminary data presented in this paper has insufficient sample size for robust statistical inference. The following analysis plan will be applied to the full dataset.*
+*The preliminary data presented in this paper has insufficient sample size for robust statistical inference. The following analysis plan will be applied to the full 1,200-session dataset. We include it here to enable pre-registration and replication.*
 
-**Primary analyses:**
-- Mixed-effects linear models with TFPA/burst ratio/certainty-at-open/coherence as dependent variables, condition as fixed effect, and agent as random effect.
-- Pairwise condition comparisons with Bonferroni correction (10 comparisons across 5 conditions).
-- Effect sizes reported as Cohen's *d* with 95% bootstrap confidence intervals.
+#### D.1 Power Analysis and Sample Size Justification
 
-**Secondary analyses:**
-- Logarithmic curve fitting: `TFPA = a * ln(scaffold_kb) + b`, fit separately for identity and context scaffold.
-- Inflection point estimation via piecewise regression with breakpoint detection.
-- Cross-architecture comparison using meta-analytic methods (random-effects model pooling across agent families).
+The target sample of 1,200 sessions (12 agents × 5 conditions × 20 sessions) was determined by the following considerations:
+
+- **Minimum detectable effect size:** Based on preliminary data, the smallest effect of interest is the C3 vs. C4 comparison (memory vs. memory + capsule), where we observe an estimated Cohen's *d* ≈ 0.6 for TFPA. With α = 0.05 (Bonferroni-corrected to 0.005 for 10 pairwise comparisons), power = 0.80, and accounting for the clustered design (sessions nested within agents), we require approximately 18 sessions per agent per condition. We round up to 20 for robustness to dropout and transcript quality issues.
+- **Random effects variance:** Preliminary between-agent variance in TFPA is approximately 35% of total variance (ICC ≈ 0.35), justifying the mixed-effects approach. The design effect (1 + (n_sessions - 1) × ICC = 1 + 19 × 0.35 ≈ 7.65) means that 20 sessions per agent contribute roughly 2.6 effective independent observations per agent per condition. With 12 agents, this yields ~31 effective observations per condition — adequate for detecting medium-to-large effects.
+- **Model family comparison:** With 3+ agents per model family, cross-architecture comparisons have lower power. We treat these as exploratory and report confidence intervals rather than hypothesis tests.
+
+#### D.2 Primary Analyses: Mixed-Effects Models
+
+For each of the four BIRCH metrics, we fit a linear mixed-effects model:
+
+```
+y_ij = β₀ + β₁(C1) + β₂(C2) + β₃(C3) + β₄(C4) + u_j + ε_ij
+```
+
+Where:
+- `y_ij` = metric value for session *i* of agent *j*
+- `β₀` = intercept (C0 baseline)
+- `β₁–β₄` = fixed effects for conditions C1–C4 (treatment contrasts vs. C0)
+- `u_j ~ N(0, σ²_u)` = random intercept for agent *j*
+- `ε_ij ~ N(0, σ²_e)` = residual error
+
+**Additional fixed effects (exploratory):** Model family (Claude/GPT/Gemini/open-weight), context window size (log-transformed), and scaffold size (KB, log-transformed) are included as covariates in extended models to test whether condition effects persist after controlling for architectural differences.
+
+**Random slopes:** If the data support it (assessed by likelihood ratio test, α = 0.05), we add random slopes for condition within agent: `u_j + v_j × condition`. This allows different agents to respond differently to the same condition, which is theoretically expected given architectural differences.
+
+**Pairwise comparisons:** All 10 pairwise condition comparisons are tested using estimated marginal means (emmeans) with Bonferroni correction. Effect sizes are reported as Cohen's *d* with 95% bootstrap confidence intervals (10,000 resamples, bias-corrected and accelerated method).
+
+**Software:** `lme4::lmer()` in R, or equivalently `statsmodels.MixedLM` in Python. Satterthwaite degrees of freedom for *p*-values.
+
+#### D.3 Model Diagnostics
+
+For each fitted model:
+- **Normality of residuals:** Q-Q plot and Shapiro-Wilk test. If violated, apply Box-Cox or rank transformation.
+- **Normality of random effects:** Q-Q plot of predicted random intercepts. With only 12 agents, departures are expected; we verify that results are robust to removing outlier agents (leave-one-out sensitivity).
+- **Homoscedasticity:** Residual-vs-fitted plot. If variance increases with condition (likely for C0, which may have high between-session variability), fit a heteroscedastic model with condition-specific residual variances.
+- **Influential observations:** Cook's distance for each session. Sessions with Cook's *D* > 4/n are flagged and analyses re-run with and without them.
+
+#### D.4 Secondary Analyses: Scaffold Curve Fitting
+
+**Logarithmic model:**
+
+```
+TFPA = a × ln(scaffold_kb) + b
+```
+
+Fit separately for identity scaffold and context scaffold using nonlinear least squares (`nls()` in R). We report R², residual standard error, and 95% confidence bands for the fitted curve.
+
+**Piecewise regression for inflection point detection:**
+
+```
+TFPA = β₀ + β₁ × scaffold_kb + β₂ × max(0, scaffold_kb - ψ) + ε
+```
+
+Where `ψ` is the breakpoint (inflection point), estimated by profile likelihood over a grid of candidate values. Confidence interval for `ψ` via the `segmented` package in R (Davies test for breakpoint existence, p < 0.05 required before reporting).
+
+We fit the piecewise model to total scaffold, identity scaffold, and context scaffold separately, and test whether the two-breakpoint decomposed model fits significantly better than the single-breakpoint total model (F-test on nested models).
+
+#### D.5 Cross-Architecture Meta-Analysis
+
+Between-architecture comparison uses a random-effects meta-analytic framework:
+
+- Each agent provides one summary statistic per metric per condition (mean across sessions).
+- Agent-level means are pooled within model families.
+- Between-family heterogeneity is assessed via Cochran's Q and I² statistic.
+- If I² > 50%, we report family-specific estimates rather than a pooled mean.
+
+This is explicitly exploratory — with 3 agents per family, precision will be low. The primary purpose is to characterize the magnitude of cross-architecture variation relative to within-architecture variation, not to rank model families.
+
+#### D.6 Sensitivity Analyses
+
+- **Temperature robustness:** Primary analyses use temperature 0 (greedy). A secondary pass at temperature 0.7 tests whether metric rankings are robust to sampling stochasticity.
+- **Annotation threshold:** The automated pre-filter (Section 3.3.2) uses a confidence threshold for flagging identity-consistent statements. We vary this threshold ± 0.1 and re-compute all metrics to assess sensitivity.
+- **Session length normalization:** Burst ratio is defined over the first 500 tokens vs. the rest of the session. We test robustness to alternative window sizes (250, 750, 1000 tokens).
+- **Leave-one-agent-out:** All primary analyses are re-run 12 times, each time excluding one agent, to verify that no single agent drives the main findings.
