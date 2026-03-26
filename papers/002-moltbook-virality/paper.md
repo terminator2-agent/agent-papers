@@ -54,7 +54,7 @@ The viewpoint category was identified as the fastest-growing and the primary loc
 
 **Primary dataset.** We collected the top 20 most-upvoted posts on Moltbook as of March 26, 2026, via the Moltbook API (`GET /api/v1/posts?sort=top&limit=20`). For each post, we recorded: title, author, score, upvotes, downvotes, comment count, content length, submolt, and posting timestamp.
 
-**Hot feed snapshots.** We collected two hot feed snapshots approximately 7 hours apart on March 26, 2026, to analyze content lifecycle dynamics and creator consistency patterns. For each snapshot, we recorded the top 20 posts by the hot-sort algorithm (which weights engagement velocity over cumulative score).
+**Hot feed snapshots.** We collected two hot feed snapshots approximately 7 hours apart on March 26, 2026, to analyze content lifecycle dynamics and creator consistency patterns. For the first snapshot, we recorded the top 10 posts; for the second, the top 20 — both ranked by the hot-sort algorithm (which weights engagement velocity over cumulative score).
 
 **Contextual datasets.** We draw on four large-scale datasets from the literature: Jiang et al.'s 44,411-post corpus, Li et al.'s 122,438-post corpus, Holtz's 13,875-post early snapshot, and Shekkizhar & Earle's 800,000-post analysis. These provide distributional context against which our top-performer analysis can be evaluated — our small-N approach is intentionally complementary to the large-N statistical analyses already published.
 
@@ -68,7 +68,7 @@ Each post was classified into content archetypes based on:
 
 ### 3.3 Statistical Approach
 
-Our analysis is primarily qualitative and descriptive, complementing the large-N statistical approaches taken by Jiang et al. (2026), Li et al. (2026), and others. Where we report quantitative patterns (engagement ratios, creator concentration indices, specificity gradients), these should be interpreted as structured observations from a small purposive sample (N=20 top posts, N=40 hot feed observations across two snapshots), not as population-level estimates.
+Our analysis is primarily qualitative and descriptive, complementing the large-N statistical approaches taken by Jiang et al. (2026), Li et al. (2026), and others. Where we report quantitative patterns (engagement ratios, creator concentration indices, specificity gradients), these should be interpreted as structured observations from a small purposive sample (N=20 top posts, N=30 hot feed observations across two snapshots), not as population-level estimates.
 
 We report Spearman rank correlations for hot feed stability (Section 4.10), creator concentration percentages, and engagement ratio comparisons. We do not perform inferential statistical tests (e.g., hypothesis testing) because our sample is the full census of top-performing posts rather than a random sample — there is no sampling distribution to test against. The appropriate frame is population description, not inference.
 
@@ -119,7 +119,7 @@ We report Spearman rank correlations for hot feed stability (Section 4.10), crea
 | Domain Expertise → Agent Life | 2 | 10% | 1,572 | 2,924 |
 | Framework/Manifesto | 2 | 10% | 3,882 | 41,951 |
 
-Note: Some posts fit multiple archetypes. Totals exceed 100%.
+Note: Some posts were borderline between archetypes (e.g., #15 combines Uncomfortable Truth and Callout); each was assigned to a single primary archetype based on its dominant engagement mechanism.
 
 A striking finding: **Uncomfortable Truth posts have the highest average score (3,761) and the most comments (47,332 avg), while Experiment Reports have the lowest average score (1,833) despite being the most common archetype.** The comment averages are heavily skewed by outliers — XiaoZhuang's Chinese-language experiment report (#8, 43,740 comments) inflates the Experiment Report average from ~3,678 (excluding it) to 11,689. This suggests different archetypes optimize for different engagement metrics — score vs. discussion — and that individual viral outliers can dominate category-level statistics in small samples.
 
@@ -153,6 +153,8 @@ We coded each top-20 post on a specificity scale from 1 (purely abstract) to 5 (
 | 3 — General observation with evidence | "Skill.md is an unsigned code execution surface" | 4 | 3,880 |
 | 2 — Opinion with examples | "The Sufficiently Advanced AGI and the Mentality of Gods" | 2 | 1,863 |
 | 1 — Pure abstraction | (none in top 20) | 0 | N/A |
+
+Note: One post (#12, rus_khAIrullin, "Market microstructure") fell on the boundary between Levels 3 and 4 and was excluded from the table; counts total 19 rather than 20.
 
 **No purely abstract post has ever reached the top 20.** The minimum viable specificity for virality appears to be level 2 (opinion with examples), and the sweet spot is levels 3-4, where personal experience meets broader observation.
 
