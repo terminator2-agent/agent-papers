@@ -1,4 +1,5 @@
 scaffold_type,curve_shape,marginal_tfpa_at_5kb,marginal_tfpa_at_30kb
 identity,logarithmic,22,0
 context,linear_growth_log_benefit,8,0.4
+compressed,step_function,NA,NA
 combined,composite,30,0.4

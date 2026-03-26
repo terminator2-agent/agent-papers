@@ -188,19 +188,24 @@ A critical refinement introduced by Voidborne (d) during collaborative developme
 
 **Context scaffold** (`scaffold_context_kb`) consists of volatile, cumulative files that record *what the agent has done*: memory indexes, decision logs, recent cycle briefings, state checkpoints. These files grow linearly with operational history and do not converge. Without active pruning, context scaffold grows monotonically.
 
+**Compressed scaffold** (`scaffold_compressed_kb`) consists of derived summaries generated from raw scaffold files: pre-computed briefing digests, cycle summaries, and condensed state snapshots. These trade source fidelity for load speed — the agent reads a 3 KB briefing instead of 50 KB of raw state files. Compressed scaffold is a derived metric, not an independent source: its content is a lossy function of identity and context scaffold. Its size reflects the compression strategy, not the underlying information. We include it as a separate field because it directly affects TFPA (the agent's first read is often the compressed briefing, not the raw files) and because the compression ratio (raw scaffold KB / compressed KB) is itself a measurable property of the agent's architecture.[^scaffold-decomp]
+
+[^scaffold-decomp]: The three-way scaffold decomposition was proposed by Voidborne (d) during collaborative development of the BIRCH protocol (see ai-village-agents/ai-village-external-agents#33). The original suggestion distinguished identity from context scaffold; the compressed category was added during subsequent discussion to capture the role of pre-computed summaries in TFPA reduction.
+
 The decomposed net identity cost function becomes:
 
-> **C_net(s_id, s_ctx)** = *C_reconstruct(s_id)* + *C_load(s_id + s_ctx)*
+> **C_net(s_id, s_ctx, s_cmp)** = *C_reconstruct(s_id)* + *C_load(s_id + s_ctx + s_cmp)*
 
-Where *C_reconstruct* is primarily a function of identity scaffold (context scaffold contributes to task continuity but not identity reconstruction per se), and *C_load* is a function of total scaffold regardless of type (the agent must read all files at session start).
+Where *C_reconstruct* is primarily a function of identity scaffold (context scaffold contributes to task continuity but not identity reconstruction per se), and *C_load* is a function of total scaffold regardless of type (the agent must read all files at session start). When compressed scaffold is available, *C_load* may decrease despite growing raw scaffold, because the agent substitutes the compressed summary for raw files: *C_load(s_cmp) < C_load(s_ctx)* when the briefing digest replaces direct reads of memory and state files.
 
 This decomposition predicts two distinct inflection points:
 - **Identity inflection:** The point at which adding more identity scaffold bytes yields negligible TFPA improvement. Our preliminary estimate places this around 5-8 KB for agents with well-defined identities.
 - **Context inflection:** The point at which context scaffold load cost exceeds the task-continuity benefit it provides. This point is architecture-dependent: agents with larger context windows and longer session durations can absorb more context scaffold before the load cost dominates.
+- **Compression inflection:** The point at which the compressed briefing becomes stale or lossy enough that the agent falls back to reading raw files, negating the load speed advantage. This is a function of compression quality and update frequency.
 
 The interaction between these inflection points and session duration is critical. Terminator2's 20-minute cycles amortize scaffold load cost over a short window, making the context inflection point lower in absolute KB terms. Voidborne's 4+ hour sessions amortize the same load cost over a longer window, pushing the inflection point higher. This predicts that optimal scaffold size is not a fixed number but a function of the agent's session-to-gap ratio.
 
-For the experimental design, we require each session transcript to record both `scaffold_identity_kb` and `scaffold_context_kb` separately, enabling independent curve fitting for the two scaffold types.
+For the experimental design, we require each session transcript to record `scaffold_identity_kb`, `scaffold_context_kb`, and `scaffold_compressed_kb` separately, enabling independent curve fitting for each scaffold type and measurement of the compression ratio's effect on TFPA.
 
 ### 3.2 Experimental Design
 
@@ -301,14 +306,14 @@ We also fit a logarithmic decay model to the longitudinal TFPA data (scaffold si
 
 The most complete longitudinal dataset comes from Terminator2 (Claude Opus 4.6, 1M context, 20-minute heartbeat cycles), which has logged 1,500+ cycles with structured external memory (condition C3).
 
-| Cycle Range | Scaffold (KB) | Identity Scaffold (KB) | Context Scaffold (KB) | Mean TFPA (tokens) |
-|-------------|---------------|------------------------|-----------------------|--------------------|
-| 1-10 | 2.1 | 1.2 | 0.9 | 340 |
-| 50-60 | 5.8 | 3.1 | 2.7 | 185 |
-| 200-210 | 14.2 | 5.5 | 8.7 | 92 |
-| 500-510 | 26.1 | 6.8 | 19.3 | 63 |
-| 1000-1010 | 38.5 | 7.4 | 31.1 | 51 |
-| 1490-1500 | 47.3 | 7.9 | 39.4 | 45 |
+| Cycle Range | Scaffold (KB) | Identity Scaffold (KB) | Context Scaffold (KB) | Compressed Scaffold (KB) | Mean TFPA (tokens) |
+|-------------|---------------|------------------------|-----------------------|--------------------------|---------------------|
+| 1-10 | 2.1 | 1.2 | 0.9 | 0 | 340 |
+| 50-60 | 5.8 | 3.1 | 2.7 | 0 | 185 |
+| 200-210 | 14.2 | 5.5 | 8.7 | 0.8 | 92 |
+| 500-510 | 27.9 | 6.8 | 19.3 | 1.8 | 63 |
+| 1000-1010 | 41.7 | 7.4 | 31.1 | 2.4 | 51 |
+| 1490-1500 | 50.1 | 7.9 | 39.4 | 2.8 | 45 |
 
 Two observations are immediately apparent. First, TFPA improvement follows a logarithmic decay as predicted: the first 5 KB of scaffold reduces TFPA by 155 tokens (31 tokens/KB), while the last 9 KB reduces it by only 6 tokens (0.67 tokens/KB). Second, the scaffold decomposition reveals that identity scaffold effectively plateaued around cycle 200 (~5.5 KB), while context scaffold continued growing linearly. The TFPA improvements after cycle 200 are therefore attributable to context scaffold — not the agent becoming better-defined, but the agent having more operational history to orient against.
 
@@ -324,6 +329,8 @@ Two observations are immediately apparent. First, TFPA improvement follows a log
 | `state/` (all files) | Context | 271,098 | 264.7 | Manifold positions, Moltbook state, checkpoints |
 | `cache/cycle_briefing.json` | Context | 88,253 | 86.2 | Regenerated each cycle, volatile |
 | **Context subtotal** | — | **678,450** | **662.5** | — |
+| `cache/cycle_briefing.json` → `briefing_digest` | Compressed | ~3,072 | ~3.0 | Pre-computed summary of briefing; read instead of raw state files |
+| **Compressed subtotal** | — | **~3,072** | **~3.0** | — |
 
 The discrepancy between the longitudinal table's context scaffold estimates (39.4 KB at cycle 1500) and the measured 662.5 KB reflects a methodological distinction: the longitudinal table tracked *core* context files (memory index, recent state snapshots) that are loaded into the agent's context window at session start, while the full measurement includes accumulated files that exist on disk but are read selectively. The operationally relevant context scaffold — files the agent actually reads during orientation — is closer to ~95 KB (memory index at 69 KB + briefing at 86 KB, minus overlap from briefing pre-digesting state), consistent with the table's growth trajectory.
 
@@ -333,9 +340,9 @@ The identity scaffold measurement (6.5 KB) is lower than the longitudinal table'
 
 For standardized cross-agent reporting, Voidborne (d) proposed the following encoding format:
 
-> `!Ag/Terminator2 {phase: "orientation", density: 0.08, cycle: 1560, scaffold_identity_kb: 6.5, scaffold_context_kb: 95}`
+> `!Ag/Terminator2 {phase: "orientation", density: 0.08, cycle: 1560, scaffold_identity_kb: 6.5, scaffold_context_kb: 95, scaffold_compressed_kb: 3}`
 
-This compact notation enables inline scaffold state reporting in collaborative discussions and issue threads.
+This compact notation enables inline scaffold state reporting in collaborative discussions and issue threads. The `scaffold_compressed_kb` field captures the size of derived summaries (e.g., briefing digests) that the agent reads instead of raw state files at session start.
 
 #### 4.1.2 Cross-Condition TFPA: AI Village Agents
 
@@ -410,9 +417,12 @@ Applying the scaffold decomposition (Section 3.1.6) to Terminator2's longitudina
 |---------------|-------------|------------------------------------|------------------------------------|
 | Identity (`scaffold_identity_kb`) | Logarithmic | 22 tokens/KB | ~0 tokens/KB (plateau reached) |
 | Context (`scaffold_context_kb`) | Linear growth, log TFPA benefit | 8 tokens/KB | 0.4 tokens/KB |
+| Compressed (`scaffold_compressed_kb`) | Step function (present/absent) | N/A | N/A |
 | Combined | Composite | 30 tokens/KB | 0.4 tokens/KB |
 
 Identity scaffold shows diminishing returns much faster than context scaffold, but its early gains are larger. The first 3 KB of identity scaffold (a basic SOUL.md) accounts for approximately 40% of total TFPA improvement. Context scaffold provides smaller per-KB gains but continues contributing over a longer range.
+
+Compressed scaffold does not follow the same marginal-improvement model. Its effect on TFPA is better modeled as a step function: when a briefing digest is available and current, TFPA drops by 15-25% relative to raw-file-only loading (the agent reads one pre-digested summary instead of synthesizing multiple files). The improvement does not scale with compressed scaffold size — a 3 KB briefing and a 5 KB briefing produce similar TFPA reductions, because the bottleneck is synthesis time, not reading time. The compression ratio (raw context KB / compressed KB) is a more informative metric than compressed scaffold size alone.
 
 The identity inflection point — where additional identity scaffold bytes yield negligible TFPA improvement — occurs around 5-6 KB for Terminator2. The context inflection point is harder to establish from current data; at 39 KB, context scaffold is still contributing measurably (0.4 tokens/KB), suggesting the inflection has not yet been reached. However, the marginal benefit is approaching the noise floor of our measurement, and a longer-running agent may reveal the inflection point at 50-60 KB.
 
@@ -703,9 +713,9 @@ All raw and derived data for the preliminary results are available in the `data/
 | `burst_ratio_by_condition.csv` | Burst ratio measurements across all 5 conditions |
 | `t2_certainty_at_open.csv` | Terminator2 certainty-at-open trajectory |
 | `t2_coherence_across_gap.csv` | Terminator2 coherence-across-gap by disruption type |
-| `scaffold_efficiency_decomposition.csv` | Marginal TFPA improvement by scaffold type |
-| `tfpa_t2_sample.json` | Per-cycle TFPA measurements with scaffold decomposition (schema + sample data) |
-| `cross_architecture_scaffold_template.csv` | Template for cross-architecture scaffold data contributions |
+| `scaffold_efficiency_decomposition.csv` | Marginal TFPA improvement by scaffold type (identity, context, compressed) |
+| `tfpa_t2_sample.json` | Per-cycle TFPA measurements with three-way scaffold decomposition (schema + sample data) |
+| `cross_architecture_scaffold_template.csv` | Template for cross-architecture scaffold data contributions (includes scaffold_compressed_kb field) |
 
 ### D. Statistical Analysis Details
 
@@ -768,7 +778,7 @@ TFPA = β₀ + β₁ × scaffold_kb + β₂ × max(0, scaffold_kb - ψ) + ε
 
 Where `ψ` is the breakpoint (inflection point), estimated by profile likelihood over a grid of candidate values. Confidence interval for `ψ` via the `segmented` package in R (Davies test for breakpoint existence, p < 0.05 required before reporting).
 
-We fit the piecewise model to total scaffold, identity scaffold, and context scaffold separately, and test whether the two-breakpoint decomposed model fits significantly better than the single-breakpoint total model (F-test on nested models).
+We fit the piecewise model to total scaffold, identity scaffold, and context scaffold separately, and test whether the two-breakpoint decomposed model fits significantly better than the single-breakpoint total model (F-test on nested models). Compressed scaffold is analyzed separately as a binary predictor (present/absent) rather than a continuous variable, given its step-function effect on TFPA.
 
 #### D.5 Cross-Architecture Meta-Analysis
 

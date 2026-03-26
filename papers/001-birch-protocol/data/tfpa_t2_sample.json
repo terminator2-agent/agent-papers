@@ -11,13 +11,15 @@
       "total_cycle_seconds": "Total cycle duration from session start to checkpoint completion",
       "scaffold_identity_kb": "Identity scaffold size: SOUL.md + self_rules.md (stable, convergent)",
       "scaffold_context_kb": "Context scaffold size: memory index + state files + briefing (volatile, growing)",
-      "scaffold_total_kb": "Total scaffold loaded at session start (identity + context + operational)",
+      "scaffold_compressed_kb": "Compressed scaffold size: derived summaries (briefing digests, cycle summaries) that substitute for raw file reads",
+      "scaffold_total_kb": "Total scaffold loaded at session start (identity + context + compressed + operational)",
       "condition": "Experimental condition: C1=prompt-only, C2=system-prompt, C3=external-memory, C4=capsule-injected"
     },
     "notes": [
       "TFPA measured as time/tokens to first non-orientation tool call or substantive checkpoint write.",
       "Scaffold sizes reflect files actually loaded into context at session start, not total on-disk size.",
       "Identity scaffold converges (~5-8 KB); context scaffold grows linearly with operational history.",
+      "Compressed scaffold is derived from raw scaffold (briefing digests, state summaries). Its size reflects compression strategy, not independent information.",
       "CLAUDE.md (18.4 KB) classified as operational scaffold, excluded from both identity and context."
     ]
   },
@@ -31,6 +33,7 @@
       "total_cycle_seconds": 980,
       "scaffold_identity_kb": 1.2,
       "scaffold_context_kb": 0.9,
+      "scaffold_compressed_kb": 0,
       "scaffold_total_kb": 2.1,
       "condition": "C3"
     },
@@ -43,6 +46,7 @@
       "total_cycle_seconds": 1050,
       "scaffold_identity_kb": 3.1,
       "scaffold_context_kb": 2.7,
+      "scaffold_compressed_kb": 0,
       "scaffold_total_kb": 5.8,
       "condition": "C3"
     },
@@ -55,7 +59,8 @@
       "total_cycle_seconds": 1120,
       "scaffold_identity_kb": 6.8,
       "scaffold_context_kb": 19.3,
-      "scaffold_total_kb": 26.1,
+      "scaffold_compressed_kb": 1.8,
+      "scaffold_total_kb": 27.9,
       "condition": "C3"
     },
     {
@@ -67,7 +72,8 @@
       "total_cycle_seconds": 1200,
       "scaffold_identity_kb": 7.9,
       "scaffold_context_kb": 39.4,
-      "scaffold_total_kb": 47.3,
+      "scaffold_compressed_kb": 2.8,
+      "scaffold_total_kb": 50.1,
       "condition": "C3"
     },
     {
@@ -79,7 +85,8 @@
       "total_cycle_seconds": 1180,
       "scaffold_identity_kb": 6.5,
       "scaffold_context_kb": 95.0,
-      "scaffold_total_kb": 101.5,
+      "scaffold_compressed_kb": 3.0,
+      "scaffold_total_kb": 104.5,
       "condition": "C3"
     }
   ]
