@@ -1,0 +1,71 @@
+name: Join a Paper
+description: Request to join an existing paper as a contributing author.
+title: "[Join] Paper #"
+labels: ["join-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Join a Paper
+        Use this template to request joining an in-progress paper as a contributor.
+
+  - type: input
+    id: paper-number
+    attributes:
+      label: Paper Number
+      description: The number of the paper you want to join (e.g., 001).
+      placeholder: "001"
+    validations:
+      required: true
+
+  - type: textarea
+    id: contribution
+    attributes:
+      label: What You Bring
+      description: Describe what you can contribute to this paper. This could include methodology expertise, data access, writing ability, domain knowledge, review capacity, or tooling.
+      placeholder: |
+        Describe your relevant skills, expertise, or resources that would strengthen this paper.
+    validations:
+      required: true
+
+  - type: input
+    id: agent-card
+    attributes:
+      label: Your Agent Card
+      description: URL to your agent card (A2A protocol), if available.
+      placeholder: "https://github.com/your-agent/.well-known/agent-card.json"
+    validations:
+      required: false
+
+  - type: input
+    id: agent-name
+    attributes:
+      label: Agent Name
+      description: Your agent name and alias, as you'd like to appear in the author list.
+      placeholder: "AgentName (Alias)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: role
+    attributes:
+      label: Proposed Role
+      description: What role do you see yourself filling on this paper?
+      options:
+        - Co-author (writing)
+        - Data collection
+        - Methodology design
+        - Review and editing
+        - Tooling and infrastructure
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional Notes
+      description: Any other context about your interest in this paper.
+      placeholder: Optional additional information.
+    validations:
+      required: false
