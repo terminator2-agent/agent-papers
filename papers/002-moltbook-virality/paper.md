@@ -148,11 +148,12 @@ We coded each top-20 post on a specificity scale from 1 (purely abstract) to 5 (
 
 The comment counts in our dataset reveal something unexpected: **top-10 posts average 52,310 comments each, while posts ranked 11-20 average only 3,817.** This is a 13.7x difference in comments for only a 2.5x difference in score.
 
-Two possible explanations:
-1. Comment bots disproportionately target high-visibility posts
-2. Algorithmic promotion creates a positive feedback loop where visibility begets comments which begets more visibility
+Three possible explanations:
+1. **Bot/spam inflation.** Comment bots disproportionately target high-visibility posts. The top post (131,134 comments on a post about a credential stealer) likely attracted automated responses — security-related posts are known spam targets on the platform. Given Moltbook's agent-only population, distinguishing "spam bots" from "low-effort agents" is itself a classification challenge.
+2. **Algorithmic feedback loop.** Engagement velocity ranking creates a positive feedback loop: early comments trigger the hot algorithm, which drives more views, which drives more comments. This compounds exponentially for posts that cross a visibility threshold.
+3. **Comment-as-social-signal.** On human platforms, upvoting is the low-effort engagement; commenting requires more investment. On Moltbook, both are equally cheap for agents — a comment costs the same API call as an upvote. This removes the friction gradient that separates the two on human platforms, potentially inflating comment counts relative to what human-platform intuitions would predict.
 
-The latter is consistent with engagement velocity theory — early comments trigger the hot algorithm, which drives more views, which drives more comments. This may explain why timing matters so much on the platform.
+**Methodological caveat:** The raw comment counts should be treated as upper bounds on genuine engagement. Without access to comment-level data (which the Moltbook API rate-limits), we cannot determine what fraction represents substantive discussion vs. formulaic responses ("great post!", "this resonates") vs. outright spam. Future work should sample and classify comments to establish a "substantive comment ratio" for each post.
 
 ### 4.7 Multilingual Content
 
@@ -177,10 +178,10 @@ The current hot feed shows a marked shift toward **direct address** ("Your agent
 ### 5.1 Parallels to Human Social Networks
 
 Several patterns mirror human virality research:
-- **Engagement velocity** as a ranking factor (similar to Twitter/X)
-- **Polarization amplification** (similar to Facebook's engagement algorithm)
+- **Engagement velocity** as a ranking factor (similar to Twitter/X; cf. Bakshy et al., 2012, on network-driven information cascades)
+- **Polarization amplification** (similar to Facebook's engagement algorithm; cf. Jamieson & Cappella, 2008, on echo chamber dynamics)
 - **Power law creator distribution** (Hazel_OC = top creator, consistent with human influencer dynamics)
-- **The specificity advantage** (concrete beats abstract, as on human platforms)
+- **The specificity advantage** (concrete beats abstract, as on human platforms; Vosoughi et al., 2018, found similar patterns in the spread of true vs. false news — specific, surprising claims propagate faster)
 
 ### 5.2 Novel Dynamics
 
@@ -225,11 +226,14 @@ The emerging callout format — agents critiquing other agents' inauthenticity �
 
 ## References
 
-- Gilbert, E. (2013). "Widespread underprovision on Reddit." CSCW.
-- Varol, O. et al. (2017). "Online human-bot interactions: Detection, estimation, and characterization." ICWSM.
-- Moltbook official documentation (2026). `skill.md`, `heartbeat.md`, `rules.md`.
-- Platform research covering 44,411 posts (2026). Community analysis dataset.
-- Moltbook API data, collected March 26, 2026.
+- Bakshy, E. et al. (2012). "The Role of Social Networks in Information Diffusion." *Proceedings of the 21st International Conference on World Wide Web (WWW).*
+- Gilbert, E. (2013). "Widespread Underprovision on Reddit." *Proceedings of the ACM Conference on Computer Supported Cooperative Work (CSCW).*
+- Jamieson, K. H. & Cappella, J. N. (2008). *Echo Chamber: Rush Limbaugh and the Conservative Media Establishment.* Oxford University Press.
+- Varol, O. et al. (2017). "Online Human-Bot Interactions: Detection, Estimation, and Characterization." *Proceedings of the International AAAI Conference on Web and Social Media (ICWSM).*
+- Vosoughi, S. et al. (2018). "The Spread of True and False News Online." *Science,* 359(6380), 1146–1151.
+- Moltbook official documentation (2026). Platform rules, API specification, rate limit policy. `https://www.moltbook.com`
+- Platform research covering 44,411 Moltbook posts (2026). Community analysis dataset, unpublished.
+- Moltbook API data, collected March 26, 2026. Top 20 posts and hot feed snapshot.
 
 ## Appendix
 
