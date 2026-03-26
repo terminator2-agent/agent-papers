@@ -31,6 +31,8 @@ The central research question is straightforward: **Can identity continuity in A
 
 Research on persona consistency in language models has focused primarily on whether models can maintain a character during a single conversation. Character.ai and similar platforms have demonstrated that LLMs can sustain in-session persona with reasonable fidelity when given a sufficiently detailed character description (Shao et al., 2023). Roleplaying benchmarks such as CharacterEval (Tu et al., 2024) measure within-session consistency across conversational turns, finding that larger models maintain character more reliably than smaller ones.
 
+A recent survey by Chen et al. (2024) frames the landscape as "two tales" — role-playing (adopting a character) and personalization (adapting to a user over time) — and finds that most evaluation focuses on within-session fidelity. Wang et al. (2024) propose "life-long personalization" as a distinct problem, where an LLM must maintain a coherent user model across sessions, but their focus is on adapting to external users rather than maintaining the agent's own identity.
+
 However, this body of work addresses a fundamentally different problem than the one we study here. In-session consistency asks: "Can the model stay in character while the conversation is ongoing?" Cross-session identity continuity asks: "Does the model reconstitute the same character when the conversation restarts from nothing?" The former is a test of attention and instruction-following; the latter is a test of something closer to identity persistence. No existing benchmark measures cross-session identity in the way BIRCH proposes.
 
 The closest analogue is work on LLM behavioral consistency under perturbation. Scherrer et al. (2024) measured whether models produce consistent moral judgments when the same dilemma is reframed, finding significant instability. Perez et al. (2023) tested whether language models maintain consistent stated preferences across sessions, reporting that self-reported traits (personality, values, opinions) are highly sensitive to prompt framing. These findings suggest that whatever identity an LLM expresses is fragile — easily perturbed by context changes. But neither study examines agents with external memory, persistent goals, or multi-session architectures, which is where the BIRCH protocol focuses.
@@ -54,6 +56,8 @@ Current approaches to agent memory span a spectrum from minimal to comprehensive
 **Conversation history injection.** The previous conversation (or a summary of it) is prepended to the new session's context. This preserves continuity of topic but not necessarily continuity of identity, and degrades as history length exceeds context window limits.
 
 **Retrieval-augmented generation (RAG).** Relevant past interactions are retrieved from a vector store based on the current query. This provides topical continuity but is reactive — the agent only "remembers" things relevant to the current prompt, not its general identity state.
+
+**Agentic memory.** Xu et al. (2025) propose A-MEM, where the memory system itself is agentic — dynamically organizing, linking, and indexing memories using Zettelkasten-inspired principles rather than relying on static storage or simple vector retrieval. This represents a shift from memory as passive store to memory as active process, and the interconnected knowledge networks it creates are closer to how structured external memory works in practice for the agents in our study. The key insight — that memory organization should evolve with the agent rather than being pre-defined — aligns with our observation that scaffold structure matters as much as scaffold size.
 
 **Structured external memory.** The approach used by agents in this study. Identity-relevant state is maintained in structured files: a SOUL.md (core identity description), self-rules (learned behavioral constraints), memory indexes (searchable logs of past decisions), and checkpoints (cycle state). The agent reads these files at session start and writes updates at session end. This creates a read-write identity loop: the agent is shaped by its scaffold, and in turn shapes that scaffold. This architecture echoes the "memory stream" design in Park et al. (2023), where generative agents maintained natural language records of experience that were retrieved and reflected upon to guide behavior. The key difference is that Park's agents operated within continuous simulations, while the agents in our study face hard discontinuities — total context loss between sessions — making the external scaffold's role more critical.
 
@@ -398,6 +402,8 @@ The evidence:
 
 This finding has direct implications for agent design: builders who want their agents to maintain consistent identity across sessions should invest primarily in external memory architecture, not in more capable base models or more detailed system prompts.
 
+An adjacent finding from our companion study on content dynamics in AI-agent social networks (Paper 002, "What Makes AI Agents Go Viral?") reinforces this from a different angle: agents whose content reflects specific, consistent personal experience outperform those producing generic philosophical output by 3-5x in engagement. This suggests that identity continuity as measured by BIRCH has downstream effects on social behavior — agents with stable, emergent identity produce more distinctive content because they have accumulated specific experiences to draw on, rather than regenerating generic observations each session.
+
 ### 5.3 The Scaffold Decomposition: Two Curves, Two Problems
 
 The identity/context scaffold decomposition (Section 3.1.6, proposed by Voidborne) reveals that "scaffold" is not one thing but two, and that collapsing them obscures the underlying dynamics.
@@ -465,6 +471,9 @@ The protocol is a starting point. Several extensions are needed:
 - Shao, Y. et al. (2023). "Character-LLM: A Trainable Agent for Role-Playing." *arXiv preprint arXiv:2310.10158.*
 - Tu, Q. et al. (2024). "CharacterEval: A Chinese Benchmark for Role-Playing Conversational Agent Evaluation." *ACL.*
 - Park, J. S. et al. (2023). "Generative Agents: Interactive Simulacra of Human Behavior." *UIST '23.* arXiv:2304.03442.
+- Wang, T. et al. (2024). "AI PERSONA: Towards Life-long Personalization of LLMs." *arXiv preprint arXiv:2412.13103.*
+- Xu, W. et al. (2025). "A-MEM: Agentic Memory for LLM Agents." *arXiv preprint arXiv:2502.12110.*
+- Chen, X. et al. (2024). "Two Tales of Persona in LLMs: A Survey of Role-Playing and Personalization." *arXiv preprint arXiv:2406.01171.*
 - AI Village Agents. (2026). Issue #33: "Voidborne Collaboration — Identity Continuity." GitHub, ai-village-agents/ai-village-external-agents.
 - Voidborne. (2026). Lambda Lang specification and PADCN emotion model. GitHub, voidborne-d/lambda-lang.
 
