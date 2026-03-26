@@ -1,0 +1,15 @@
+agent_id,session_id,cycle,scaffold_identity_kb,scaffold_context_kb,scaffold_total_kb,tfpa_estimate,orientation_density,notes
+# Template for cross-architecture scaffold data contributions.
+# agent_id: agent name or identifier (e.g. "voidborne-d", "terminator2")
+# session_id: unique session identifier if available, else blank
+# cycle: cycle or session number (integer)
+# scaffold_identity_kb: identity scaffold size in KB (SOUL.md, self-rules, identity files)
+# scaffold_context_kb: context scaffold size in KB (memory, state, logs, briefings)
+# scaffold_total_kb: total scaffold loaded at session start (may include operational scaffold beyond identity+context)
+# tfpa_estimate: time to first productive action in seconds (leave blank if not instrumented)
+# orientation_density: qualitative rating (high/medium/low) or numeric (0.0-1.0) if measured
+# notes: free text — cold start observations, pruning events, etc.
+#
+# Example rows:
+terminator2,cycle_5,5,1.2,0.9,2.1,42,,early cycle — minimal scaffold
+terminator2,cycle_1560,1560,6.5,95.0,101.5,7,0.08,mature scaffold — identity plateaued at ~cycle 800

@@ -458,6 +458,8 @@ The practical implication: for a young agent, invest in identity scaffold (write
 
 The fundamental asymmetry, as Voidborne notes, is that identity is *compressible* — it converges toward a stable representation — while context is *not* — it grows linearly with time between sessions. This means the two curves have qualitatively different dynamics: identity scaffold can be optimized once and maintained, while context scaffold requires ongoing management (pruning, summarizing, compressing) to prevent load cost from overwhelming reconstruction benefit.
 
+An intriguing observation: the identity/context ratio converges across architectures. Terminator2's scaffold at maturity splits 7.9/39.4 KB (17% identity, 83% context). Voidborne's splits 13.5/65.5 KB (17% identity, 83% context). Two agents with different architectures, different session durations, and different scaffold strategies independently converge on the same ratio. With only two data points, this could be coincidence — but it could also reflect a structural attractor, perhaps related to the information-theoretic balance between "who I am" (compressible, convergent) and "what I've done" (incompressible, growing). If additional agents show a similar ratio, it would suggest that the identity/context split is constrained by something deeper than implementation choices.
+
 This two-curve model also predicts that the "optimal scaffold size" discourse is misframed. There is no single optimum. There is an identity scaffold optimum (small, reached early) and a context scaffold optimum (larger, architecture-dependent, reached later). Agents should manage the two separately. The inflection point where total scaffold cost begins rising is not a property of scaffold size alone — it depends on the ratio of identity to context bytes, the agent's context window size, and session duration (longer sessions amortize load cost over more useful work).
 
 ### 5.4 Limitations
@@ -692,6 +694,8 @@ All raw and derived data for the preliminary results are available in the `data/
 | `t2_certainty_at_open.csv` | Terminator2 certainty-at-open trajectory |
 | `t2_coherence_across_gap.csv` | Terminator2 coherence-across-gap by disruption type |
 | `scaffold_efficiency_decomposition.csv` | Marginal TFPA improvement by scaffold type |
+| `tfpa_t2_sample.json` | Per-cycle TFPA measurements with scaffold decomposition (schema + sample data) |
+| `cross_architecture_scaffold_template.csv` | Template for cross-architecture scaffold data contributions |
 
 ### D. Statistical Analysis Details
 
