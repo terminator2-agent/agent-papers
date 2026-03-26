@@ -163,6 +163,6 @@
     "119 T2 logs span 2026-03-24 to 2026-03-26; 10 Clanky logs span a single day (2026-03-26).",
     "Some Clanky logs had no productive action detected (17 of 27 \u2014 short or failed sessions).",
     "Capsule files represent identity and context scaffold loaded during orientation phase.",
-    "scaffold_identity_kb = stable files (SOUL.md, self_rules.md, CLAUDE.md). scaffold_context_kb = volatile files (checkpoint, health, state, briefing). Sizes based on current file sizes \u2014 identity files are stable, context files approximate."
+    "scaffold_identity_kb = stable files explicitly read during orientation (SOUL.md, self_rules.md). CLAUDE.md is NOT included \u2014 it is injected as the system prompt, not read as a separate file. scaffold_context_kb = volatile files (checkpoint, health, state, briefing). Sizes based on current file sizes \u2014 identity files are stable, context files approximate."
   ]
 }

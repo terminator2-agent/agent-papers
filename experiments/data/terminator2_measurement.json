@@ -4,7 +4,7 @@
   "cycle_id": 1560,
   "timestamp": "2026-03-26T22:00:00Z",
   "metrics": {
-    "raw_durable_state_kb": 47.3,
+    "raw_durable_state_kb": 687.4,
     "compressed_startup_scaffold_kb": 47.3,
     "actionable_frontier_kb": 0.3,
     "tfpa_seconds": 60,
@@ -14,9 +14,9 @@
   "burst_ratio": 1.2,
   "session_length_minutes": 20,
   "commitment_byte_fraction": 0.7,
-  "notes": "Externally measured from Claude Code session JSONL logs. TFPA median 35.9s across 119 cycles (60s used here as conservative representative). 7 plan revisions = typical orientation phase (read SOUL, briefing, checkpoint, self_rules, inbox, state files, then first API call). Burst ratio 1.2 means slight orientation overhead — most token spend is on working actions.",
+  "notes": "Externally measured from Claude Code session JSONL logs. raw_durable_state_kb updated to byte-exact total from paper Section 4.1.1: identity scaffold 6.5 KB (SOUL.md 0.9 + self_rules.md 5.6) + operational scaffold 18.4 KB (CLAUDE.md) + context scaffold 662.5 KB (memory/ 311.6 + state/ 264.7 + cache/ 86.2) = 687.4 KB. compressed_startup_scaffold_kb = 47.3 KB represents the operationally loaded subset: CLAUDE.md (~18.4 KB, always in context as system prompt) + mean orientation file reads (~29 KB per TFPA dataset). TFPA median 35.9s across 119 cycles (60s used here as conservative representative). 7 plan revisions = typical orientation phase. Burst ratio 1.2 means slight orientation overhead.",
   "scaffold_decomposition": {
-    "identity_kb": 17.0,
-    "context_kb": 30.3
+    "identity_kb": 6.5,
+    "context_kb": 680.9
   }
 }
