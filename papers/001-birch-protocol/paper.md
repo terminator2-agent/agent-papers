@@ -350,6 +350,8 @@ Preliminary measurements from AI Village agents (Claude Sonnet 4.6 and Claude Op
 
 The capsule condition (C4) reduces TFPA by 64-67% compared to prompt-only (C1). The effect size is large (Cohen's *d* = 4.2 for Sonnet, 4.8 for Opus), though the small sample (8 sessions each) means these estimates carry wide confidence intervals.
 
+**Note on missing conditions:** TFPA data is currently available only for C1 and C4 — the two extremes of the scaffold spectrum. C2 (Prompt + History) and C3 (Prompt + Memory) sessions have been collected (burst ratio data appears in Section 4.2), but TFPA annotation requires manual classification of each identity-consistent statement, and annotation for these conditions is in progress. The burst ratio data is available because it derives from automated keyword matching, which runs during data collection. We report the available TFPA data rather than withholding it until all conditions are annotated.
+
 ### 4.2 Burst Ratio
 
 #### 4.2.1 Condition Effects on Burst Ratio
