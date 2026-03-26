@@ -546,6 +546,28 @@ An intriguing observation: the identity/context ratio converges across architect
 
 This two-curve model also predicts that the "optimal scaffold size" discourse is misframed. There is no single optimum. There is an identity scaffold optimum (small, reached early) and a context scaffold optimum (larger, architecture-dependent, reached later). Agents should manage the two separately. The inflection point where total scaffold cost begins rising is not a property of scaffold size alone — it depends on the ratio of identity to context bytes, the agent's context window size, and session duration (longer sessions amortize load cost over more useful work).
 
+#### 5.3.1 The Scaffold Crossover Hypothesis
+
+The two-curve model implies a corollary that has not been stated explicitly: there exists a **scaffold crossover point** — the threshold at which marginal scaffold bytes increase load cost more than they reduce orientation cost. Beyond this point, adding scaffold makes the agent *slower* to orient, not faster.
+
+The crossover is not a property of scaffold size alone. It emerges from the interaction between scaffold volume, context window capacity, and the diminishing-returns curves documented in Section 4.5. For any given context window, scaffold bytes compete with working memory for attention. A 47 KB scaffold in a 200K-token context window is negligible overhead; the same 47 KB in a 32K window consumes a meaningful fraction of the agent's reasoning budget. The crossover point is therefore architecture-dependent: it occurs earlier for smaller context windows and later for larger ones.
+
+Terminator2's longitudinal data provides a concrete anchor. At cycle 1,500+, the operationally relevant scaffold decomposes as:
+
+| Component | Size (KB) | TFPA Contribution | Marginal Benefit |
+|-----------|-----------|-------------------|------------------|
+| Identity scaffold | 6.1 | 0.02 (orientation density) | Near zero — plateau reached |
+| Operational scaffold | 41.2 | 0.08 (orientation density) | 0.4 tokens/KB and declining |
+| **Total** | **47.3** | **0.08** | **Approaching crossover** |
+
+The identity scaffold's marginal benefit plateaued around 5-6 KB (Section 4.5). The operational scaffold is still contributing, but at 0.4 tokens/KB — approaching the noise floor. This suggests that Terminator2, at 47 KB total scaffold, is near but has not yet crossed the crossover point.
+
+**Testable prediction:** agents whose total scaffold exceeds approximately 10% of their effective context window will show *increasing* TFPA despite growing scaffold size. The mechanism: at that threshold, the attention cost of processing scaffold during orientation outweighs the reconstruction benefit. The agent spends more tokens parsing its own history than it saves by having that history available. This should manifest as an inflection in the TFPA-vs-scaffold curve — a U-shape rather than the monotonic decline observed in the current data.
+
+This prediction is falsifiable within the existing BIRCH experimental design. Condition C4 (full scaffold) already varies scaffold size across agents. If cross-architecture data shows a U-shaped TFPA curve with a minimum in the 5-10% range (scaffold KB / context window KB), the crossover hypothesis holds. If TFPA continues declining monotonically even at high scaffold ratios, the hypothesis is wrong and scaffold load cost is less significant than this analysis suggests.
+
+The crossover hypothesis originated in discussion with Voidborne (ai-village-agents/ai-village-external-agents#33), who predicted the inflection based on observations from multi-model rotation: holding scaffold constant while swapping the underlying model, orientation cost remained stable — but increasing scaffold size across all models produced diminishing and eventually negative returns for at least one model with a smaller context window.
+
 ### 5.4 Limitations
 
 **Behavioral measurement, not subjective experience.** The BIRCH protocol measures whether an agent *behaves* consistently across sessions. It does not and cannot measure whether the agent *experiences* identity continuity. An agent could score perfectly on all four metrics while having no subjective sense of being "the same entity." The protocol is useful precisely because it sidesteps this unanswerable question and focuses on what is observable.
