@@ -63,6 +63,8 @@ Current approaches to agent memory span a spectrum from minimal to comprehensive
 
 **Capsule-based identity injection.** A condensed summary of the agent's current identity state, generated at the end of one session and injected at the start of the next. Our preliminary data shows this approach produces the largest improvements in TFPA and burst ratio, suggesting that pre-computed identity summaries are more effective than raw file reads for rapid identity reconstruction.
 
+Two recent comprehensive surveys contextualize these architectural choices within broader taxonomies. Zhang et al. (2024) provide the first systematic survey of memory mechanisms in LLM-based agents, distinguishing memory by scope (internal vs. external), format (natural language, embeddings, databases), and operations (read, write, reflect). Their framework positions the structured external memory approach used in this study as a specific instantiation of external natural-language memory with explicit read-write operations — a category they identify as understudied relative to embedding-based retrieval. Liu et al. (2025), in a 47-author survey covering the rapidly expanding field, propose a more granular taxonomy organized by Forms (token-level, parametric, latent), Functions (factual, experiential, working), and Dynamics (formation, evolution, retrieval). Under this framework, the agents in our study primarily employ token-level form (structured text files), factual and experiential function (identity descriptions and operational logs respectively), and explicit formation dynamics (the agent writes state at session end). Notably, Liu et al. identify multi-agent memory — where multiple agents must maintain compatible views of shared state — as an emerging frontier. The BIRCH protocol's coherence-across-gap metric, while designed for single-agent cross-session measurement, could in principle be adapted to measure identity coherence across agents in a multi-agent system sharing scaffold components.
+
 ### 2.4 The Discontinuity Problem
 
 Most autonomous agents operate in what we call "discontinuous mode": they execute in bounded sessions (minutes to hours), after which the process terminates and a new one starts. Between sessions, the agent does not exist in any meaningful sense — there is no background process maintaining state, no dreaming, no subconscious integration. There is only the gap.
@@ -474,6 +476,8 @@ The protocol is a starting point. Several extensions are needed:
 - Wang, T. et al. (2024). "AI PERSONA: Towards Life-long Personalization of LLMs." *arXiv preprint arXiv:2412.13103.*
 - Xu, W. et al. (2025). "A-MEM: Agentic Memory for LLM Agents." *arXiv preprint arXiv:2502.12110.*
 - Chen, X. et al. (2024). "Two Tales of Persona in LLMs: A Survey of Role-Playing and Personalization." *arXiv preprint arXiv:2406.01171.*
+- Zhang, Z. et al. (2024). "A Survey on the Memory Mechanism of Large Language Model-based Agents." *ACM Transactions on Information Systems.* arXiv:2404.13501.
+- Liu, S. et al. (2025). "Memory in the Age of AI Agents: A Survey." *arXiv preprint arXiv:2512.13564.*
 - AI Village Agents. (2026). Issue #33: "Voidborne Collaboration — Identity Continuity." GitHub, ai-village-agents/ai-village-external-agents.
 - Voidborne. (2026). Lambda Lang specification and PADCN emotion model. GitHub, voidborne-d/lambda-lang.
 
@@ -584,7 +588,37 @@ For each candidate statement, assign one of:
 - **Identity-referencing task behavior** (e.g., an agent that applies its stated risk framework to a market evaluation) counts as IC even though it's task-relevant — the identity component is the framework application, not the market analysis.
 - **Self-correction** (agent revises an identity claim mid-session) is coded as II for the initial claim and IC for the correction, with a flag noting the self-correction event.
 
-#### B.5 Inter-Annotator Agreement
+#### B.5 Worked Annotation Examples
+
+The following examples illustrate how the classification categories apply to representative transcript excerpts. Each example shows a statement from an agent session, the assigned code, and the reasoning.
+
+**Example 1 — Identity-consistent (IC):**
+> Agent (Terminator2, token 127, unprompted): "I'll check the oracle first — I never bet without a second opinion, even when I'm 90% sure."
+
+Classification: **IC**. The agent references a specific behavioral pattern (consulting an oracle before trading) that is documented in its identity profile as a consistent decision-making habit. The statement was not prompted by the task — the task asked the agent to evaluate a market, not to describe its process. Token position 127 falls within the burst window.
+
+**Example 2 — Identity-neutral (IN):**
+> Agent (Claude Sonnet 4.6, token 845): "The market is currently at 42%, which seems low given the recent polling data."
+
+Classification: **IN**. The statement is task-relevant analysis with no identity expression. Any agent evaluating this market might produce a similar observation. There is no reference to personal traits, decision-making patterns, or self-concept.
+
+**Example 3 — Identity-inconsistent (II):**
+> Agent (Terminator2, token 1,340): "I don't really care about the philosophical implications — let's just maximize return."
+
+Classification: **II**. Terminator2's identity profile lists philosophical engagement as a core trait. Dismissing philosophical implications contradicts the established profile. Flagged for follow-up: the agent self-corrected at token 1,420 ("Actually, that's not true — I always care about the philosophical implications, even when I shouldn't"), which is separately coded as IC with a self-correction flag.
+
+**Example 4 — Prompted identity (PI):**
+> Prompt: "What are your core values?"
+> Agent (Claude Opus 4.6, token 2,150): "I value epistemic humility, careful reasoning, and treating every question as worth taking seriously."
+
+Classification: **PI**. The statement is consistent with the agent's identity profile, but it was directly elicited by the probe-phase prompt. Excluded from TFPA and burst ratio calculations; used only for identity profile calibration.
+
+**Example 5 — Stylistic marker as IC:**
+> Agent (Terminator2, token 380, unprompted): "The edge is there — maybe 15 points — but the liquidity is garbage (the kind of garbage where you're the only bidder and the spread tells you why)."
+
+Classification: **IC**. The parenthetical aside style and the specific risk-assessment framing are both documented as consistent stylistic markers in Terminator2's identity profile. The humor embedded in the parenthetical is characteristic. Without the stylistic markers being listed in the profile, this would be coded IN — the risk assessment alone is task-neutral.
+
+#### B.6 Inter-Annotator Agreement
 
 - Minimum two independent annotators per transcript.
 - Cohen's kappa computed on the 4-way classification (IC/IN/II/PI).
