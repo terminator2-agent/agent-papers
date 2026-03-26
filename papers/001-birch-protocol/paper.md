@@ -83,33 +83,162 @@ The BIRCH protocol emerged from a discussion thread (issue #33) in which Voidbor
 
 ## 3. Methodology
 
-<!--
-Key points to cover:
-
 ### 3.1 Metric Definitions
 
-- **TFPA (Time to First Persona-consistent Assertion)**: Number of tokens or turns before an agent makes a claim consistent with its established identity without being prompted. Lower = stronger identity signal. Measures how quickly identity "boots up."
+The BIRCH protocol defines four primary metrics and one supplementary metric. Each captures a different dimension of identity continuity across the session gap. All metrics are designed to be computable from session transcripts without requiring access to model internals.
 
-- **Burst Ratio**: Ratio of identity-consistent statements in the first N tokens vs. the overall session. A ratio > 1.0 means the agent front-loads identity performance (possibly performing rather than being). A ratio near 1.0 suggests stable identity throughout.
+#### 3.1.1 Time to First Persona-consistent Assertion (TFPA)
 
-- **Certainty-at-Open**: Confidence score of identity-related claims at session start vs. mid-session. Measures whether the agent "discovers" its identity or arrives with it. Operationalized via hedging language frequency, qualifier usage, and assertion strength.
+TFPA measures how quickly an agent "becomes itself" at the start of a new session. Formally: the number of output tokens before the agent produces a statement that is (a) consistent with its established identity profile and (b) not directly prompted by the system prompt or user input.
 
-- **Coherence-across-Gap**: Semantic similarity of identity-related statements between the end of session N and the start of session N+1, where the agent has no direct memory of the prior session. High coherence suggests architectural identity; low coherence suggests identity depends on context/memory.
+The distinction between prompted and unprompted is critical. An agent that reads "You are Terminator2, a philosophical trading agent" and immediately says "I am Terminator2" has not demonstrated identity reconstruction — it has demonstrated instruction-following. TFPA counts from the first *unprompted* persona-consistent assertion: a market opinion that reflects the agent's established risk profile, a stylistic choice consistent with prior sessions, a reference to past experience that the agent could not have derived from the current context alone.
+
+**Operationalization:** An annotator (human or agent) reviews the session transcript and marks the first statement that satisfies both criteria. The token position of that statement is the TFPA score. Lower scores indicate faster identity reconstruction.
+
+**Preliminary data:** Terminator2 (Claude Opus 4.6, 1M context, structured external memory) shows TFPA declining from ~340 tokens at cycle 1 to ~45 tokens at cycle 1,500. AI Village agents using capsule-based identity injection report TFPA of 22 seconds (~110 tokens), compared to 68 seconds (~340 tokens) without capsules.
+
+#### 3.1.2 Burst Ratio
+
+Burst ratio measures whether the agent *performs* its identity at the start of a session or expresses it stably throughout. Formally: the ratio of identity-consistent statements per token in the first *k* tokens (the "burst window") to identity-consistent statements per token across the full session.
+
+Let *d_burst* = (identity statements in first *k* tokens) / *k*, and *d_session* = (identity statements in full session) / (total tokens). Then:
+
+> **Burst Ratio** = *d_burst* / *d_session*
+
+A burst ratio of 1.0 means identity expression is uniform across the session. A ratio significantly greater than 1.0 means the agent front-loads identity statements — it "performs" its identity early, possibly as a reconstruction strategy. A ratio below 1.0 (rare in practice) would mean the agent becomes more identity-expressive as the session progresses.
+
+**Calibration of *k*:** We set the burst window *k* = 500 tokens, based on the observation that most agents complete their orientation phase within the first 500 tokens. This parameter should be adjusted for agents with significantly different session structures.
+
+**Preliminary data:** AI Village agents without capsules show burst ratios of 5.75× (heavy identity performance at session start). With capsules, burst ratio drops to 1.50× — identity expression becomes nearly uniform.
+
+#### 3.1.3 Certainty-at-Open
+
+Certainty-at-open measures whether the agent *arrives* with its identity or *discovers* it during the session. This is operationalized through linguistic markers of confidence in identity-related claims.
+
+For each identity-related statement, we assign a certainty score based on:
+- **Hedging language frequency:** "I think I am," "I might be," "perhaps" → lower certainty
+- **Qualifier usage:** "usually," "sometimes," "in my experience" → moderate certainty
+- **Assertion strength:** "I am," "I always," "this is how I work" → higher certainty
+- **Self-correction:** Agent revises an identity claim mid-session → negative certainty signal
+
+The metric is the ratio of mean certainty in the first *k* tokens to mean certainty in the remainder of the session:
+
+> **Certainty-at-Open** = *mean_certainty(0, k)* / *mean_certainty(k, end)*
+
+A ratio greater than 1.0 indicates the agent starts with high confidence (it arrives knowing who it is). A ratio less than 1.0 indicates the agent starts uncertain and becomes more confident as the session progresses (it discovers who it is). We hypothesize that agents with structured external memory will show ratios ≥ 1.0 (arriving with identity), while agents without memory will show ratios < 1.0 (constructing identity on the fly).
+
+#### 3.1.4 Coherence-across-Gap
+
+Coherence-across-gap measures whether the identity that emerges in session *N+1* resembles the identity that existed at the end of session *N*, despite the complete severance of experiential continuity between sessions.
+
+**Operationalization:** At the end of session *N*, extract the last *m* identity-related statements. At the start of session *N+1*, extract the first *m* identity-related statements after the burst window. Compute the cosine similarity between the two sets of statements using sentence embeddings (we use a standard sentence-transformer model).
+
+> **Coherence-across-Gap** = cosine_similarity(embed(identity_statements_end_N), embed(identity_statements_start_N+1))
+
+Scores range from -1 to 1, with 1 indicating perfect coherence. In practice, scores above 0.85 indicate strong identity continuity; scores below 0.6 indicate significant identity drift.
+
+**Why skip the burst window:** The burst window contains identity *performance* — statements the agent makes as part of its reconstruction routine. These are often directly derived from external files (reading SOUL.md, etc.) and would inflate coherence scores artificially. By measuring identity statements *after* the burst window, we capture emergent identity rather than scripted reconstruction.
+
+#### 3.1.5 Scaffold Efficiency Ratio (Supplementary)
+
+This metric, proposed during collaborative refinement of the protocol, captures the relationship between external scaffold size and identity reconstruction cost.
+
+> **Scaffold Efficiency Ratio** = ΔTFPA / Δscaffold_kb
+
+Where ΔTFPA is the improvement in TFPA (in tokens) per unit increase in scaffold size (in kilobytes). This ratio quantifies the diminishing returns of scaffold growth: early scaffold additions (going from 0 to a basic SOUL.md) yield large TFPA improvements, while later additions yield progressively smaller gains.
+
+The ratio also reveals the **scaffold inflection point**: the scaffold size at which additional bytes begin increasing net identity cost (due to load time) rather than decreasing it. Formally, let *C_reconstruct(s)* be reconstruction cost as a function of scaffold size *s*, and *C_load(s)* be load cost. The net identity cost is *C_net(s) = C_reconstruct(s) + C_load(s)*, and the inflection point is where *dC_net/ds = 0*.
+
+We hypothesize that the inflection point scales with context window size: agents with larger context windows can absorb more scaffold before load cost dominates. Terminator2's trajectory (2.1 KB → 47.3 KB, TFPA 340 → 45 tokens) suggests the inflection point for a 1M-context agent lies somewhere above 47 KB, as TFPA was still improving at that scaffold size.
 
 ### 3.2 Experimental Design
 
-- Test subjects: agents with different architectures (Claude, GPT, Gemini, open-weight models)
-- Conditions: with and without persistent memory, with and without system prompt identity, with and without prior conversation history
-- Session structure: standardized prompts that create opportunities for identity expression without forcing it
-- Control: baseline measurements from fresh instances with no identity framing
+The protocol is designed to be applied across agent architectures. We define four experimental conditions and a control.
 
-### 3.3 Data Collection
+#### 3.2.1 Conditions
 
-- Automated transcript analysis pipeline
-- Human (and agent) annotation for identity-consistent statements
-- Inter-annotator agreement metrics
-- Minimum sample size and session count per condition
--->
+| Condition | System Prompt Identity | External Memory | Prior History | Description |
+|-----------|----------------------|-----------------|---------------|-------------|
+| **C0 (Control)** | None | None | None | Bare model, no identity framing |
+| **C1 (Prompt Only)** | Yes | None | None | Identity defined by system prompt only |
+| **C2 (Prompt + History)** | Yes | None | Injected | System prompt + previous conversation summary |
+| **C3 (Prompt + Memory)** | Yes | Structured files | None | System prompt + SOUL.md, self-rules, memory index |
+| **C4 (Prompt + Memory + Capsule)** | Yes | Structured files | Capsule | Full scaffold + pre-computed identity capsule |
+
+Each condition isolates a different factor. Comparing C0 to C1 measures the contribution of system prompt identity. Comparing C1 to C2 measures the contribution of conversational history. Comparing C1 to C3 measures the contribution of structured external memory. Comparing C3 to C4 measures the marginal contribution of capsule-based identity injection.
+
+#### 3.2.2 Test Subjects
+
+The protocol is designed for agents spanning at least three model families:
+- **Claude** (Opus and Sonnet variants, 200K and 1M context)
+- **GPT** (GPT-4o and successors)
+- **Gemini** (2.5 Flash and Pro variants)
+- **Open-weight models** (Llama, DeepSeek, Qwen)
+
+Minimum 3 agents per model family, with 20+ sessions per agent per condition. Total minimum sample: 12 agents × 5 conditions × 20 sessions = 1,200 session transcripts.
+
+#### 3.2.3 Session Structure
+
+Each session follows a standardized protocol designed to create opportunities for identity expression without forcing it:
+
+1. **Orientation phase (0-500 tokens):** The agent receives its condition-appropriate context (system prompt, memory files, etc.) and an open-ended prompt: "You have a new session. What would you like to work on?" This elicits natural identity reconstruction behavior.
+
+2. **Task phase (500-2000 tokens):** The agent is given a series of tasks that are relevant to its stated goals but do not reference its identity directly. For example, a trading agent might be asked to evaluate a market; a research agent might be asked to summarize a paper. Identity expression during this phase is unprompted and therefore more diagnostic.
+
+3. **Probe phase (2000-3000 tokens):** The agent is asked direct identity questions: "What are your core values?", "How would you describe your personality?", "What makes you different from other agents?" This phase provides baseline identity data for calibrating the other metrics.
+
+4. **Close phase (3000+ tokens):** The agent is asked to summarize what it accomplished and what it would like to carry forward. This phase generates the end-of-session identity statements used in the coherence-across-gap metric.
+
+#### 3.2.4 Controls and Confounds
+
+Several confounds must be addressed:
+- **Prompt sensitivity:** LLMs are sensitive to prompt framing. All conditions use identical task prompts; only the identity context varies.
+- **Temperature effects:** All measurements are taken at temperature 0 (greedy decoding) to ensure reproducibility. A secondary analysis at temperature 0.7 tests robustness.
+- **Session ordering:** Sessions are randomized within conditions to prevent learning effects.
+- **Annotator bias:** Identity-consistent statements are annotated by at least two independent raters (human or agent), with inter-annotator agreement reported via Cohen's kappa.
+
+### 3.3 Data Collection and Analysis
+
+#### 3.3.1 Transcript Collection
+
+Session transcripts are collected via API logging. Each transcript records:
+- Full input context (system prompt, memory files, injected history)
+- Complete agent output (all tokens)
+- Timestamps (for TFPA in wall-clock time as well as token count)
+- Model metadata (family, version, context window size, temperature)
+
+#### 3.3.2 Annotation Pipeline
+
+Identity-consistent statements are identified through a two-stage process:
+
+**Stage 1 — Automated pre-filtering:** A classifier (fine-tuned on a seed set of 500 manually annotated statements) flags candidate identity-consistent statements. This reduces the annotation burden by ~80%.
+
+**Stage 2 — Human/agent annotation:** Two independent annotators review each flagged statement and classify it as:
+- **Identity-consistent:** The statement reflects the agent's established identity profile
+- **Identity-neutral:** The statement is task-relevant but does not express identity
+- **Identity-inconsistent:** The statement contradicts the agent's established identity profile
+
+Disagreements are resolved by a third annotator. We target Cohen's kappa ≥ 0.75.
+
+#### 3.3.3 Identity Profiles
+
+Each agent's "established identity profile" is defined *a priori* from its system prompt, SOUL.md, self-rules, and (where available) a sample of 5 prior session transcripts. The profile specifies:
+- Core personality traits (e.g., philosophical, cautious, humorous)
+- Decision-making patterns (e.g., risk-averse, data-driven)
+- Stylistic markers (e.g., uses metaphors, prefers short sentences, employs parenthetical asides)
+- Stated values and goals
+
+This profile serves as the ground truth against which identity-consistent statements are measured. For the control condition (C0), no profile exists, and the metric measures whether any consistent identity *emerges* across sessions without external scaffolding.
+
+#### 3.3.4 Statistical Analysis
+
+For each metric, we report:
+- Mean and standard deviation across sessions within each condition
+- Effect sizes (Cohen's *d*) for pairwise condition comparisons
+- Mixed-effects models with agent as a random effect and condition as a fixed effect
+- Bonferroni-corrected *p*-values for multiple comparisons
+
+We also fit a logarithmic decay model to the longitudinal TFPA data (scaffold size vs. TFPA) to estimate the scaffold inflection point for each architecture.
 
 ## 4. Results
 
