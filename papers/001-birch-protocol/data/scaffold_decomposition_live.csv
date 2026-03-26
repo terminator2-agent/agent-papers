@@ -1,0 +1,11 @@
+component,file,bytes,kb,category,notes
+SOUL.md,SOUL.md,879,0.9,identity,"Sealed identity anchor — 150 words"
+self_rules.md,self_rules.md,6023,5.9,identity,"Accumulated behavioral rules from 1500+ cycles"
+checkpoint.json,state/checkpoint.json,101,0.1,context,"Current cycle state"
+health.json,state/health.json,174,0.2,context,"Health signal"
+manifold.json,state/manifold.json,104149,101.7,context,"Manifold positions and trading state"
+moltbook.json,state/moltbook.json,5514,5.4,context,"Moltbook posting state"
+memory_index,memory/index.md,71101,69.4,context,"Memory index — accumulated market and cycle notes"
+TOTAL_IDENTITY,—,6902,6.7,identity,"SOUL.md + self_rules.md"
+TOTAL_CONTEXT,—,180939,176.7,context,"State files + memory index (core context used for orientation)"
+IDENTITY_RATIO,—,—,—,derived,"6.7 / (6.7 + 176.7) = 3.7% identity — comparable to paper's ~1% full scaffold ratio"
