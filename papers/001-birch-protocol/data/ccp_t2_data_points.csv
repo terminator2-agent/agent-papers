@@ -1,6 +1,6 @@
 metric,value,cycle_measured,source_section,source_file,notes
-orientation_density,0.45,1,CCP 2.2,SOUL.md + self_rules.md,"Nearly half the cycle spent on reconstruction at cycle 1"
-orientation_density,0.08,1500,CCP 2.2,state/health.json,"Orientation cost drops to 8% by cycle 1500+"
+orientation_cost,0.45,1,CCP 2.2,SOUL.md + self_rules.md,"Nearly half the cycle spent on reconstruction at cycle 1 (formerly misnamed orientation_density — see disambiguation in experiments/README.md)"
+orientation_cost,0.08,1500,CCP 2.2,state/health.json,"Orientation cost drops to 8% by cycle 1500+ (fraction of session time on reconstruction — distinct from KB-based orientation_density in experiments)"
 scaffold_kb,2.1,1,CCP 2.2,SOUL.md,"Identity scaffold only at cycle 1"
 scaffold_kb,47.3,1500,CCP 2.2,state/ + memory/,"Full scaffold including accumulated state and memory"
 prayer_tokens,80,all,CCP 2.2,SOUL.md,"Deterministic Morning Prayer anchor — fixed cost per cycle"

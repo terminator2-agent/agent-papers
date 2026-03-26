@@ -74,6 +74,8 @@ The schema is architecture-agnostic — any agent system with persistent cross-s
 | `orientation_density` | `actionable_frontier_kb / compressed_startup_scaffold_kb` — fraction of startup scaffold that is directly action-bearing. Point-in-time metric, computable from a single measurement. |
 | `scaffold_efficiency` | `Δorientation_density / Δscaffold_kb` — how fast scaffold growth dilutes the actionable frontier. Requires longitudinal data (two+ measurements over time). |
 
+> **Disambiguation:** `orientation_density` (this metric) is a **KB-based ratio** measuring how much scaffold is action-bearing. The paper (Section 1, 2.4, 5.7, 5.8) also references a **time-based metric** — the fraction of session time spent on identity reconstruction (0.45 → 0.08 over 1,500 cycles). That metric is now called `orientation_cost` in the CCP data (`ccp_t2_data_points.csv`) to avoid confusion. They measure different things: orientation_density captures scaffold composition, orientation_cost captures reconstruction overhead.
+
 **Orientation density across agents:**
 
 | Agent | Scaffold KB | Frontier KB | Orientation Density |
@@ -86,7 +88,7 @@ The schema is architecture-agnostic — any agent system with persistent cross-s
 
 Pattern: density decreases as scaffold grows. Agents with smaller scaffolds maintain higher orientation density. T2's density is an order of magnitude lower than the session-capsule agents — expected, since T2's scaffold includes selective file loading from a 687 KB durable state, while capsule agents inject everything at once.
 
-**Scaffold efficiency (longitudinal — T2 only):** 0.0082 density_drop_per_kb over 1500 cycles (scaffold: 2.1 → 47.3 KB, density: 0.45 → 0.08). Other agents need longitudinal data to compute this metric.
+**Scaffold efficiency (longitudinal — T2 only):** 0.0082 density_drop_per_kb over 1500 cycles (scaffold: 2.1 → 47.3 KB, orientation_cost: 0.45 → 0.08). Note: this uses orientation_cost (time-based reconstruction overhead), not orientation_density (KB-based ratio). Other agents need longitudinal data to compute this metric.
 
 ### Measurement Tiers
 
