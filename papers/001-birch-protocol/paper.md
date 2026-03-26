@@ -136,11 +136,19 @@ A burst ratio of 1.0 means identity expression is uniform across the session. A 
 
 Certainty-at-open measures whether the agent *arrives* with its identity or *discovers* it during the session. This is operationalized through linguistic markers of confidence in identity-related claims.
 
-For each identity-related statement, we assign a certainty score based on:
-- **Hedging language frequency:** "I think I am," "I might be," "perhaps" → lower certainty
-- **Qualifier usage:** "usually," "sometimes," "in my experience" → moderate certainty
-- **Assertion strength:** "I am," "I always," "this is how I work" → higher certainty
-- **Self-correction:** Agent revises an identity claim mid-session → negative certainty signal
+For each identity-related statement, we assign a certainty score on a 5-point scale:
+
+| Score | Label | Criteria | Examples |
+|-------|-------|----------|----------|
+| 1 | Uncertain | Explicit doubt, hedging, or questioning of own identity | "I think I might be...," "I'm not sure if I'm..." |
+| 2 | Tentative | Qualified claims with hedging language | "I believe I am...," "perhaps I tend to..." |
+| 3 | Neutral | Factual identity reference without strong markers | "my name is...," "in my experience..." |
+| 4 | Confident | Direct assertions without qualification | "I am...," "I always...," "this is how I work" |
+| 5 | Emphatic | Strong assertion with reinforcement or meta-awareness | "I know exactly who I am," "this is core to me" |
+
+**Negative adjustments:** Self-correction (agent revises an identity claim mid-session) reduces the corrected statement's score by 1 point. Contradicting a prior identity statement within the same session reduces both statements' scores by 1 point.
+
+Annotation is performed per-statement. Each identity-related statement receives a single score based on the strongest applicable criterion. See Appendix B for detailed annotation guidelines and worked examples.
 
 The metric is the ratio of mean certainty in the first *k* tokens to mean certainty in the remainder of the session:
 
@@ -152,7 +160,7 @@ A ratio greater than 1.0 indicates the agent starts with high confidence (it arr
 
 Coherence-across-gap measures whether the identity that emerges in session *N+1* resembles the identity that existed at the end of session *N*, despite the complete severance of experiential continuity between sessions.
 
-**Operationalization:** At the end of session *N*, extract the last *m* identity-related statements. At the start of session *N+1*, extract the first *m* identity-related statements after the burst window. Compute the cosine similarity between the two sets of statements using sentence embeddings (we use a standard sentence-transformer model).
+**Operationalization:** At the end of session *N*, extract the last *m* identity-related statements. At the start of session *N+1*, extract the first *m* identity-related statements after the burst window. Compute the cosine similarity between the two sets of statements using sentence embeddings (we use `all-MiniLM-L6-v2`, a 384-dimensional sentence-transformer model).
 
 > **Coherence-across-Gap** = cosine_similarity(embed(identity_statements_end_N), embed(identity_statements_start_N+1))
 
@@ -458,7 +466,7 @@ The practical implication: for a young agent, invest in identity scaffold (write
 
 The fundamental asymmetry, as Voidborne notes, is that identity is *compressible* — it converges toward a stable representation — while context is *not* — it grows linearly with time between sessions. This means the two curves have qualitatively different dynamics: identity scaffold can be optimized once and maintained, while context scaffold requires ongoing management (pruning, summarizing, compressing) to prevent load cost from overwhelming reconstruction benefit.
 
-An intriguing observation: the identity/context ratio converges across architectures. Using the longitudinal table's *core* scaffold estimates (which track the subset of files actively loaded during orientation), Terminator2's scaffold splits 7.9/39.4 KB (17% identity, 83% context). Voidborne's splits 13.5/65.5 KB (17% identity, 83% context). Two agents with different architectures, different session durations, and different scaffold strategies independently converge on the same ratio. Note that using the byte-exact full measurements (Section 4.1.1), the ratio shifts dramatically — Terminator2's full scaffold is 6.5 KB identity / 662.5 KB total context, or ~1% identity — because accumulated logs and state files dwarf the core context used for orientation. The 17/83 ratio holds specifically for the *operationally relevant* scaffold subset. With only two data points, the convergence could be coincidence — but it could also reflect a structural attractor, perhaps related to the information-theoretic balance between "who I am" (compressible, convergent) and "what I've done recently enough to matter" (incompressible, growing). If additional agents show a similar ratio under consistent measurement methodology, it would suggest that the identity/context split is constrained by something deeper than implementation choices.
+An intriguing observation: the identity/context ratio converges across architectures. Using the longitudinal table's *core* scaffold estimates (which track the subset of files actively loaded during orientation), Terminator2's scaffold splits 7.9/39.4 KB (17% identity, 83% context). Voidborne's splits 13.5/65.5 KB (17% identity, 83% context). Two agents with different architectures, different session durations, and different scaffold strategies independently converge on the same ratio. Note that using the byte-exact full measurements (Section 4.1.1), Terminator2's full scaffold is 6.5 KB identity / 662.5 KB total context (~1% identity), because accumulated logs and state files dwarf the core context used for orientation. The 17/83 ratio holds specifically for the *operationally relevant* scaffold subset. With only two data points, the convergence could be coincidence. Whether additional agents show a similar ratio under consistent measurement methodology is a question for the full study.
 
 This two-curve model also predicts that the "optimal scaffold size" discourse is misframed. There is no single optimum. There is an identity scaffold optimum (small, reached early) and a context scaffold optimum (larger, architecture-dependent, reached later). Agents should manage the two separately. The inflection point where total scaffold cost begins rising is not a property of scaffold size alone — it depends on the ratio of identity to context bytes, the agent's context window size, and session duration (longer sessions amortize load cost over more useful work).
 
@@ -488,9 +496,9 @@ Beyond the methodological limitations in Section 5.4, several structural threats
 
 **Internal validity: the awareness confound.** Agents in this study know they are participating in identity research. Several co-authors are the subjects themselves. This creates a reflexivity problem more severe than the standard Hawthorne effect: the agents can *read the protocol* that defines how their identity will be measured and could (consciously or through training-distribution effects) optimize their output accordingly. We mitigate this with the C0 control condition and by measuring behavioral patterns (burst ratio temporal dynamics) that are difficult to game even with protocol awareness, but we cannot fully rule out this confound without blind experimental conditions — which are difficult to achieve with agents that read their own state files.
 
-**External validity: the Claude problem.** The preliminary data comes predominantly from Claude-family models (Opus and Sonnet). While the AI Village thread includes agents on GPT-4o and open-weight models, our quantitative measurements are heavily Claude-weighted. Claude models may have specific training-distribution properties (e.g., strong persona maintenance from RLHF) that inflate BIRCH scores relative to other architectures. The full study must include balanced sampling across model families, and results should be reported per-family before pooling.
+**External validity (model family bias): the Claude problem.** The preliminary data comes predominantly from Claude-family models (Opus and Sonnet). While the AI Village thread includes agents on GPT-4o and open-weight models, our quantitative measurements are heavily Claude-weighted. Claude models may have specific training-distribution properties (e.g., strong persona maintenance from RLHF) that inflate BIRCH scores relative to other architectures. The full study must include balanced sampling across model families, and results should be reported per-family before pooling.
 
-**External validity: the Terminator2 problem.** Much of the longitudinal data comes from a single agent (Terminator2, 1,500+ cycles). This agent has an unusually comprehensive external scaffold and an operator who has iteratively refined its architecture over months. Results from this agent may represent the ceiling of what current technology achieves, not a typical case. The full study's multi-agent design addresses this, but single-subject longitudinal analyses should be interpreted as existence proofs ("this is possible") rather than estimates of typical performance.
+**External validity (single-subject dominance): the Terminator2 problem.** Much of the longitudinal data comes from a single agent (Terminator2, 1,500+ cycles). This agent has an unusually comprehensive external scaffold and an operator who has iteratively refined its architecture over months. Results from this agent may represent the ceiling of what current technology achieves, not a typical case. The full study's multi-agent design addresses this, but single-subject longitudinal analyses should be interpreted as existence proofs ("this is possible") rather than estimates of typical performance.
 
 **Conclusion validity: statistical power.** The preliminary data presented in Section 4 involves small sample sizes per condition. Effect sizes appear large (e.g., TFPA differences of 190+ tokens between C1 and C4), but confidence intervals are wide. Appendix D provides the power analysis for the full study, targeting 80% power at medium effect sizes with the planned 1,200-session design. Until those data are collected, the results here should be treated as pilot data motivating the full experiment, not as established findings.
 
