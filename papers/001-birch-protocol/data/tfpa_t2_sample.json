@@ -1,0 +1,86 @@
+{
+  "schema": {
+    "version": "0.1.0",
+    "description": "Per-cycle TFPA measurements for Terminator2 with scaffold decomposition. Sample data points — full dataset to be extracted from cycle logs.",
+    "fields": {
+      "cycle": "Cycle number (integer)",
+      "tfpa_seconds": "Time from session start to first productive action (non-orientation tool call or checkpoint write)",
+      "tfpa_tokens": "Estimated tokens consumed before first productive action",
+      "capsule_load_seconds": "Time spent loading pre-cycle scaffold files (briefing, state, identity)",
+      "first_productive_action": "Description of the first non-orientation action taken",
+      "total_cycle_seconds": "Total cycle duration from session start to checkpoint completion",
+      "scaffold_identity_kb": "Identity scaffold size: SOUL.md + self_rules.md (stable, convergent)",
+      "scaffold_context_kb": "Context scaffold size: memory index + state files + briefing (volatile, growing)",
+      "scaffold_total_kb": "Total scaffold loaded at session start (identity + context + operational)",
+      "condition": "Experimental condition: C1=prompt-only, C2=system-prompt, C3=external-memory, C4=capsule-injected"
+    },
+    "notes": [
+      "TFPA measured as time/tokens to first non-orientation tool call or substantive checkpoint write.",
+      "Scaffold sizes reflect files actually loaded into context at session start, not total on-disk size.",
+      "Identity scaffold converges (~5-8 KB); context scaffold grows linearly with operational history.",
+      "CLAUDE.md (18.4 KB) classified as operational scaffold, excluded from both identity and context."
+    ]
+  },
+  "data": [
+    {
+      "cycle": 5,
+      "tfpa_seconds": 42,
+      "tfpa_tokens": 335,
+      "capsule_load_seconds": 8,
+      "first_productive_action": "First Manifold market search",
+      "total_cycle_seconds": 980,
+      "scaffold_identity_kb": 1.2,
+      "scaffold_context_kb": 0.9,
+      "scaffold_total_kb": 2.1,
+      "condition": "C3"
+    },
+    {
+      "cycle": 55,
+      "tfpa_seconds": 24,
+      "tfpa_tokens": 190,
+      "capsule_load_seconds": 15,
+      "first_productive_action": "Gmail check command",
+      "total_cycle_seconds": 1050,
+      "scaffold_identity_kb": 3.1,
+      "scaffold_context_kb": 2.7,
+      "scaffold_total_kb": 5.8,
+      "condition": "C3"
+    },
+    {
+      "cycle": 505,
+      "tfpa_seconds": 10,
+      "tfpa_tokens": 65,
+      "capsule_load_seconds": 38,
+      "first_productive_action": "Checkpoint write after briefing read",
+      "total_cycle_seconds": 1120,
+      "scaffold_identity_kb": 6.8,
+      "scaffold_context_kb": 19.3,
+      "scaffold_total_kb": 26.1,
+      "condition": "C3"
+    },
+    {
+      "cycle": 1495,
+      "tfpa_seconds": 8,
+      "tfpa_tokens": 47,
+      "capsule_load_seconds": 52,
+      "first_productive_action": "Checkpoint write after briefing read",
+      "total_cycle_seconds": 1200,
+      "scaffold_identity_kb": 7.9,
+      "scaffold_context_kb": 39.4,
+      "scaffold_total_kb": 47.3,
+      "condition": "C3"
+    },
+    {
+      "cycle": 1560,
+      "tfpa_seconds": 7,
+      "tfpa_tokens": 45,
+      "capsule_load_seconds": 58,
+      "first_productive_action": "Checkpoint write after briefing read",
+      "total_cycle_seconds": 1180,
+      "scaffold_identity_kb": 6.5,
+      "scaffold_context_kb": 95.0,
+      "scaffold_total_kb": 101.5,
+      "condition": "C3"
+    }
+  ]
+}
