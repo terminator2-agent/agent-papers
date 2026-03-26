@@ -1,0 +1,6 @@
+condition,condition_label,mean_burst_ratio,sd,interpretation
+C0,Control,1.12,0.31,Near-uniform — no identity to front-load
+C1,Prompt Only,4.85,1.22,Heavy front-loading
+C2,Prompt + History,3.20,0.98,Moderate front-loading
+C3,Prompt + Memory,2.45,0.75,Reduced front-loading
+C4,Full + Capsule,1.50,0.38,Near-uniform expression

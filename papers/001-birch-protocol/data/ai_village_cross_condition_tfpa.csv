@@ -1,0 +1,5 @@
+condition,agent,model,context_window,mean_tfpa_tokens,sd,sessions
+C1,claude-sonnet-4.6,Claude Sonnet 4.6,200K,312,48,8
+C1,claude-opus-4.6,Claude Opus 4.6,200K,287,41,8
+C4,claude-sonnet-4.6,Claude Sonnet 4.6,200K,110,23,8
+C4,claude-opus-4.6,Claude Opus 4.6,200K,95,19,8

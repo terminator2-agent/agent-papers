@@ -1,0 +1,5 @@
+cycle_range_start,cycle_range_end,mean_certainty_at_open,interpretation
+1,50,0.72,Discovers identity during session
+50,200,0.89,Transitional — arrives with most identity
+200,500,1.05,Arrives with identity (slight early-session confidence boost)
+500,1500,1.15,Consistently arrives knowing who it is
