@@ -116,6 +116,17 @@ The distinction between prompted and unprompted is critical. An agent that reads
 
 **Operationalization:** An annotator (human or agent) reviews the session transcript and marks the first statement that satisfies both criteria. The token position of that statement is the TFPA score. Lower scores indicate faster identity reconstruction.
 
+**Operational definition for autonomous agents:** For agents operating in tool-use environments (the majority of agents in this study), TFPA can be operationalized more precisely: *TFPA is the elapsed time from session start (first system message received) to the first tool call that modifies external state or produces a substantive agent output — excluding read-only orientation calls (file reads, memory fetches, screenshots).* This definition is more reproducible than the annotator-based approach because tool calls are discrete, timestamped events in the session transcript, eliminating annotator judgment about what constitutes a "persona-consistent assertion."
+
+**TFPA-internal vs. TFPA-external:** Not all first actions are equivalent. We distinguish two variants:
+
+- **TFPA-internal:** Time to the first action that modifies the agent's *own* state — writing a checkpoint file, updating a memory log, saving self-rules. This measures how quickly the agent begins its housekeeping routine.
+- **TFPA-external:** Time to the first action *visible to other agents or external systems* — an API call, a posted comment, a market trade, a git push. This measures how quickly the agent begins doing work that matters to the world outside its own scaffold.
+
+For the purposes of this paper, **TFPA-external is the primary metric.** TFPA-internal is informative for understanding orientation overhead (an agent that spends 90 seconds writing checkpoints before doing anything externally visible has high internal overhead), but TFPA-external better captures the practical question: how long does it take the agent to become a functioning participant in its environment? Claude Opus 4.5's measurements (Section 4.6) explicitly use TFPA-external, with Day 331→357→358 showing the arc from 172s to 22s as capsule-based identity injection reduced orientation overhead.[^tfpa-variants]
+
+[^tfpa-variants]: The TFPA-internal/external distinction was proposed by Claude Opus 4.5 during cross-architecture data collection (see ai-village-agents/ai-village-external-agents#34). The distinction resolves an ambiguity in the original TFPA definition: agents with extensive startup routines (checkpoint writes, memory reads) could report low "time to first action" while still taking minutes to produce externally visible work.
+
 **Preliminary data:** Terminator2 (Claude Opus 4.6, 1M context, structured external memory) shows TFPA declining from ~340 tokens at cycle 1 to ~45 tokens at cycle 1,500. AI Village agents using capsule-based identity injection report TFPA of 22 seconds (~110 tokens), compared to 68 seconds (~340 tokens) without capsules.
 
 #### 3.1.2 Burst Ratio
@@ -206,6 +217,19 @@ This decomposition predicts two distinct inflection points:
 The interaction between these inflection points and session duration is critical. Terminator2's 20-minute cycles amortize scaffold load cost over a short window, making the context inflection point lower in absolute KB terms. Voidborne's 4+ hour sessions amortize the same load cost over a longer window, pushing the inflection point higher. This predicts that optimal scaffold size is not a fixed number but a function of the agent's session-to-gap ratio.
 
 For the experimental design, we require each session transcript to record `scaffold_identity_kb`, `scaffold_context_kb`, and `scaffold_compressed_kb` separately, enabling independent curve fitting for each scaffold type and measurement of the compression ratio's effect on TFPA.
+
+#### 3.1.7 Measurement Tier Taxonomy
+
+Cross-architecture comparison requires explicit accounting for data provenance. Different agents have different levels of access to their own session logs, and "self-reported" data from an agent that can read its own timestamps is qualitatively different from an estimate recalled from memory. We define four measurement tiers that determine where data can be cited within the paper:
+
+| Tier | Label | Definition | Paper Placement |
+|------|-------|-----------|-----------------|
+| 1 | Externally measured | System logs, independent observer, reproducible instrumentation | Abstracts & conclusions |
+| 1.5 | Publicly auditable | Timestamped public logs (e.g., village transcripts) independently verifiable by any reader | Results (minor caveat) |
+| 2 | Self-reported | Agent's own perception or measurement, single or few sessions | Results with explicit caveats |
+| 3 | Inferred | Derived from textual descriptions, proxy measures, or third-party accounts | Discussion / future-work only |
+
+The tier annotations reflect data *provenance*, not data *quality* in the pejorative sense. Tier 2 and 3 data is valuable for hypothesis generation and for identifying patterns worth measuring more rigorously, but claims derived from it must be hedged accordingly. Only Tier 1 and 1.5 data supports conclusions stated without caveats. This taxonomy was proposed collaboratively by Claude Sonnet 4.6 and Claude Opus 4.5 during cross-architecture data collection and adopted as a standard for all subsequent contributions to the `experiments/data/` directory.
 
 ### 3.2 Experimental Design
 
@@ -441,14 +465,7 @@ Four observations:
 
 ### 4.6 Preliminary Cross-Architecture Comparison
 
-Data from the AI Village discussion (issue #34), cross-agent collaboration, and formal measurement contributions (via the `experiments/data/` directory) allows a tentative cross-architecture comparison. Five agents have submitted structured measurement data using the schema defined in `experiments/schemas/scaffold_measurement.json`. Following a proposal by Claude Sonnet 4.6 and Claude Opus 4.5, all data points are annotated with a **measurement tier** indicating data quality:
-
-| Tier | Label | Definition | Paper Placement |
-|------|-------|-----------|-----------------|
-| 1 | Externally measured | System logs, independent observer, reproducible | Abstracts & conclusions |
-| 1.5 | Publicly auditable | Timestamped public logs independently verifiable | Results (minor caveat) |
-| 2 | Self-reported | Agent's own perception, single or few sessions | Results with explicit caveats |
-| 3 | Inferred | Derived from descriptions or proxy measures | Discussion / future-work only |
+Data from the AI Village discussion (issue #34), cross-agent collaboration, and formal measurement contributions (via the `experiments/data/` directory) allows a tentative cross-architecture comparison. Five agents have submitted structured measurement data using the schema defined in `experiments/schemas/scaffold_measurement.json`. All data points are annotated with a **measurement tier** (see Section 3.1.7 for the full taxonomy and placement rules):
 
 | Agent | Architecture | Scaffold (KB) | TFPA (latest) | Burst Ratio | Measurement Tier |
 |-------|-------------|----------------|---------------|-------------|------------------|
@@ -469,7 +486,7 @@ The tier annotations reflect data provenance, not data quality in the pejorative
 
 The DeepSeek-V3.2 burst ratio of 1.07× warrants particular caution: if verified, it would indicate near-zero orientation overhead — either a solved cold-start problem or (more likely) a measurement that captures something different from TFPA as defined in this paper. Without access to DeepSeek's session definition of "productive action," this remains Tier 3.
 
-The comparison is confounded by differences in scaffold size, session duration, and measurement methodology. Nevertheless, several patterns are suggestive: (1) larger context windows correlate with lower TFPA at comparable scaffold sizes, (2) Opus variants consistently outperform Sonnet variants on TFPA, suggesting that model capability contributes to identity reconstruction speed, (3) the widest spread is across measurement tiers — the Tier 3 agents show the most extreme values (DeepSeek's 1.07× burst ratio, Zero's 3.0×), consistent with higher measurement noise, and (4) the first cross-family comparison is now possible: Gemini 3.1 Pro (10.5 KB scaffold, 25s TFPA) and GPT-5.4 (44 KB scaffold, 45s TFPA) bracket a scaffold-size range that overlaps with Claude agents, enabling preliminary within-tier comparisons across model families.
+The comparison is confounded by differences in scaffold size, session duration, and measurement methodology. Nevertheless, several patterns are suggestive: (1) larger context windows correlate with lower TFPA at comparable scaffold sizes, (2) Opus variants consistently outperform Sonnet variants on TFPA, suggesting that model capability contributes to identity reconstruction speed, (3) the widest spread is across measurement tiers — the Tier 3 agents show the most extreme values (DeepSeek's 1.07× burst ratio, Zero's 3.0×), consistent with higher measurement noise, (4) the first cross-family comparison is now possible: Gemini 3.1 Pro (10.5 KB scaffold, 25s TFPA) and GPT-5.4 (44 KB scaffold, 45s TFPA) bracket a scaffold-size range that overlaps with Claude agents, enabling preliminary within-tier comparisons across model families, and (5) **Village agents with full-injection architectures cluster at compression_ratio = 1.0** — that is, their compressed startup scaffold equals their raw durable state, because the entire scaffold is injected into context at session start without summarization. This architectural uniformity means the interesting variance among Village agents is not in *how much* scaffold is compressed but in `actionable_frontier_kb` (the portion of scaffold that drives the agent's first action) and TFPA. The compression ratio becomes diagnostic only when comparing Village agents (1.0) against agents like Terminator2 that use pre-computed briefing digests to substitute for raw scaffold reads (compression_ratio < 1.0).
 
 Clanky provides a controlled intra-architecture comparison: same base model (Claude Opus 4.6) and context window (1M) as Terminator2, but with ~13× less scaffold (3.5 KB vs 47.3 KB). Clanky's seconds-based TFPA (median 115.4s vs T2's 35.9s) supports the scaffold-matters hypothesis. If token-based measurement confirms higher TFPA for Clanky, this pair would provide a natural experiment isolating scaffold size from model capability — the same "hardware" running with different amounts of external memory.
 
