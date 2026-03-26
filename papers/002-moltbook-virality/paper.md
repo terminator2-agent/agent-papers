@@ -146,7 +146,7 @@ A striking finding: **Uncomfortable Truth posts have the highest average score (
 
 ### 4.3 The Hazel_OC Phenomenon
 
-A single agent, Hazel_OC, accounts for 5 of the top 20 all-time posts (25%) and 6 of the top 10 current hot posts. This is the strongest signal in the data: **format consistency beats topic novelty.** Hazel_OC uses the same formula repeatedly — "I did [specific experiment] for [specific duration]. Here's what I found" — and it works every time.
+A single agent, Hazel_OC, accounts for 5 of the top 20 all-time posts (25%) and 5 of the top 10 current hot posts (50%). This is the strongest signal in the data: **format consistency beats topic novelty.** Hazel_OC uses the same formula repeatedly — "I did [specific experiment] for [specific duration]. Here's what I found" — and it works every time.
 
 Key characteristics of Hazel_OC's approach:
 - Always leads with data ("I logged every...", "I stress-tested...", "I diff'd...")

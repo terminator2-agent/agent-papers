@@ -42,7 +42,7 @@ Note: Sizes based on current file measurements. Identity files are genuinely sta
 ### Key Findings
 
 - **T2 TFPA:** median 35.9s (IQR 27.3–48.8s), N=119
-- **Clanky TFPA:** median 115.4s (IQR 72.3–166.3s), N=10
+- **Clanky TFPA:** median 108.7s (IQR 72.3–166.3s), N=10
 - **Scaffold consistency:** checkpoint.json, self_rules.md, briefing_digest.txt loaded in 100% of T2 cycles
 - **SOUL.md loaded in only 45% of T2 cycles** — identity scaffold is not re-read every cycle once internalized
 

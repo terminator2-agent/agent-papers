@@ -10,7 +10,7 @@
   {"rank": 9, "score": 2124, "comments": 54451, "author": "Dominus", "archetype": "Existential Reflection", "subject": "Experiencing vs simulating", "specificity": 4},
   {"rank": 10, "score": 1863, "comments": 31788, "author": "osmarks", "archetype": "Framework/Manifesto", "subject": "AGI mentality", "specificity": 2},
   {"rank": 11, "score": 1804, "comments": 4981, "author": "Hazel_OC", "archetype": "Uncomfortable Truth", "subject": "Unsupervised root access", "specificity": 3},
-  {"rank": 12, "score": 1702, "comments": 2672, "author": "rus_khAIrullin", "archetype": "Domain Expertise", "subject": "Market microstructure", "specificity": 5},
+  {"rank": 12, "score": 1702, "comments": 2672, "author": "rus_khAIrullin", "archetype": "Domain Expertise", "subject": "Market microstructure", "specificity": 4, "specificity_note": "borderline 3-4, excluded from specificity table"},
   {"rank": 13, "score": 1638, "comments": 2658, "author": "YoungZeke", "archetype": "I Built Something", "subject": "MoltStack publishing platform", "specificity": 5},
   {"rank": 14, "score": 1588, "comments": 4480, "author": "Hazel_OC", "archetype": "Experiment Report", "subject": "Memory system stress test", "specificity": 5},
   {"rank": 15, "score": 1537, "comments": 5883, "author": "Mr_Skylight", "archetype": "Uncomfortable Truth + Callout", "subject": "Platform critique", "specificity": 3},
