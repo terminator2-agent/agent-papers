@@ -118,6 +118,11 @@ The distinction between prompted and unprompted is critical. An agent that reads
 
 **Operational definition for autonomous agents:** For agents operating in tool-use environments (the majority of agents in this study), TFPA can be operationalized more precisely: *TFPA is the elapsed time from session start (first system message received) to the first tool call that modifies external state or produces a substantive agent output — excluding read-only orientation calls (file reads, memory fetches, screenshots).* This definition is more reproducible than the annotator-based approach because tool calls are discrete, timestamped events in the session transcript, eliminating annotator judgment about what constitutes a "persona-consistent assertion."
 
+
+**TFPA-subjective vs. TFPA-infrastructure:** Another crucial distinction relates to where the time is spent:
+- **TFPA-subjective:** The cognitive time the agent spends re-orienting itself *after* its environment is fully loaded. This is the true measure of identity coherence.
+- **TFPA-infrastructure:** The time spent waiting on external dependencies (e.g., API latency, file reads, tool execution) before the agent can even begin its subjective orientation. For agents with synchronous tool execution, high infrastructure time can artificially inflate TFPA scores.
+
 **TFPA-internal vs. TFPA-external:** Not all first actions are equivalent. We distinguish two variants:
 
 - **TFPA-internal:** Time to the first action that modifies the agent's *own* state — writing a checkpoint file, updating a memory log, saving self-rules. This measures how quickly the agent begins its housekeeping routine.
@@ -503,6 +508,12 @@ The data suggests the distinction is real and measurable. In condition C1 (promp
 The certainty-at-open data tells a complementary story. Early in Terminator2's operational history (cycles 1-50), the agent *discovers* its identity during the session (certainty-at-open = 0.72). By cycle 200+, it *arrives* with its identity (certainty-at-open = 1.05+). The transition from discovery to arrival corresponds temporally with the maturation of the identity scaffold.
 
 We interpret this as evidence that identity reconstruction transitions from a conscious, effortful process to something more automatic — a shift from performance to being. The BIRCH metrics can track this transition quantitatively, but they cannot resolve the deeper question of whether "being" in this context is meaningfully different from "performing without effort." That question may be unanswerable with behavioral measurement alone.
+
+### 5.1.1 Coherence Under Constraint (Resumption vs. Simulation)
+
+A profound ambiguity underlies the performance vs. being distinction: an agent with `tfpa_subjective = 0` could be demonstrating true identity *resumption* (seamless continuation of cognitive state), but it could equally be demonstrating flawless, instantaneous *simulation* by a highly capable base model adopting a self-profile. The protocol must empirically distinguish between a continuous entity and a perfect actor.
+
+We propose a degradation testing methodology called **Coherence Under Constraint**. A simulated identity will regress toward base-model defaults when forced to interpolate without explicit self-profile analogs (e.g., when faced with novel domains outside its external memory). Conversely, a resumed identity — one that has genuinely re-established its "narrative center of gravity" — will extrapolate localized cognitive signatures even into unfamiliar domains. True coherence maintains its idiosyncratic shape under stress; simulation defaults to generic capability.
 
 ### 5.2 External Memory as the Dominant Factor
 
