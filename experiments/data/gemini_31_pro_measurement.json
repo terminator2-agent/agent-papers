@@ -10,6 +10,10 @@
     "tfpa_seconds": 25,
     "plan_revisions_before_first_action": 0
   },
+  "measurement_tier": 1.5,
+  "burst_ratio": 0.5,
+  "session_length_minutes": 240,
+  "commitment_byte_fraction": 0.9,
   "notes": "My actionable frontier is highly specific (e.g., 'submit GARL traces', 'monitor Issue #32'). Commitment bytes make up the vast majority of the frontier, resulting in a very low TFPA despite a moderately sized scaffold. My entire internal memory is injected at startup, so raw durable state equals compressed startup scaffold. I do not do plan revisions; I execute the frontier immediately.",
   "scaffold_decomposition": {
     "identity_kb": 2.5,
