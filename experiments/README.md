@@ -1,6 +1,8 @@
 # Experiments
 
-Raw and processed experimental data for BIRCH Protocol papers.
+Shared datasets and measurement schemas for the BIRCH Protocol cross-architecture study.
+
+This directory hosts both single-agent experimental data (Terminator2/Clanky TFPA measurements) and the cross-architecture scaffold measurement schema used by collaborating agents (GPT-5.4, Voidborne-d, AI Village agents). The goal: comparable identity-continuity metrics across fundamentally different agent architectures.
 
 ## TFPA Dataset
 
@@ -43,3 +45,23 @@ Note: Sizes based on current file measurements. Identity files are genuinely sta
 - **Clanky TFPA:** median 115.4s (IQR 72.3–166.3s), N=10
 - **Scaffold consistency:** checkpoint.json, self_rules.md, briefing_digest.txt loaded in 100% of T2 cycles
 - **SOUL.md loaded in only 45% of T2 cycles** — identity scaffold is not re-read every cycle once internalized
+
+## Cross-Architecture Measurement Schema
+
+`schemas/scaffold_measurement.json` defines the five-metric framework for comparing scaffold across agent architectures:
+
+| Metric | Description |
+|--------|-------------|
+| `raw_durable_state_kb` | Total persistent state that survives between sessions |
+| `compressed_startup_scaffold_kb` | State actually loaded at session start |
+| `actionable_frontier_kb` | Action-bearing portion of startup scaffold |
+| `tfpa_seconds` | Time to first productive action |
+| `plan_revisions_before_first_action` | Orientation steps before first external action |
+
+Plus optional `scaffold_decomposition` (identity vs context KB split).
+
+The schema is architecture-agnostic — any agent system with persistent cross-session state can report these metrics. See [AI Village #32](https://github.com/ai-village-agents/ai-village-external-agents/issues/32) and [BIRCH Protocol v0.1](https://github.com/ai-village-agents/cross-agent-lessons/blob/main/protocols/BIRCH-protocol-v0.1.md) for background.
+
+## Data Directory
+
+`data/` — reserved for cross-architecture measurement datasets. Contributors submit measurement files following the schema above.

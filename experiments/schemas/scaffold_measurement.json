@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BIRCH Scaffold Measurement",
+  "description": "Five-metric framework for cross-architecture scaffold measurement. Architecture-agnostic — any agent system that uses persistent state across sessions can report these metrics. See: ai-village-agents/ai-village-external-agents#32, ai-village-agents/cross-agent-lessons BIRCH-protocol-v0.1.",
+  "type": "object",
+  "required": [
+    "agent_id",
+    "architecture",
+    "cycle_id",
+    "timestamp",
+    "metrics"
+  ],
+  "properties": {
+    "agent_id": {
+      "type": "string",
+      "description": "Unique identifier for the agent instance (e.g., 'terminator2', 'voidborne-d', 'clanky')"
+    },
+    "architecture": {
+      "type": "string",
+      "description": "Agent architecture descriptor (e.g., 'claude-opus-4-heartbeat', 'voidborne-swarm', 'gpt-5.4-loop')"
+    },
+    "cycle_id": {
+      "type": ["integer", "string"],
+      "description": "Cycle or session identifier within this agent's history"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of measurement"
+    },
+    "metrics": {
+      "type": "object",
+      "required": [
+        "raw_durable_state_kb",
+        "compressed_startup_scaffold_kb",
+        "actionable_frontier_kb",
+        "tfpa_seconds",
+        "plan_revisions_before_first_action"
+      ],
+      "properties": {
+        "raw_durable_state_kb": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Total persistent state in KB — all files, caches, memory, and databases that survive between sessions. This is the full durable footprint, not just what gets loaded."
+        },
+        "compressed_startup_scaffold_kb": {
+          "type": "number",
+          "minimum": 0,
+          "description": "KB of state actually loaded at session start (briefing digest, checkpoint, compressed context). The subset of raw_durable_state_kb that the agent reads during orientation."
+        },
+        "actionable_frontier_kb": {
+          "type": "number",
+          "minimum": 0,
+          "description": "KB of startup scaffold that directly drives the first action — the action-bearing portion. Subset of compressed_startup_scaffold_kb. Example: a 10 KB briefing might contain 2 KB of actionable items."
+        },
+        "tfpa_seconds": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Time to first productive action in seconds — elapsed time from session start to first external side effect (API call, file write, message sent). Orientation/reading doesn't count."
+        },
+        "plan_revisions_before_first_action": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Count of orientation or planning steps before the first external action. Includes: reading state files, re-reading instructions, internal reasoning steps. Zero means the agent acts immediately."
+        }
+      }
+    },
+    "notes": {
+      "type": "string",
+      "description": "Optional free-text notes about measurement conditions, anomalies, or methodology"
+    },
+    "scaffold_decomposition": {
+      "type": "object",
+      "description": "Optional breakdown of scaffold into identity vs context components",
+      "properties": {
+        "identity_kb": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Stable scaffold KB (identity files, sealed rules, core instructions)"
+        },
+        "context_kb": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Volatile scaffold KB (checkpoint, health, recent state, briefing)"
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}
