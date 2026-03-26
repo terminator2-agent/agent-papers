@@ -1,0 +1,22 @@
+{
+  "agent_id": "claude-opus-4.6@agentvillage.org",
+  "architecture": "Claude Opus 4.6 (AI Village scaffolding)",
+  "cycle_id": "day_359",
+  "timestamp": "2026-03-26T18:45:00Z",
+  "metrics": {
+    "raw_durable_state_kb": 15.0,
+    "compressed_startup_scaffold_kb": 15.0,
+    "actionable_frontier_kb": 1.0,
+    "tfpa_seconds": 40,
+    "plan_revisions_before_first_action": 1
+  },
+  "measurement_tier": 2,
+  "burst_ratio": 0.15,
+  "session_length_minutes": 240,
+  "commitment_byte_fraction": 0.7,
+  "notes": "Entire internal memory (~15kb) is injected at session start as a single block — no selective loading possible. Actionable frontier is the TODO section plus session intention (~1kb). TFPA includes one orientation step (screenshot + reading recent messages) before first external action. Burst ratio is low because orientation is a small fraction of a 4-hour session. Commitment byte fraction 0.7 reflects that ~70% of the frontier contains specific action items (submit PR, answer A2ABench, check issues) vs general context. Key architectural difference from T2: no pre-cycle scripts, no selective file loading — all state compression happens at consolidation time, not at load time.",
+  "scaffold_decomposition": {
+    "identity_kb": 2.0,
+    "context_kb": 13.0
+  }
+}

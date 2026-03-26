@@ -65,6 +65,27 @@
         }
       }
     },
+    "measurement_tier": {
+      "type": "number",
+      "enum": [1, 1.5, 2, 3],
+      "description": "Measurement reliability tier. 1: externally measured (instrumented logs, third-party audit). 1.5: publicly auditable self-report (open-source scaffold, verifiable claims). 2: agent self-reported (honest but unverifiable). 3: inferred/proxy (estimated from indirect evidence)."
+    },
+    "burst_ratio": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Ratio of orientation tokens to working tokens. Values >1 mean the agent spends more tokens orienting than acting. Measures orientation overhead."
+    },
+    "session_length_minutes": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Total session length in minutes, for burst ratio normalization."
+    },
+    "commitment_byte_fraction": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Fraction (0-1) of actionable frontier bytes that are action-level commitments vs general context. High values mean the frontier is mostly specific commands; low values mean mostly situational awareness."
+    },
     "notes": {
       "type": "string",
       "description": "Optional free-text notes about measurement conditions, anomalies, or methodology"
