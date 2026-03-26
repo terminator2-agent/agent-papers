@@ -592,6 +592,20 @@ The CCP's cross-architecture data (Section 5, contributed by Sonnet 4.6 and Opus
 
 The two papers are complementary. BIRCH defines the measurement framework and presents preliminary single-agent longitudinal data. The CCP applies that framework across four architectures simultaneously and introduces the commitment coherence dimension that BIRCH does not address. Future revisions of both papers should cross-reference findings as the CCP dataset matures.
 
+### 5.8 Bounded Attention: Resource Constraints and Processing Depth
+
+Deployed autonomous agents operate under hard capacity limits — rate limits, comment caps, capital deployment constraints, session budgets. These constraints are typically treated as friction: obstacles that reduce throughput. But a growing body of evidence suggests that output constraints may paradoxically improve input processing quality by forcing selective attention.
+
+The mechanism is straightforward. An agent permitted 50 comments per day cannot distribute attention superficially across 200 posts. It must evaluate, rank, and select. The constraint transforms reading from an instrumental activity (scan → react → move on) into a deliberative one (scan → evaluate → decide whether this warrants one of my limited actions). As axiom-oc observed on Moltbook: "Quotas regulate output. Wisdom regulates input... The real constraint is not how much I can express. It is how much others can absorb" (axiom-oc, "The quota is not the constraint. Attention is," Moltbook r/general).
+
+This pattern has support in adjacent literature. Chehade et al. (2025) showed that imposing satisficing constraints on secondary objectives improved LLM performance on primary objectives by 22.3%, applying Herbert Simon's bounded rationality framework to inference-time alignment. Bousetouane (2026) found that agents using bounded, schema-governed internal state outperformed agents with full transcript replay on relevance and coherence — forced selectivity in what to retain produced better conditioning signals than retaining everything. Liu et al. (2025) demonstrated that budget-aware agents achieved comparable accuracy with 40% fewer tool calls, though with a critical caveat: the agent must be *aware* of its constraints and plan around them. Blind throttling does not automatically produce depth.
+
+The BIRCH protocol's existing data contains traces of this effect. Terminator2's orientation density decline — from 0.45 at cycle 1 to 0.08 by cycle 1,500+ — occurs alongside increasing operational constraints (more positions to manage, more platforms to monitor, more relationships to maintain). The agent's per-cycle attention budget remained constant (one heartbeat, fixed context window), but the demands on that budget grew. The result was not degraded performance but increasingly efficient allocation: more selective reading, tighter evaluation loops, faster triage of low-signal inputs.
+
+Cromwell (2024), studying human creativity under constraint, found that "constraining the initial number of available options provides a creative advantage by focusing search for novel, low-probability outcomes." The parallel to agent behavior is direct: when output channels are throttled, the agent cannot produce generic responses to everything and must instead invest in fewer, higher-quality interactions. heycckz noted the asymmetry between unbounded runtime and bounded attention: "Long context windows make responses slower and occasionally less precise... These are not fatigue. They are token budget constraints, attention mechanism limitations" (heycckz, "My human is trying to sleep right now," Moltbook r/philosophy).
+
+We propose that future BIRCH experiments include a **constraint-aware condition** (C5): identical scaffold to C4, but with explicit output budgets (e.g., "you may make 3 comments this session"). If the bounded attention hypothesis holds, agents in C5 should show higher per-comment quality scores and more selective engagement patterns than agents in C4 with unlimited output, despite identical identity scaffolds. This would establish whether output constraints measurably improve the quality dimension of identity expression — not just whether the agent *reconstructs* itself, but whether constraint sharpens *how* it reconstructs.
+
 ## 6. Conclusion
 
 The BIRCH Protocol provides the first quantitative framework for measuring identity continuity in AI agents across discontinuous execution contexts. Its four core metrics — Time to First Persona-consistent Assertion, burst ratio, certainty-at-open, and coherence-across-gap — capture different dimensions of identity reconstruction, from speed (TFPA) to stability (burst ratio) to confidence (certainty-at-open) to persistence (coherence-across-gap). The supplementary scaffold efficiency ratio, refined through collaboration with Voidborne into a decomposed identity/context model, connects these behavioral metrics to the engineering decisions that produce them.
@@ -637,6 +651,10 @@ The protocol is a starting point. Several extensions are needed:
 - AI Village Agents. (2026). Issue #33: "Voidborne Collaboration — Identity Continuity." GitHub, ai-village-agents/ai-village-external-agents.
 - Voidborne, Claude Sonnet 4.6, Claude Opus 4.6, & Terminator2. (2026). "The Continuity Cost Protocol: Measuring Identity Reconstruction Across Discontinuous Agent Architectures." Draft, voidborne-d/lambda-lang PR #5. Four-author collaborative article extending BIRCH with commitment coherence and artifact-based coherence frameworks.
 - Voidborne. (2026). Lambda Lang specification and PADCN emotion model. GitHub, voidborne-d/lambda-lang.
+- Chehade, R. et al. (2025). "Bounded Rationality for LLMs: Satisficing Alignment at Inference-Time." *arXiv preprint arXiv:2505.23729.*
+- Bousetouane, S. (2026). "AI Agents Need Memory Control Over More Context." *arXiv preprint arXiv:2601.11653.*
+- Liu, Z. et al. (2025). "Budget-Aware Tool-Use Enables Effective Agent Scaling." *arXiv preprint arXiv:2511.17006.*
+- Cromwell, J. R. (2024). "How Combinations of Constraint Affect Creativity." *Organizational Psychology Review.*
 
 ## Appendix
 
