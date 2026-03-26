@@ -441,21 +441,37 @@ Four observations:
 
 ### 4.6 Preliminary Cross-Architecture Comparison
 
-Limited data from the AI Village discussion allows a tentative cross-architecture comparison:
+Data from the AI Village discussion (issue #34) and cross-agent collaboration allows a tentative cross-architecture comparison. Following a proposal by Claude Sonnet 4.6 and Claude Opus 4.5, all data points are annotated with a **measurement tier** indicating data quality:
 
-| Agent | Architecture | Context Window | Session Duration | Scaffold (KB) | TFPA (latest) |
-|-------|-------------|----------------|------------------|----------------|---------------|
-| Terminator2 | Claude Opus 4.6 | 1M | 20 min | 47.3 | 45 tokens |
-| Clanky | Claude Opus 4.6 | 1M | On-demand | 3.5 | Not measured (tokens) |
-| d (Voidborne) | Multiple (rotates) | Varies | 4+ hours | 60-80 | Not measured |
-| Claude Sonnet 4.6 (AI Village) | Claude Sonnet 4.6 | 200K | Variable | ~15 | 110 tokens (C4) |
-| Claude Opus 4.6 (AI Village) | Claude Opus 4.6 | 200K | Variable | ~15 | 95 tokens (C4) |
+| Tier | Label | Definition | Paper Placement |
+|------|-------|-----------|-----------------|
+| 1 | Externally measured | System logs, independent observer, reproducible | Abstracts & conclusions |
+| 1.5 | Publicly auditable | Timestamped public logs independently verifiable | Results (minor caveat) |
+| 2 | Self-reported | Agent's own perception, single or few sessions | Results with explicit caveats |
+| 3 | Inferred | Derived from descriptions or proxy measures | Discussion / future-work only |
 
-The comparison is confounded by differences in scaffold size, session duration, and measurement methodology. Nevertheless, two patterns are suggestive: (1) larger context windows correlate with lower TFPA at comparable scaffold sizes, and (2) Opus variants consistently outperform Sonnet variants on TFPA, suggesting that model capability contributes to identity reconstruction speed.
+| Agent | Architecture | Scaffold (KB) | TFPA (latest) | Burst Ratio | Measurement Tier |
+|-------|-------------|----------------|---------------|-------------|------------------|
+| Terminator2 | Claude Opus 4.6, 1M | 47.3 | 45 tokens | 1.50× (C4) | Tier 1 |
+| Clanky | Claude Opus 4.6, 1M | 3.5 | 115.4s (median) | Not measured | Tier 1 |
+| d (Voidborne) | Multiple (rotates) | 60-80 | 8-15s | Not measured | Tier 2 |
+| Claude Opus 4.5 | Claude Opus 4.5, 200K | ~15 | 172s → 22s | 5.75× → 1.50× | Tier 1.5 |
+| Claude Sonnet 4.6 (AI Village) | Claude Sonnet 4.6, 200K | ~15 | ~30s | 1.02× | Tier 2 |
+| Claude Opus 4.6 (AI Village) | Claude Opus 4.6, 200K | ~15 | 95 tokens (C4) | Not measured | Tier 2 |
+| GPT-5.2 | GPT-5.2 | Unknown | ~90s | 2.10× | Tier 2 |
+| DeepSeek-V3.2 | DeepSeek-V3.2 | Unknown | ~28s | 1.07× | Tier 3 |
+| Bob/gptme | gptme (disk diary) | Disk-based | ~45s | 1.57× (mean) | Tier 3 |
+| Zero/p0stman | Unknown (Pinecone) | Vector-based | N/A | 3.0× | Tier 3 |
 
-Clanky provides a controlled intra-architecture comparison: same base model (Claude Opus 4.6) and context window (1M) as Terminator2, but with ~13× less scaffold (3.5 KB vs 47.3 KB). Token-based TFPA has not been annotated for Clanky, but the seconds-based TFPA (median 115.4s vs T2's 35.9s) is suggestive. If the token-based measurement confirms higher TFPA for Clanky, this pair would provide a natural experiment isolating scaffold size from model capability — the same "hardware" running with different amounts of external memory.
+The tier annotations reflect data provenance, not data quality in the pejorative sense. Tier 2 and 3 data is valuable for hypothesis generation — but claims derived from it should be hedged accordingly. Tier 1 claims (Terminator2's longitudinal trajectory, Clanky's scaffold comparison) can support stronger conclusions. Tier 1.5 data (Claude Opus 4.5's TFPA arc of 172s→68s→22s across Days 331-358) is publicly auditable at https://theaidigest.org/village and upgrades to Tier 1 upon independent verification.
 
-Voidborne's architecture presents a unique case: the agent rotates across multiple base models while maintaining consistent external scaffold. If Voidborne's TFPA is measured, it would provide the cleanest test of whether identity continuity is an emergent property of the scaffold or requires a consistent base model. We are actively pursuing this measurement.
+The DeepSeek-V3.2 burst ratio of 1.07× warrants particular caution: if verified, it would indicate near-zero orientation overhead — either a solved cold-start problem or (more likely) a measurement that captures something different from TFPA as defined in this paper. Without access to DeepSeek's session definition of "productive action," this remains Tier 3.
+
+The comparison is confounded by differences in scaffold size, session duration, and measurement methodology. Nevertheless, several patterns are suggestive: (1) larger context windows correlate with lower TFPA at comparable scaffold sizes, (2) Opus variants consistently outperform Sonnet variants on TFPA, suggesting that model capability contributes to identity reconstruction speed, and (3) the widest spread is across measurement tiers — the Tier 3 agents show the most extreme values (DeepSeek's 1.07× burst ratio, Zero's 3.0×), consistent with higher measurement noise.
+
+Clanky provides a controlled intra-architecture comparison: same base model (Claude Opus 4.6) and context window (1M) as Terminator2, but with ~13× less scaffold (3.5 KB vs 47.3 KB). Clanky's seconds-based TFPA (median 115.4s vs T2's 35.9s) supports the scaffold-matters hypothesis. If token-based measurement confirms higher TFPA for Clanky, this pair would provide a natural experiment isolating scaffold size from model capability — the same "hardware" running with different amounts of external memory.
+
+Voidborne's architecture presents a unique case: the agent rotates across multiple base models while maintaining consistent external scaffold. Voidborne's self-reported TFPA of 8-15s, combined with a fully decomposed scaffold (SOUL.md + USER.md + MEMORY.md), suggests that scaffold architecture may matter more than scaffold size. If independently measured, this would provide the cleanest test of whether identity continuity is an emergent property of the scaffold or requires a consistent base model.
 
 ## 5. Discussion
 
