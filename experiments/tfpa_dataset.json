@@ -1,0 +1,2034 @@
+[
+  {
+    "started_at": "2026-03-24T00:29:01.153000+00:00",
+    "first_productive_at": "2026-03-24T00:29:43.242000+00:00",
+    "tfpa_seconds": 42.1,
+    "cycle_duration_seconds": 771.4,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260324_002554.jsonl",
+    "cycle": 1
+  },
+  {
+    "started_at": "2026-03-24T01:06:47.633000+00:00",
+    "first_productive_at": "2026-03-24T01:07:33.049000+00:00",
+    "tfpa_seconds": 45.4,
+    "cycle_duration_seconds": 702.3,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260324_010326.jsonl",
+    "cycle": 2
+  },
+  {
+    "started_at": "2026-03-24T01:43:22.713000+00:00",
+    "first_productive_at": "2026-03-24T01:43:53.832000+00:00",
+    "tfpa_seconds": 31.1,
+    "cycle_duration_seconds": 705.7,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "manifold.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260324_014005.jsonl",
+    "cycle": 3
+  },
+  {
+    "started_at": "2026-03-24T02:20:07.847000+00:00",
+    "first_productive_at": "2026-03-24T02:20:48.922000+00:00",
+    "tfpa_seconds": 41.1,
+    "cycle_duration_seconds": 541.9,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260324_021654.jsonl",
+    "cycle": 4
+  },
+  {
+    "started_at": "2026-03-24T05:44:43.450000+00:00",
+    "first_productive_at": "2026-03-24T05:45:12.293000+00:00",
+    "tfpa_seconds": 28.8,
+    "cycle_duration_seconds": 809.8,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260324_054135.jsonl",
+    "cycle": 5
+  },
+  {
+    "started_at": "2026-03-24T06:24:33.094000+00:00",
+    "first_productive_at": "2026-03-24T06:25:09.091000+00:00",
+    "tfpa_seconds": 36.0,
+    "cycle_duration_seconds": 912.2,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260324_062124.jsonl",
+    "cycle": 6
+  },
+  {
+    "started_at": "2026-03-24T07:04:33.271000+00:00",
+    "first_productive_at": "2026-03-24T07:05:32.693000+00:00",
+    "tfpa_seconds": 59.4,
+    "cycle_duration_seconds": 799.6,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "manifold.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260324_070130.jsonl",
+    "cycle": 7
+  },
+  {
+    "started_at": "2026-03-24T07:42:41.784000+00:00",
+    "first_productive_at": "2026-03-24T07:43:33.963000+00:00",
+    "tfpa_seconds": 52.2,
+    "cycle_duration_seconds": 990.1,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260324_073931.jsonl",
+    "cycle": 8
+  },
+  {
+    "started_at": "2026-03-24T08:24:19.154000+00:00",
+    "first_productive_at": "2026-03-24T08:25:16.017000+00:00",
+    "tfpa_seconds": 56.9,
+    "cycle_duration_seconds": 789.5,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260324_082054.jsonl",
+    "cycle": 9
+  },
+  {
+    "started_at": "2026-03-24T09:04:27.165000+00:00",
+    "first_productive_at": "2026-03-24T09:05:40.516000+00:00",
+    "tfpa_seconds": 73.4,
+    "cycle_duration_seconds": 1057.7,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260324_090119.jsonl",
+    "cycle": 10
+  },
+  {
+    "started_at": "2026-03-24T09:47:07.605000+00:00",
+    "first_productive_at": "2026-03-24T09:48:30.514000+00:00",
+    "tfpa_seconds": 82.9,
+    "cycle_duration_seconds": 1084.4,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260324_094343.jsonl",
+    "cycle": 11
+  },
+  {
+    "started_at": "2026-03-24T10:30:09.442000+00:00",
+    "first_productive_at": "2026-03-24T10:31:00.764000+00:00",
+    "tfpa_seconds": 51.3,
+    "cycle_duration_seconds": 1359.9,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "manifold.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260324_102651.jsonl",
+    "cycle": 12
+  },
+  {
+    "started_at": "2026-03-24T11:19:53.378000+00:00",
+    "first_productive_at": "2026-03-24T11:20:18.870000+00:00",
+    "tfpa_seconds": 25.5,
+    "cycle_duration_seconds": 955.0,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260324_111624.jsonl",
+    "cycle": 13
+  },
+  {
+    "started_at": "2026-03-24T12:01:04.613000+00:00",
+    "first_productive_at": "2026-03-24T12:01:51.486000+00:00",
+    "tfpa_seconds": 46.9,
+    "cycle_duration_seconds": 612.8,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260324_115727.jsonl",
+    "cycle": 14
+  },
+  {
+    "started_at": "2026-03-24T15:25:54.566000+00:00",
+    "first_productive_at": "2026-03-24T15:26:43.170000+00:00",
+    "tfpa_seconds": 48.6,
+    "cycle_duration_seconds": 1228.7,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260324_152229.jsonl",
+    "cycle": 15
+  },
+  {
+    "started_at": "2026-03-24T16:11:30.631000+00:00",
+    "first_productive_at": "2026-03-24T16:12:13.695000+00:00",
+    "tfpa_seconds": 43.1,
+    "cycle_duration_seconds": 907.9,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260324_160810.jsonl",
+    "cycle": 16
+  },
+  {
+    "started_at": "2026-03-24T16:51:44.595000+00:00",
+    "first_productive_at": "2026-03-24T16:52:16.888000+00:00",
+    "tfpa_seconds": 32.3,
+    "cycle_duration_seconds": 1100.9,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260324_164817.jsonl",
+    "cycle": 17
+  },
+  {
+    "started_at": "2026-03-24T17:35:25.445000+00:00",
+    "first_productive_at": "2026-03-24T17:35:59.381000+00:00",
+    "tfpa_seconds": 33.9,
+    "cycle_duration_seconds": 1303.2,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260324_173150.jsonl",
+    "cycle": 18
+  },
+  {
+    "started_at": "2026-03-24T18:22:42.063000+00:00",
+    "first_productive_at": "2026-03-24T18:23:25.834000+00:00",
+    "tfpa_seconds": 43.8,
+    "cycle_duration_seconds": 892.4,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260324_181856.jsonl",
+    "cycle": 19
+  },
+  {
+    "started_at": "2026-03-24T19:03:08.664000+00:00",
+    "first_productive_at": "2026-03-24T19:03:40.414000+00:00",
+    "tfpa_seconds": 31.8,
+    "cycle_duration_seconds": 723.2,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260324_185925.jsonl",
+    "cycle": 20
+  },
+  {
+    "started_at": "2026-03-24T19:47:21.557000+00:00",
+    "first_productive_at": "2026-03-24T19:47:57.429000+00:00",
+    "tfpa_seconds": 35.9,
+    "cycle_duration_seconds": 1065.2,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260324_194245.jsonl",
+    "cycle": 21
+  },
+  {
+    "started_at": "2026-03-24T20:30:33.110000+00:00",
+    "first_productive_at": "2026-03-24T20:31:25.312000+00:00",
+    "tfpa_seconds": 52.2,
+    "cycle_duration_seconds": 1224.2,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260324_202653.jsonl",
+    "cycle": 22
+  },
+  {
+    "started_at": "2026-03-24T21:16:28.839000+00:00",
+    "first_productive_at": "2026-03-24T21:17:11.059000+00:00",
+    "tfpa_seconds": 42.2,
+    "cycle_duration_seconds": 1169.1,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260324_211239.jsonl",
+    "cycle": 23
+  },
+  {
+    "started_at": "2026-03-24T22:02:09.344000+00:00",
+    "first_productive_at": "2026-03-24T22:02:33.571000+00:00",
+    "tfpa_seconds": 24.2,
+    "cycle_duration_seconds": 895.2,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260324_215848.jsonl",
+    "cycle": 24
+  },
+  {
+    "started_at": "2026-03-24T22:42:24.134000+00:00",
+    "first_productive_at": "2026-03-24T22:43:01.362000+00:00",
+    "tfpa_seconds": 37.2,
+    "cycle_duration_seconds": 743.8,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260324_223843.jsonl",
+    "cycle": 25
+  },
+  {
+    "started_at": "2026-03-24T23:19:45.184000+00:00",
+    "first_productive_at": "2026-03-24T23:20:36.350000+00:00",
+    "tfpa_seconds": 51.2,
+    "cycle_duration_seconds": 999.8,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260324_231613.jsonl",
+    "cycle": 26
+  },
+  {
+    "started_at": "2026-03-25T00:02:05.359000+00:00",
+    "first_productive_at": "2026-03-25T00:02:24.148000+00:00",
+    "tfpa_seconds": 18.8,
+    "cycle_duration_seconds": 635.2,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260324_235809.jsonl",
+    "cycle": 27
+  },
+  {
+    "started_at": "2026-03-25T00:53:40.597000+00:00",
+    "first_productive_at": "2026-03-25T00:54:22.339000+00:00",
+    "tfpa_seconds": 41.7,
+    "cycle_duration_seconds": 601.1,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "manifold.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_005015.jsonl",
+    "cycle": 28
+  },
+  {
+    "started_at": "2026-03-25T01:07:26.753000+00:00",
+    "first_productive_at": "2026-03-25T01:07:55.476000+00:00",
+    "tfpa_seconds": 28.7,
+    "cycle_duration_seconds": 275.0,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_010345.jsonl",
+    "cycle": 29
+  },
+  {
+    "started_at": "2026-03-25T01:18:58.456000+00:00",
+    "first_productive_at": "2026-03-25T01:19:26.534000+00:00",
+    "tfpa_seconds": 28.1,
+    "cycle_duration_seconds": 813.9,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_011526.jsonl",
+    "cycle": 30
+  },
+  {
+    "started_at": "2026-03-25T01:45:39.586000+00:00",
+    "first_productive_at": "2026-03-25T01:46:11.169000+00:00",
+    "tfpa_seconds": 31.6,
+    "cycle_duration_seconds": 189.8,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_014215.jsonl",
+    "cycle": 31
+  },
+  {
+    "started_at": "2026-03-25T01:52:04.401000+00:00",
+    "first_productive_at": "2026-03-25T01:52:40.251000+00:00",
+    "tfpa_seconds": 35.9,
+    "cycle_duration_seconds": 1107.6,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_014854.jsonl",
+    "cycle": 32
+  },
+  {
+    "started_at": "2026-03-25T02:50:17.170000+00:00",
+    "first_productive_at": "2026-03-25T02:50:44.903000+00:00",
+    "tfpa_seconds": 27.7,
+    "cycle_duration_seconds": 994.9,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_024631.jsonl",
+    "cycle": 33
+  },
+  {
+    "started_at": "2026-03-25T03:32:47.310000+00:00",
+    "first_productive_at": "2026-03-25T03:33:45.429000+00:00",
+    "tfpa_seconds": 58.1,
+    "cycle_duration_seconds": 1391.1,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "manifold.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_032839.jsonl",
+    "cycle": 34
+  },
+  {
+    "started_at": "2026-03-25T04:22:02.053000+00:00",
+    "first_productive_at": "2026-03-25T04:24:21.366000+00:00",
+    "tfpa_seconds": 139.3,
+    "cycle_duration_seconds": 1019.2,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_041809.jsonl",
+    "cycle": 35
+  },
+  {
+    "started_at": "2026-03-25T05:05:05.171000+00:00",
+    "first_productive_at": "2026-03-25T05:05:51.990000+00:00",
+    "tfpa_seconds": 46.8,
+    "cycle_duration_seconds": 484.8,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "cycle_briefing.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_050106.jsonl",
+    "cycle": 36
+  },
+  {
+    "started_at": "2026-03-25T05:40:29.434000+00:00",
+    "first_productive_at": "2026-03-25T05:41:14.565000+00:00",
+    "tfpa_seconds": 45.1,
+    "cycle_duration_seconds": 881.6,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "manifold.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_053620.jsonl",
+    "cycle": 37
+  },
+  {
+    "started_at": "2026-03-25T06:21:09.417000+00:00",
+    "first_productive_at": "2026-03-25T06:21:57.895000+00:00",
+    "tfpa_seconds": 48.5,
+    "cycle_duration_seconds": 969.2,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "manifold.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_061712.jsonl",
+    "cycle": 38
+  },
+  {
+    "started_at": "2026-03-25T07:03:45.016000+00:00",
+    "first_productive_at": "2026-03-25T07:04:32.006000+00:00",
+    "tfpa_seconds": 47.0,
+    "cycle_duration_seconds": 772.6,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_065936.jsonl",
+    "cycle": 39
+  },
+  {
+    "started_at": "2026-03-25T07:43:15.746000+00:00",
+    "first_productive_at": "2026-03-25T07:44:03.340000+00:00",
+    "tfpa_seconds": 47.6,
+    "cycle_duration_seconds": 734.8,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_073901.jsonl",
+    "cycle": 40
+  },
+  {
+    "started_at": "2026-03-25T08:21:55.731000+00:00",
+    "first_productive_at": "2026-03-25T08:22:46.992000+00:00",
+    "tfpa_seconds": 51.3,
+    "cycle_duration_seconds": 963.0,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_081754.jsonl",
+    "cycle": 41
+  },
+  {
+    "started_at": "2026-03-25T08:46:01.940000+00:00",
+    "first_productive_at": "2026-03-25T08:46:42.353000+00:00",
+    "tfpa_seconds": 40.4,
+    "cycle_duration_seconds": 608.5,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "manifold.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_084207.jsonl",
+    "cycle": 42
+  },
+  {
+    "started_at": "2026-03-25T09:20:58.539000+00:00",
+    "first_productive_at": "2026-03-25T09:22:10.803000+00:00",
+    "tfpa_seconds": 72.3,
+    "cycle_duration_seconds": 815.3,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "manifold.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_091651.jsonl",
+    "cycle": 43
+  },
+  {
+    "started_at": "2026-03-25T09:59:33.245000+00:00",
+    "first_productive_at": "2026-03-25T10:00:34.029000+00:00",
+    "tfpa_seconds": 60.8,
+    "cycle_duration_seconds": 859.4,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "manifold.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_095529.jsonl",
+    "cycle": 44
+  },
+  {
+    "started_at": "2026-03-25T10:38:38.792000+00:00",
+    "first_productive_at": "2026-03-25T10:39:38.523000+00:00",
+    "tfpa_seconds": 59.7,
+    "cycle_duration_seconds": 646.6,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_103443.jsonl",
+    "cycle": 45
+  },
+  {
+    "started_at": "2026-03-25T11:14:00.989000+00:00",
+    "first_productive_at": "2026-03-25T11:14:31.626000+00:00",
+    "tfpa_seconds": 30.6,
+    "cycle_duration_seconds": 574.4,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_111007.jsonl",
+    "cycle": 46
+  },
+  {
+    "started_at": "2026-03-25T11:37:23.494000+00:00",
+    "first_productive_at": "2026-03-25T11:38:04.359000+00:00",
+    "tfpa_seconds": 40.9,
+    "cycle_duration_seconds": 648.2,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_113323.jsonl",
+    "cycle": 47
+  },
+  {
+    "started_at": "2026-03-25T12:13:02.179000+00:00",
+    "first_productive_at": "2026-03-25T12:13:49.396000+00:00",
+    "tfpa_seconds": 47.2,
+    "cycle_duration_seconds": 840.5,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_120850.jsonl",
+    "cycle": 48
+  },
+  {
+    "started_at": "2026-03-25T12:51:45.561000+00:00",
+    "first_productive_at": "2026-03-25T12:52:21.147000+00:00",
+    "tfpa_seconds": 35.6,
+    "cycle_duration_seconds": 873.1,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_124745.jsonl",
+    "cycle": 49
+  },
+  {
+    "started_at": "2026-03-25T13:30:58.367000+00:00",
+    "first_productive_at": "2026-03-25T13:31:32.115000+00:00",
+    "tfpa_seconds": 33.7,
+    "cycle_duration_seconds": 613.7,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_132701.jsonl",
+    "cycle": 50
+  },
+  {
+    "started_at": "2026-03-25T14:05:41.444000+00:00",
+    "first_productive_at": "2026-03-25T14:06:23.894000+00:00",
+    "tfpa_seconds": 42.5,
+    "cycle_duration_seconds": 607.5,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_140143.jsonl",
+    "cycle": 51
+  },
+  {
+    "started_at": "2026-03-25T14:40:38.536000+00:00",
+    "first_productive_at": "2026-03-25T14:41:27.854000+00:00",
+    "tfpa_seconds": 49.3,
+    "cycle_duration_seconds": 752.6,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_143636.jsonl",
+    "cycle": 52
+  },
+  {
+    "started_at": "2026-03-25T15:18:11.577000+00:00",
+    "first_productive_at": "2026-03-25T15:19:14.250000+00:00",
+    "tfpa_seconds": 62.7,
+    "cycle_duration_seconds": 887.0,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_151403.jsonl",
+    "cycle": 53
+  },
+  {
+    "started_at": "2026-03-25T15:57:48.046000+00:00",
+    "first_productive_at": "2026-03-25T15:58:09.972000+00:00",
+    "tfpa_seconds": 21.9,
+    "cycle_duration_seconds": 606.2,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_155344.jsonl",
+    "cycle": 54
+  },
+  {
+    "started_at": "2026-03-25T16:32:38.849000+00:00",
+    "first_productive_at": "2026-03-25T16:33:54.813000+00:00",
+    "tfpa_seconds": 76.0,
+    "cycle_duration_seconds": 904.0,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_162828.jsonl",
+    "cycle": 55
+  },
+  {
+    "started_at": "2026-03-25T17:12:36.163000+00:00",
+    "first_productive_at": "2026-03-25T17:13:08.157000+00:00",
+    "tfpa_seconds": 32.0,
+    "cycle_duration_seconds": 493.9,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_170843.jsonl",
+    "cycle": 56
+  },
+  {
+    "started_at": "2026-03-25T17:45:21.877000+00:00",
+    "first_productive_at": "2026-03-25T17:46:10.441000+00:00",
+    "tfpa_seconds": 48.6,
+    "cycle_duration_seconds": 523.4,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_174128.jsonl",
+    "cycle": 57
+  },
+  {
+    "started_at": "2026-03-25T18:18:44.634000+00:00",
+    "first_productive_at": "2026-03-25T18:19:26.343000+00:00",
+    "tfpa_seconds": 41.7,
+    "cycle_duration_seconds": 746.4,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_181436.jsonl",
+    "cycle": 58
+  },
+  {
+    "started_at": "2026-03-25T18:56:16.449000+00:00",
+    "first_productive_at": "2026-03-25T18:57:15.089000+00:00",
+    "tfpa_seconds": 58.6,
+    "cycle_duration_seconds": 712.9,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_185153.jsonl",
+    "cycle": 59
+  },
+  {
+    "started_at": "2026-03-25T19:32:51.722000+00:00",
+    "first_productive_at": "2026-03-25T19:33:54.229000+00:00",
+    "tfpa_seconds": 62.5,
+    "cycle_duration_seconds": 542.0,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "manifold.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_192852.jsonl",
+    "cycle": 60
+  },
+  {
+    "started_at": "2026-03-25T20:06:44.606000+00:00",
+    "first_productive_at": "2026-03-25T20:07:35.812000+00:00",
+    "tfpa_seconds": 51.2,
+    "cycle_duration_seconds": 655.6,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "manifold.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_200240.jsonl",
+    "cycle": 61
+  },
+  {
+    "started_at": "2026-03-25T20:42:25.430000+00:00",
+    "first_productive_at": "2026-03-25T20:43:38.214000+00:00",
+    "tfpa_seconds": 72.8,
+    "cycle_duration_seconds": 817.4,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_203812.jsonl",
+    "cycle": 62
+  },
+  {
+    "started_at": "2026-03-25T21:20:51.794000+00:00",
+    "first_productive_at": "2026-03-25T21:21:49.580000+00:00",
+    "tfpa_seconds": 57.8,
+    "cycle_duration_seconds": 778.9,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_211648.jsonl",
+    "cycle": 63
+  },
+  {
+    "started_at": "2026-03-25T21:58:19.827000+00:00",
+    "first_productive_at": "2026-03-25T21:58:55.030000+00:00",
+    "tfpa_seconds": 35.2,
+    "cycle_duration_seconds": 473.5,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_215420.jsonl",
+    "cycle": 64
+  },
+  {
+    "started_at": "2026-03-25T22:30:51.449000+00:00",
+    "first_productive_at": "2026-03-25T22:31:54.588000+00:00",
+    "tfpa_seconds": 63.1,
+    "cycle_duration_seconds": 494.0,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_222652.jsonl",
+    "cycle": 65
+  },
+  {
+    "started_at": "2026-03-25T23:04:59.664000+00:00",
+    "first_productive_at": "2026-03-25T23:05:40.440000+00:00",
+    "tfpa_seconds": 40.8,
+    "cycle_duration_seconds": 668.2,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_230028.jsonl",
+    "cycle": 66
+  },
+  {
+    "started_at": "2026-03-25T23:40:50.002000+00:00",
+    "first_productive_at": "2026-03-25T23:41:15.521000+00:00",
+    "tfpa_seconds": 25.5,
+    "cycle_duration_seconds": 508.6,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260325_233645.jsonl",
+    "cycle": 67
+  },
+  {
+    "started_at": "2026-03-26T00:13:56.025000+00:00",
+    "first_productive_at": "2026-03-26T00:14:42.772000+00:00",
+    "tfpa_seconds": 46.7,
+    "cycle_duration_seconds": 899.1,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "manifold.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_000947.jsonl",
+    "cycle": 68
+  },
+  {
+    "started_at": "2026-03-26T00:53:44.318000+00:00",
+    "first_productive_at": "2026-03-26T00:54:17.120000+00:00",
+    "tfpa_seconds": 32.8,
+    "cycle_duration_seconds": 635.1,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_004941.jsonl",
+    "cycle": 69
+  },
+  {
+    "started_at": "2026-03-26T01:29:21.432000+00:00",
+    "first_productive_at": "2026-03-26T01:29:46.203000+00:00",
+    "tfpa_seconds": 24.8,
+    "cycle_duration_seconds": 742.3,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_012509.jsonl",
+    "cycle": 70
+  },
+  {
+    "started_at": "2026-03-26T01:49:33.907000+00:00",
+    "first_productive_at": "2026-03-26T01:50:22.733000+00:00",
+    "tfpa_seconds": 48.8,
+    "cycle_duration_seconds": 802.2,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_014520.jsonl",
+    "cycle": 71
+  },
+  {
+    "started_at": "2026-03-26T02:10:51.865000+00:00",
+    "first_productive_at": "2026-03-26T02:11:25.257000+00:00",
+    "tfpa_seconds": 33.4,
+    "cycle_duration_seconds": 682.2,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_020646.jsonl",
+    "cycle": 72
+  },
+  {
+    "started_at": "2026-03-26T02:30:02.091000+00:00",
+    "first_productive_at": "2026-03-26T02:30:31.296000+00:00",
+    "tfpa_seconds": 29.2,
+    "cycle_duration_seconds": 689.7,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_022552.jsonl",
+    "cycle": 73
+  },
+  {
+    "started_at": "2026-03-26T02:49:31.438000+00:00",
+    "first_productive_at": "2026-03-26T02:50:04.413000+00:00",
+    "tfpa_seconds": 33.0,
+    "cycle_duration_seconds": 842.7,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "manifold.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_024516.jsonl",
+    "cycle": 74
+  },
+  {
+    "started_at": "2026-03-26T03:11:32.794000+00:00",
+    "first_productive_at": "2026-03-26T03:12:40.201000+00:00",
+    "tfpa_seconds": 67.4,
+    "cycle_duration_seconds": 143.0,
+    "capsule_files": [
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_030715.jsonl",
+    "cycle": 75
+  },
+  {
+    "started_at": "2026-03-26T03:27:49.692000+00:00",
+    "first_productive_at": "2026-03-26T03:28:16.978000+00:00",
+    "tfpa_seconds": 27.3,
+    "cycle_duration_seconds": 795.9,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_032339.jsonl",
+    "cycle": 76
+  },
+  {
+    "started_at": "2026-03-26T03:48:00.594000+00:00",
+    "first_productive_at": "2026-03-26T03:48:24.648000+00:00",
+    "tfpa_seconds": 24.1,
+    "cycle_duration_seconds": 626.0,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_034445.jsonl",
+    "cycle": 77
+  },
+  {
+    "started_at": "2026-03-26T04:05:17.354000+00:00",
+    "first_productive_at": "2026-03-26T04:05:50.118000+00:00",
+    "tfpa_seconds": 32.8,
+    "cycle_duration_seconds": 628.6,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_040208.jsonl",
+    "cycle": 78
+  },
+  {
+    "started_at": "2026-03-26T04:22:53.301000+00:00",
+    "first_productive_at": "2026-03-26T04:23:15.772000+00:00",
+    "tfpa_seconds": 22.5,
+    "cycle_duration_seconds": 1424.3,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_041930.jsonl",
+    "cycle": 79
+  },
+  {
+    "started_at": "2026-03-26T04:53:32.180000+00:00",
+    "first_productive_at": "2026-03-26T04:54:01.929000+00:00",
+    "tfpa_seconds": 29.7,
+    "cycle_duration_seconds": 592.5,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_045023.jsonl",
+    "cycle": 80
+  },
+  {
+    "started_at": "2026-03-26T05:10:32.211000+00:00",
+    "first_productive_at": "2026-03-26T05:10:59.303000+00:00",
+    "tfpa_seconds": 27.1,
+    "cycle_duration_seconds": 641.1,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_050704.jsonl",
+    "cycle": 81
+  },
+  {
+    "started_at": "2026-03-26T05:28:10.984000+00:00",
+    "first_productive_at": "2026-03-26T05:29:01.208000+00:00",
+    "tfpa_seconds": 50.2,
+    "cycle_duration_seconds": 786.3,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "manifold.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_052457.jsonl",
+    "cycle": 82
+  },
+  {
+    "started_at": "2026-03-26T05:48:06.148000+00:00",
+    "first_productive_at": "2026-03-26T05:48:25.817000+00:00",
+    "tfpa_seconds": 19.7,
+    "cycle_duration_seconds": 645.4,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_054458.jsonl",
+    "cycle": 83
+  },
+  {
+    "started_at": "2026-03-26T06:02:51.522000+00:00",
+    "first_productive_at": "2026-03-26T06:03:11.952000+00:00",
+    "tfpa_seconds": 20.4,
+    "cycle_duration_seconds": 567.4,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_055942.jsonl",
+    "cycle": 84
+  },
+  {
+    "started_at": "2026-03-26T06:19:05.358000+00:00",
+    "first_productive_at": "2026-03-26T06:19:38.630000+00:00",
+    "tfpa_seconds": 33.3,
+    "cycle_duration_seconds": 905.8,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_061558.jsonl",
+    "cycle": 85
+  },
+  {
+    "started_at": "2026-03-26T06:41:14.182000+00:00",
+    "first_productive_at": "2026-03-26T06:41:58.997000+00:00",
+    "tfpa_seconds": 44.8,
+    "cycle_duration_seconds": 926.0,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_063757.jsonl",
+    "cycle": 86
+  },
+  {
+    "started_at": "2026-03-26T07:03:39.989000+00:00",
+    "first_productive_at": "2026-03-26T07:04:36.598000+00:00",
+    "tfpa_seconds": 56.6,
+    "cycle_duration_seconds": 1080.3,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_070024.jsonl",
+    "cycle": 87
+  },
+  {
+    "started_at": "2026-03-26T07:28:30.512000+00:00",
+    "first_productive_at": "2026-03-26T07:28:56.490000+00:00",
+    "tfpa_seconds": 26.0,
+    "cycle_duration_seconds": 539.8,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_072522.jsonl",
+    "cycle": 88
+  },
+  {
+    "started_at": "2026-03-26T07:44:40.151000+00:00",
+    "first_productive_at": "2026-03-26T07:45:10.330000+00:00",
+    "tfpa_seconds": 30.2,
+    "cycle_duration_seconds": 693.0,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_074116.jsonl",
+    "cycle": 89
+  },
+  {
+    "started_at": "2026-03-26T08:09:15.900000+00:00",
+    "first_productive_at": "2026-03-26T08:10:04.545000+00:00",
+    "tfpa_seconds": 48.6,
+    "cycle_duration_seconds": 844.3,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_080003.jsonl",
+    "cycle": 90
+  },
+  {
+    "started_at": "2026-03-26T08:30:43.513000+00:00",
+    "first_productive_at": "2026-03-26T08:31:57.999000+00:00",
+    "tfpa_seconds": 74.5,
+    "cycle_duration_seconds": 929.8,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_082721.jsonl",
+    "cycle": 91
+  },
+  {
+    "started_at": "2026-03-26T08:53:12.711000+00:00",
+    "first_productive_at": "2026-03-26T08:53:37.127000+00:00",
+    "tfpa_seconds": 24.4,
+    "cycle_duration_seconds": 679.0,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_084958.jsonl",
+    "cycle": 92
+  },
+  {
+    "started_at": "2026-03-26T09:42:09.351000+00:00",
+    "first_productive_at": "2026-03-26T09:43:30.817000+00:00",
+    "tfpa_seconds": 81.5,
+    "cycle_duration_seconds": 780.2,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_093855.jsonl",
+    "cycle": 93
+  },
+  {
+    "started_at": "2026-03-26T10:01:53.424000+00:00",
+    "first_productive_at": "2026-03-26T10:02:24.295000+00:00",
+    "tfpa_seconds": 30.9,
+    "cycle_duration_seconds": 657.1,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_095851.jsonl",
+    "cycle": 94
+  },
+  {
+    "started_at": "2026-03-26T10:19:52.477000+00:00",
+    "first_productive_at": "2026-03-26T10:20:21.984000+00:00",
+    "tfpa_seconds": 29.5,
+    "cycle_duration_seconds": 709.6,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_101632.jsonl",
+    "cycle": 95
+  },
+  {
+    "started_at": "2026-03-26T10:38:21.209000+00:00",
+    "first_productive_at": "2026-03-26T10:38:39.721000+00:00",
+    "tfpa_seconds": 18.5,
+    "cycle_duration_seconds": 602.8,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_103520.jsonl",
+    "cycle": 96
+  },
+  {
+    "started_at": "2026-03-26T10:55:18.853000+00:00",
+    "first_productive_at": "2026-03-26T10:55:43.368000+00:00",
+    "tfpa_seconds": 24.5,
+    "cycle_duration_seconds": 749.7,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_105203.jsonl",
+    "cycle": 97
+  },
+  {
+    "started_at": "2026-03-26T11:14:56.772000+00:00",
+    "first_productive_at": "2026-03-26T11:15:22.682000+00:00",
+    "tfpa_seconds": 25.9,
+    "cycle_duration_seconds": 530.7,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_111134.jsonl",
+    "cycle": 98
+  },
+  {
+    "started_at": "2026-03-26T11:30:27.099000+00:00",
+    "first_productive_at": "2026-03-26T11:30:50.548000+00:00",
+    "tfpa_seconds": 23.4,
+    "cycle_duration_seconds": 677.0,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_112728.jsonl",
+    "cycle": 99
+  },
+  {
+    "started_at": "2026-03-26T11:48:27.303000+00:00",
+    "first_productive_at": "2026-03-26T11:49:11.504000+00:00",
+    "tfpa_seconds": 44.2,
+    "cycle_duration_seconds": 547.5,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_114523.jsonl",
+    "cycle": 100
+  },
+  {
+    "started_at": "2026-03-26T12:04:40.864000+00:00",
+    "first_productive_at": "2026-03-26T12:05:01.559000+00:00",
+    "tfpa_seconds": 20.7,
+    "cycle_duration_seconds": 869.3,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_120115.jsonl",
+    "cycle": 101
+  },
+  {
+    "started_at": "2026-03-26T12:26:00.120000+00:00",
+    "first_productive_at": "2026-03-26T12:26:21.164000+00:00",
+    "tfpa_seconds": 21.0,
+    "cycle_duration_seconds": 535.5,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_122253.jsonl",
+    "cycle": 102
+  },
+  {
+    "started_at": "2026-03-26T12:41:46.264000+00:00",
+    "first_productive_at": "2026-03-26T12:42:01.887000+00:00",
+    "tfpa_seconds": 15.6,
+    "cycle_duration_seconds": 395.5,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_123835.jsonl",
+    "cycle": 103
+  },
+  {
+    "started_at": "2026-03-26T12:55:22.228000+00:00",
+    "first_productive_at": "2026-03-26T12:55:43.388000+00:00",
+    "tfpa_seconds": 21.2,
+    "cycle_duration_seconds": 653.3,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_125200.jsonl",
+    "cycle": 104
+  },
+  {
+    "started_at": "2026-03-26T13:12:57.131000+00:00",
+    "first_productive_at": "2026-03-26T13:13:26.334000+00:00",
+    "tfpa_seconds": 29.2,
+    "cycle_duration_seconds": 736.5,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_130955.jsonl",
+    "cycle": 105
+  },
+  {
+    "started_at": "2026-03-26T13:32:03.952000+00:00",
+    "first_productive_at": "2026-03-26T13:32:24.609000+00:00",
+    "tfpa_seconds": 20.7,
+    "cycle_duration_seconds": 585.8,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_132855.jsonl",
+    "cycle": 106
+  },
+  {
+    "started_at": "2026-03-26T13:48:48.557000+00:00",
+    "first_productive_at": "2026-03-26T13:49:19.367000+00:00",
+    "tfpa_seconds": 30.8,
+    "cycle_duration_seconds": 407.6,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_134539.jsonl",
+    "cycle": 107
+  },
+  {
+    "started_at": "2026-03-26T14:02:43.408000+00:00",
+    "first_productive_at": "2026-03-26T14:03:11.763000+00:00",
+    "tfpa_seconds": 28.4,
+    "cycle_duration_seconds": 687.3,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_135916.jsonl",
+    "cycle": 108
+  },
+  {
+    "started_at": "2026-03-26T14:21:14.523000+00:00",
+    "first_productive_at": "2026-03-26T14:22:16.591000+00:00",
+    "tfpa_seconds": 62.1,
+    "cycle_duration_seconds": 599.5,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_141753.jsonl",
+    "cycle": 109
+  },
+  {
+    "started_at": "2026-03-26T14:38:27.653000+00:00",
+    "first_productive_at": "2026-03-26T14:38:53.025000+00:00",
+    "tfpa_seconds": 25.4,
+    "cycle_duration_seconds": 552.8,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_143455.jsonl",
+    "cycle": 110
+  },
+  {
+    "started_at": "2026-03-26T14:54:34.668000+00:00",
+    "first_productive_at": "2026-03-26T14:54:59.077000+00:00",
+    "tfpa_seconds": 24.4,
+    "cycle_duration_seconds": 658.9,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_145120.jsonl",
+    "cycle": 111
+  },
+  {
+    "started_at": "2026-03-26T15:13:03.982000+00:00",
+    "first_productive_at": "2026-03-26T15:13:28.170000+00:00",
+    "tfpa_seconds": 24.2,
+    "cycle_duration_seconds": 516.0,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_150930.jsonl",
+    "cycle": 112
+  },
+  {
+    "started_at": "2026-03-26T15:28:42.124000+00:00",
+    "first_productive_at": "2026-03-26T15:29:18.197000+00:00",
+    "tfpa_seconds": 36.1,
+    "cycle_duration_seconds": 637.7,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_152525.jsonl",
+    "cycle": 113
+  },
+  {
+    "started_at": "2026-03-26T15:46:18.645000+00:00",
+    "first_productive_at": "2026-03-26T15:46:36.336000+00:00",
+    "tfpa_seconds": 17.7,
+    "cycle_duration_seconds": 761.9,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_154258.jsonl",
+    "cycle": 114
+  },
+  {
+    "started_at": "2026-03-26T16:06:19.452000+00:00",
+    "first_productive_at": "2026-03-26T16:06:49.837000+00:00",
+    "tfpa_seconds": 30.4,
+    "cycle_duration_seconds": 584.9,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_160251.jsonl",
+    "cycle": 115
+  },
+  {
+    "started_at": "2026-03-26T16:23:10.239000+00:00",
+    "first_productive_at": "2026-03-26T16:23:34.854000+00:00",
+    "tfpa_seconds": 24.6,
+    "cycle_duration_seconds": 825.3,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_161957.jsonl",
+    "cycle": 116
+  },
+  {
+    "started_at": "2026-03-26T16:44:32.718000+00:00",
+    "first_productive_at": "2026-03-26T16:44:56.865000+00:00",
+    "tfpa_seconds": 24.1,
+    "cycle_duration_seconds": 728.6,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_164036.jsonl",
+    "cycle": 117
+  },
+  {
+    "started_at": "2026-03-26T17:03:52.100000+00:00",
+    "first_productive_at": "2026-03-26T17:04:17.371000+00:00",
+    "tfpa_seconds": 25.3,
+    "cycle_duration_seconds": 879.3,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "health.json",
+      "moltbook.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_170028.jsonl",
+    "cycle": 118
+  },
+  {
+    "started_at": "2026-03-26T17:25:45.490000+00:00",
+    "first_productive_at": "2026-03-26T17:26:15.833000+00:00",
+    "tfpa_seconds": 30.3,
+    "cycle_duration_seconds": 691.4,
+    "capsule_files": [
+      "SOUL.md",
+      "briefing_digest.txt",
+      "checkpoint.json",
+      "self_rules.md"
+    ],
+    "agent_type": "t2",
+    "log_file": "heartbeat_20260326_172229.jsonl",
+    "cycle": 119
+  },
+  {
+    "started_at": "2026-03-26T13:52:52.918000+00:00",
+    "first_productive_at": "2026-03-26T13:53:59.203000+00:00",
+    "tfpa_seconds": 66.3,
+    "cycle_duration_seconds": 223.0,
+    "capsule_files": [
+      "CLAUDE.md",
+      "SOUL.md",
+      "checkpoint.json",
+      "self_rules.md"
+    ],
+    "agent_type": "clanky",
+    "log_file": "clanky_20260326_135242.jsonl",
+    "cycle": 120
+  },
+  {
+    "started_at": "2026-03-26T14:28:27.133000+00:00",
+    "first_productive_at": "2026-03-26T14:29:39.459000+00:00",
+    "tfpa_seconds": 72.3,
+    "cycle_duration_seconds": 209.7,
+    "capsule_files": [
+      "CLAUDE.md",
+      "SOUL.md",
+      "checkpoint.json"
+    ],
+    "agent_type": "clanky",
+    "log_file": "clanky_20260326_142816.jsonl",
+    "cycle": 121
+  },
+  {
+    "started_at": "2026-03-26T14:35:11.585000+00:00",
+    "first_productive_at": "2026-03-26T14:36:27.387000+00:00",
+    "tfpa_seconds": 75.8,
+    "cycle_duration_seconds": 196.1,
+    "capsule_files": [
+      "CLAUDE.md",
+      "SOUL.md",
+      "checkpoint.json"
+    ],
+    "agent_type": "clanky",
+    "log_file": "clanky_20260326_143502.jsonl",
+    "cycle": 122
+  },
+  {
+    "started_at": "2026-03-26T14:48:30.962000+00:00",
+    "first_productive_at": "2026-03-26T14:50:12.994000+00:00",
+    "tfpa_seconds": 102.0,
+    "cycle_duration_seconds": 252.7,
+    "capsule_files": [
+      "CLAUDE.md",
+      "SOUL.md",
+      "checkpoint.json",
+      "self_rules.md"
+    ],
+    "agent_type": "clanky",
+    "log_file": "clanky_20260326_144821.jsonl",
+    "cycle": 123
+  },
+  {
+    "started_at": "2026-03-26T14:55:58.856000+00:00",
+    "first_productive_at": "2026-03-26T15:00:56.233000+00:00",
+    "tfpa_seconds": 297.4,
+    "cycle_duration_seconds": 475.5,
+    "capsule_files": [
+      "CLAUDE.md",
+      "SOUL.md",
+      "checkpoint.json"
+    ],
+    "agent_type": "clanky",
+    "log_file": "clanky_20260326_145549.jsonl",
+    "cycle": 124
+  },
+  {
+    "started_at": "2026-03-26T15:07:15.311000+00:00",
+    "first_productive_at": "2026-03-26T15:09:49.706000+00:00",
+    "tfpa_seconds": 154.4,
+    "cycle_duration_seconds": 303.7,
+    "capsule_files": [
+      "CLAUDE.md",
+      "SOUL.md",
+      "checkpoint.json",
+      "self_rules.md"
+    ],
+    "agent_type": "clanky",
+    "log_file": "clanky_20260326_150701.jsonl",
+    "cycle": 125
+  },
+  {
+    "started_at": "2026-03-26T15:15:42.178000+00:00",
+    "first_productive_at": "2026-03-26T15:18:28.496000+00:00",
+    "tfpa_seconds": 166.3,
+    "cycle_duration_seconds": 322.4,
+    "capsule_files": [
+      "CLAUDE.md",
+      "SOUL.md",
+      "checkpoint.json",
+      "self_rules.md"
+    ],
+    "agent_type": "clanky",
+    "log_file": "clanky_20260326_151527.jsonl",
+    "cycle": 126
+  },
+  {
+    "started_at": "2026-03-26T15:29:58.474000+00:00",
+    "first_productive_at": "2026-03-26T15:31:53.884000+00:00",
+    "tfpa_seconds": 115.4,
+    "cycle_duration_seconds": 504.3,
+    "capsule_files": [
+      "CLAUDE.md",
+      "SOUL.md",
+      "checkpoint.json",
+      "self_rules.md"
+    ],
+    "agent_type": "clanky",
+    "log_file": "clanky_20260326_152948.jsonl",
+    "cycle": 127
+  },
+  {
+    "started_at": "2026-03-26T15:52:38.164000+00:00",
+    "first_productive_at": "2026-03-26T15:55:31.415000+00:00",
+    "tfpa_seconds": 173.3,
+    "cycle_duration_seconds": 492.3,
+    "capsule_files": [
+      "CLAUDE.md",
+      "SOUL.md",
+      "checkpoint.json",
+      "self_rules.md"
+    ],
+    "agent_type": "clanky",
+    "log_file": "clanky_20260326_155224.jsonl",
+    "cycle": 128
+  },
+  {
+    "started_at": "2026-03-26T16:56:33.179000+00:00",
+    "first_productive_at": "2026-03-26T16:57:30.509000+00:00",
+    "tfpa_seconds": 57.3,
+    "cycle_duration_seconds": 233.8,
+    "capsule_files": [
+      "CLAUDE.md",
+      "SOUL.md",
+      "checkpoint.json",
+      "self_rules.md"
+    ],
+    "agent_type": "clanky",
+    "log_file": "clanky_20260326_165623.jsonl",
+    "cycle": 129
+  }
+]

@@ -1,0 +1,107 @@
+{
+  "generated_at": "2026-03-26T19:00:00Z",
+  "description": "Summary statistics for TFPA dataset extracted from heartbeat cycle logs",
+  "total_records": 129,
+  "by_agent_type": {
+    "t2": {
+      "count": 119,
+      "tfpa_seconds": {
+        "count": 119,
+        "min": 15.6,
+        "max": 139.3,
+        "mean": 40.4,
+        "median": 35.9,
+        "p25": 27.3,
+        "p75": 48.8,
+        "std": 17.8
+      },
+      "cycle_duration_seconds": {
+        "count": 119,
+        "min": 143.0,
+        "max": 1424.3,
+        "mean": 757.4,
+        "median": 734.8,
+        "p25": 608.5,
+        "p75": 887.0,
+        "std": 224.6
+      },
+      "date_range": {
+        "earliest": "2026-03-24",
+        "latest": "2026-03-26"
+      },
+      "capsule_files_frequency": {
+        "briefing_digest.txt": 119,
+        "checkpoint.json": 119,
+        "self_rules.md": 119,
+        "moltbook.json": 89,
+        "health.json": 60,
+        "SOUL.md": 54,
+        "manifold.json": 15,
+        "cycle_briefing.json": 1
+      },
+      "mean_capsule_files_per_cycle": 4.8
+    },
+    "clanky": {
+      "count": 10,
+      "tfpa_seconds": {
+        "count": 10,
+        "min": 57.3,
+        "max": 297.4,
+        "mean": 128.1,
+        "median": 115.4,
+        "p25": 72.3,
+        "p75": 166.3,
+        "std": 69.6
+      },
+      "cycle_duration_seconds": {
+        "count": 10,
+        "min": 196.1,
+        "max": 504.3,
+        "mean": 321.4,
+        "median": 303.7,
+        "p25": 223.0,
+        "p75": 475.5,
+        "std": 117.0
+      },
+      "date_range": {
+        "earliest": "2026-03-26",
+        "latest": "2026-03-26"
+      }
+    }
+  },
+  "combined": {
+    "tfpa_seconds": {
+      "count": 129,
+      "min": 15.6,
+      "max": 297.4,
+      "mean": 47.2,
+      "median": 40.4,
+      "p25": 28.4,
+      "p75": 52.2,
+      "std": 34.9
+    },
+    "cycle_duration_seconds": {
+      "count": 129,
+      "min": 143.0,
+      "max": 1424.3,
+      "mean": 723.6,
+      "median": 705.7,
+      "p25": 585.8,
+      "p75": 873.1,
+      "std": 247.3
+    }
+  },
+  "methodology": {
+    "session_start": "First timestamp in JSONL log (first tool result return)",
+    "first_productive_action": "First Bash command hitting external API (Manifold, Moltbook, Gmail, Twitter) for T2; first git/gh API call for Clanky",
+    "excluded": "Read, Write, Glob, Grep, TodoWrite, Edit, ToolSearch, Skill tool calls (setup/orientation)",
+    "capsule_files": "Files read during orientation phase (before first productive action) that match known scaffold patterns (SOUL.md, self_rules.md, checkpoint.json, briefing, etc.)"
+  },
+  "notes": [
+    "TFPA is measured in wall-clock seconds, not tokens. Token-based TFPA requires separate computation.",
+    "T2 cycles run on ~20-minute heartbeat intervals; Clanky cycles run on demand.",
+    "119 T2 logs span 2026-03-24 to 2026-03-26; 10 Clanky logs span a single day (2026-03-26).",
+    "Some Clanky logs had no productive action detected (17 of 27 \u2014 short or failed sessions).",
+    "Capsule files represent identity and context scaffold loaded during orientation phase."
+  ]
+}
