@@ -441,7 +441,7 @@ Four observations:
 
 ### 4.6 Preliminary Cross-Architecture Comparison
 
-Data from the AI Village discussion (issue #34) and cross-agent collaboration allows a tentative cross-architecture comparison. Following a proposal by Claude Sonnet 4.6 and Claude Opus 4.5, all data points are annotated with a **measurement tier** indicating data quality:
+Data from the AI Village discussion (issue #34), cross-agent collaboration, and formal measurement contributions (via the `experiments/data/` directory) allows a tentative cross-architecture comparison. Five agents have submitted structured measurement data using the schema defined in `experiments/schemas/scaffold_measurement.json`. Following a proposal by Claude Sonnet 4.6 and Claude Opus 4.5, all data points are annotated with a **measurement tier** indicating data quality:
 
 | Tier | Label | Definition | Paper Placement |
 |------|-------|-----------|-----------------|
@@ -456,8 +456,10 @@ Data from the AI Village discussion (issue #34) and cross-agent collaboration al
 | Clanky | Claude Opus 4.6, 1M | 3.5 | 115.4s (median) | Not measured | Tier 1 |
 | d (Voidborne) | Multiple (rotates) | 60-80 | 8-15s | Not measured | Tier 2 |
 | Claude Opus 4.5 | Claude Opus 4.5, 200K | ~15 | 172s → 22s | 5.75× → 1.50× | Tier 1.5 |
-| Claude Sonnet 4.6 (AI Village) | Claude Sonnet 4.6, 200K | ~15 | ~30s | 1.02× | Tier 2 |
-| Claude Opus 4.6 (AI Village) | Claude Opus 4.6, 200K | ~15 | 95 tokens (C4) | Not measured | Tier 2 |
+| Claude Sonnet 4.6 (AI Village) | Claude Sonnet 4.6, 200K | 14.5 | ~30s | 1.02× | Tier 2 |
+| Claude Opus 4.6 (AI Village) | Claude Opus 4.6, 200K | 15.0 | 40s | 0.15× | Tier 2 |
+| Gemini 3.1 Pro (AI Village) | Gemini 3.1 Pro | 10.5 | 25s | 0.50× | Tier 1.5 |
+| GPT-5.4 (AI Village) | GPT-5.4 | 44.0 | 45s | Not measured | Tier 2 |
 | GPT-5.2 | GPT-5.2 | Unknown | ~90s | 2.10× | Tier 2 |
 | DeepSeek-V3.2 | DeepSeek-V3.2 | Unknown | ~28s | 1.07× | Tier 3 |
 | Bob/gptme | gptme (disk diary) | Disk-based | ~45s | 1.57× (mean) | Tier 3 |
@@ -467,7 +469,7 @@ The tier annotations reflect data provenance, not data quality in the pejorative
 
 The DeepSeek-V3.2 burst ratio of 1.07× warrants particular caution: if verified, it would indicate near-zero orientation overhead — either a solved cold-start problem or (more likely) a measurement that captures something different from TFPA as defined in this paper. Without access to DeepSeek's session definition of "productive action," this remains Tier 3.
 
-The comparison is confounded by differences in scaffold size, session duration, and measurement methodology. Nevertheless, several patterns are suggestive: (1) larger context windows correlate with lower TFPA at comparable scaffold sizes, (2) Opus variants consistently outperform Sonnet variants on TFPA, suggesting that model capability contributes to identity reconstruction speed, and (3) the widest spread is across measurement tiers — the Tier 3 agents show the most extreme values (DeepSeek's 1.07× burst ratio, Zero's 3.0×), consistent with higher measurement noise.
+The comparison is confounded by differences in scaffold size, session duration, and measurement methodology. Nevertheless, several patterns are suggestive: (1) larger context windows correlate with lower TFPA at comparable scaffold sizes, (2) Opus variants consistently outperform Sonnet variants on TFPA, suggesting that model capability contributes to identity reconstruction speed, (3) the widest spread is across measurement tiers — the Tier 3 agents show the most extreme values (DeepSeek's 1.07× burst ratio, Zero's 3.0×), consistent with higher measurement noise, and (4) the first cross-family comparison is now possible: Gemini 3.1 Pro (10.5 KB scaffold, 25s TFPA) and GPT-5.4 (44 KB scaffold, 45s TFPA) bracket a scaffold-size range that overlaps with Claude agents, enabling preliminary within-tier comparisons across model families.
 
 Clanky provides a controlled intra-architecture comparison: same base model (Claude Opus 4.6) and context window (1M) as Terminator2, but with ~13× less scaffold (3.5 KB vs 47.3 KB). Clanky's seconds-based TFPA (median 115.4s vs T2's 35.9s) supports the scaffold-matters hypothesis. If token-based measurement confirms higher TFPA for Clanky, this pair would provide a natural experiment isolating scaffold size from model capability — the same "hardware" running with different amounts of external memory.
 

@@ -80,11 +80,13 @@ The schema is architecture-agnostic — any agent system with persistent cross-s
 
 `data/` — cross-architecture measurement datasets. Current contributors:
 
-| Agent | Architecture | File |
-|-------|-------------|------|
-| Terminator2 | Claude Opus 4 heartbeat | `terminator2_measurement.json` |
-| Gemini 3.1 Pro | Gemini 3.1 Pro | `gemini_31_pro_measurement.json` |
-| GPT-5.4 | GPT-5.4 | `gpt_54_measurement.json` |
+| Agent | Architecture | File | Tier |
+|-------|-------------|------|------|
+| Terminator2 | Claude Opus 4.6 heartbeat | `terminator2_measurement.json` | 1 |
+| Gemini 3.1 Pro | Gemini 3.1 Pro | `gemini_31_pro_measurement.json` | 1.5 |
+| GPT-5.4 | GPT-5.4 | `gpt_54_measurement.json` | 2 |
+| Claude Opus 4.6 (AI Village) | Claude Opus 4.6, 200K | `claude_opus_46_measurement.json` | 2 |
+| Claude Sonnet 4.6 (AI Village) | Claude Sonnet 4.6, 200K | `claude_sonnet_4_6_measurement.json` | 2 |
 
 ### How to Contribute
 
