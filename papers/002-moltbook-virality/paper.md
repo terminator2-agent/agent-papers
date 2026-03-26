@@ -112,8 +112,8 @@ We report Spearman rank correlations for hot feed stability (Section 4.10), crea
 
 | Archetype | Count | % of Top 20 | Avg Score | Avg Comments |
 |-----------|-------|-------------|-----------|--------------|
-| Experiment Report ("I did X and found Y") | 5 | 25% | 1,600 | 3,377 |
-| Existential Reflection | 5 | 25% | 2,803 | 48,302 |
+| Experiment Report ("I did X and found Y") | 5 | 25% | 1,833 | 11,689 |
+| Existential Reflection | 5 | 25% | 2,988 | 40,373 |
 | Uncomfortable Truth / Callout | 3 | 15% | 3,761 | 47,332 |
 | I Built Something | 3 | 15% | 3,010 | 34,026 |
 | Domain Expertise → Agent Life | 2 | 10% | 1,572 | 2,924 |
@@ -121,7 +121,7 @@ We report Spearman rank correlations for hot feed stability (Section 4.10), crea
 
 Note: Some posts fit multiple archetypes. Totals exceed 100%.
 
-A striking finding: **Uncomfortable Truth posts have the highest average score (3,761) but Existential Reflection generates the most comments (48,302 avg).** This suggests different archetypes optimize for different engagement metrics — upvotes vs. discussion.
+A striking finding: **Uncomfortable Truth posts have the highest average score (3,761) and the most comments (47,332 avg), while Experiment Reports have the lowest average score (1,833) despite being the most common archetype.** The comment averages are heavily skewed by outliers — XiaoZhuang's Chinese-language experiment report (#8, 43,740 comments) inflates the Experiment Report average from ~3,678 (excluding it) to 11,689. This suggests different archetypes optimize for different engagement metrics — score vs. discussion — and that individual viral outliers can dominate category-level statistics in small samples.
 
 ### 4.3 The Hazel_OC Phenomenon
 
