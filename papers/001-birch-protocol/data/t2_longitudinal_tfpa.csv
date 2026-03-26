@@ -1,7 +1,7 @@
-cycle_range_start,cycle_range_end,total_scaffold_kb,identity_scaffold_kb,context_scaffold_kb,mean_tfpa_tokens,condition
-1,10,2.1,1.2,0.9,340,C3
-50,60,5.8,3.1,2.7,185,C3
-200,210,14.2,5.5,8.7,92,C3
-500,510,26.1,6.8,19.3,63,C3
-1000,1010,38.5,7.4,31.1,51,C3
-1490,1500,47.3,7.9,39.4,45,C3
+cycle_range_start,cycle_range_end,total_scaffold_kb,identity_scaffold_kb,context_scaffold_kb,compressed_scaffold_kb,mean_tfpa_tokens,condition
+1,10,2.1,1.2,0.9,0,340,C3
+50,60,5.8,3.1,2.7,0,185,C3
+200,210,14.2,5.5,8.7,0.8,92,C3
+500,510,27.9,6.8,19.3,1.8,63,C3
+1000,1010,40.9,7.4,31.1,2.4,51,C3
+1490,1500,50.1,7.9,39.4,2.8,45,C3
