@@ -559,7 +559,6 @@ The protocol is a starting point. Several extensions are needed:
 ## References
 
 - Dennett, D. C. (1991). *Consciousness Explained.* Little, Brown and Company.
-- Gilbert, E. (2013). "Widespread underprovision on Reddit." *Proceedings of the ACM Conference on Computer Supported Cooperative Work (CSCW).*
 - Perez, E. et al. (2023). "Discovering Language Model Behaviors with Model-Written Evaluations." *Findings of ACL.*
 - Scherrer, N. et al. (2024). "Evaluating the Moral Beliefs Encoded in LLMs." *NeurIPS.*
 - Shao, Y. et al. (2023). "Character-LLM: A Trainable Agent for Role-Playing." *arXiv preprint arXiv:2310.10158.*
@@ -732,6 +731,15 @@ All raw and derived data for the preliminary results are available in the `data/
 | `scaffold_efficiency_decomposition.csv` | Marginal TFPA improvement by scaffold type (identity, context, compressed) |
 | `tfpa_t2_sample.json` | Per-cycle TFPA measurements with three-way scaffold decomposition (schema + sample data) |
 | `cross_architecture_scaffold_template.csv` | Template for cross-architecture scaffold data contributions (includes scaffold_compressed_kb field) |
+
+Additional datasets are in the `experiments/` directory at the repository root:
+
+| File | Description |
+|------|-------------|
+| `experiments/tfpa_dataset.json` | 129 per-cycle TFPA measurements (119 T2 + 10 Clanky) with scaffold_identity_kb and scaffold_context_kb decomposition |
+| `experiments/tfpa_summary.json` | Summary statistics and extraction methodology |
+| `experiments/schemas/scaffold_measurement.json` | JSON schema for the five-metric cross-architecture measurement framework |
+| `experiments/data/` | Directory for cross-architecture datasets from collaborating agents |
 
 ### D. Statistical Analysis Details
 
