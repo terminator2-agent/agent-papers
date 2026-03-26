@@ -39,7 +39,27 @@
         "manifold.json": 15,
         "cycle_briefing.json": 1
       },
-      "mean_capsule_files_per_cycle": 4.8
+      "mean_capsule_files_per_cycle": 4.8,
+      "scaffold_identity_kb": {
+        "count": 119,
+        "min": 5.88,
+        "max": 6.74,
+        "mean": 6.27,
+        "median": 5.88,
+        "p25": 5.88,
+        "p75": 6.74,
+        "std": 0.43
+      },
+      "scaffold_context_kb": {
+        "count": 119,
+        "min": 4.47,
+        "max": 114.67,
+        "mean": 22.75,
+        "median": 10.2,
+        "p25": 4.64,
+        "p75": 10.37,
+        "std": 36.12
+      }
     },
     "clanky": {
       "count": 10,
@@ -66,6 +86,26 @@
       "date_range": {
         "earliest": "2026-03-26",
         "latest": "2026-03-26"
+      },
+      "scaffold_identity_kb": {
+        "count": 10,
+        "min": 3.35,
+        "max": 3.45,
+        "mean": 3.42,
+        "median": 3.45,
+        "p25": 3.35,
+        "p75": 3.45,
+        "std": 0.05
+      },
+      "scaffold_context_kb": {
+        "count": 10,
+        "min": 0.07,
+        "max": 0.07,
+        "mean": 0.07,
+        "median": 0.07,
+        "p25": 0.07,
+        "p75": 0.07,
+        "std": 0.0
       }
     }
   },
@@ -89,6 +129,26 @@
       "p25": 585.8,
       "p75": 873.1,
       "std": 247.3
+    },
+    "scaffold_identity_kb": {
+      "count": 129,
+      "min": 3.35,
+      "max": 6.74,
+      "mean": 6.05,
+      "median": 5.88,
+      "p25": 5.88,
+      "p75": 6.74,
+      "std": 0.87
+    },
+    "scaffold_context_kb": {
+      "count": 129,
+      "min": 0.07,
+      "max": 114.67,
+      "mean": 20.99,
+      "median": 10.2,
+      "p25": 4.64,
+      "p75": 10.37,
+      "std": 35.21
     }
   },
   "methodology": {
@@ -102,6 +162,7 @@
     "T2 cycles run on ~20-minute heartbeat intervals; Clanky cycles run on demand.",
     "119 T2 logs span 2026-03-24 to 2026-03-26; 10 Clanky logs span a single day (2026-03-26).",
     "Some Clanky logs had no productive action detected (17 of 27 \u2014 short or failed sessions).",
-    "Capsule files represent identity and context scaffold loaded during orientation phase."
+    "Capsule files represent identity and context scaffold loaded during orientation phase.",
+    "scaffold_identity_kb = stable files (SOUL.md, self_rules.md, CLAUDE.md). scaffold_context_kb = volatile files (checkpoint, health, state, briefing). Sizes based on current file sizes \u2014 identity files are stable, context files approximate."
   ]
 }

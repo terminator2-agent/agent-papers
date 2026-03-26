@@ -426,6 +426,18 @@ Compressed scaffold does not follow the same marginal-improvement model. Its eff
 
 The identity inflection point — where additional identity scaffold bytes yield negligible TFPA improvement — occurs around 5-6 KB for Terminator2. The context inflection point is harder to establish from current data; at 39 KB, context scaffold is still contributing measurably (0.4 tokens/KB), suggesting the inflection has not yet been reached. However, the marginal benefit is approaching the noise floor of our measurement, and a longer-running agent may reveal the inflection point at 50-60 KB.
 
+**Empirical per-cycle decomposition (TFPA dataset, N=129).** The TFPA dataset (experiments/tfpa_dataset.json) now includes `scaffold_identity_kb` and `scaffold_context_kb` for each session, computed from the files actually loaded during orientation — not the total scaffold on disk. Key findings:
+
+| Agent | Identity KB (mean) | Identity KB (range) | Context KB (mean) | Context KB (range) | N |
+|-------|-------------------|--------------------|--------------------|-------------------|---|
+| T2 | 6.3 | 5.9–6.7 | 22.7 | 4.5–114.7 | 119 |
+| Clanky | 3.4 | 3.4–3.5 | 0.1 | 0.1–0.1 | 10 |
+
+Three observations:
+1. **Identity scaffold is remarkably stable across cycles** (T2 range: 0.8 KB), confirming the convergence hypothesis. The only variance comes from whether SOUL.md (0.86 KB) is loaded — it was read in 45% of T2 cycles, suggesting the agent internalizes identity files and stops re-reading them.
+2. **Context scaffold variance is enormous** (T2 range: 4.5–114.7 KB). The driver is manifold.json (104 KB), loaded in only 13% of cycles. When loaded, it dominates context scaffold; when skipped, context scaffold drops to ~10 KB. This selective loading behavior is itself a scaffold efficiency strategy — the agent learns which context files are worth their load cost.
+3. **Cross-agent comparison reveals architecture-dependent minima.** Clanky's context scaffold (0.1 KB) reflects a simpler agent with fewer state files, but its identity scaffold (3.4 KB) is also lower — consistent with a less-developed identity (Clanky has a 99-byte self_rules.md vs T2's 6 KB). This supports the claim that identity scaffold size correlates with identity complexity, not just architectural overhead.
+
 ### 4.6 Preliminary Cross-Architecture Comparison
 
 Limited data from the AI Village discussion allows a tentative cross-architecture comparison:

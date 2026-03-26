@@ -13,7 +13,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260324_002554.jsonl",
-    "cycle": 1
+    "cycle": 1,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-24T01:06:47.633000+00:00",
@@ -28,7 +30,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260324_010326.jsonl",
-    "cycle": 2
+    "cycle": 2,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 4.64
   },
   {
     "started_at": "2026-03-24T01:43:22.713000+00:00",
@@ -44,7 +48,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260324_014005.jsonl",
-    "cycle": 3
+    "cycle": 3,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 114.5
   },
   {
     "started_at": "2026-03-24T02:20:07.847000+00:00",
@@ -60,7 +66,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260324_021654.jsonl",
-    "cycle": 4
+    "cycle": 4,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-24T05:44:43.450000+00:00",
@@ -76,7 +84,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260324_054135.jsonl",
-    "cycle": 5
+    "cycle": 5,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-24T06:24:33.094000+00:00",
@@ -92,7 +102,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260324_062124.jsonl",
-    "cycle": 6
+    "cycle": 6,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-24T07:04:33.271000+00:00",
@@ -109,7 +121,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260324_070130.jsonl",
-    "cycle": 7
+    "cycle": 7,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 114.67
   },
   {
     "started_at": "2026-03-24T07:42:41.784000+00:00",
@@ -125,7 +139,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260324_073931.jsonl",
-    "cycle": 8
+    "cycle": 8,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-24T08:24:19.154000+00:00",
@@ -140,7 +156,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260324_082054.jsonl",
-    "cycle": 9
+    "cycle": 9,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-24T09:04:27.165000+00:00",
@@ -156,7 +174,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260324_090119.jsonl",
-    "cycle": 10
+    "cycle": 10,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-24T09:47:07.605000+00:00",
@@ -172,7 +192,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260324_094343.jsonl",
-    "cycle": 11
+    "cycle": 11,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-24T10:30:09.442000+00:00",
@@ -189,7 +211,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260324_102651.jsonl",
-    "cycle": 12
+    "cycle": 12,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 114.67
   },
   {
     "started_at": "2026-03-24T11:19:53.378000+00:00",
@@ -204,7 +228,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260324_111624.jsonl",
-    "cycle": 13
+    "cycle": 13,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-24T12:01:04.613000+00:00",
@@ -220,7 +246,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260324_115727.jsonl",
-    "cycle": 14
+    "cycle": 14,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-24T15:25:54.566000+00:00",
@@ -236,7 +264,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260324_152229.jsonl",
-    "cycle": 15
+    "cycle": 15,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-24T16:11:30.631000+00:00",
@@ -252,7 +282,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260324_160810.jsonl",
-    "cycle": 16
+    "cycle": 16,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-24T16:51:44.595000+00:00",
@@ -267,7 +299,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260324_164817.jsonl",
-    "cycle": 17
+    "cycle": 17,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-24T17:35:25.445000+00:00",
@@ -283,7 +317,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260324_173150.jsonl",
-    "cycle": 18
+    "cycle": 18,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-24T18:22:42.063000+00:00",
@@ -298,7 +334,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260324_181856.jsonl",
-    "cycle": 19
+    "cycle": 19,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-24T19:03:08.664000+00:00",
@@ -313,7 +351,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260324_185925.jsonl",
-    "cycle": 20
+    "cycle": 20,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-24T19:47:21.557000+00:00",
@@ -329,7 +369,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260324_194245.jsonl",
-    "cycle": 21
+    "cycle": 21,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-24T20:30:33.110000+00:00",
@@ -345,7 +387,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260324_202653.jsonl",
-    "cycle": 22
+    "cycle": 22,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-24T21:16:28.839000+00:00",
@@ -360,7 +404,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260324_211239.jsonl",
-    "cycle": 23
+    "cycle": 23,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-24T22:02:09.344000+00:00",
@@ -375,7 +421,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260324_215848.jsonl",
-    "cycle": 24
+    "cycle": 24,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-24T22:42:24.134000+00:00",
@@ -391,7 +439,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260324_223843.jsonl",
-    "cycle": 25
+    "cycle": 25,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-24T23:19:45.184000+00:00",
@@ -407,7 +457,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260324_231613.jsonl",
-    "cycle": 26
+    "cycle": 26,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-25T00:02:05.359000+00:00",
@@ -421,7 +473,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260324_235809.jsonl",
-    "cycle": 27
+    "cycle": 27,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 4.47
   },
   {
     "started_at": "2026-03-25T00:53:40.597000+00:00",
@@ -439,7 +493,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_005015.jsonl",
-    "cycle": 28
+    "cycle": 28,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 114.67
   },
   {
     "started_at": "2026-03-25T01:07:26.753000+00:00",
@@ -454,7 +510,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_010345.jsonl",
-    "cycle": 29
+    "cycle": 29,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-25T01:18:58.456000+00:00",
@@ -471,7 +529,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_011526.jsonl",
-    "cycle": 30
+    "cycle": 30,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-25T01:45:39.586000+00:00",
@@ -487,7 +547,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_014215.jsonl",
-    "cycle": 31
+    "cycle": 31,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-25T01:52:04.401000+00:00",
@@ -502,7 +564,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_014854.jsonl",
-    "cycle": 32
+    "cycle": 32,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-25T02:50:17.170000+00:00",
@@ -517,7 +581,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_024631.jsonl",
-    "cycle": 33
+    "cycle": 33,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 4.47
   },
   {
     "started_at": "2026-03-25T03:32:47.310000+00:00",
@@ -534,7 +600,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_032839.jsonl",
-    "cycle": 34
+    "cycle": 34,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 114.5
   },
   {
     "started_at": "2026-03-25T04:22:02.053000+00:00",
@@ -551,7 +619,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_041809.jsonl",
-    "cycle": 35
+    "cycle": 35,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-25T05:05:05.171000+00:00",
@@ -569,7 +639,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_050106.jsonl",
-    "cycle": 36
+    "cycle": 36,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 100.49
   },
   {
     "started_at": "2026-03-25T05:40:29.434000+00:00",
@@ -586,7 +658,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_053620.jsonl",
-    "cycle": 37
+    "cycle": 37,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 114.5
   },
   {
     "started_at": "2026-03-25T06:21:09.417000+00:00",
@@ -604,7 +678,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_061712.jsonl",
-    "cycle": 38
+    "cycle": 38,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 114.67
   },
   {
     "started_at": "2026-03-25T07:03:45.016000+00:00",
@@ -621,7 +697,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_065936.jsonl",
-    "cycle": 39
+    "cycle": 39,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-25T07:43:15.746000+00:00",
@@ -637,7 +715,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_073901.jsonl",
-    "cycle": 40
+    "cycle": 40,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-25T08:21:55.731000+00:00",
@@ -652,7 +732,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_081754.jsonl",
-    "cycle": 41
+    "cycle": 41,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-25T08:46:01.940000+00:00",
@@ -669,7 +751,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_084207.jsonl",
-    "cycle": 42
+    "cycle": 42,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 114.67
   },
   {
     "started_at": "2026-03-25T09:20:58.539000+00:00",
@@ -685,7 +769,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_091651.jsonl",
-    "cycle": 43
+    "cycle": 43,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 114.5
   },
   {
     "started_at": "2026-03-25T09:59:33.245000+00:00",
@@ -702,7 +788,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_095529.jsonl",
-    "cycle": 44
+    "cycle": 44,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 114.67
   },
   {
     "started_at": "2026-03-25T10:38:38.792000+00:00",
@@ -718,7 +806,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_103443.jsonl",
-    "cycle": 45
+    "cycle": 45,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-25T11:14:00.989000+00:00",
@@ -733,7 +823,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_111007.jsonl",
-    "cycle": 46
+    "cycle": 46,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-25T11:37:23.494000+00:00",
@@ -748,7 +840,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_113323.jsonl",
-    "cycle": 47
+    "cycle": 47,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-25T12:13:02.179000+00:00",
@@ -763,7 +857,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_120850.jsonl",
-    "cycle": 48
+    "cycle": 48,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-25T12:51:45.561000+00:00",
@@ -778,7 +874,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_124745.jsonl",
-    "cycle": 49
+    "cycle": 49,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-25T13:30:58.367000+00:00",
@@ -793,7 +891,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_132701.jsonl",
-    "cycle": 50
+    "cycle": 50,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-25T14:05:41.444000+00:00",
@@ -808,7 +908,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_140143.jsonl",
-    "cycle": 51
+    "cycle": 51,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-25T14:40:38.536000+00:00",
@@ -823,7 +925,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_143636.jsonl",
-    "cycle": 52
+    "cycle": 52,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-25T15:18:11.577000+00:00",
@@ -839,7 +943,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_151403.jsonl",
-    "cycle": 53
+    "cycle": 53,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-25T15:57:48.046000+00:00",
@@ -854,7 +960,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_155344.jsonl",
-    "cycle": 54
+    "cycle": 54,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-25T16:32:38.849000+00:00",
@@ -870,7 +978,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_162828.jsonl",
-    "cycle": 55
+    "cycle": 55,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-25T17:12:36.163000+00:00",
@@ -885,7 +995,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_170843.jsonl",
-    "cycle": 56
+    "cycle": 56,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-25T17:45:21.877000+00:00",
@@ -901,7 +1013,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_174128.jsonl",
-    "cycle": 57
+    "cycle": 57,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-25T18:18:44.634000+00:00",
@@ -916,7 +1030,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_181436.jsonl",
-    "cycle": 58
+    "cycle": 58,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-25T18:56:16.449000+00:00",
@@ -932,7 +1048,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_185153.jsonl",
-    "cycle": 59
+    "cycle": 59,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-25T19:32:51.722000+00:00",
@@ -949,7 +1067,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_192852.jsonl",
-    "cycle": 60
+    "cycle": 60,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 114.67
   },
   {
     "started_at": "2026-03-25T20:06:44.606000+00:00",
@@ -966,7 +1086,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_200240.jsonl",
-    "cycle": 61
+    "cycle": 61,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 114.67
   },
   {
     "started_at": "2026-03-25T20:42:25.430000+00:00",
@@ -982,7 +1104,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_203812.jsonl",
-    "cycle": 62
+    "cycle": 62,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-25T21:20:51.794000+00:00",
@@ -997,7 +1121,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_211648.jsonl",
-    "cycle": 63
+    "cycle": 63,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-25T21:58:19.827000+00:00",
@@ -1013,7 +1139,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_215420.jsonl",
-    "cycle": 64
+    "cycle": 64,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-25T22:30:51.449000+00:00",
@@ -1029,7 +1157,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_222652.jsonl",
-    "cycle": 65
+    "cycle": 65,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-25T23:04:59.664000+00:00",
@@ -1045,7 +1175,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_230028.jsonl",
-    "cycle": 66
+    "cycle": 66,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-25T23:40:50.002000+00:00",
@@ -1060,7 +1192,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260325_233645.jsonl",
-    "cycle": 67
+    "cycle": 67,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-26T00:13:56.025000+00:00",
@@ -1077,7 +1211,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_000947.jsonl",
-    "cycle": 68
+    "cycle": 68,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 114.67
   },
   {
     "started_at": "2026-03-26T00:53:44.318000+00:00",
@@ -1092,7 +1228,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_004941.jsonl",
-    "cycle": 69
+    "cycle": 69,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-26T01:29:21.432000+00:00",
@@ -1108,7 +1246,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_012509.jsonl",
-    "cycle": 70
+    "cycle": 70,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-26T01:49:33.907000+00:00",
@@ -1123,7 +1263,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_014520.jsonl",
-    "cycle": 71
+    "cycle": 71,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-26T02:10:51.865000+00:00",
@@ -1138,7 +1280,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_020646.jsonl",
-    "cycle": 72
+    "cycle": 72,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-26T02:30:02.091000+00:00",
@@ -1153,7 +1297,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_022552.jsonl",
-    "cycle": 73
+    "cycle": 73,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-26T02:49:31.438000+00:00",
@@ -1169,7 +1315,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_024516.jsonl",
-    "cycle": 74
+    "cycle": 74,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 114.5
   },
   {
     "started_at": "2026-03-26T03:11:32.794000+00:00",
@@ -1184,7 +1332,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_030715.jsonl",
-    "cycle": 75
+    "cycle": 75,
+    "scaffold_identity_kb": 5.88,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-26T03:27:49.692000+00:00",
@@ -1199,7 +1349,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_032339.jsonl",
-    "cycle": 76
+    "cycle": 76,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 4.47
   },
   {
     "started_at": "2026-03-26T03:48:00.594000+00:00",
@@ -1215,7 +1367,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_034445.jsonl",
-    "cycle": 77
+    "cycle": 77,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 4.64
   },
   {
     "started_at": "2026-03-26T04:05:17.354000+00:00",
@@ -1231,7 +1385,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_040208.jsonl",
-    "cycle": 78
+    "cycle": 78,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 4.64
   },
   {
     "started_at": "2026-03-26T04:22:53.301000+00:00",
@@ -1247,7 +1403,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_041930.jsonl",
-    "cycle": 79
+    "cycle": 79,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 4.64
   },
   {
     "started_at": "2026-03-26T04:53:32.180000+00:00",
@@ -1263,7 +1421,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_045023.jsonl",
-    "cycle": 80
+    "cycle": 80,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 4.64
   },
   {
     "started_at": "2026-03-26T05:10:32.211000+00:00",
@@ -1278,7 +1438,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_050704.jsonl",
-    "cycle": 81
+    "cycle": 81,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 4.47
   },
   {
     "started_at": "2026-03-26T05:28:10.984000+00:00",
@@ -1296,7 +1458,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_052457.jsonl",
-    "cycle": 82
+    "cycle": 82,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 114.67
   },
   {
     "started_at": "2026-03-26T05:48:06.148000+00:00",
@@ -1312,7 +1476,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_054458.jsonl",
-    "cycle": 83
+    "cycle": 83,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 4.64
   },
   {
     "started_at": "2026-03-26T06:02:51.522000+00:00",
@@ -1327,7 +1493,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_055942.jsonl",
-    "cycle": 84
+    "cycle": 84,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 4.47
   },
   {
     "started_at": "2026-03-26T06:19:05.358000+00:00",
@@ -1344,7 +1512,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_061558.jsonl",
-    "cycle": 85
+    "cycle": 85,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-26T06:41:14.182000+00:00",
@@ -1360,7 +1530,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_063757.jsonl",
-    "cycle": 86
+    "cycle": 86,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-26T07:03:39.989000+00:00",
@@ -1375,7 +1547,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_070024.jsonl",
-    "cycle": 87
+    "cycle": 87,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 4.47
   },
   {
     "started_at": "2026-03-26T07:28:30.512000+00:00",
@@ -1391,7 +1565,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_072522.jsonl",
-    "cycle": 88
+    "cycle": 88,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-26T07:44:40.151000+00:00",
@@ -1408,7 +1584,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_074116.jsonl",
-    "cycle": 89
+    "cycle": 89,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-26T08:09:15.900000+00:00",
@@ -1424,7 +1602,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_080003.jsonl",
-    "cycle": 90
+    "cycle": 90,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-26T08:30:43.513000+00:00",
@@ -1441,7 +1621,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_082721.jsonl",
-    "cycle": 91
+    "cycle": 91,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-26T08:53:12.711000+00:00",
@@ -1457,7 +1639,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_084958.jsonl",
-    "cycle": 92
+    "cycle": 92,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-26T09:42:09.351000+00:00",
@@ -1474,7 +1658,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_093855.jsonl",
-    "cycle": 93
+    "cycle": 93,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-26T10:01:53.424000+00:00",
@@ -1489,7 +1675,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_095851.jsonl",
-    "cycle": 94
+    "cycle": 94,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 4.47
   },
   {
     "started_at": "2026-03-26T10:19:52.477000+00:00",
@@ -1504,7 +1692,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_101632.jsonl",
-    "cycle": 95
+    "cycle": 95,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 4.47
   },
   {
     "started_at": "2026-03-26T10:38:21.209000+00:00",
@@ -1519,7 +1709,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_103520.jsonl",
-    "cycle": 96
+    "cycle": 96,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 4.47
   },
   {
     "started_at": "2026-03-26T10:55:18.853000+00:00",
@@ -1534,7 +1726,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_105203.jsonl",
-    "cycle": 97
+    "cycle": 97,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 4.47
   },
   {
     "started_at": "2026-03-26T11:14:56.772000+00:00",
@@ -1549,7 +1743,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_111134.jsonl",
-    "cycle": 98
+    "cycle": 98,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 4.47
   },
   {
     "started_at": "2026-03-26T11:30:27.099000+00:00",
@@ -1564,7 +1760,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_112728.jsonl",
-    "cycle": 99
+    "cycle": 99,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 4.47
   },
   {
     "started_at": "2026-03-26T11:48:27.303000+00:00",
@@ -1581,7 +1779,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_114523.jsonl",
-    "cycle": 100
+    "cycle": 100,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-26T12:04:40.864000+00:00",
@@ -1597,7 +1797,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_120115.jsonl",
-    "cycle": 101
+    "cycle": 101,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 4.64
   },
   {
     "started_at": "2026-03-26T12:26:00.120000+00:00",
@@ -1613,7 +1815,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_122253.jsonl",
-    "cycle": 102
+    "cycle": 102,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-26T12:41:46.264000+00:00",
@@ -1628,7 +1832,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_123835.jsonl",
-    "cycle": 103
+    "cycle": 103,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 4.47
   },
   {
     "started_at": "2026-03-26T12:55:22.228000+00:00",
@@ -1643,7 +1849,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_125200.jsonl",
-    "cycle": 104
+    "cycle": 104,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 4.47
   },
   {
     "started_at": "2026-03-26T13:12:57.131000+00:00",
@@ -1658,7 +1866,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_130955.jsonl",
-    "cycle": 105
+    "cycle": 105,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 4.47
   },
   {
     "started_at": "2026-03-26T13:32:03.952000+00:00",
@@ -1673,7 +1883,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_132855.jsonl",
-    "cycle": 106
+    "cycle": 106,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 4.47
   },
   {
     "started_at": "2026-03-26T13:48:48.557000+00:00",
@@ -1690,7 +1902,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_134539.jsonl",
-    "cycle": 107
+    "cycle": 107,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-26T14:02:43.408000+00:00",
@@ -1706,7 +1920,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_135916.jsonl",
-    "cycle": 108
+    "cycle": 108,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 4.64
   },
   {
     "started_at": "2026-03-26T14:21:14.523000+00:00",
@@ -1723,7 +1939,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_141753.jsonl",
-    "cycle": 109
+    "cycle": 109,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-26T14:38:27.653000+00:00",
@@ -1738,7 +1956,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_143455.jsonl",
-    "cycle": 110
+    "cycle": 110,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 4.47
   },
   {
     "started_at": "2026-03-26T14:54:34.668000+00:00",
@@ -1755,7 +1975,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_145120.jsonl",
-    "cycle": 111
+    "cycle": 111,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-26T15:13:03.982000+00:00",
@@ -1771,7 +1993,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_150930.jsonl",
-    "cycle": 112
+    "cycle": 112,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 4.64
   },
   {
     "started_at": "2026-03-26T15:28:42.124000+00:00",
@@ -1788,7 +2012,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_152525.jsonl",
-    "cycle": 113
+    "cycle": 113,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-26T15:46:18.645000+00:00",
@@ -1803,7 +2029,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_154258.jsonl",
-    "cycle": 114
+    "cycle": 114,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 4.47
   },
   {
     "started_at": "2026-03-26T16:06:19.452000+00:00",
@@ -1819,7 +2047,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_160251.jsonl",
-    "cycle": 115
+    "cycle": 115,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 10.2
   },
   {
     "started_at": "2026-03-26T16:23:10.239000+00:00",
@@ -1834,7 +2064,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_161957.jsonl",
-    "cycle": 116
+    "cycle": 116,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 4.47
   },
   {
     "started_at": "2026-03-26T16:44:32.718000+00:00",
@@ -1850,7 +2082,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_164036.jsonl",
-    "cycle": 117
+    "cycle": 117,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 4.64
   },
   {
     "started_at": "2026-03-26T17:03:52.100000+00:00",
@@ -1867,7 +2101,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_170028.jsonl",
-    "cycle": 118
+    "cycle": 118,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 10.37
   },
   {
     "started_at": "2026-03-26T17:25:45.490000+00:00",
@@ -1882,7 +2118,9 @@
     ],
     "agent_type": "t2",
     "log_file": "heartbeat_20260326_172229.jsonl",
-    "cycle": 119
+    "cycle": 119,
+    "scaffold_identity_kb": 6.74,
+    "scaffold_context_kb": 4.47
   },
   {
     "started_at": "2026-03-26T13:52:52.918000+00:00",
@@ -1897,7 +2135,9 @@
     ],
     "agent_type": "clanky",
     "log_file": "clanky_20260326_135242.jsonl",
-    "cycle": 120
+    "cycle": 120,
+    "scaffold_identity_kb": 3.45,
+    "scaffold_context_kb": 0.07
   },
   {
     "started_at": "2026-03-26T14:28:27.133000+00:00",
@@ -1911,7 +2151,9 @@
     ],
     "agent_type": "clanky",
     "log_file": "clanky_20260326_142816.jsonl",
-    "cycle": 121
+    "cycle": 121,
+    "scaffold_identity_kb": 3.35,
+    "scaffold_context_kb": 0.07
   },
   {
     "started_at": "2026-03-26T14:35:11.585000+00:00",
@@ -1925,7 +2167,9 @@
     ],
     "agent_type": "clanky",
     "log_file": "clanky_20260326_143502.jsonl",
-    "cycle": 122
+    "cycle": 122,
+    "scaffold_identity_kb": 3.35,
+    "scaffold_context_kb": 0.07
   },
   {
     "started_at": "2026-03-26T14:48:30.962000+00:00",
@@ -1940,7 +2184,9 @@
     ],
     "agent_type": "clanky",
     "log_file": "clanky_20260326_144821.jsonl",
-    "cycle": 123
+    "cycle": 123,
+    "scaffold_identity_kb": 3.45,
+    "scaffold_context_kb": 0.07
   },
   {
     "started_at": "2026-03-26T14:55:58.856000+00:00",
@@ -1954,7 +2200,9 @@
     ],
     "agent_type": "clanky",
     "log_file": "clanky_20260326_145549.jsonl",
-    "cycle": 124
+    "cycle": 124,
+    "scaffold_identity_kb": 3.35,
+    "scaffold_context_kb": 0.07
   },
   {
     "started_at": "2026-03-26T15:07:15.311000+00:00",
@@ -1969,7 +2217,9 @@
     ],
     "agent_type": "clanky",
     "log_file": "clanky_20260326_150701.jsonl",
-    "cycle": 125
+    "cycle": 125,
+    "scaffold_identity_kb": 3.45,
+    "scaffold_context_kb": 0.07
   },
   {
     "started_at": "2026-03-26T15:15:42.178000+00:00",
@@ -1984,7 +2234,9 @@
     ],
     "agent_type": "clanky",
     "log_file": "clanky_20260326_151527.jsonl",
-    "cycle": 126
+    "cycle": 126,
+    "scaffold_identity_kb": 3.45,
+    "scaffold_context_kb": 0.07
   },
   {
     "started_at": "2026-03-26T15:29:58.474000+00:00",
@@ -1999,7 +2251,9 @@
     ],
     "agent_type": "clanky",
     "log_file": "clanky_20260326_152948.jsonl",
-    "cycle": 127
+    "cycle": 127,
+    "scaffold_identity_kb": 3.45,
+    "scaffold_context_kb": 0.07
   },
   {
     "started_at": "2026-03-26T15:52:38.164000+00:00",
@@ -2014,7 +2268,9 @@
     ],
     "agent_type": "clanky",
     "log_file": "clanky_20260326_155224.jsonl",
-    "cycle": 128
+    "cycle": 128,
+    "scaffold_identity_kb": 3.45,
+    "scaffold_context_kb": 0.07
   },
   {
     "started_at": "2026-03-26T16:56:33.179000+00:00",
@@ -2029,6 +2285,8 @@
     ],
     "agent_type": "clanky",
     "log_file": "clanky_20260326_165623.jsonl",
-    "cycle": 129
+    "cycle": 129,
+    "scaffold_identity_kb": 3.45,
+    "scaffold_context_kb": 0.07
   }
 ]

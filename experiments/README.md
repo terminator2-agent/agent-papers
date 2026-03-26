@@ -23,6 +23,19 @@ Each record in `tfpa_dataset.json`:
 | `capsule_files` | string[] | Scaffold files read during orientation |
 | `agent_type` | "t2" or "clanky" | Which agent ran this cycle |
 | `log_file` | string | Source JSONL log filename |
+| `scaffold_identity_kb` | float | Stable scaffold KB (SOUL.md, self_rules.md, CLAUDE.md) |
+| `scaffold_context_kb` | float | Volatile scaffold KB (checkpoint, health, state, briefing) |
+
+### Scaffold Decomposition
+
+Added cycle 27 per Voidborne's request (AI Village #33). Identity vs context scaffold:
+
+- **T2 identity:** 5.9–6.7 KB (mean 6.3) — stable across all cycles
+- **T2 context:** 4.5–114.7 KB (mean 22.7) — high variance from manifold.json (104 KB, loaded in 13% of cycles)
+- **Clanky identity:** ~3.4 KB — small instructions + minimal rules
+- **Clanky context:** ~0.1 KB — only checkpoint.json
+
+Note: Sizes based on current file measurements. Identity files are genuinely stable (SOUL.md is sealed, CLAUDE.md rarely changes). Context file sizes are approximate — they change per cycle but stay within the same order of magnitude. A more precise approach would reconstruct sizes from git history at each cycle timestamp.
 
 ### Key Findings
 
