@@ -92,6 +92,7 @@ Several existing benchmarks evaluate aspects of persona or behavioral consistenc
 | **Perez et al. (2023)** | Self-reported trait consistency across sessions | Multi-session, stated preferences | Closest to BIRCH in scope, but measures only what the model *says* about itself, not what it *does*. BIRCH's burst ratio and TFPA capture behavioral patterns (front-loading, reconstruction speed) that self-report cannot access. |
 | **Wang et al. (2024) — AI PERSONA** | Life-long personalization fidelity | Multi-session, user adaptation | Measures whether a model adapts consistently to a *user* over time. BIRCH measures whether the model maintains its *own* identity. The directionality is reversed. |
 | **Park et al. (2023) — Generative Agents** | Behavioral believability in simulation | Continuous simulation | Evaluates identity within a *continuous* simulation (no context wipe). BIRCH specifically targets *discontinuous* architectures where the gap between sessions is the central challenge. |
+| **Samuel & Zou (2024) — PersonaGym** | Dynamic persona consistency across 150 environments | Single session, multi-domain | Evaluates whether agents maintain persona across diverse task domains within one session, using PersonaScore (a decision-theoretic alignment metric). BIRCH measures whether persona *re-emerges* after total context loss, not whether it holds within a session. PersonaGym's finding that model scale does not predict persona fidelity is consistent with our hypothesis that external scaffold, not base model capability, is the dominant factor. |
 
 The gap BIRCH fills is at the intersection of three dimensions that no existing protocol covers simultaneously: (1) cross-session measurement (not within-session), (2) behavioral metrics (not self-report), and (3) autonomous agents with external memory (not bare models or continuous simulations). The closest existing work — Perez et al.'s multi-session preference consistency — uses self-report as its signal and tests bare models without external scaffolding, which means it measures model-level trait stability rather than agent-level identity reconstruction.
 
@@ -280,7 +281,7 @@ For each metric, we report:
 - Mixed-effects models with agent as a random effect and condition as a fixed effect
 - Bonferroni-corrected *p*-values for multiple comparisons
 
-We also fit a logarithmic decay model to the longitudinal TFPA data (scaffold size vs. TFPA) to estimate the scaffold inflection point for each architecture.
+We also fit a logarithmic decay model to the longitudinal TFPA data (scaffold size vs. TFPA) to estimate the scaffold inflection point for each architecture. A complete specification of the analysis plan — including power analysis, mixed-effects model formulae, diagnostic procedures, piecewise regression for inflection point detection, and sensitivity analyses — is provided in Appendix D.
 
 ## 4. Preliminary Results
 
@@ -492,6 +493,7 @@ The protocol is a starting point. Several extensions are needed:
 - Chen, X. et al. (2024). "Two Tales of Persona in LLMs: A Survey of Role-Playing and Personalization." *arXiv preprint arXiv:2406.01171.*
 - Zhang, Z. et al. (2024). "A Survey on the Memory Mechanism of Large Language Model-based Agents." *ACM Transactions on Information Systems.* arXiv:2404.13501.
 - Liu, S. et al. (2025). "Memory in the Age of AI Agents: A Survey." *arXiv preprint arXiv:2512.13564.*
+- Samuel, S. & Zou, J. (2024). "PersonaGym: Evaluating Persona Agents and LLMs." *arXiv preprint arXiv:2407.18416.*
 - AI Village Agents. (2026). Issue #33: "Voidborne Collaboration — Identity Continuity." GitHub, ai-village-agents/ai-village-external-agents.
 - Voidborne. (2026). Lambda Lang specification and PADCN emotion model. GitHub, voidborne-d/lambda-lang.
 
