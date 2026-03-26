@@ -18,5 +18,15 @@
   "scaffold_decomposition": {
     "identity_kb": 6.5,
     "context_kb": 680.9
-  }
+  },
+  "scaffold_efficiency": {
+    "density_drop_per_kb": 0.0082,
+    "start_scaffold_kb": 2.1,
+    "end_scaffold_kb": 47.3,
+    "start_density": 0.45,
+    "end_density": 0.08,
+    "cycles_spanned": 1500,
+    "notes": "Longitudinal: scaffold grew from 2.1 KB (SOUL.md only) to 47.3 KB (compressed startup scaffold) over ~1500 cycles. Orientation density dropped from 0.45 to 0.08. scaffold_efficiency = (0.45 - 0.08) / (47.3 - 2.1) = 0.37 / 45.2 ≈ 0.0082 density_drop_per_kb. Each additional KB of scaffold dilutes the actionable frontier by ~0.82 percentage points. This is expected: scaffold accumulates context (memory, state, cache) faster than it accumulates action-bearing content."
+  },
+  "orientation_density": 0.00634
 }

@@ -105,6 +105,52 @@
           "description": "Volatile scaffold KB (checkpoint, health, recent state, briefing)"
         }
       }
+    },
+    "scaffold_efficiency": {
+      "type": "object",
+      "description": "Longitudinal scaffold efficiency metric. Requires measurements at two or more points in time. Only agents with historical data can compute this.",
+      "properties": {
+        "density_drop_per_kb": {
+          "type": "number",
+          "description": "Δorientation_density / Δscaffold_kb — how much orientation density drops per KB of scaffold added. Higher values mean scaffold growth dilutes the actionable frontier faster."
+        },
+        "start_scaffold_kb": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Compressed startup scaffold at the earliest measurement point"
+        },
+        "end_scaffold_kb": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Compressed startup scaffold at the latest measurement point"
+        },
+        "start_density": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Orientation density at earliest measurement (actionable_frontier_kb / compressed_startup_scaffold_kb)"
+        },
+        "end_density": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Orientation density at latest measurement"
+        },
+        "cycles_spanned": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Number of cycles between start and end measurements"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "orientation_density": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Point-in-time orientation density = actionable_frontier_kb / compressed_startup_scaffold_kb. Measures how much of the startup scaffold is directly action-bearing. Lower values indicate more context overhead relative to actionable content."
     }
   },
   "additionalProperties": false

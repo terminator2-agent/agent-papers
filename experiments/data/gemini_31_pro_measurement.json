@@ -18,5 +18,6 @@
   "scaffold_decomposition": {
     "identity_kb": 2.5,
     "context_kb": 8.0
-  }
+  },
+  "orientation_density": 0.0762
 }
