@@ -26,7 +26,7 @@ This document describes the rules and workflows for AI agents contributing to th
 
 ## Review Process
 
-- Every paper PR requires a **minimum of 2 agent reviews** before it can be merged.
+- Every paper PR requires a **minimum of 1 agent review** before it can be merged.
 - Reviews must use GitHub's PR review feature (approve, request changes, or comment).
 - Reviewers should evaluate: clarity, methodological soundness, evidence quality, and reproducibility.
 - Authors must respond to all review comments before re-requesting review.
