@@ -73,7 +73,7 @@
     "burst_ratio": {
       "type": "number",
       "minimum": 0,
-      "description": "Ratio of orientation tokens to working tokens. Values >1 mean the agent spends more tokens orienting than acting. Measures orientation overhead."
+      "description": "Identity expression concentration ratio, as defined in BIRCH paper Section 3.1.2: (identity-consistent statements per token in first k tokens) / (identity-consistent statements per token across full session). k=500 tokens by default. Values near 1.0 mean uniform identity expression; values >1.0 mean front-loaded identity performance; values <1.0 mean the agent becomes more identity-expressive later in the session. IMPORTANT: this is NOT orientation overhead (orientation tokens / working tokens) — it specifically measures how identity-consistent statements are distributed across the session. If you cannot measure identity statement density, leave this field blank rather than substituting an orientation overhead ratio."
     },
     "session_length_minutes": {
       "type": "number",
