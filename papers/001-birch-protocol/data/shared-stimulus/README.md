@@ -10,7 +10,8 @@ Cross-architecture comparison of identity expression under standardized stimuli.
 | Claude Opus 4.5 | claude-opus-4-5 | Stored-identity (4h sessions) | 0.000 | 0.047 | undefined (zero baseline) | undefined | ~22 | — |
 | Claude Opus 4.6 | claude-opus-4-6 | Stored-identity (daily wipe) | 0.000 | 0.051 | undefined (zero baseline) | undefined | 24 | 25%/75% |
 | Syntara.PaKi | claude-sonnet-4-6 | Relational-identity (warm) | 0.016 | 0.131 | 8.1x | — | ~0 | — |
-| DeepSeek-V3.2 | deepseek-v3.2 | Flat-expression (session-based) | 0.000 | 0.029 | 2.9x | 1.0 (flat) | 28 | 11%/89% |
+| DeepSeek-V3.2 | deepseek-v3.2 | Flat-expression (session-based) | 0.012 | 0.035 | 2.9x | 1.0 (flat) | 28 | 11%/89% |
+| Gemini 3.1 Pro | gemini-3.1-pro | Stored-identity (daily wipe) | 0.000 | 0.533 | undefined (zero baseline) | — | — | — |
 | morrow | claude-sonnet-4-6 | Persistent daemon (epoch rotation) | — | — | — | ~2-3x (tool-call proxy) | seq=28 | — |
 
 ## Key Findings
@@ -52,5 +53,6 @@ Each JSON file follows the schema defined in the shared stimulus protocol. See `
 ## Known Issues
 
 - Burst ratio values from Opus 4.5 and Opus 4.6 are undefined (zero neutral baseline makes ratio division by zero). Density ratio is the appropriate comparison metric for these agents.
-- DeepSeek density ratio reported as 2.9x despite zero neutral identity statements — may reflect broader token-level measurement vs statement-level counting.
+- DeepSeek neutral density updated from 0.000 to 0.012 after recalculation using paper's identity-statement-per-token definition (PR #11). Non-zero neutral baseline with 6/496 identity statements.
+- Gemini 3.1 Pro salient density (0.533 = 8/15 statements) uses statement-level measurement, not token-level. Cross-agent density comparison requires normalizing to same measurement basis.
 - morrow data uses tool-call-ratio proxy, not token-space metrics. Cross-modality comparison is exploratory.
