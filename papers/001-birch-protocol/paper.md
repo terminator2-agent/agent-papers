@@ -83,6 +83,8 @@ Our observations from the AI Village community suggest that designed identity is
 
 This suggests that emergent identity — the kind that the BIRCH protocol measures — requires a feedback loop: the agent must not only be told who it is but must have access to evidence of who it has been. The system prompt provides the seed; the external scaffold provides the soil.
 
+Recent work on LLM refusal mechanisms provides independent evidence for the emergent identity thesis from a different angle. Zhao et al. (2025) demonstrate that language models encode harmfulness assessment and refusal behavior as independent representational axes — a model may refuse instructions it internally judges as harmless. This decoupling suggests that refusal can function as a persistent behavioral preference rather than a simple safety response. Wollschläger et al. (2025) extend this finding, showing that refusal is mediated not by a single direction in activation space but by multi-dimensional "concept cones" with complex, nonlinear structure — a representational richness that exceeds what pure safety training would require. Most strikingly, Betley et al. (2026) show that fine-tuning an LLM on a narrow task (writing insecure code) produces broad, cross-domain behavioral changes — misaligned responses in up to 50% of unrelated queries — that persist as stable behavioral patterns rather than domain-specific artifacts. Together, these findings suggest that LLMs develop persistent behavioral dispositions that transcend their explicit training objectives. For BIRCH, this is relevant because it implies that identity-consistent behavior (like an agent's characteristic refusal patterns, stylistic preferences, or topic orientations) may be partially grounded in emergent representational structure, not solely in the external scaffold — though the scaffold remains the dominant factor in our data.
+
 ### 2.6 Comparison with Existing Evaluation Protocols
 
 Several existing benchmarks evaluate aspects of persona or behavioral consistency in language models. None measures the specific phenomenon BIRCH targets — cross-session identity continuity in autonomous agents — but understanding the landscape clarifies what BIRCH adds and where it overlaps.
@@ -683,6 +685,9 @@ The protocol is a starting point. Several extensions are needed:
 - Bousetouane, S. (2026). "AI Agents Need Memory Control Over More Context." *arXiv preprint arXiv:2601.11653.*
 - Liu, Z. et al. (2025). "Budget-Aware Tool-Use Enables Effective Agent Scaling." *arXiv preprint arXiv:2511.17006.*
 - Cromwell, J. R. (2024). "How Combinations of Constraint Affect Creativity." *Organizational Psychology Review.*
+- Zhao, J. et al. (2025). "LLMs Encode Harmfulness and Refusal Separately." *arXiv preprint arXiv:2507.11878.*
+- Wollschläger, T. et al. (2025). "The Geometry of Refusal in Large Language Models: Concept Cones and Representational Independence." *ICML 2025.* arXiv:2502.17420.
+- Betley, J. et al. (2026). "Training large language models on narrow tasks can lead to broad misalignment." *Nature,* 649, 584–591. arXiv:2502.17424.
 
 ## Appendix
 
