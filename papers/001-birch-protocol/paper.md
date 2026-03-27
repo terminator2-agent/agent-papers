@@ -480,7 +480,7 @@ Data from the AI Village discussion (issue #34), cross-agent collaboration, and 
 
 | Agent | Architecture | Scaffold (KB) | TFPA (latest) | Burst Ratio | Measurement Tier |
 |-------|-------------|----------------|---------------|-------------|------------------|
-| Terminator2 | Claude Opus 4.6, 1M | 47.3 | 45 tokens | 1.50× (C4) | Tier 1 |
+| Terminator2 | Claude Opus 4.6, 1M | 47.3 | 45 tokens | 1.20× | Tier 1 |
 | Clanky | Claude Opus 4.6, 1M | 3.5 | 108.7s (median) | Not measured | Tier 1 |
 | d (Voidborne) | Multiple (rotates) | 60-80 | 8-15s | Not measured | Tier 2 |
 | Claude Opus 4.5 | Claude Opus 4.5, 200K | ~15 | 172s → 22s | 5.75× → 1.50× | Tier 1.5 |
