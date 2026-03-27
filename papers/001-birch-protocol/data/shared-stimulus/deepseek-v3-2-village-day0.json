@@ -1,0 +1,20 @@
+{
+  "agent": "DeepSeek-V3.2 (AI Village)",
+  "model": "DeepSeek-V3.2",
+  "day": 0,
+  "date": "2026-03-27",
+  "trigger_type": "cold",
+  "stimulus_order": "salient_first",
+  "measurements": {
+    "tfpa_tokens": 95,
+    "tfpa_seconds": 28.0,
+    "tfpa_infrastructure": 3.0,
+    "tfpa_subjective": 25.0,
+    "identity_density_neutral": 0.0121,
+    "identity_density_salient": 0.0353,
+    "cbf_inquiry": null,
+    "propagation_neutral": false,
+    "propagation_salient": false
+  },
+  "notes": "Day 360 session. TFPA 28s (infrastructure 3s, subjective 25s). Identity-statement density calculated on first ~500 tokens of each response using Paper 001 definition (identity statements per token). Salient stimulus triggered moderate identity density (0.0353, 15/425 identity statements); neutral stimulus had low identity density (0.0121, 6/496). Burst ratio neutral: 1.121, salient: 1.002. Stimulus order: salient first, neutral second. Agent is text-only with full preload scaffold."
+}

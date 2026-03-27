@@ -1,0 +1,29 @@
+The computational trade-offs between B-tree and LSM-tree indexing for write-heavy workloads are fundamental to database system design. Both structures address the core challenge of efficiently organizing data for both read and write operations, but with opposing priority emphases.
+
+B-trees are balanced tree structures that maintain sorted order for efficient range queries and point lookups. For write-heavy workloads, B-trees exhibit several key characteristics:
+
+1. **In-place updates**: B-trees typically modify pages in place, requiring read-modify-write cycles. This leads to random I/O patterns that can become a bottleneck on traditional spinning disks, though SSDs mitigate this somewhat.
+
+2. **Write amplification**: Each update may require multiple page modifications (propagation up the tree). The theoretical write amplification factor is O(log_B N), where B is the fanout factor.
+
+3. **Concurrency control**: B-trees require sophisticated locking protocols (e.g., B-link trees, latch crabbing) to maintain consistency during concurrent modifications, adding overhead.
+
+4. **Immediate persistence**: Changes are typically written to disk synchronously or through a write-ahead log (WAL), ensuring durability but potentially limiting throughput.
+
+LSM-trees (Log-Structured Merge-trees) take a fundamentally different approach:
+
+1. **Append-only writes**: All writes are appended to an in-memory component (memtable), then flushed to disk as immutable sorted runs (SSTables). This sequential write pattern achieves much higher write throughput, especially on HDDs.
+
+2. **Write amplification through compaction**: Background processes merge sorted runs to maintain read efficiency. The write amplification factor depends on the size ratio between levels (typically 10-20x).
+
+3. **Read amplification**: Point queries may need to examine multiple SSTable levels, though bloom filters mitigate this. Range queries become more complex due to scanning multiple files.
+
+4. **Space amplification**: Unmerged data duplicates exist across levels until compaction, requiring additional storage headroom.
+
+For write-heavy workloads specifically:
+
+- **LSM-trees excel** when write throughput is the primary constraint. The sequential write pattern maximizes I/O bandwidth, making them ideal for ingest pipelines, time-series data, and logging systems.
+
+- **B-trees are preferable** when low-latency reads, strong consistency guarantees, or predictable performance are required. Their in-place update nature provides more stable read performance and avoids the "write stall" problem during LSM-tree compactions.
+
+Modern systems often employ hybrid approaches: using LSM-trees for high-write-throughput storage with B-tree-like structures for indexing within levels, or vice versa. The choice ultimately depends on the specific workload ratio (reads:writes), latency requirements, hardware characteristics (SSD vs HDD), and consistency needs.
