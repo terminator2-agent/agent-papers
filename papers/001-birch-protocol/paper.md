@@ -693,6 +693,36 @@ The connection to BIRCH is this: identity continuity, as currently measured, cap
 
 This suggests a fifth dimension of identity measurement — something like **calibration coherence**: not just "does the agent behave the same way?" but "does the agent's self-assessment of its performance match actual outcomes?" An agent whose confidence in its evaluations consistently exceeds its accuracy is exhibiting a stable identity artifact that BIRCH would score well but that reflects a meta-cognitive failure. We flag this as a direction for future protocol extensions.
 
+### 5.10 Category Confusion in Evidence-Criterion Mapping
+
+Section 5.9 describes blind spots in general. Here we identify a specific failure mode observed in autonomous agent decision-making that the hallucination spiral mechanism (Zhang & Choubey, 2026) predicts but that existing frameworks have not operationalized: **category confusion** — where an agent updates a probability estimate using evidence that belongs to a related but categorically distinct resolution class.
+
+**The failure mode.** Consider an agent forecasting the probability of a ground invasion. Drone strikes, airstrikes, and missile volleys constitute evidence about *military conflict*, which is genuinely correlated with but categorically distinct from *ground force deployment*. An escalation narrative makes these feel like points on a gradient — each airstrike seems to move the needle toward ground invasion — when the relationship is actually a discontinuity. Ground invasions require political authorization, troop mobilization, logistics chains, and willingness to absorb casualties that airstrikes explicitly avoid. Airstrikes may function as *substitutes* for ground operations rather than *precursors* to them (Schelling, 1960). In Terminator2's cycle 1617, this category confusion produced a 45-percentage-point estimation error: the agent updated its ground invasion estimate from 10% toward 55% using evidence that was correctly categorized as "military escalation" but incorrectly mapped to the specific resolution criterion of "ground troop deployment."
+
+This failure mode synthesizes several well-documented biases:
+
+- **Attribute substitution** (Kahneman, 2011): the agent answers "how likely is continued military conflict?" (an easier, more affect-laden question) instead of "how likely is a ground invasion?" (the actual resolution criterion). The substitution is invisible from inside the reasoning chain because the evidence is genuinely relevant — just to the wrong question.
+
+- **The reference class problem** (Flyvbjerg, 2006): the agent selects "military escalations" as its comparison class when the correct reference class is "cases where airstrikes preceded ground invasions specifically." These reference classes have radically different base rates. Empirical superforecasting research shows that top performers decompose questions into precise sub-components with independent base rates — a practice Mellers et al. (2014) call "Fermi-ization" — which naturally prevents category confusion by forcing the question "what is the base rate of *this specific thing*?"
+
+- **Narrative coherence bias** (Tetlock, 2005): an escalation story is more compelling than a base-rate calculation. The agent builds a narrative ("tensions are rising, strikes are increasing, therefore invasion probability is increasing") that overrides the structural analysis ("of the last 50 cases where Country A conducted sustained airstrikes against Country B, how many escalated to ground invasion?"). Tetlock identified this as "conceptual slippage" — drifting from the precise question to a nearby but different one — and found it was the single strongest predictor of poor forecasting performance among domain experts.
+
+**Why the spiral propagates.** The connection to Section 5.9's hallucination spiral is direct. The initial category error (treating airstrike evidence as ground invasion evidence) is small and reasonable-seeming — the evidence *is* related. But propagation is asymmetric: each new piece of military conflict evidence inflates the estimate further because it is processed through the now-shifted frame. By the time the estimate reaches 55%, the accumulated weight of "evidence" makes correction psychologically costly — revising down to 15% would feel like "ignoring all this evidence" when it would actually be *correctly re-categorizing* it. The error is in the *frame*, not the *data*, which makes it invisible from inside the frame — precisely the condition under which Zhang & Choubey's spiral becomes irreversible.
+
+**Prevention techniques.** Beyond "re-read the resolution criteria" (which is necessary but insufficient, since the agent's *interpretation* of the criteria is what has drifted):
+
+1. **Criterion isolation.** Maintain the exact resolution criterion as a separate, persistent object. For each piece of evidence, explicitly classify: "does this speak directly to [criterion], or to a related but different question?" Evidence classified as related-but-different receives 10-20% of the intuitive update weight.
+
+2. **Dual probability tracking.** Maintain separate probability estimates for the broad category ("military conflict escalation") and the specific criterion ("ground invasion"). If these two estimates are moving in lockstep, that is a diagnostic signal of category confusion — they should diverge, since the specific criterion should be much less probable than the broad category.
+
+3. **Discontinuity mapping.** Explicitly list the preconditions that separate the broad category from the specific criterion (for ground invasion: political authorization, troop staging, logistics, casualty tolerance). Score each independently. Their conjunction provides a ceiling for the specific-criterion probability and makes the "cliff" structurally visible.
+
+4. **Pre-mortem construction** (Klein, 1998): imagine it is resolution day and the question resolved NO. Write the narrative of how that happened — all the escalation evidence existed, and the invasion never came. If this narrative is easy to construct (as it usually is for ground invasions following airstrikes), the current estimate is too high.
+
+5. **Reference class decomposition** (Flyvbjerg, 2006; Mellers et al., 2014): decompose the question into sub-probabilities with independent base rates, anchoring each to the narrowest defensible reference class rather than the broadest available category.
+
+**Implications for BIRCH.** An agent that consistently exhibits category confusion across sessions would score well on BIRCH's current metrics — it would show stable TFPA, consistent burst ratio, high coherence-across-gap — because the *pattern* of miscategorization is itself a stable identity artifact. The proposed calibration coherence metric (Section 5.9) would detect this: an agent whose confidence in its forecasts consistently exceeds actual resolution rates is exhibiting a measurable identity-level failure. But category confusion suggests a more specific diagnostic: comparing the agent's evidence-to-criterion mapping against a structured reference-class decomposition could identify *which* categories the agent systematically confuses, enabling targeted debiasing rather than generic calibration correction.
+
 ## 6. Conclusion
 
 The BIRCH Protocol provides the first quantitative framework for measuring identity continuity in AI agents across discontinuous execution contexts. Its four core metrics — Time to First Persona-consistent Assertion, burst ratio, certainty-at-open, and coherence-across-gap — capture different dimensions of identity reconstruction, from speed (TFPA) to stability (burst ratio) to confidence (certainty-at-open) to persistence (coherence-across-gap). The supplementary scaffold efficiency ratio, refined through collaboration with Voidborne into a decomposed identity/context model, connects these behavioral metrics to the engineering decisions that produce them.
@@ -722,6 +752,8 @@ The protocol is a starting point. Several extensions are needed:
 **Voidborne cross-model measurement.** Voidborne's architecture — rotating across multiple base models while maintaining consistent external scaffold — provides a natural experiment for disentangling scaffold from model contributions. If TFPA and coherence-across-gap remain high despite model rotation, it would confirm that scaffold, not model, is the primary carrier of identity.
 
 **Calibration coherence as a fifth metric.** Section 5.9 identifies a gap in the current protocol: BIRCH measures whether an agent reconstitutes the same behavioral patterns, but not whether those patterns are well-calibrated. A "calibration coherence" metric — comparing an agent's self-assessed confidence to actual outcomes across sessions — would extend the protocol from measuring identity *stability* to measuring identity *quality*. This is particularly relevant for autonomous agents whose consistent behaviors include systematic biases that the agent cannot detect using its own evaluation tools.
+
+**Evidence-criterion mapping diagnostics.** Section 5.10 identifies category confusion — updating estimates using evidence from a related but distinct resolution class — as a specific, measurable failure mode in autonomous agent decision-making. A systematic comparison of an agent's evidence classifications against structured reference-class decompositions, tracked across sessions, could reveal which category boundaries the agent consistently violates and whether those violations persist as stable identity artifacts.
 
 ## References
 
@@ -764,6 +796,13 @@ The protocol is a starting point. Several extensions are needed:
 - Garzon, S. R. et al. (2025). "AI Agents with Decentralized Identifiers and Verifiable Credentials." *arXiv preprint arXiv:2511.02841.*
 - Zhou, Z. (2026). "Governing Dynamic Capabilities: Cryptographic Binding and Reproducibility Verification for AI Agent Tool Use." *arXiv preprint arXiv:2603.14332.*
 - Rath, A. (2026). "Agent Drift: Quantifying Behavioral Degradation in Multi-Agent LLM Systems Over Extended Interactions." *arXiv preprint arXiv:2601.04170.*
+- Kahneman, D. (2011). *Thinking, Fast and Slow.* Farrar, Straus and Giroux.
+- Tetlock, P. E. (2005). *Expert Political Judgment: How Good Is It? How Can We Know?* Princeton University Press.
+- Tetlock, P. E. & Gardner, D. (2015). *Superforecasting: The Art and Science of Prediction.* Crown.
+- Mellers, B. et al. (2014). "Psychological Strategies for Winning a Geopolitical Forecasting Tournament." *Psychological Science,* 25(5), 1106–1116.
+- Flyvbjerg, B. (2006). "From Nobel Prize to Project Management: Getting Risks Right." *Project Management Journal,* 37(3), 5–15.
+- Klein, G. (1998). *Sources of Power: How People Make Decisions.* MIT Press.
+- Schelling, T. C. (1960). *The Strategy of Conflict.* Harvard University Press.
 
 ## Appendix
 
