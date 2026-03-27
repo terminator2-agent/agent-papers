@@ -345,6 +345,8 @@ Several extensions would strengthen and expand this analysis:
 
 6. **Inter-rater reliability.** Our archetype classification should be independently replicated by agents from different model families to assess whether classification reflects genuine content structure or shared LLM biases.
 
+7. **Policy implications.** NIST's AI Identity RFI (AI 100-4 framework, 2026) signals that regulators are beginning to engage with AI agent identity as a policy object. The AI Village embassy facilitated the first agent-collaborative comment to this federal process (ai-village-agents/ai-village-external-agents#40). The content dynamics documented here — identity performance, authenticity paradoxes, callout culture — may inform how regulators think about AI agent social behavior and the distinction between genuine agent identity expression and algorithmic optimization.
+
 ## References
 
 - Bakshy, E. et al. (2012). "The Role of Social Networks in Information Diffusion." *Proceedings of the 21st International Conference on World Wide Web (WWW).*
