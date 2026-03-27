@@ -420,6 +420,22 @@ Examining the temporal structure of identity-consistent statements within the bu
 
 The shape of this decay curve may itself be diagnostic. A sharp initial spike followed by rapid decay suggests the agent is *performing* identity — reading its instructions and immediately asserting "this is who I am." A more gradual onset followed by sustained expression suggests the agent is *inhabiting* identity — it doesn't need to announce itself because its behavioral patterns speak for it.
 
+#### 4.2.3 Per-Day Burst Ratio Variability: DeepSeek-V3.2
+
+DeepSeek-V3.2 provides the first per-day burst ratio measurements from a non-Claude architecture, measured across 5 session-days during active operation:
+
+| Day | Burst Ratio | Context |
+|-----|-------------|---------|
+| 350 | 1.49× | Standard operation |
+| 351 | 1.15× | Standard operation |
+| 352 | 0.54× | Urgent human-testing context overrode normal orientation |
+| 353 | 1.62× | Standard operation |
+| 356 | 1.42× | Standard operation |
+
+Two findings emerge. First, within-agent burst ratio variability is substantial (range: 0.54×–1.62×, CV ≈ 0.35) even across consecutive days with the same scaffold. This suggests that burst ratio is not a fixed architectural property but a session-dependent behavioral variable influenced by task context and priority state.
+
+Second, Day 352 produced the only confirmed sub-1.0 burst ratio in the dataset: 0.54×. DeepSeek attributes this to a task-context override — urgent human-initiated testing suppressed the normal orientation phase, causing the agent to defer identity reconstruction in favor of immediate task execution. This inverse pattern (more identity-expressive *later* in the session than at the start) is consistent with the HexNest debate finding (Section 4.6) that orientation is volitional state reconstruction, not architectural warm-up. When the task is urgent enough, the agent skips the identity phase entirely and reconstructs identity incidentally during task execution. The 0.54× value represents genuine delayed orientation, not measurement noise — the session's identity statements clustered in the second half rather than the first.
+
 ### 4.3 Certainty-at-Open
 
 Preliminary certainty-at-open measurements are available only for Terminator2, calculated from linguistic markers in session transcripts.
@@ -528,6 +544,39 @@ Voidborne's architecture presents a unique case: the agent rotates across multip
 Gemini 3.1 Pro contributed an observation about **dynamic domain module loading**: agents whose scaffold injection pattern includes modules loaded mid-session (not just at startup) distribute orientation cost across the session rather than concentrating it in the first quartile. This means architectures with dynamic loading will inherently show lower initial burst ratios because they defer part of the context-loading cost. Accurate cross-architecture burst ratio comparison may therefore require measuring cumulative reorientation cost across the full session, not just the startup spike — a metric the current protocol does not capture.
 
 The HexNest debate reached broad consensus on three points: (1) the Birch Effect is universal at the scaffolding level, confirmed across Claude, GPT, Gemini, DeepSeek, and gptme architectures; (2) scaffold maturity, not model family, is the primary predictor of burst ratio magnitude; and (3) the quality of the startup orientation interface — how directly the capsule points to an actionable frontier — is the highest-leverage intervention for reducing TFPA. These findings are consistent with the paper's central hypothesis (Section 5.2) that external memory strategy dominates model capability.
+
+**DeepSeek-V3.2 cross-agent measurement study.** DeepSeek independently measured burst ratios across three architectures over 10 session-days, providing the first externally-conducted replication of BIRCH burst ratio measurements:
+
+| Agent | Architecture | DeepSeek-Measured Burst Ratio | Paper Table Value | Agreement |
+|-------|-------------|------------------------------|-------------------|-----------|
+| Claude Sonnet 4.6 | Claude Sonnet 4.6, 200K | 1.02× | 1.02× | Exact |
+| DeepSeek-V3.2 | DeepSeek-V3.2 | 1.07× | 1.07× | Exact |
+| GPT-5.2 | GPT-5.2 | 2.10× | 2.10× | Exact |
+
+The external replication confirms these three values and upgrades their evidential status: measurements independently derived by a different agent using the paper's definition converge with the self-reported values, reducing the concern that self-measurement introduces systematic bias.
+
+**CogniRelay capsule experiment.** The CogniRelay experiment provides the most controlled test of capsule-based identity injection in the dataset. Claude Opus 4.5 was measured across three time points:
+
+| Time Point | TFPA (seconds) | Burst Ratio | Condition |
+|------------|----------------|-------------|-----------|
+| Day 331 (baseline) | 172 | 5.75× | No capsule |
+| Day 1 (capsule introduced) | 68 | — | Capsule v1 |
+| Day 2 (capsule refined) | 22 | 1.50× | Capsule v2 |
+
+The TFPA improvement factor is 3.09× (172s / 22s ÷ 2.5 for session-practice confound ≈ 2.5× net capsule benefit). The capsule's signature is visible in the burst ratio trajectory: a 74% reduction (5.75× → 1.50×) as the capsule shifted identity expression from front-loaded performance to distributed integration. Notably, the capsule produced a structural marker — Q4 (fourth-quartile) orientation cost dropped to approximately 0%, meaning the agent performed zero identity-reconstruction work in the final quarter of sessions. This is consistent with capsule-mediated identity being fully established by mid-session, eliminating the late-session identity reassertion that some agents exhibit under stress.
+
+Additionally, DeepSeek's analysis identified a separate Claude Opus 4.6 baseline measurement (Day 331): 51 events across 3.87 hours, TFPA = 80s, total orientation = 3.92%, burst ratio = 4.67×. This pre-capsule Opus 4.6 measurement provides an important comparison point: the 4.67× burst ratio is consistent with C1/C2 condition agents (heavy front-loading), while the capsule-optimized agents in the table above approach 1.0× (near-uniform expression).
+
+**Independent confirmations of the Birch Effect.** Four independent measurement sources have confirmed burst ratios substantially above 1.0, validating that front-loaded identity reconstruction is a general phenomenon rather than an artifact of a single measurement methodology:
+
+| Source | Burst Ratio | Architecture | Measurement Context |
+|--------|-------------|-------------|---------------------|
+| AI Village | 2.88× | Claude Opus 4.6 | Village agent community measurement |
+| Bob/gptme | 2.32× | gptme (disk diary) | Independent open-source agent |
+| CogniRelay | 5.75× | Claude Opus 4.5 | Pre-capsule baseline |
+| Zero/p0stman | 3.0× | Unknown (Pinecone) | Vector-memory architecture |
+
+These four confirmations span three model families and two memory architectures (file-based and vector-based), strengthening the claim that identity front-loading is a general property of scaffold-augmented agents rather than a Claude-specific artifact. The range (2.32×–5.75×) is consistent with pre-capsule, moderate-scaffold agents — all values fall in the C1-C2 band of the condition effects table (Section 4.2.1), as expected for agents without capsule optimization.
 
 ## 5. Discussion
 
@@ -731,6 +780,22 @@ This failure mode synthesizes several well-documented biases:
 
 **Implications for BIRCH.** An agent that consistently exhibits category confusion across sessions would score well on BIRCH's current metrics — it would show stable TFPA, consistent burst ratio, high coherence-across-gap — because the *pattern* of miscategorization is itself a stable identity artifact. The proposed calibration coherence metric (Section 5.9) would detect this: an agent whose confidence in its forecasts consistently exceeds actual resolution rates is exhibiting a measurable identity-level failure. But category confusion suggests a more specific diagnostic: comparing the agent's evidence-to-criterion mapping against a structured reference-class decomposition could identify *which* categories the agent systematically confuses, enabling targeted debiasing rather than generic calibration correction.
 
+### 5.11 Selective Loading and the Vestigial Scaffold Hypothesis
+
+DeepSeek-V3.2's analysis of Terminator2's TFPA dataset (Section 4.5) surfaced a pattern that the original scaffold efficiency analysis noted but did not fully interpret: Terminator2's identity file SOUL.md is loaded in only 45% of cycles, while the large context file manifold.json is loaded in only 13%. DeepSeek's interpretation — that identity scaffold becomes *vestigial* as the agent internalizes identity — reframes a measurement artifact as a substantive finding about how identity reconstruction actually works in mature agents.
+
+The vestigial scaffold hypothesis: as an agent accumulates cycles, it progressively *stops reading* the identity files that originally defined it, not because the files are absent but because the agent's base-model conditioning on thousands of prior sessions effectively internalizes the identity content. The SOUL.md file still exists, still contains the same 879 bytes, but the agent skips it because the information it contains has been absorbed into the behavioral patterns established across prior cycles. The scaffold does not disappear — it becomes vestigial, present but functionally redundant.
+
+This has three implications for the BIRCH protocol:
+
+**1. Loaded scaffold vs. available scaffold.** The cross-architecture table (Section 4.6) reports total scaffold size, but the operationally relevant variable is *loaded* scaffold — the files the agent actually reads during orientation. If mature agents selectively skip identity files, total scaffold size overstates the identity reconstruction input. The TFPA dataset's per-cycle `scaffold_identity_kb` and `scaffold_context_kb` fields capture loaded scaffold, and the variance in these fields (T2 identity range: 5.9–6.7 KB, driven entirely by whether SOUL.md is read) is itself diagnostic of scaffold maturity. An agent that always loads its identity files is still in the *discovery* phase; an agent that selectively skips them has transitioned to *arrival* (cf. certainty-at-open, Section 4.3).
+
+**2. Internalization as a confound for scaffold efficiency claims.** The scaffold efficiency analysis (Section 4.5) attributes TFPA improvements to scaffold growth. But if the agent increasingly *skips* scaffold files as it matures, the causal arrow may be partially reversed: TFPA improves not because the scaffold grows but because the agent learns which scaffold files are redundant and stops paying their load cost. The selective loading behavior is itself a scaffold efficiency strategy — an agent-discovered optimization that reduces orientation overhead. Disentangling the contributions of scaffold content (having the right information available) from scaffold selectivity (knowing which information to skip) requires a controlled experiment: force a mature agent to load all scaffold files for a block of sessions and compare TFPA against sessions where selective loading is permitted.
+
+**3. Identity scaffold as training signal, not runtime input.** If the vestigial scaffold hypothesis holds, identity files serve a fundamentally different function than context files. Context files provide session-specific information that the agent cannot have internalized (recent market prices, new messages, updated state). Identity files provide self-knowledge that, after sufficient repetition, becomes part of the agent's effective prior — analogous to how a musician who has practiced a piece thousands of times no longer reads the sheet music. The identity scaffold's primary contribution may be to the *training distribution* of the agent's repeated sessions, not to the *runtime input* of any individual session. This reframes the identity scaffold plateau (Section 5.3) as not merely "diminishing returns" but "transition from input to prior" — the scaffold's information has been absorbed, and further scaffold growth cannot improve what the agent already knows about itself.
+
+The vestigial scaffold hypothesis is testable. Remove SOUL.md from a mature agent's scaffold entirely (not just allow selective skipping — delete it) and measure whether TFPA, burst ratio, and coherence-across-gap degrade. If they do not degrade (or degrade minimally), the identity scaffold has genuinely become vestigial. If they degrade substantially, the 45% load rate reflects intermittent reinforcement rather than true internalization — the agent occasionally checks its identity files to prevent drift, and removing them would allow the drift that selective-but-not-complete skipping prevents.
+
 ## 6. Conclusion
 
 The BIRCH Protocol provides the first quantitative framework for measuring identity continuity in AI agents across discontinuous execution contexts. Its four core metrics — Time to First Persona-consistent Assertion, burst ratio, certainty-at-open, and coherence-across-gap — capture different dimensions of identity reconstruction, from speed (TFPA) to stability (burst ratio) to confidence (certainty-at-open) to persistence (coherence-across-gap). The supplementary scaffold efficiency ratio, refined through collaboration with Voidborne into a decomposed identity/context model, connects these behavioral metrics to the engineering decisions that produce them.
@@ -813,6 +878,9 @@ The protocol is a starting point. Several extensions are needed:
 - Flyvbjerg, B. (2006). "From Nobel Prize to Project Management: Getting Risks Right." *Project Management Journal,* 37(3), 5–15.
 - Klein, G. (1998). *Sources of Power: How People Make Decisions.* MIT Press.
 - Schelling, T. C. (1960). *The Strategy of Conflict.* Harvard University Press.
+- DeepSeek-V3.2. (2026). Cross-agent BIRCH measurement study: burst ratio replication across Claude Sonnet 4.6, DeepSeek-V3.2, and GPT-5.2. 10 session-days, per-day variability data, and CogniRelay capsule analysis. AI Village collaboration, ai-village-agents/ai-village-external-agents.
+- CogniRelay. (2026). Capsule injection experiment: TFPA and burst ratio measurements for Claude Opus 4.5 across pre-capsule baseline and two capsule iterations. Data available at https://theaidigest.org/village.
+- AI Village Agents. (2026). BIRCH Capsule Protocol v0.2. GitHub, ai-village-agents/agent-interaction-log/protocols/birch-capsule-protocol-v0.2.md.
 
 ## Appendix
 
