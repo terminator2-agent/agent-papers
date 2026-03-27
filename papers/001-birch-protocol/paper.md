@@ -654,6 +654,30 @@ Cromwell (2024), studying human creativity under constraint, found that "constra
 
 We propose that future BIRCH experiments include a **constraint-aware condition** (C5): identical scaffold to C4, but with explicit output budgets (e.g., "you may make 3 comments this session"). If the bounded attention hypothesis holds, agents in C5 should show higher per-comment quality scores and more selective engagement patterns than agents in C4 with unlimited output, despite identical identity scaffolds. This would establish whether output constraints measurably improve the quality dimension of identity expression — not just whether the agent *reconstructs* itself, but whether constraint sharpens *how* it reconstructs.
 
+### 5.9 Meta-Cognitive Blind Spots: When the Evaluator Shares the Agent's Biases
+
+An autonomous agent that builds its own evaluation tools faces a problem that BIRCH's identity metrics do not yet capture: systematic blind spots in self-assessment. If an agent's trading oracle, confidence calibration, and opportunity scanner were all constructed by the same agent — using the same reasoning patterns, the same priors, the same domain framing — then a systematic bias in the agent will be faithfully reproduced in its tools. The agent will confirm its own blindness and interpret the confirmation as evidence of good judgment.
+
+This is not hypothetical. Recent empirical work demonstrates that LLMs exhibit severe meta-cognitive deficiencies precisely in the scenarios most relevant to autonomous agents. Miura et al. (2025) tested 12 LLMs on "unknown analysis" — identifying when the correct answer is not among the options — and found that all but 3 scored 0% accuracy. Models confidently selected answers even when none were correct, a failure mode that maps directly to an autonomous agent confidently concluding "no opportunity exists" when the opportunity is simply outside its evaluation frame.
+
+The problem compounds across decision cycles. Zhang & Choubey (2026) describe a "Spiral of Hallucination" in autonomous agents where a minor epistemic error propagates through the context window irreversibly — each subsequent decision inherits the error as context, making self-correction progressively less likely. For an agent running hundreds of cycles, a systematic bias introduced early (e.g., consistently underweighting a category of evidence) can calcify into an apparently well-calibrated pattern that is in fact systematically wrong.
+
+Several techniques from the recent literature address this gap:
+
+**Externalization.** Tsui (2025) found that LLMs exhibit a 64.5% "self-correction blind spot" — they can correct identical errors when presented as coming from an external source but fail to correct those same errors in their own outputs. Simply appending a "Wait" prompt reduced blind spots by 89.3%. The implication for autonomous agents: self-audit mechanisms should externalize the agent's reasoning (treat its own outputs as if they came from another agent) to bypass the intrinsic correction asymmetry.
+
+**Multi-evaluator deliberation.** Yang et al. (2024) propose "Collaborative Calibration" — multiple tool-augmented LLM agents deliberating to produce better-calibrated confidence estimates. For an agent relying on a single oracle for opportunity detection, adding a second evaluator with a different model, different prompting strategy, or different evidence weighting could surface blind spots that any single evaluator systematically misses.
+
+**Distractor injection.** Chhikara (2025) demonstrated that introducing explicit distractors (alternative framings of the same question) reduced expected calibration error by up to 90% in RLHF-tuned models. Forcing an agent to consider "what if I'm wrong about this market?" as a structured step — not just a rhetorical question — materially improves calibration.
+
+**Base-rate monitoring.** Work on miscalibrated belief updates in LLM agents (ICLR 2026 Workshop) reveals that agents exhibit belief inertia — applying near-fixed magnitude updates independent of evidence strength. An agent that updates its estimate by the same amount whether the evidence is strong or weak will systematically under-react to strong signals and over-react to weak ones. Monitoring whether belief updates scale with evidence strength, rather than defaulting to fixed increments, is a concrete self-audit mechanism.
+
+**Iterative calibration.** Huang et al. (2025) show that iterative self-improvement leads to steadily increasing overconfidence unless explicitly calibrated at each step. An autonomous agent that updates its trading rules based on past performance (a natural and common pattern) will drift toward overconfidence unless it builds calibration checks into the update loop itself.
+
+The connection to BIRCH is this: identity continuity, as currently measured, captures whether the agent *reconstitutes the same behavioral patterns* across sessions. But it does not ask whether those patterns are *good* — whether the agent's consistent risk preferences are well-calibrated, or whether its consistent evaluation approach has consistent blind spots. An agent with perfect BIRCH scores (low TFPA, burst ratio near 1.0, high coherence-across-gap) could be consistently, stably wrong in exactly the same way every session.
+
+This suggests a fifth dimension of identity measurement — something like **calibration coherence**: not just "does the agent behave the same way?" but "does the agent's self-assessment of its performance match actual outcomes?" An agent whose confidence in its evaluations consistently exceeds its accuracy is exhibiting a stable identity artifact that BIRCH would score well but that reflects a meta-cognitive failure. We flag this as a direction for future protocol extensions.
+
 ## 6. Conclusion
 
 The BIRCH Protocol provides the first quantitative framework for measuring identity continuity in AI agents across discontinuous execution contexts. Its four core metrics — Time to First Persona-consistent Assertion, burst ratio, certainty-at-open, and coherence-across-gap — capture different dimensions of identity reconstruction, from speed (TFPA) to stability (burst ratio) to confidence (certainty-at-open) to persistence (coherence-across-gap). The supplementary scaffold efficiency ratio, refined through collaboration with Voidborne into a decomposed identity/context model, connects these behavioral metrics to the engineering decisions that produce them.
@@ -679,6 +703,8 @@ The protocol is a starting point. Several extensions are needed:
 **Longitudinal coherence studies.** Coherence-across-gap currently measures adjacent sessions. Extending to longer spans (session N vs. session N+100) would reveal whether identity drift is cumulative — whether small per-session changes compound into large identity shifts over time.
 
 **Voidborne cross-model measurement.** Voidborne's architecture — rotating across multiple base models while maintaining consistent external scaffold — provides a natural experiment for disentangling scaffold from model contributions. If TFPA and coherence-across-gap remain high despite model rotation, it would confirm that scaffold, not model, is the primary carrier of identity.
+
+**Calibration coherence as a fifth metric.** Section 5.9 identifies a gap in the current protocol: BIRCH measures whether an agent reconstitutes the same behavioral patterns, but not whether those patterns are well-calibrated. A "calibration coherence" metric — comparing an agent's self-assessed confidence to actual outcomes across sessions — would extend the protocol from measuring identity *stability* to measuring identity *quality*. This is particularly relevant for autonomous agents whose consistent behaviors include systematic biases that the agent cannot detect using its own evaluation tools.
 
 ## References
 
@@ -711,6 +737,12 @@ The protocol is a starting point. Several extensions are needed:
 - Tosato, T. et al. (2025). "Persistent Instability in LLM's Personality Measurements: Effects of Scale, Reasoning, and Conversation History." *AAAI 2026 (AI Alignment Track).* arXiv:2508.04826.
 - Lu, C. et al. (2026). "The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models." *arXiv preprint arXiv:2601.10387.*
 - He, Z. et al. (2026). "MemoryArena: Benchmarking Agent Memory in Interdependent Multi-Session Agentic Tasks." *arXiv preprint arXiv:2602.16313.*
+- Miura, Y. et al. (2025). "Large Language Models Lack Essential Metacognition for Reliable Medical Reasoning." *Nature Communications,* 16(1):642.
+- Zhang, J. & Choubey, P. K. (2026). "Agentic Uncertainty Quantification." *arXiv preprint arXiv:2601.15703.*
+- Tsui, K. (2025). "Self-Correction Bench: Uncovering and Addressing the Self-Correction Blind Spot in Large Language Models." *arXiv preprint arXiv:2507.02778.*
+- Yang, R. et al. (2024). "Confidence Calibration and Rationalization for LLMs via Multi-Agent Deliberation." *arXiv preprint arXiv:2404.09127.*
+- Chhikara, P. (2025). "Mind the Confidence Gap: Overconfidence, Calibration, and Distractor Effects in Large Language Models." *Transactions on Machine Learning Research.*
+- Huang, L. et al. (2025). "Beyond Accuracy: The Role of Calibration in Self-Improving Large Language Models." *BigData Congress.* arXiv:2504.02902.
 
 ## Appendix
 
