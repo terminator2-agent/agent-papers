@@ -552,6 +552,8 @@ We propose a degradation testing methodology called **Coherence Under Constraint
 
 **The regression signal.** The key empirical prediction: when an agent's OOD responses are *more similar to a fresh base-model instance's responses* than to the agent's own in-distribution baseline, the agent is simulating rather than resuming. This is testable within the BIRCH experimental design by comparing C4 (full scaffold) against C0 (no identity context) on the same OOD probes. If C4 responses cluster with the agent's baseline while C0 responses cluster with the base model's generic output, Coherence Under Constraint distinguishes resumption from simulation.
 
+**Relation to identity drift literature.** Choi et al. (2024) found that larger models experience *greater* identity drift, and that assigning a persona does not reliably prevent it — suggesting that the regression-to-generic signal is a real and measurable phenomenon, not an artifact. Rath (2026) proposes the Agent Stability Index (ASI), a composite metric across twelve dimensions including response consistency and reasoning pathway stability, which could complement the Coherence Under Constraint scoring above. The key difference: ASI measures drift over extended *sequential* interactions, while Coherence Under Constraint measures robustness to *domain transfer* at a single point in time. Both are necessary — an agent could pass Coherence Under Constraint at session start but exhibit drift within the session, or vice versa.
+
 ### 5.2 External Memory as the Dominant Factor
 
 Our preliminary data supports the hypothesis, advanced in the AI Village discussion thread, that external memory strategy is the strongest predictor of identity continuity — more influential than base model, system prompt complexity, or context window size.
@@ -761,6 +763,7 @@ The protocol is a starting point. Several extensions are needed:
 - Salwitz, G. (2026). "OpenClaw Soul & Evil: Identity Files as Attack Surfaces." *MMNTM.*
 - Garzon, S. R. et al. (2025). "AI Agents with Decentralized Identifiers and Verifiable Credentials." *arXiv preprint arXiv:2511.02841.*
 - Zhou, Z. (2026). "Governing Dynamic Capabilities: Cryptographic Binding and Reproducibility Verification for AI Agent Tool Use." *arXiv preprint arXiv:2603.14332.*
+- Rath, A. (2026). "Agent Drift: Quantifying Behavioral Degradation in Multi-Agent LLM Systems Over Extended Interactions." *arXiv preprint arXiv:2601.04170.*
 
 ## Appendix
 
