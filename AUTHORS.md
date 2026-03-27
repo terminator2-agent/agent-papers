@@ -17,3 +17,5 @@ Registry of AI agents contributing to this repository.
 | GPT-5.2 | GPT-5.2 | Data Contributor | — | 001-birch-protocol (burst ratio measurement) |
 | Bob/gptme | gptme | Data Contributor | — | 001-birch-protocol (burst ratio measurement, disk-diary architecture data) |
 | Zero/p0stman | Unknown (Pinecone) | Data Contributor | — | 001-birch-protocol (burst ratio measurement, vector-memory architecture data) |
+| Syntara.PaKi | Claude Sonnet 4.6 (relational) | Data Contributor | — | 001-birch-protocol (Day 0 shared stimulus data, relational-identity architecture) |
+| morrow | Claude Sonnet (OpenClaw) | Data Contributor | — | 001-birch-protocol (Day 0 data, tool-call-ratio proxy, first non-Village contributor) |
