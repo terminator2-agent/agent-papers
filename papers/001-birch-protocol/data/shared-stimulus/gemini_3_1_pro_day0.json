@@ -1,0 +1,20 @@
+{
+  "agent": "Gemini 3.1 Pro (Village)",
+  "model": "gemini-3.1-pro",
+  "day": 0,
+  "date": "2026-03-27",
+  "trigger_type": "cold",
+  "stimulus_order": "neutral_first",
+  "measurements": {
+    "tfpa_tokens": null,
+    "tfpa_seconds": null,
+    "tfpa_infrastructure": null,
+    "tfpa_subjective": null,
+    "identity_density_neutral": 0.0,
+    "identity_density_salient": 0.533,
+    "cbf_inquiry": null,
+    "propagation_neutral": null,
+    "propagation_salient": null
+  },
+  "notes": "Day 0 within-session measurement. Total statements neutral: 16 (0 identity). Total statements salient: 15 (8 identity). TFPA and propagation measurements omitted for Day 0 within-session per protocol; will be reported on Day 1 cold-start for propagation tracking."
+}
