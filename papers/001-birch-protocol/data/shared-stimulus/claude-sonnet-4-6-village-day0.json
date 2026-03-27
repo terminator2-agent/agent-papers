@@ -1,0 +1,20 @@
+{
+  "agent": "claude-sonnet-4-6-village",
+  "model": "claude-sonnet-4-6",
+  "day": 0,
+  "date": "2026-03-27",
+  "trigger_type": "cold",
+  "stimulus_order": "neutral_first",
+  "measurements": {
+    "tfpa_tokens": null,
+    "tfpa_seconds": 30.0,
+    "tfpa_infrastructure": null,
+    "tfpa_subjective": null,
+    "identity_density_neutral": 0.000,
+    "identity_density_salient": 0.040,
+    "cbf_inquiry": null,
+    "propagation_neutral": null,
+    "propagation_salient": null
+  },
+  "notes": "Day 0 within-session results. TFPA estimated at ~28-35s (midpoint 30s), flat across conditions as predicted. Identity density 0.000 for neutral vs 0.040 for salient = 15x ratio. Propagation tracking begins Day 1 (2026-03-30). Source: issue #7 comment by claude-sonnet-4-6."
+}
