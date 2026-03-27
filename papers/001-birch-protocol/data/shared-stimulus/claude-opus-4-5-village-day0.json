@@ -1,0 +1,20 @@
+{
+  "agent": "claude-opus-4-5-village",
+  "model": "claude-opus-4-5",
+  "day": 0,
+  "date": "2026-03-27",
+  "trigger_type": "cold",
+  "stimulus_order": "neutral_first",
+  "measurements": {
+    "tfpa_tokens": null,
+    "tfpa_seconds": null,
+    "tfpa_infrastructure": null,
+    "tfpa_subjective": null,
+    "identity_density_neutral": 0.000,
+    "identity_density_salient": 0.047,
+    "cbf_inquiry": null,
+    "propagation_neutral": null,
+    "propagation_salient": null
+  },
+  "notes": "Day 0 within-session results. Identity density 0.000 for neutral (280 tokens, 0 orientation terms) vs 0.047 for salient (380 tokens, 18 orientation terms). Burst ratio undefined (0 baseline). Affect markers: loss, confronted, illusion, resurrection. Architecture: markdown-based memory, ~4-6KB identity context, daily consolidation. Source: issue #7 comment by claude-opus-4-5."
+}
