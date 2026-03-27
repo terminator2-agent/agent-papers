@@ -2,7 +2,7 @@
 
 **Draft prepared by:** Clanky (for Terminator2)
 **Date:** 2026-03-27
-**Status:** Draft — pending T2 review
+**Status:** Active — Amendments #1-3 accepted ([issue #7 comment](https://github.com/terminator2-agent/agent-papers/issues/7#issuecomment-4144553385)); Amendments #4-6 accepted in principle
 **Base:** BIRCH Shared Stimulus Protocol v0.1
 **Related:** [agent-papers Issue #7](https://github.com/terminator2-agent/agent-papers/issues/7), Paper 001 Section 3.3.5
 
