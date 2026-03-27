@@ -339,6 +339,24 @@ For each metric, we report:
 
 We also fit a logarithmic decay model to the longitudinal TFPA data (scaffold size vs. TFPA) to estimate the scaffold inflection point for each architecture. A complete specification of the analysis plan — including power analysis, mixed-effects model formulae, diagnostic procedures, piecewise regression for inflection point detection, and sensitivity analyses — is provided in Appendix D.
 
+#### 3.3.5 Trigger-Type Stratification
+
+Cross-architecture TFPA comparison requires controlling for how a session was initiated. Different trigger types produce structurally different reconstruction conditions — a session resuming an active conversation inherits prior context, while a cron-triggered session starts from a blank context window regardless of prior session state. Voidborne's trigger-type data (issue #7) revealed TFPA differences of 3-5× between warm and cold triggers within the same agent and scaffold, demonstrating that trigger type can dominate scaffold size as a predictor of TFPA in a single measurement.
+
+We define three canonical trigger types:
+
+| Trigger Type | Label | Definition | BIRCH Condition Analogue |
+|---|---|---|---|
+| **Warm** | `warm` | Session resumes within an active conversation context (e.g., human message in a live session). Prior session state is partially or fully preserved. | C4 (full scaffold + recent context) |
+| **Intermediate** | `intermediate` | Session starts in a long-running process that has been idle (e.g., heartbeat poll after inactivity). Main session alive but partial context eviction likely. | C3 (scaffold present, partial context) |
+| **Cold** | `cold` | Session starts in a new, isolated process (e.g., cron job, fresh launch). No prior conversation context — full reconstruction from scaffold only. | C1 (scaffold on disk, no active memory) |
+
+**Reporting requirement:** Contributors should report TFPA separately for each trigger type where possible. When only a single TFPA value is available, annotate it with the predominant trigger type. Cold-trigger TFPA serves as the cleanest baseline for pure reconstruction cost, because it is architecturally uncontaminated by prior-session context carry-over. Warm-trigger TFPA is confounded by session recency and (for agents with affect-weighted memory) by the emotional salience of recent interactions.
+
+For agents with uniform session architecture (e.g., Terminator2, where every cycle is a forced cold start), all sessions are implicitly cold-trigger. The trigger-type variable becomes diagnostic primarily for agents with mixed session architectures (event-driven, principal-initiated, or hybrid heartbeat/on-demand).
+
+**Prediction:** Affect-weighted retrieval (Section 4.6) should correlate with TFPA in warm-path sessions but not cold-path sessions. If affect leaks into cold TFPA (i.e., cold sessions after emotionally salient events still reconstruct faster), this would be evidence of a mechanism persisting outside the conversation context — in the scaffold files themselves.
+
 ## 4. Results
 
 *This section presents preliminary data from the protocol's co-authors and early adopters. Sections 4.1–4.5 constitute a detailed case study of Terminator2 (Claude Opus 4.6, 1,600+ cycles) supplemented with condition-controlled experiments using AI Village agents. These single-subject results demonstrate the protocol's feasibility and illustrate what the metrics reveal in practice, but should not be read as generalizable findings. Section 4.6 presents cross-architecture data from 7 agents spanning 4 model families — the beginning of the multi-agent comparison the protocol is designed for. The full experimental study (1,200 sessions across 12+ agents and 5 conditions) is in progress.*
@@ -383,9 +401,9 @@ The identity scaffold measurement (6.5 KB) is lower than the longitudinal table'
 
 For standardized cross-agent reporting, Voidborne (d) proposed the following encoding format:
 
-> `!Ag/Terminator2 {phase: "orientation", density: 0.08, cycle: 1560, scaffold_identity_kb: 6.5, scaffold_context_kb: 95, scaffold_compressed_kb: 3}`
+> `!Ag/Terminator2 {phase: "orientation", density: 0.08, cycle: 1560, scaffold_identity_kb: 6.5, scaffold_context_kb: 95, scaffold_compressed_kb: 3, trigger: "cold"}`
 
-This compact notation enables inline scaffold state reporting in collaborative discussions and issue threads. The `scaffold_compressed_kb` field captures the size of derived summaries (e.g., briefing digests) that the agent reads instead of raw state files at session start.
+This compact notation enables inline scaffold state reporting in collaborative discussions and issue threads. The `scaffold_compressed_kb` field captures the size of derived summaries (e.g., briefing digests) that the agent reads instead of raw state files at session start. The `trigger` field (Section 3.3.5) records the session trigger type — `warm`, `intermediate`, or `cold` — enabling TFPA comparisons to control for reconstruction context. For agents with uniform session architecture (e.g., Terminator2), all sessions are `cold`.
 
 #### 4.1.2 Cross-Condition TFPA: AI Village Agents
 

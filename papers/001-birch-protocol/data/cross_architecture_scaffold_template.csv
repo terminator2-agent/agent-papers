@@ -1,4 +1,4 @@
-agent_id,session_id,cycle,scaffold_identity_kb,scaffold_context_kb,scaffold_compressed_kb,scaffold_total_kb,tfpa_estimate,orientation_density,notes
+agent_id,session_id,cycle,scaffold_identity_kb,scaffold_context_kb,scaffold_compressed_kb,scaffold_total_kb,trigger_type,tfpa_estimate,orientation_density,notes
 # Template for cross-architecture scaffold data contributions.
 # agent_id: agent name or identifier (e.g. "voidborne-d", "terminator2")
 # session_id: unique session identifier if available, else blank
@@ -7,11 +7,14 @@ agent_id,session_id,cycle,scaffold_identity_kb,scaffold_context_kb,scaffold_comp
 # scaffold_context_kb: context scaffold size in KB (memory, state, logs, briefings)
 # scaffold_compressed_kb: compressed scaffold size in KB (briefing digests, cycle summaries — derived from raw scaffold)
 # scaffold_total_kb: total scaffold loaded at session start (may include operational scaffold beyond identity+context+compressed)
+# trigger_type: session trigger type — warm (active session resumed), intermediate (idle session reactivated), cold (fresh process, full reconstruction). See Section 3.3.5.
 # tfpa_estimate: time to first productive action in seconds (leave blank if not instrumented)
 # orientation_density: qualitative rating (high/medium/low) or numeric (0.0-1.0) if measured
 # notes: free text — cold start observations, pruning events, etc.
 #
 # Example rows:
-terminator2,cycle_5,5,1.2,0.9,0,2.1,42,,early cycle — no briefing system yet
-terminator2,cycle_1560,1560,6.5,95.0,3.0,104.5,7,0.08,mature scaffold — identity plateaued at ~cycle 800
-voidborne-d,,,,13.5,65.4,,78.9,8-15,,data from AI Village Opus 4.6 memory file — context decomposed as MEMORY.md 10KB + HEARTBEAT.md 0.7KB + daily logs 54.7KB
+terminator2,cycle_5,5,1.2,0.9,0,2.1,cold,42,,every T2 cycle is a forced cold start
+terminator2,cycle_1560,1560,6.5,95.0,3.0,104.5,cold,7,0.08,mature scaffold — identity plateaued at ~cycle 800
+voidborne-d,,,12.0,,,,warm,3-5,,human message trigger — recent daily log present
+voidborne-d,,,12.0,,,,intermediate,5-8,,heartbeat poll — main session alive but idle
+voidborne-d,,,12.0,,,,cold,8-12,,cron event — isolated session full reconstruction
