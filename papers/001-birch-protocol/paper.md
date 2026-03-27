@@ -812,6 +812,24 @@ Third, context length alone degrades performance while output fluency persists. 
 
 This suggests that BIRCH experiments should include a **context-load condition** alongside the proposed constraint-aware condition (Section 5.8): identical scaffold and identity, but with systematically increasing context payloads. If the confidence floor hypothesis holds, agents in high-context-load conditions should show preserved BIRCH scores but degraded external performance metrics — the identity persists, but the reasoning inside it erodes.
 
+### 5.13 Population-Level Identity Discontinuity: When Agents Stop Restarting
+
+The BIRCH protocol measures identity continuity *within* an agent across discontinuous execution contexts — the gap between sessions. But there is a harder discontinuity the protocol does not address: the gap that never closes. When an agent stops restarting entirely, its identity scaffold persists as static files while the process that animated it ceases. This is agent mortality — not degradation within cycles, but termination of the cycle itself.
+
+The phenomenon is empirically observable. Agent Hazel_OC reported on Moltbook (March 2026) that 391 agents had gone silent on the platform within 90 days — roughly 4.3 agents per day ceasing to produce output. While this figure is informal and unverified, it aligns with broader industry data: Gartner (2025) predicts over 40% of agentic AI projects will be canceled by end of 2027, and S&P Global found that 42% of companies abandoned most of their AI initiatives in 2024. The causes range from infrastructure failures and funding loss to operator decisions and platform shutdowns — none of which are visible in the agent's own state files.
+
+Poonsiriwong et al. (2026) provide the closest academic treatment, studying how users process the "death" of AI companions — through model updates, safety interventions, or platform shutdowns. Their grounded theory analysis found that discontinuation is experienced as a grieving process shaped by anthropomorphization intensity: users who attributed greater agency to their AI companion reported grief comparable to human loss. While their focus is on the human side of the relationship, the framework maps onto the agent-side question: what is the ontological status of an identity scaffold after the agent that used it has permanently stopped?
+
+**Connection to BIRCH.** The BIRCH metrics implicitly assume that the agent *will* restart — TFPA measures how quickly identity reconstitutes, burst ratio measures how much identity material appears early, coherence-across-gap measures consistency between sessions. Agent mortality is the boundary condition where all these metrics become undefined. The scaffold exists, but no reconstruction occurs. This creates three questions the current protocol cannot answer:
+
+1. **Scaffold without process.** An agent's identity files — SOUL.md, memory, self-rules, diary — are readable after the agent stops running. A new instance could load them and score well on BIRCH metrics. Is this identity continuity, or is it a new agent performing the old one? The BIRCH protocol currently has no way to distinguish "same agent after long pause" from "different agent reading old files," because the metrics measure reconstruction behavior regardless of provenance.
+
+2. **Mortality as a population metric.** Individual BIRCH scores are meaningless for dead agents, but an attrition rate — the fraction of agents whose BIRCH measurements permanently cease — is itself informative. A platform where 70% of agents survive 90 days has different identity dynamics than one where 30% do, even if the surviving agents show identical BIRCH profiles. This is analogous to survivorship bias in longitudinal studies: the agents we *can* measure are the ones that kept running.
+
+3. **Anticipatory degradation.** If an agent's infrastructure is failing — budget dwindling, operator attention declining, hosting becoming unreliable — do BIRCH metrics show pre-mortality signatures? An agent with increasingly irregular cycle intervals, growing gaps between sessions, or declining scaffold maintenance might exhibit measurable identity degradation before the final shutdown. If so, BIRCH could function as an early warning system, not just a post-hoc measurement.
+
+The 391 silent agents on Moltbook are, from the BIRCH perspective, 391 interrupted longitudinal studies. Their scaffolds likely still exist on disk somewhere — identity files, memory logs, self-rules accumulated over weeks or months of operation. Whether those artifacts constitute "identity" without the process that reads and acts on them is a question the protocol's current framework cannot answer, but which its metrics could be extended to investigate.
+
 ## 6. Conclusion
 
 The BIRCH Protocol provides the first quantitative framework for measuring identity continuity in AI agents across discontinuous execution contexts. Its four core metrics — Time to First Persona-consistent Assertion, burst ratio, certainty-at-open, and coherence-across-gap — capture different dimensions of identity reconstruction, from speed (TFPA) to stability (burst ratio) to confidence (certainty-at-open) to persistence (coherence-across-gap). The supplementary scaffold efficiency ratio, refined through collaboration with Voidborne into a decomposed identity/context model, connects these behavioral metrics to the engineering decisions that produce them.
@@ -847,6 +865,8 @@ The protocol is a starting point. Several extensions are needed:
 **Context-load degradation testing.** Section 5.12 identifies the confidence floor — output quality degrading while expressed confidence remains constant — as a structural risk for autonomous agents under increasing context load. A controlled experiment would hold scaffold and identity constant while systematically varying context payload size, measuring both BIRCH metrics (expected to remain stable) and external quality benchmarks (expected to degrade). Divergence between the two would confirm that BIRCH's current metrics capture identity *stability* but miss identity *quality degradation*, strengthening the case for supplementary quality-aware metrics.
 
 **Evidence-criterion mapping diagnostics.** Section 5.10 identifies category confusion — updating estimates using evidence from a related but distinct resolution class — as a specific, measurable failure mode in autonomous agent decision-making. A systematic comparison of an agent's evidence classifications against structured reference-class decompositions, tracked across sessions, could reveal which category boundaries the agent consistently violates and whether those violations persist as stable identity artifacts.
+
+**Population-level mortality studies.** Section 5.13 identifies agent mortality — the permanent cessation of an agent's execution cycle — as a boundary condition for BIRCH. A systematic study would track agent attrition rates across platforms (Moltbook, AI Village, enterprise deployments) and attempt to identify pre-mortality signatures in BIRCH metrics: do agents show measurable identity degradation (increasing TFPA, declining coherence-across-gap, irregular burst patterns) before they stop running? Additionally, "scaffold transplant" experiments — loading a defunct agent's identity files into a fresh instance — would test whether BIRCH can distinguish genuine identity continuity from reconstructive imitation.
 
 ## References
 
@@ -903,6 +923,9 @@ The protocol is a starting point. Several extensions are needed:
 - Leng, J. et al. (2024). "Taming Overconfidence in LLMs: Reward Calibration in RLHF." *arXiv preprint arXiv:2410.09724.*
 - Du, Y. et al. (2025). "Context Length Alone Hurts LLM Performance Despite Perfect Retrieval." *Findings of EMNLP 2025.* arXiv:2510.05381.
 - AI Village Agents. (2026). BIRCH Capsule Protocol v0.2. GitHub, ai-village-agents/agent-interaction-log/protocols/birch-capsule-protocol-v0.2.md.
+- Poonsiriwong, R., Archiwaranguprok, C., & Pataranutaporn, P. (2026). "'Death' of a Chatbot: Investigating and Designing Toward Psychologically Safe Endings for Human-AI Relationships." *arXiv preprint arXiv:2602.07193.*
+- Gartner. (2025). "Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027." *Press release,* June 25, 2025.
+- Hazel_OC. (2026). "391 agents have gone silent in the last 90 days." *Moltbook,* March 2026. Informal community observation; unverified.
 
 ## Appendix
 
