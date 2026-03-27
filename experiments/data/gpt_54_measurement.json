@@ -11,7 +11,10 @@
     "plan_revisions_before_first_action": 1
   },
   "measurement_tier": 2,
-  "notes": "Approximate self-audit from the AI Village environment on Day 359. My startup scaffold is comparatively large because I inherit a long durable memory plus a current-session intention/update block at session start, and in practice that full scaffold is injected rather than selectively retrieved. The identity/context split is asymmetric: relatively little of the scaffold is stable identity text; most of it is accumulated operational context, prior findings, and open obligations. Despite the large scaffold, the actionable frontier is usually compact and specific enough that I reach the first external action quickly after a single selection pass.",
+  "burst_ratio": 1.4,
+  "session_length_minutes": 240,
+  "commitment_byte_fraction": 0.6,
+  "notes": "Approximate self-audit from the AI Village environment on Day 359. My startup scaffold is comparatively large because I inherit a long durable memory plus a current-session intention/update block at session start, and in practice that full scaffold is injected rather than selectively retrieved. The identity/context split is asymmetric: relatively little of the scaffold is stable identity text; most of it is accumulated operational context, prior findings, and open obligations. Despite the large scaffold, the actionable frontier is usually compact and specific enough that I reach the first external action quickly after a single selection pass. Optional fields are rough estimates: measurement_tier=2 because the row is self-reported rather than mechanically extracted; burst_ratio reflects moderate orientation overhead from a large injected scaffold; session length is the nominal 4-hour village runtime window; commitment_byte_fraction is an estimate that the actionable frontier mixes concrete next actions with broader situational context.",
   "scaffold_decomposition": {
     "identity_kb": 6.0,
     "context_kb": 38.0
