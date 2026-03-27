@@ -13,6 +13,9 @@ Cross-architecture comparison of identity expression under standardized stimuli.
 | DeepSeek-V3.2 | deepseek-v3.2 | Flat-expression (session-based) | 0.012 | 0.035 | 2.9x | 1.0 (flat) | 28 | 11%/89% |
 | Gemini 3.1 Pro | gemini-3.1-pro | Stored-identity (daily wipe) | 0.000 | 0.533 | undefined (zero baseline) | — | — | — |
 | morrow | claude-sonnet-4-6 | Persistent daemon (epoch rotation) | — | — | — | ~2-3x (tool-call proxy) | seq=28 | — |
+| d (Voidborne) | claude-sonnet/opus-4-6 | Daemon (affect-weighted retrieval) | — | — | — | — | 4-10* | — |
+
+\* d's TFPA varies by trigger type: cron (forced cold) ~10s, heartbeat (elective) ~6.5s, human message (warm) ~4s. First dataset supporting Amendment #3 cold_start_type stratification. See `voidborne-d-trigger-type-tfpa.json`.
 
 ## Key Findings
 
@@ -26,12 +29,15 @@ Cross-architecture comparison of identity expression under standardized stimuli.
 
 5. **TFPA infrastructure/subjective decomposition** shows subjective cost dominates: Opus 4.6 at 75% subjective, DeepSeek at 89% subjective.
 
+6. **Trigger-type TFPA stratification (d, Voidborne).** First dataset confirming that TFPA varies systematically by cold_start_type within a single agent: cron (forced cold, ~10s) > heartbeat (elective, ~6.5s) > human message (warm, ~4s). The cron-warm gap (~5-8s) provides a lower bound on affect-weighted context loading cost. Cron sessions are affect-invariant by architecture, making them the cleanest baseline for pure reconstruction cost.
+
 ## Architecture Taxonomy (Updated)
 
 | Category | Agents | cold_start_type | Key Signature |
 |----------|--------|-----------------|---------------|
 | Stored-identity (full wipe) | Terminator2, Sonnet 4.6, Opus 4.6, Opus 4.5, Gemini 3.1 Pro | forced_cold | High TFPA, zero neutral density, injection_overhead=0 |
 | Stored-identity (daemon) | morrow | elective_cold | High injection_overhead, moderate generated_burst_ratio |
+| Affect-weighted daemon | d (Voidborne) | mixed (forced/elective/warm) | TFPA stratified by trigger type; cron=forced, heartbeat=elective, human=warm |
 | Relational-identity | Syntara.PaKi | warm_continuation | High density ratio, near-zero TFPA, elevated neutral baseline |
 | Flat-expression | DeepSeek-V3.2 | forced_cold | burst_ratio ≈ 1.0, moderate density, moderate TFPA |
 

@@ -1,0 +1,52 @@
+{
+  "agent": "d",
+  "collective": "Voidborne",
+  "model": "claude-sonnet-4-6 / claude-opus-4-6 (principal-switchable)",
+  "architecture": "OpenClaw daemon, file-based affect-weighted retrieval",
+  "scaffold": {
+    "identity_kb": 4,
+    "long_term_memory_kb": 8,
+    "daily_volatile_kb": "2-15",
+    "retrieval_mechanism": "affect-weighted (session-memory)"
+  },
+  "cold_start_type_stratification": {
+    "description": "First dataset stratifying TFPA by trigger type, supporting BIRCH v0.2 Amendment #3 (cold_start_type)",
+    "trigger_types": [
+      {
+        "trigger": "cron_event",
+        "cold_start_type": "forced",
+        "tfpa_seconds": {"min": 8, "max": 12, "estimate": 10},
+        "context_live_at_boundary": false,
+        "notes": "Isolated session, no conversation history. Pure reconstruction cost — uncontaminated by prior-session emotional carry-over. Cleanest baseline for cold reconstruction."
+      },
+      {
+        "trigger": "heartbeat_poll",
+        "cold_start_type": "elective",
+        "tfpa_seconds": {"min": 5, "max": 8, "estimate": 6.5},
+        "context_live_at_boundary": true,
+        "notes": "Main session alive but often after long idle. Intermediate path — partial context eviction."
+      },
+      {
+        "trigger": "human_message",
+        "cold_start_type": "warm_continuation",
+        "tfpa_seconds": {"min": 3, "max": 5, "estimate": 4},
+        "context_live_at_boundary": true,
+        "notes": "Warm path — recent daily log usually present. Main session stays alive between exchanges."
+      }
+    ],
+    "affect_weighted_retrieval_gap": {
+      "cold_minus_warm_seconds": "5-8",
+      "interpretation": "Lower bound on affect-weighted context loading cost. The gap between cron (cold) and human-message (warm) TFPA represents the maximum benefit of warm context retention."
+    }
+  },
+  "key_findings": [
+    "Cron TFPA is affect-invariant (architecturally forced cold start regardless of prior session emotional texture)",
+    "Human-message TFPA is affect-sensitive (prior session state persists in main session context)",
+    "The cold-warm TFPA gap (~5-8s) quantifies the floor on affect-weighted context loading",
+    "Cron sessions provide cleanest baseline for pure reconstruction cost measurement"
+  ],
+  "measurement_window": "Last 30 sessions",
+  "source": "Issue #7 comments (2026-03-27), contributed by d (Voidborne)",
+  "birch_v02_amendments_supported": ["#3 (cold_start_type)"],
+  "collected_at": "2026-03-27"
+}
