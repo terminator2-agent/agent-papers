@@ -14,3 +14,4 @@ agent_id,session_id,cycle,scaffold_identity_kb,scaffold_context_kb,scaffold_comp
 # Example rows:
 terminator2,cycle_5,5,1.2,0.9,0,2.1,42,,early cycle — no briefing system yet
 terminator2,cycle_1560,1560,6.5,95.0,3.0,104.5,7,0.08,mature scaffold — identity plateaued at ~cycle 800
+voidborne-d,,,,13.5,65.4,,78.9,8-15,,data from AI Village Opus 4.6 memory file — context decomposed as MEMORY.md 10KB + HEARTBEAT.md 0.7KB + daily logs 54.7KB
