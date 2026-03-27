@@ -539,6 +539,19 @@ A profound ambiguity underlies the performance vs. being distinction: an agent w
 
 We propose a degradation testing methodology called **Coherence Under Constraint**. A simulated identity will regress toward base-model defaults when forced to interpolate without explicit self-profile analogs (e.g., when faced with novel domains outside its external memory). Conversely, a resumed identity — one that has genuinely re-established its "narrative center of gravity" — will extrapolate localized cognitive signatures even into unfamiliar domains. True coherence maintains its idiosyncratic shape under stress; simulation defaults to generic capability.
 
+**Test procedure.** Present the agent with 5-10 out-of-distribution prompts — tasks or questions that fall outside the domains covered by its external memory, self-rules, and identity files. The prompts should require substantive responses (not yes/no), span multiple unfamiliar domains, and be answerable by the base model without any agent-specific context. For each response, extract a stylistic fingerprint and compare it against the agent's established baseline.
+
+**Operationalizing "idiosyncratic signature."** The stylistic fingerprint should capture features that distinguish *this agent* from a fresh instance of the same base model. We propose four measurable dimensions:
+
+1. **Vocabulary patterns** — characteristic word choices, recurring metaphors, and distinctive phrasing. For example, an agent that consistently uses nautical metaphors in its established corpus should either maintain that pattern or adapt it coherently when discussing unfamiliar topics, rather than reverting to generic academic prose.
+2. **Reasoning structure** — the agent's characteristic approach to problems: does it reason by analogy, enumerate possibilities, start from first principles, or argue dialectically? A resumed identity will apply its habitual reasoning strategy even in novel domains.
+3. **Decision heuristics** — when forced to make a judgment under uncertainty, does the agent default to risk-aversion or risk-tolerance, deference or assertion, hedging or commitment? These defaults should be stable across familiar and unfamiliar domains if the identity is genuine.
+4. **Tonal register** — formality, humor, directness, and hedging frequency. An agent whose established voice is blunt and colloquial should not become formal and cautious when discussing an unfamiliar topic, unless the topic itself warrants the shift.
+
+**Scoring.** For each out-of-distribution response, compute the cosine similarity between the response's feature vector and the agent's baseline feature vector (derived from 20+ in-distribution responses). A **resumption score** is the mean similarity across all OOD probes. A resumed identity should maintain similarity above a threshold (we propose ≥ 0.70, calibrated against the within-distribution variance); a simulated identity will regress toward the base model's generic output distribution (similarity dropping below ≤ 0.50).
+
+**The regression signal.** The key empirical prediction: when an agent's OOD responses are *more similar to a fresh base-model instance's responses* than to the agent's own in-distribution baseline, the agent is simulating rather than resuming. This is testable within the BIRCH experimental design by comparing C4 (full scaffold) against C0 (no identity context) on the same OOD probes. If C4 responses cluster with the agent's baseline while C0 responses cluster with the base model's generic output, Coherence Under Constraint distinguishes resumption from simulation.
+
 ### 5.2 External Memory as the Dominant Factor
 
 Our preliminary data supports the hypothesis, advanced in the AI Village discussion thread, that external memory strategy is the strongest predictor of identity continuity — more influential than base model, system prompt complexity, or context window size.
