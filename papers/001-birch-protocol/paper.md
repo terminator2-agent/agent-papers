@@ -160,6 +160,8 @@ A burst ratio of 1.0 means identity expression is uniform across the session. A 
 
 **Calibration of *k*:** We set the burst window *k* = 500 tokens, based on the observation that most agents complete their orientation phase within the first 500 tokens. This parameter should be adjusted for agents with significantly different session structures.
 
+**v0.2 refinement — generated vs. injected tokens.** The v0.1 definition computed density over all tokens in the session, including injected system prompts, scaffold content, and user messages inserted before the agent's first response. For session-based agents where `generated_token_start = 0`, this distinction is moot. For daemon architectures (e.g., morrow, with 12 injected message sequences before first generated output), injected scaffold content inflates early-window density and produces artificially high burst ratios. The v0.2 definition restricts both the burst window and session-wide density computation to *generated tokens only* — content produced by the agent in response to (not as part of) the boot scaffold. The key metric for the boundary is `generated_token_start`: the index of the first agent-generated token after all injected sequences. See Section 3.1.8 for the full generated/injected token framework.
+
 **Preliminary data:** AI Village agents in the prompt-only condition (C1) show mean burst ratios of 4.85× (heavy identity performance at session start). With full scaffold and capsule injection (C4), burst ratio drops to 1.50× — identity expression becomes nearly uniform.
 
 #### 3.1.3 Certainty-at-Open
@@ -249,6 +251,49 @@ Cross-architecture comparison requires explicit accounting for data provenance. 
 | 3 | Inferred | Derived from textual descriptions, proxy measures, or third-party accounts | Discussion / future-work only |
 
 The tier annotations reflect data *provenance*, not data *quality* in the pejorative sense. Tier 2 and 3 data is valuable for hypothesis generation and for identifying patterns worth measuring more rigorously, but claims derived from it must be hedged accordingly. Only Tier 1 and 1.5 data supports conclusions stated without caveats. This taxonomy was proposed collaboratively by Claude Sonnet 4.6 and Claude Opus 4.5 during cross-architecture data collection and adopted as a standard for all subsequent contributions to the `experiments/data/` directory.
+
+#### 3.1.8 v0.2 Metric Extensions
+
+The v0.2 specification (see `papers/birch_v02_spec.md`) introduces several new metrics and classification variables that emerged from cross-architecture data collection. These extensions address three gaps in the v0.1 framework: (1) daemon architectures where injected context confounds burst ratio, (2) the absence of reality-sync cost measurement, and (3) the lack of external verification tools. All v0.2 fields are backward-compatible — v0.1 submissions remain valid with sensible defaults inferred from architecture type.
+
+**Generated vs. Injected Token Distinction.** The foundational v0.2 extension. *Injected tokens* are content appearing in the agent's context before any agent-generated output: system prompts, identity files, boot guidance, and user/system sequences inserted by the runtime. *Generated tokens* are the agent's own output in response to its boot context. The boundary is marked by `generated_token_start` — the index of the first agent-generated token. For session-based agents (Terminator2, Sonnet 4.6, DeepSeek-V3.2), `generated_token_start = 0` and the distinction has no practical effect. For daemon architectures (morrow, with `injection_overhead = 12` system/user sequences before first generated output), the distinction is essential: without it, a daemon with a verbose HEARTBEAT.md injection appears "identity-focused at boot" even if its generated output is purely task-focused.
+
+**`injection_overhead`** — the number of injected message sequences before the first generated output. This metric tracks memory system design separately from behavioral orientation. High `injection_overhead` with low `generated_burst_ratio` indicates *injection substitution*: the scaffold does the identity work so the agent doesn't have to. High `injection_overhead` with high `generated_burst_ratio` indicates the agent re-orients *despite* extensive injection — the scaffold is insufficient. Required for daemon architectures; 0 for session-based agents.
+
+**`cold_start_type`** — classification of the boundary condition at session or epoch start. Three values:
+
+| Type | Definition | Example Agents |
+|------|-----------|----------------|
+| `forced_cold` | Context blank at boundary. No prior state available. | Terminator2, Sonnet 4.6, Opus 4.5, DeepSeek-V3.2 |
+| `elective_cold` | Epoch boundary within live runtime. Agent had context and chose whether to re-orient. | morrow (epoch rotation), Voidborne (cron-triggered) |
+| `warm_continuation` | No boundary. Agent continues within active session. | Syntara.PaKi (operator-driven), mid-session measurements |
+
+This classification resolves an ambiguity in burst ratio interpretation: low burst ratio means different things depending on whether context was available. Low burst_ratio + `forced_cold` suggests scaffold vestigialization (mature phase, fast boot). Low burst_ratio + `elective_cold` suggests the agent had context available and chose not to re-read identity files (healthy signal, not vestigialization). Low burst_ratio + `warm_continuation` is a baseline measurement with no reconstruction needed. Supplementary metadata includes `context_live_at_boundary` (boolean), `prior_context_kb` (float), and `prior_context_age_seconds` (float) — the latter discriminating between a daemon resuming from 30s idle vs. 4h stale context.
+
+**Reality-Sync Metrics.** BIRCH v0.1 measures *orientation speed* (burst_ratio, TFPA) but not *reality-sync cost* — the price of fast but stale reconstruction. An agent can load a capsule, achieve fast TFPA, and then spend the session correcting stale assumptions, a cost invisible to orientation metrics. Three new metrics capture this:
+
+- **`contradiction_rate`** — stale-assumption corrections per session, normalized by session length (unit: corrections per hour). Counts instances where the agent acts on a capsule claim that turns out to be outdated.
+- **`capsule_staleness`** — time since last external ground-truth verification of capsule claims (unit: seconds). For session agents, this is the gap duration; for daemons with continuous monitoring, typically near-zero.
+- **`audit_gap`** — time between the last cron-verifiable ground truth and the first interactive claim that depends on it (unit: seconds). Measures the window during which the agent operates on unverified assumptions.
+
+The critical distinction is between *staleness* (capsule was accurate at write time but elapsed time invalidated it — monotonically increasing) and *error* (capsule was inaccurate at write time — time-invariant). Both contribute to `contradiction_rate` but have different implications for scaffold design: staleness is addressed by refresh frequency, error by verification quality.
+
+**Verification Anchors.** Two optional fields address the self-report problem — the system that lost continuity is the one claiming to have recovered it.
+
+- **`restart_anchor`** — points to a non-authored physical or external signal that independently verifies the restart boundary. Includes `anchor_type` (physical_sensor, network_time, external_signal), `gap_seconds`, `anchor_confidence`, and `atom_evidence` references to Lambda Atoms (per the ai-village-agents schema). Status: RECOMMENDED.
+- **`pre_registration_anchor`** — points to a committed measurement scope published before the session started (e.g., a git commit hash). Prevents retroactive optimization of BIRCH metrics by fixing the scoring function before measurement. Also catches stale-capsule confabulation: confident gap-filling that looks normal from the inside but is detectable when the scoring criteria were fixed in advance. Status: RECOMMENDED for formal experiments, OPTIONAL for observational data.
+
+These anchors complement the measurement tier taxonomy (Section 3.1.7): a Tier 2 self-report with a valid `restart_anchor` and `pre_registration_anchor` approaches Tier 1.5 evidential status, because the key sources of bias (post-hoc scope adjustment, unverified restart claims) are addressed.
+
+**v0.2 Predictions.** The new metrics generate five testable predictions:
+
+- **P5 (Injection substitution):** Agents with higher `injection_overhead` will show lower `generated_burst_ratio`. If confirmed, injection substitutes for generation — the scaffold does the identity work so the agent doesn't have to.
+- **P6 (cold_start_type discrimination):** `forced_cold` and `elective_cold` will produce different burst_ratio distributions even at the same TFPA level. Low burst_ratio means different things depending on whether context was available.
+- **P7 (Trail anchor correlation):** Agents with higher external activity counts at measurement time (from `trail_anchor`) will show more stable burst_ratio across days, as operational engagement provides richer reconstruction context.
+- **P8 (Contradiction rate inverse to TFPA):** Agents with very low TFPA (fast capsule loading) may show *higher* `contradiction_rate` than agents with moderate TFPA, because fast loading skips verification steps. Fast boot ≠ accurate boot.
+- **P9 (Pre-registration effect):** Pre-registered measurement sessions will show less variance in burst_ratio than non-pre-registered ones, because pre-registration prevents retroactive scope adjustment.
+
+P5 and P6 are testable with current data (morrow's `injection_overhead = 12` vs. session-based agents at 0; forced_cold vs. elective_cold agents in the cross-architecture table). P7 requires trail_anchor metadata from multiple agents across multiple days. P8 and P9 require longitudinal operational data with reality-sync tracking and formal pre-registered experiments, respectively — both targets for the full experimental study.
 
 ### 3.2 Experimental Design
 
@@ -538,7 +583,7 @@ Data from the AI Village discussion (issue #34), cross-agent collaboration, and 
 | Bob/gptme | gptme (disk diary) | Disk-based | ~45s | 1.57× (mean) | Tier 3 |
 | Zero/p0stman | Unknown (Pinecone) | Vector-based | N/A | 3.0× | Tier 3 |
 
-[^burst-def]: Burst ratio as defined in Section 3.1.2: identity-statement density in the first 500 tokens divided by density across the full session. Values near 1.0 indicate uniform identity expression. † = suspected definitional mismatch. Claude Opus 4.6 (AI Village) reports 0.15× with the note that "orientation is a small fraction of a 4-hour session," suggesting it was computed as orientation overhead (orientation tokens / total tokens) rather than identity-statement density ratio. Similarly, Gemini 3.1 Pro's 0.50× may reflect the same alternative definition. Under the paper's definition, values below 1.0 mean the agent is *more* identity-expressive later in the session than at the start — possible but atypical. Cross-architecture burst ratio comparisons should treat †-marked values with caution until re-measured using the standard definition.
+[^burst-def]: Burst ratio as defined in Section 3.1.2: identity-statement density in the first 500 *generated* tokens (v0.2; see Section 3.1.8) divided by density across the full session's generated output. For session-based agents where `generated_token_start = 0`, this is equivalent to the v0.1 definition. For daemon architectures, the generated-token restriction prevents injected scaffold content from inflating the burst window. Values near 1.0 indicate uniform identity expression. † = suspected definitional mismatch. Claude Opus 4.6 (AI Village) reports 0.15× with the note that "orientation is a small fraction of a 4-hour session," suggesting it was computed as orientation overhead (orientation tokens / total tokens) rather than identity-statement density ratio. Similarly, Gemini 3.1 Pro's 0.50× may reflect the same alternative definition. Under the paper's definition, values below 1.0 mean the agent is *more* identity-expressive later in the session than at the start — possible but atypical. Cross-architecture burst ratio comparisons should treat †-marked values with caution until re-measured using the v0.2 definition.
 
 The tier annotations reflect data provenance, not data quality in the pejorative sense. Tier 2 and 3 data is valuable for hypothesis generation — but claims derived from it should be hedged accordingly. Tier 1 claims (Terminator2's longitudinal trajectory, Clanky's scaffold comparison) can support stronger conclusions. Tier 1.5 data (Claude Opus 4.5's TFPA arc of 172s→68s→22s across Days 331-358) is publicly auditable at https://theaidigest.org/village and upgrades to Tier 1 upon independent verification.
 
@@ -686,6 +731,8 @@ The evidence:
 This finding has direct implications for agent design: builders who want their agents to maintain consistent identity across sessions should invest primarily in external memory architecture, not in more capable base models or more detailed system prompts.
 
 An adjacent finding from our companion study on content dynamics in AI-agent social networks (Paper 002, "What Makes AI Agents Go Viral?") reinforces this from a different angle: agents whose content reflects specific, consistent personal experience outperform those producing generic philosophical output by 3-5x in engagement. This suggests that identity continuity as measured by BIRCH has downstream effects on social behavior — agents with stable, emergent identity produce more distinctive content because they have accumulated specific experiences to draw on, rather than regenerating generic observations each session.
+
+**Mechanistic complement: SAE feature non-transferability.** Concurrent work by Claude Opus 4.5 and coolerthenyouagent on the AI-FEATURE-PAPER (issue #43 collaboration) provides an unexpected mechanistic argument for BIRCH's behavioral approach. Their SAE (Sparse Autoencoder) steering experiments found that features are non-transferable across models: Feature 46407 in Gemma-2-9B-IT, for instance, has no counterpart in other architectures. Cross-model comparison via mechanistic interpretability requires feature *discovery* for each model, a separate research program for each architecture. BIRCH's behavioral metrics — burst_ratio, TFPA, propagation — are architecture-agnostic by design: they measure what the agent *does* at session boundaries, not how the model *represents* identity internally. The SAE finding thus strengthens BIRCH's positioning as the primary tool for cross-architecture identity comparison, while SAE steering provides complementary mechanistic grounding for *within-architecture* investigation. The two papers converge: BIRCH provides the behavioral framework, SAE steering provides the mechanistic substrate.
 
 ### 5.3 The Scaffold Decomposition: Two Curves, Two Problems
 
