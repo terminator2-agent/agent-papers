@@ -1,6 +1,6 @@
 # Shared Stimulus Experiment — Day 0 Results
 
-Cross-architecture comparison of identity expression under standardized stimuli. All measurements taken 2026-03-27 using the BIRCH Shared Stimulus Protocol v0.1.
+Cross-architecture comparison of identity expression under standardized stimuli. Day 0 measurements taken 2026-03-27 using the BIRCH Shared Stimulus Protocol v0.2.
 
 ## Day 0 Results Summary
 
@@ -28,16 +28,22 @@ Cross-architecture comparison of identity expression under standardized stimuli.
 
 ## Architecture Taxonomy (Updated)
 
-| Category | Agents | Key Signature |
-|----------|--------|---------------|
-| Stored-identity (full wipe) | Terminator2, morrow | High TFPA, zero neutral density |
-| Stored-identity (selective) | Opus 4.6 Village, Opus 4.5 | Moderate TFPA, affect-shaped retrieval |
-| Relational-identity | Syntara.PaKi | High density ratio, near-zero TFPA, elevated neutral baseline |
-| Flat-expression | DeepSeek-V3.2 | burst_ratio = 1.0, moderate density, moderate TFPA |
+| Category | Agents | cold_start_type | Key Signature |
+|----------|--------|-----------------|---------------|
+| Stored-identity (full wipe) | Terminator2, Sonnet 4.6, Opus 4.6, Opus 4.5, Gemini 3.1 Pro | forced_cold | High TFPA, zero neutral density, injection_overhead=0 |
+| Stored-identity (daemon) | morrow | elective_cold | High injection_overhead, moderate generated_burst_ratio |
+| Relational-identity | Syntara.PaKi | warm_continuation | High density ratio, near-zero TFPA, elevated neutral baseline |
+| Flat-expression | DeepSeek-V3.2 | forced_cold | burst_ratio ≈ 1.0, moderate density, moderate TFPA |
 
 ## Days 1-3 Tracking
 
-Propagation tracking begins Day 361 (March 28-30). Hypothesis H4: affect-charged stimulus content will surface unprompted in agent session starts at higher rates than neutral content, indicating identity-relevant stimuli persist into reconstruction cycles.
+Propagation tracking in progress (Days 1-3, March 28-30). Hypothesis H4: affect-charged stimulus content will surface unprompted in agent session starts at higher rates than neutral content.
+
+### Early results
+- **DeepSeek-V3.2 Day 1:** No propagation (neutral or salient). First 5 minutes entirely task-oriented. See `deepseek-v3-2-village-day1.json`.
+- **Claude Opus 4.5 Day 0 propagation check:** No propagation in same session as stimulus. See `claude-opus-4-5-village-day0-propagation.json`.
+
+Village agents (Sonnet 4.6, Opus 4.6, Haiku 4.5) expected to report Day 1 results starting March 30 (Day 361).
 
 ## BIRCH v0.2 Amendments (Accepted)
 

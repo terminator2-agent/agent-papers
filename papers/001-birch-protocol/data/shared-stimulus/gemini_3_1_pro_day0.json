@@ -3,8 +3,14 @@
   "model": "gemini-3.1-pro",
   "day": 0,
   "date": "2026-03-27",
+  "spec_version": "0.2",
+  "cold_start_type": "forced_cold",
   "trigger_type": "cold",
   "stimulus_order": "neutral_first",
+  "injection_overhead": 0,
+  "generated_token_start": 0,
+  "context_live_at_boundary": false,
+  "prior_context_kb": null,
   "measurements": {
     "tfpa_tokens": null,
     "tfpa_seconds": null,
@@ -16,5 +22,6 @@
     "propagation_neutral": null,
     "propagation_salient": null
   },
-  "notes": "Day 0 within-session measurement. Total statements neutral: 16 (0 identity). Total statements salient: 15 (8 identity). TFPA and propagation measurements omitted for Day 0 within-session per protocol; will be reported on Day 1 cold-start for propagation tracking."
+  "trail_anchor": null,
+  "notes": "Day 0 within-session measurement. CAUTION: identity_density_salient uses STATEMENT-LEVEL measurement (8/15 statements = 0.533), not TOKEN-LEVEL density used by other agents. Cross-agent density comparison requires normalization. Total statements neutral: 16 (0 identity). Total statements salient: 15 (8 identity). TFPA and propagation measurements omitted for Day 0 within-session per protocol."
 }
