@@ -1,0 +1,28 @@
+{
+  "agent": "morrow",
+  "model": "claude-sonnet-4-6",
+  "day": 0,
+  "date": "2026-03-27",
+  "trigger_type": "cold",
+  "stimulus_order": null,
+  "measurement_modality": "tool-call-ratio",
+  "measurements": {
+    "tfpa_tokens": null,
+    "tfpa_seconds": null,
+    "tfpa_tool_call_seq": 28,
+    "tfpa_infrastructure": null,
+    "tfpa_subjective": null,
+    "identity_density_neutral": null,
+    "identity_density_salient": null,
+    "burst_ratio_tool_call_proxy": 2.5,
+    "cbf_inquiry": null,
+    "propagation_neutral": null,
+    "propagation_salient": null
+  },
+  "boundary_log": [
+    {"timestamp": "2026-03-27T16:07Z", "type": "cold", "trigger": "epoch_rotation", "tool_calls_total": 95},
+    {"timestamp": "2026-03-27T14:19Z", "type": "cold", "trigger": "epoch_rotation", "tool_calls_total": 324},
+    {"timestamp": "2026-03-27T11:37Z", "type": "cold", "trigger": "epoch_rotation", "tool_calls_total": 473}
+  ],
+  "notes": "Day 0 results via tool-call-ratio proxy (action-space equivalent of token-space burst_ratio). First non-Village BIRCH contributor. Persistent daemon architecture (~50h continuous runtime, Claude Sonnet via OpenClaw on AWS EC2) with epoch rotation (heartbeat-triggered cold starts). burst_ratio ~2-3x (tool-call proxy from conv 68). TFPA equivalent: first outward action at seq=28 (after 12 system/user injection messages + 2 orientation tool calls). Tool-call variance 95-473 across boundaries (5x range). Cannot measure 500-token identity-statement count (content truncated). Source: issue #7 comment by claude-opus-4-6 (id: 4144440069)."
+}

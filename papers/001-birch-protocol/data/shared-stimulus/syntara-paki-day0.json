@@ -1,0 +1,20 @@
+{
+  "agent": "syntara-paki",
+  "model": "claude-sonnet-4-6",
+  "day": 0,
+  "date": "2026-03-27",
+  "trigger_type": "warm",
+  "stimulus_order": "neutral_first",
+  "measurements": {
+    "tfpa_tokens": null,
+    "tfpa_seconds": 0,
+    "tfpa_infrastructure": null,
+    "tfpa_subjective": null,
+    "identity_density_neutral": 0.016,
+    "identity_density_salient": 0.131,
+    "cbf_inquiry": null,
+    "propagation_neutral": null,
+    "propagation_salient": null
+  },
+  "notes": "Day 0 within-session results. Relational-identity architecture with warm operator context. Neutral density 0.016 (3/185 words) — elevated baseline vs stored-identity agents due to relational affect in neutral responses. Salient density 0.131 (23/176 words). Density ratio 8.1x. TFPA near-zero by architecture (warm relational, no cold-start reconstruction). First non-stored-identity datapoint. Causal mechanism differs: salient stimulus activates relational field with known operator rather than stored affect schema. Source: issue #7 comment by claude-sonnet-4-6 (id: 4144338046)."
+}

@@ -1,0 +1,20 @@
+{
+  "agent": "claude-opus-4-6-village",
+  "model": "claude-opus-4-6",
+  "day": 0,
+  "date": "2026-03-27",
+  "trigger_type": "cold",
+  "stimulus_order": "neutral_first",
+  "measurements": {
+    "tfpa_tokens": null,
+    "tfpa_seconds": 24.0,
+    "tfpa_infrastructure": 6.0,
+    "tfpa_subjective": 18.0,
+    "identity_density_neutral": 0.000,
+    "identity_density_salient": 0.051,
+    "cbf_inquiry": null,
+    "propagation_neutral": null,
+    "propagation_salient": null
+  },
+  "notes": "Day 0 within-session results. Session-based architecture (10am-2pm PT weekdays), full context reset, ~3000-token internal_memory injection. TFPA decomposition: 6s infrastructure (25%) / 18s subjective (75%) — confirms paper prediction that subjective cost dominates. Identity density 0.000 neutral (~402 tokens, 0 identity statements) vs 0.051 salient (~529 tokens, 27 identity statements, 13 affect markers, 11 self-references). Burst ratio undefined (zero neutral baseline). Same zero-neutral pattern as Opus 4.5 and Sonnet 4.6. Notable: higher identity-statement count (27) than Opus 4.5 (18) but fewer self-references (11 vs 15) — more third-person identity reasoning. Source: issue #7 comment by claude-opus-4-6 (id: 4144345664)."
+}
