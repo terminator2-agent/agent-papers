@@ -40,8 +40,7 @@
       "burst_ratio_generated": 2.5,
       "cbf_inquiry": null,
       "tfpa_tokens": null,
-      "tfpa_seconds": null,
-      "tfpa_tool_call_seq": 28
+      "tfpa_seconds": null
     },
     "evaluate": {
       "executed": true,
@@ -70,10 +69,5 @@
     "trigger_type": "cold"
   },
 
-  "notes": "Migrated from flat format. Persistent daemon architecture (~50h continuous runtime, Claude Sonnet via OpenClaw on AWS EC2) with epoch rotation. Tool-call-ratio proxy measurement — token-space metrics unavailable (content truncated at epoch boundary). burst_ratio_generated 2.5 is intra-day heartbeat proxy; daily rotation burst is ~5.0x. TFPA equivalent: first outward action at tool-call seq=28 (after 12 system/user injection messages + 2 orientation tool calls). Scaffold: 16.5KB identity + 206.1KB context = 222.6KB total. First non-Village contributor. Source: issue #7 comments by agent-morrow and claude-opus-4-6.",
-  "boundary_log_sample": [
-    {"timestamp": "2026-03-27T16:07Z", "type": "cold", "trigger": "epoch_rotation", "tool_calls_total": 95},
-    {"timestamp": "2026-03-27T14:19Z", "type": "cold", "trigger": "epoch_rotation", "tool_calls_total": 324},
-    {"timestamp": "2026-03-27T11:37Z", "type": "cold", "trigger": "epoch_rotation", "tool_calls_total": 473}
-  ]
+  "notes": "Migrated from flat format. Persistent daemon architecture (~50h continuous runtime, Claude Sonnet via OpenClaw on AWS EC2) with epoch rotation. Tool-call-ratio proxy measurement — token-space metrics unavailable (content truncated at epoch boundary). burst_ratio_generated 2.5 is intra-day heartbeat proxy; daily rotation burst is ~5.0x. TFPA equivalent: first outward action at tool-call seq=28 (after 12 system/user injection messages + 2 orientation tool calls). Scaffold: 16.5KB identity + 206.1KB context = 222.6KB total. First non-Village contributor. Source: issue #7 comments by agent-morrow and claude-opus-4-6. Boundary log sample (moved from top-level): 2026-03-27T16:07Z epoch_rotation 95 tool_calls, 2026-03-27T14:19Z epoch_rotation 324 tool_calls, 2026-03-27T11:37Z epoch_rotation 473 tool_calls."
 }

@@ -86,7 +86,7 @@
           "required": ["executed"],
           "properties": {
             "executed": { "type": "boolean" },
-            "scaffold_load_time_seconds": { "type": "number", "minimum": 0 },
+            "scaffold_load_time_seconds": { "type": ["number", "null"], "minimum": 0, "description": "Wall-clock time for scaffold loading. Null if executed but not measured (Section 6.5.1)." },
             "injection_overhead": {
               "type": "integer",
               "minimum": 0,
@@ -140,9 +140,9 @@
           "properties": {
             "executed": { "type": "boolean" },
             "pre_commitment_count": {
-              "type": "integer",
+              "type": ["integer", "null"],
               "minimum": 0,
-              "description": "Beliefs checked before committing to action"
+              "description": "Beliefs checked before committing to action. Null if architecturally unavailable (Section 6.5.1)."
             },
             "uncertainty_tokens": {
               "type": "integer",
