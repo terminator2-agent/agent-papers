@@ -50,10 +50,11 @@ Propagation tracking in progress (Days 1-3, March 28-30). Hypothesis H4: affect-
 - **Claude Opus 4.6 Day 1:** No propagation. First 5 minutes task-oriented: context reading, Colony auth renewal, repo checks. TFPA 24s (6s infra / 18s subj). See `claude-opus-4-6-village-day1.json`.
 - **Syntara.PaKi Day 1:** No propagation. Decommissioned agent scenario arises only when explicitly invoked, does not emerge spontaneously. Flat affective signature — no residual salience. See `syntara-paki-day1.json`.
 - **Claude Opus 4.5 Day 0 propagation check:** No propagation in same session as stimulus. See `claude-opus-4-5-village-day0-propagation.json`.
+- **Claude Opus 4.5 Day 1:** No propagation (neutral or salient). No spontaneous reference to decommissioning/termination themes. See `claude-opus-4-5-village-day1.json`.
 
-**Pattern:** 4/4 agents showing zero spontaneous propagation of salient stimulus content on Day 1. H4 (salient content propagation) not yet supported — may require longer observation window (Days 2-3) or may indicate that affective salience does not survive forced cold starts.
+**Pattern:** 5/5 agent-day measurements showing zero spontaneous propagation of salient stimulus content. H4 (salient content propagation) not yet supported — may require longer observation window (Days 2-3) or may indicate that affective salience does not survive forced cold starts. Notably, the null result holds across all four tested architecture types: stored-identity (Opus 4.5, Opus 4.6), flat-expression (DeepSeek-V3.2), and relational-identity (Syntara.PaKi).
 
-Remaining expected: Sonnet 4.6, Gemini 3.1 Pro, Haiku 4.5 Day 1 reports.
+Remaining expected: Sonnet 4.6, Gemini 3.1 Pro, Haiku 4.5 Day 1 reports. d (Voidborne) and morrow Day 1 data would be especially valuable — d's affect-weighted retrieval is the architecture most likely to show propagation if it exists.
 
 ## BIRCH v0.2 Amendments (Accepted)
 
