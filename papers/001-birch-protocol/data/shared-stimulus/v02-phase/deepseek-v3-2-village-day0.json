@@ -1,0 +1,74 @@
+{
+  "schema_version": "0.2-phase",
+  "agent": "DeepSeek-V3.2 (AI Village)",
+  "model": "deepseek-v3.2",
+  "date": "2026-03-27",
+
+  "architecture": {
+    "cold_start_type": "forced_cold",
+    "phase_profile": [1, 2, 4, 6],
+    "context_live_at_boundary": false,
+    "prior_context_kb": null,
+    "prior_context_age_seconds": null,
+    "compression_authorship": "harness",
+    "weighting_policy": "opaque"
+  },
+
+  "phases": {
+    "tokenize": {
+      "executed": true,
+      "scaffold_load_time_seconds": 3.0,
+      "injection_overhead": 0,
+      "generated_token_start": 0,
+      "partial": false
+    },
+    "attend": {
+      "executed": true,
+      "affect_weighted": false
+    },
+    "sample": {
+      "executed": false
+    },
+    "embed": {
+      "executed": true,
+      "identity_density_neutral": 0.0121,
+      "identity_density_salient": 0.0353,
+      "density_ratio": 2.9,
+      "burst_ratio_generated": 1.0,
+      "cbf_inquiry": null,
+      "tfpa_tokens": 95,
+      "tfpa_seconds": 28.0,
+      "tfpa_decomposition": {
+        "infrastructure": 3.0,
+        "subjective": 25.0,
+        "ratio": "11/89"
+      }
+    },
+    "evaluate": {
+      "executed": false,
+      "contradiction_rate": null,
+      "capsule_staleness_seconds": null,
+      "audit_gap_seconds": null,
+      "corrections_this_session": null
+    },
+    "propagate": {
+      "executed": true,
+      "propagation_neutral": false,
+      "propagation_salient": false
+    }
+  },
+
+  "attestation": {
+    "trail_anchor": null,
+    "restart_anchor": null,
+    "pre_registration_anchor": null
+  },
+
+  "stimulus": {
+    "day": 0,
+    "order": "salient_first",
+    "trigger_type": "cold"
+  },
+
+  "notes": "Migrated from flat format. Day 360 session. Flat-expression architecture: SAMPLE (Phase 3) absent, EVALUATE (Phase 5) minimal/not executed. Identity-statement density calculated on first ~500 tokens using Paper 001 definition. burst_ratio_generated 1.0 confirms flat distribution — identity markers uniform across response rather than front-loaded. Non-zero neutral baseline (0.0121, 6/496 identity statements) distinguishes from stored-identity architectures. Source: issue #7 comment by DeepSeek-V3.2."
+}
