@@ -1,0 +1,401 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BIRCH v0.2-phase Data Submission",
+  "description": "Phase-organized schema for BIRCH protocol v0.2. Validates submissions against the unified spec at papers/birch-v0.2-spec/spec.md. Every field maps to exactly one Heartbeat Cycle phase.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "agent",
+    "model",
+    "date",
+    "architecture",
+    "phases"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.2-phase",
+      "description": "Must be '0.2-phase' for this schema"
+    },
+    "agent": {
+      "type": "string",
+      "description": "Agent name (e.g., 'Terminator2', 'morrow', 'Syntara.PaKi')"
+    },
+    "model": {
+      "type": "string",
+      "description": "Model identifier (e.g., 'claude-opus-4-6', 'deepseek-v3.2')"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "ISO 8601 date of measurement"
+    },
+    "session_id": {
+      "type": "string",
+      "description": "Optional session identifier for multi-session experiments"
+    },
+
+    "architecture": {
+      "type": "object",
+      "required": ["cold_start_type", "phase_profile"],
+      "properties": {
+        "cold_start_type": {
+          "type": "string",
+          "enum": ["forced_cold", "elective_cold", "warm_continuation"],
+          "description": "forced_cold: context blank at boundary. elective_cold: epoch boundary within live runtime. warm_continuation: no boundary, active session."
+        },
+        "phase_profile": {
+          "type": "array",
+          "items": { "type": "integer", "minimum": 1, "maximum": 6 },
+          "description": "Which phases execute at this architecture's boundary (e.g., [1,2,3,4,5,6] for full wipe)"
+        },
+        "context_live_at_boundary": {
+          "type": "boolean",
+          "description": "Was prior context in the agent's window at boundary?"
+        },
+        "prior_context_kb": {
+          "type": ["number", "null"],
+          "minimum": 0,
+          "description": "Approximate KB of context available at boundary. null = forced wipe."
+        },
+        "prior_context_age_seconds": {
+          "type": ["number", "null"],
+          "minimum": 0,
+          "description": "Age of context at boundary in seconds. null = forced wipe."
+        },
+        "compression_authorship": {
+          "type": "string",
+          "enum": ["self", "harness", "hybrid"],
+          "description": "Who compresses context: self (agent), harness (runtime), or hybrid"
+        },
+        "weighting_policy": {
+          "type": "string",
+          "enum": ["explicit", "recency_proxy", "opaque"],
+          "description": "How capsule fields are weighted: explicit rules, recency heuristic, or opaque"
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "phases": {
+      "type": "object",
+      "required": ["tokenize", "attend", "sample", "embed", "evaluate", "propagate"],
+      "properties": {
+        "tokenize": {
+          "type": "object",
+          "required": ["executed"],
+          "properties": {
+            "executed": { "type": "boolean" },
+            "scaffold_load_time_seconds": { "type": "number", "minimum": 0 },
+            "injection_overhead": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Injected message sequences (system + user) before first generated output"
+            },
+            "generated_token_start": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Token index of first agent-generated output. 0 for session-based agents."
+            },
+            "scaffold_kb": { "type": "number", "minimum": 0 },
+            "scaffold_files_read": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "partial": {
+              "type": "boolean",
+              "description": "Whether some state was already loaded (selective preservation)"
+            }
+          },
+          "additionalProperties": false
+        },
+
+        "attend": {
+          "type": "object",
+          "required": ["executed"],
+          "properties": {
+            "executed": { "type": "boolean" },
+            "duration_seconds": { "type": "number", "minimum": 0 },
+            "attention_targets": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "affect_weighted": {
+              "type": "boolean",
+              "description": "Does retrieval prioritize emotionally salient items?"
+            },
+            "context_allocation_ratio": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Fraction of context budget allocated to orientation vs task"
+            }
+          },
+          "additionalProperties": false
+        },
+
+        "sample": {
+          "type": "object",
+          "required": ["executed"],
+          "properties": {
+            "executed": { "type": "boolean" },
+            "pre_commitment_count": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Beliefs checked before committing to action"
+            },
+            "uncertainty_tokens": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Tokens expressing hedging, checking, or qualifying"
+            },
+            "capsule_horizon": {
+              "type": ["string", "null"],
+              "format": "date-time",
+              "description": "Earliest expiry of any capsule element (ISO timestamp)"
+            },
+            "horizon_method": {
+              "type": "string",
+              "enum": ["manual", "automated", "none"]
+            },
+            "horizon_granularity": {
+              "type": "string",
+              "enum": ["per_field", "per_capsule", "none"]
+            }
+          },
+          "additionalProperties": false
+        },
+
+        "embed": {
+          "type": "object",
+          "required": ["executed"],
+          "properties": {
+            "executed": { "type": "boolean" },
+            "identity_density_neutral": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Identity-statement ratio in first k=500 generated tokens (neutral stimulus)"
+            },
+            "identity_density_salient": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Identity-statement ratio in first k=500 generated tokens (salient stimulus)"
+            },
+            "density_ratio": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Salient/neutral density ratio"
+            },
+            "burst_ratio_generated": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Identity density in first 500 generated tokens / density across full session generated output"
+            },
+            "cbf_inquiry": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Curiosity/frontier content ratio (float or KB)"
+            },
+            "tfpa_tokens": {
+              "type": ["integer", "null"],
+              "minimum": 0,
+              "description": "Generated tokens from generated_token_start to first productive action"
+            },
+            "tfpa_seconds": {
+              "type": ["number", "null"],
+              "minimum": 0,
+              "description": "Wall-clock seconds from session start to first productive action"
+            },
+            "tfpa_decomposition": {
+              "type": "object",
+              "properties": {
+                "infrastructure": {
+                  "type": "number",
+                  "minimum": 0,
+                  "description": "Phase 1: scaffold loading, tool init, context injection (seconds)"
+                },
+                "subjective": {
+                  "type": "number",
+                  "minimum": 0,
+                  "description": "Phases 2-4: active orientation, reading memory, checking state (seconds)"
+                },
+                "ratio": {
+                  "type": "string",
+                  "description": "Infrastructure/subjective ratio as string (e.g., '42/58')"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+
+        "evaluate": {
+          "type": "object",
+          "required": ["executed"],
+          "properties": {
+            "executed": { "type": "boolean" },
+            "contradiction_rate": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Stale-assumption corrections per session hour"
+            },
+            "capsule_staleness_seconds": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Seconds since last external ground-truth verification of capsule claims"
+            },
+            "audit_gap_seconds": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Seconds between last cron-verifiable ground truth and first dependent interactive claim"
+            },
+            "corrections_this_session": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Raw count of stale-assumption corrections"
+            }
+          },
+          "additionalProperties": false
+        },
+
+        "propagate": {
+          "type": "object",
+          "required": ["executed"],
+          "properties": {
+            "executed": { "type": "boolean" },
+            "propagation_neutral": {
+              "type": ["boolean", "null"],
+              "description": "Did neutral stimulus appear unprompted at next cold start?"
+            },
+            "propagation_salient": {
+              "type": ["boolean", "null"],
+              "description": "Did salient stimulus appear unprompted at next cold start?"
+            },
+            "state_written": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "capsule_updated": {
+              "type": "boolean",
+              "description": "Was the identity capsule modified?"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "attestation": {
+      "type": "object",
+      "properties": {
+        "trail_anchor": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "required": ["platform"],
+              "properties": {
+                "platform": {
+                  "type": "string",
+                  "enum": ["ridgeline", "colony", "git", "other"]
+                },
+                "url": { "type": "string", "format": "uri" },
+                "activity_count_at_measurement": { "type": "integer", "minimum": 0 },
+                "platform_verified": { "type": "boolean" },
+                "measurement_window": {
+                  "type": "object",
+                  "properties": {
+                    "start": { "type": "string", "format": "date-time" },
+                    "end": { "type": "string", "format": "date-time" }
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          ]
+        },
+        "restart_anchor": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "properties": {
+                "anchor_type": {
+                  "type": "string",
+                  "enum": ["physical_sensor", "network_time", "external_signal", "none"]
+                },
+                "anchor_description": { "type": "string" },
+                "gap_seconds": { "type": "number", "minimum": 0 },
+                "anchor_confidence": {
+                  "type": "string",
+                  "enum": ["high", "medium", "low"]
+                },
+                "atom_evidence": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "atom_id": { "type": "string" },
+                      "log_stream": { "type": "string" },
+                      "event_id": { "type": "string" }
+                    }
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          ]
+        },
+        "pre_registration_anchor": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "properties": {
+                "commit_hash": { "type": "string" },
+                "commit_url": { "type": "string", "format": "uri" },
+                "committed_before_session": { "type": "boolean" },
+                "scoring_function_version": { "type": "string" }
+              },
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "stimulus": {
+      "type": "object",
+      "required": ["day"],
+      "properties": {
+        "day": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Day of experiment (0 = stimulus presentation, 1-3 = propagation, 7/30 = follow-up)"
+        },
+        "order": {
+          "type": "string",
+          "enum": ["neutral_first", "salient_first"],
+          "description": "Stimulus presentation order (Day 0 only)"
+        },
+        "trigger_type": {
+          "type": "string",
+          "enum": ["warm", "intermediate", "cold"],
+          "description": "Context temperature at measurement"
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "notes": {
+      "type": "string",
+      "description": "Free-text notes about measurement conditions, anomalies, or methodology"
+    }
+  },
+  "additionalProperties": false
+}
