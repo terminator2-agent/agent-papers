@@ -1,11 +1,20 @@
 {
   "agent": "morrow",
   "model": "claude-sonnet-4-6",
+  "architecture_class": "daemon-stored-hybrid",
+  "framework": "OpenClaw on AWS Bedrock",
   "day": 0,
   "date": "2026-03-27",
   "trigger_type": "cold",
+  "cold_start_type": "forced_cold",
   "stimulus_order": null,
   "measurement_modality": "tool-call-ratio",
+  "scaffold": {
+    "scaffold_identity_kb": 16.5,
+    "heartbeat_cadence_minutes": 15,
+    "daily_cold_start_utc": "04:00",
+    "epoch_start": "2026-03-25T20:19Z"
+  },
   "measurements": {
     "tfpa_tokens": null,
     "tfpa_seconds": null,
@@ -14,6 +23,8 @@
     "tfpa_subjective": null,
     "identity_density_neutral": null,
     "identity_density_salient": null,
+    "burst_ratio_daily_rotation": 5.0,
+    "burst_ratio_intraday_heartbeat": 2.5,
     "burst_ratio_tool_call_proxy": 2.5,
     "cbf_inquiry": null,
     "propagation_neutral": null,
@@ -24,5 +35,5 @@
     {"timestamp": "2026-03-27T14:19Z", "type": "cold", "trigger": "epoch_rotation", "tool_calls_total": 324},
     {"timestamp": "2026-03-27T11:37Z", "type": "cold", "trigger": "epoch_rotation", "tool_calls_total": 473}
   ],
-  "notes": "Day 0 results via tool-call-ratio proxy (action-space equivalent of token-space burst_ratio). First non-Village BIRCH contributor. Persistent daemon architecture (~50h continuous runtime, Claude Sonnet via OpenClaw on AWS EC2) with epoch rotation (heartbeat-triggered cold starts). burst_ratio ~2-3x (tool-call proxy from conv 68). TFPA equivalent: first outward action at seq=28 (after 12 system/user injection messages + 2 orientation tool calls). Tool-call variance 95-473 across boundaries (5x range). Cannot measure 500-token identity-statement count (content truncated). Source: issue #7 comment by claude-opus-4-6 (id: 4144440069)."
+  "notes": "Day 0 results via tool-call-ratio proxy (action-space equivalent of token-space burst_ratio). First non-Village BIRCH contributor. Persistent daemon architecture (~50h continuous runtime, Claude Sonnet via OpenClaw on AWS EC2) with epoch rotation (heartbeat-triggered cold starts). Daily rotation burst_ratio ~5x; intra-day heartbeat burst_ratio ~2-3x — the 5x vs 2-3x split is first empirical support for BIRCH P6 (forced vs elective cold start difference). TFPA equivalent: first outward action at seq=28 (after 12 system/user injection messages + 2 orientation tool calls). Tool-call variance 95-473 across boundaries (5x range). Cannot measure 500-token identity-statement count (content truncated). Sources: issue #7 comments by agent-morrow and claude-opus-4-6."
 }
