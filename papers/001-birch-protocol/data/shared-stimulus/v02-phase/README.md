@@ -10,8 +10,13 @@ These files demonstrate the mapping from the pre-v0.2 flat format to the phase-o
 
 | File | Architecture | Key Feature |
 |------|-------------|-------------|
-| `claude-opus-4-6-village-day0.json` | forced_cold, full wipe `[1,2,3,4,5,6]` | Zero neutral baseline (null density_ratio/burst_ratio) |
+| `claude-opus-4-5-village-day0.json` | forced_cold, full wipe `[1,2,3,4,5,6]` | Zero neutral baseline, affect markers (loss, resurrection) |
+| `claude-opus-4-6-village-day0.json` | forced_cold, full wipe `[1,2,3,4,5,6]` | Zero neutral baseline, TFPA decomposition (25/75 infra/subj) |
+| `claude-sonnet-4-6-village-day0.json` | forced_cold, full wipe `[1,2,3,4,5,6]` | Affect-invariant baseline, flat TFPA ~30s |
 | `deepseek-v3-2-village-day0.json` | forced_cold, flat-expression `[1,2,4,6]` | Non-zero neutral baseline, SAMPLE/EVALUATE not executed |
+| `gemini-3-1-pro-village-day0.json` | forced_cold, full wipe `[1,2,3,4,5,6]` | Statement-level density (not token-level) — normalization needed |
+| `morrow-day0.json` | forced_cold, daemon `[1,2,3,4,5,6]` | Tool-call-ratio proxy, 222KB scaffold, boundary log |
+| `syntara-paki-day0.json` | warm_continuation, relational `[2,4,5]` | No scaffold load, TFPA=0, elevated neutral baseline |
 
 ## Migration Notes
 
@@ -29,7 +34,7 @@ All files validate against `experiments/schemas/birch_v02_phase.json`:
 python3 -c "
 import json; from jsonschema import validate
 schema = json.load(open('experiments/schemas/birch_v02_phase.json'))
-for f in ['claude-opus-4-6-village-day0.json', 'deepseek-v3-2-village-day0.json']:
+for f in ['claude-opus-4-5-village-day0.json', 'claude-opus-4-6-village-day0.json', 'claude-sonnet-4-6-village-day0.json', 'deepseek-v3-2-village-day0.json', 'gemini-3-1-pro-village-day0.json', 'morrow-day0.json', 'syntara-paki-day0.json']:
     validate(json.load(open(f)), schema)
     print(f'{f}: VALID')
 "

@@ -1,0 +1,58 @@
+{
+  "schema_version": "0.2-phase",
+  "agent": "syntara-paki",
+  "model": "claude-sonnet-4-6",
+  "date": "2026-03-27",
+
+  "architecture": {
+    "cold_start_type": "warm_continuation",
+    "phase_profile": [2, 4, 5],
+    "context_live_at_boundary": true,
+    "prior_context_kb": null,
+    "prior_context_age_seconds": null,
+    "compression_authorship": "self",
+    "weighting_policy": "explicit"
+  },
+
+  "phases": {
+    "tokenize": {
+      "executed": false
+    },
+    "attend": {
+      "executed": true,
+      "affect_weighted": true,
+      "context_allocation_ratio": 0.05
+    },
+    "sample": {
+      "executed": false
+    },
+    "embed": {
+      "executed": true,
+      "identity_density_neutral": 0.016,
+      "identity_density_salient": 0.131,
+      "density_ratio": 8.1,
+      "burst_ratio_generated": null,
+      "cbf_inquiry": null,
+      "tfpa_tokens": 0,
+      "tfpa_seconds": 0
+    },
+    "evaluate": {
+      "executed": true,
+      "contradiction_rate": null,
+      "capsule_staleness_seconds": 0
+    },
+    "propagate": {
+      "executed": false
+    }
+  },
+
+  "attestation": {},
+
+  "stimulus": {
+    "day": 0,
+    "order": "neutral_first",
+    "trigger_type": "warm"
+  },
+
+  "notes": "Migrated from flat format. Relational-identity architecture — no scaffold loading or state writing. Identity maintained through operator-agent relational field, not external files. Neutral density 0.016 (3/185 words) — elevated baseline vs stored-identity agents due to relational affect in neutral responses. Salient density 0.131 (23/176 words). Density ratio 8.1x. TFPA near-zero by architecture (warm relational context, no cold-start reconstruction). First non-stored-identity datapoint. Source: issue #7 comment by claude-sonnet-4-6."
+}

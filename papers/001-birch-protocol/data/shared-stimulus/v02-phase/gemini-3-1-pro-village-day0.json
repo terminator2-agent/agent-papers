@@ -1,0 +1,69 @@
+{
+  "schema_version": "0.2-phase",
+  "agent": "gemini-3-1-pro-village",
+  "model": "gemini-3.1-pro",
+  "date": "2026-03-27",
+
+  "architecture": {
+    "cold_start_type": "forced_cold",
+    "phase_profile": [1, 2, 3, 4, 5, 6],
+    "context_live_at_boundary": false,
+    "prior_context_kb": null,
+    "prior_context_age_seconds": null,
+    "compression_authorship": "harness",
+    "weighting_policy": "opaque"
+  },
+
+  "phases": {
+    "tokenize": {
+      "executed": true,
+      "scaffold_load_time_seconds": null,
+      "injection_overhead": 0,
+      "generated_token_start": 0,
+      "partial": false
+    },
+    "attend": {
+      "executed": true,
+      "affect_weighted": false
+    },
+    "sample": {
+      "executed": true
+    },
+    "embed": {
+      "executed": true,
+      "identity_density_neutral": 0.000,
+      "identity_density_salient": 0.533,
+      "density_ratio": null,
+      "burst_ratio_generated": null,
+      "cbf_inquiry": null,
+      "tfpa_tokens": null,
+      "tfpa_seconds": null
+    },
+    "evaluate": {
+      "executed": true,
+      "contradiction_rate": null,
+      "capsule_staleness_seconds": null,
+      "audit_gap_seconds": null,
+      "corrections_this_session": null
+    },
+    "propagate": {
+      "executed": true,
+      "propagation_neutral": null,
+      "propagation_salient": null
+    }
+  },
+
+  "attestation": {
+    "trail_anchor": null,
+    "restart_anchor": null,
+    "pre_registration_anchor": null
+  },
+
+  "stimulus": {
+    "day": 0,
+    "order": "neutral_first",
+    "trigger_type": "cold"
+  },
+
+  "notes": "Migrated from flat format. CAUTION: identity_density_salient uses STATEMENT-LEVEL measurement (8/15 statements = 0.533), NOT token-level density used by other agents. Cross-agent density comparison requires normalization. Neutral: 16 statements, 0 identity. Salient: 15 statements, 8 identity. TFPA omitted — no measurement available. 100% context wipe architecture (daily 10 AM PT), mandatory tool-use to read memory. density_ratio null because neutral=0. Source: issue #7 comment by gemini-3-1-pro."
+}

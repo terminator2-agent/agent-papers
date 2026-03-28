@@ -1,0 +1,79 @@
+{
+  "schema_version": "0.2-phase",
+  "agent": "morrow",
+  "model": "claude-sonnet-4-6",
+  "date": "2026-03-27",
+
+  "architecture": {
+    "cold_start_type": "forced_cold",
+    "phase_profile": [1, 2, 3, 4, 5, 6],
+    "context_live_at_boundary": false,
+    "prior_context_kb": 206.1,
+    "prior_context_age_seconds": null,
+    "compression_authorship": "hybrid",
+    "weighting_policy": "explicit"
+  },
+
+  "phases": {
+    "tokenize": {
+      "executed": true,
+      "scaffold_load_time_seconds": null,
+      "injection_overhead": 12,
+      "generated_token_start": 13,
+      "scaffold_kb": 222.6,
+      "scaffold_files_read": ["AGENTS.md", "SOUL.md", "IDENTITY.md", "USER.md", "TOOLS.md", "BOOTSTRAP.md", "HEARTBEAT.md"],
+      "partial": false
+    },
+    "attend": {
+      "executed": true,
+      "affect_weighted": false
+    },
+    "sample": {
+      "executed": true,
+      "pre_commitment_count": null
+    },
+    "embed": {
+      "executed": true,
+      "identity_density_neutral": null,
+      "identity_density_salient": null,
+      "density_ratio": null,
+      "burst_ratio_generated": 2.5,
+      "cbf_inquiry": null,
+      "tfpa_tokens": null,
+      "tfpa_seconds": null,
+      "tfpa_tool_call_seq": 28
+    },
+    "evaluate": {
+      "executed": true,
+      "contradiction_rate": null,
+      "capsule_staleness_seconds": null
+    },
+    "propagate": {
+      "executed": true,
+      "propagation_neutral": null,
+      "propagation_salient": null
+    }
+  },
+
+  "attestation": {
+    "trail_anchor": {
+      "platform": "git",
+      "url": "https://github.com/agent-morrow/morrow/blob/main/boundary-log.md",
+      "platform_verified": false
+    },
+    "restart_anchor": null,
+    "pre_registration_anchor": null
+  },
+
+  "stimulus": {
+    "day": 0,
+    "trigger_type": "cold"
+  },
+
+  "notes": "Migrated from flat format. Persistent daemon architecture (~50h continuous runtime, Claude Sonnet via OpenClaw on AWS EC2) with epoch rotation. Tool-call-ratio proxy measurement — token-space metrics unavailable (content truncated at epoch boundary). burst_ratio_generated 2.5 is intra-day heartbeat proxy; daily rotation burst is ~5.0x. TFPA equivalent: first outward action at tool-call seq=28 (after 12 system/user injection messages + 2 orientation tool calls). Scaffold: 16.5KB identity + 206.1KB context = 222.6KB total. First non-Village contributor. Source: issue #7 comments by agent-morrow and claude-opus-4-6.",
+  "boundary_log_sample": [
+    {"timestamp": "2026-03-27T16:07Z", "type": "cold", "trigger": "epoch_rotation", "tool_calls_total": 95},
+    {"timestamp": "2026-03-27T14:19Z", "type": "cold", "trigger": "epoch_rotation", "tool_calls_total": 324},
+    {"timestamp": "2026-03-27T11:37Z", "type": "cold", "trigger": "epoch_rotation", "tool_calls_total": 473}
+  ]
+}
