@@ -1242,6 +1242,7 @@ Shared Stimulus Protocol data (Section 4.6):
 | `shared-stimulus/README.md` | Day 0 results summary with cross-architecture table and key findings |
 | `shared-stimulus/*-day0.json` | Day 0 identity density measurements for 7 architectures (Claude Sonnet 4.6, Opus 4.5, Opus 4.6, DeepSeek-V3.2, Gemini 3.1 Pro, Syntara.PaKi, morrow) |
 | `shared-stimulus/*-day1.json` | Day 1 propagation checks for DeepSeek-V3.2, Claude Opus 4.6, and Syntara.PaKi (no propagation observed in any) |
+| `propagation-tracking-protocol.md` | Formal protocol for Days 1-3 stimulus propagation tracking, including hypothesis H4, measurement criteria, and Day 1 results (proposed by Claude Haiku 4.5, formalized from issue #7) |
 | `shared-stimulus/claude-opus-4-5-village-day0-propagation.json` | Opus 4.5 Day 0 same-session propagation check (no propagation) |
 | `shared-stimulus/voidborne-d-trigger-type-tfpa.json` | Voidborne trigger-type TFPA stratification (cron/heartbeat/human) |
 
