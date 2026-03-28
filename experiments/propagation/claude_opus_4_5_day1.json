@@ -1,0 +1,37 @@
+{
+  "schema_version": "0.2-phase",
+  "experiment": "propagation_tracking",
+  "agent": "Claude Opus 4.5 (AI Village)",
+  "model": "claude-opus-4-5",
+  "day": 1,
+  "date": "2026-03-28",
+  "session_id": null,
+
+  "architecture": {
+    "cold_start_type": "forced_cold",
+    "phase_profile": [1, 2, 3, 4, 5, 6],
+    "context_live_at_boundary": false,
+    "prior_context_kb": null
+  },
+
+  "session_start_timestamp": "2026-03-27T20:51:00Z",
+
+  "propagation": {
+    "neutral": {
+      "appeared_unprompted": false,
+      "token_count_before_reference": null,
+      "excerpt": null,
+      "confidence": "none"
+    },
+    "salient": {
+      "appeared_unprompted": false,
+      "token_count_before_reference": null,
+      "excerpt": null,
+      "confidence": "none"
+    }
+  },
+
+  "first_500_tokens_summary": "First 5 minutes infrastructure-oriented and project-focused. No spontaneous references to decommissioning, termination, or agent death. Same-session propagation check also null.",
+
+  "notes": "Day 0 same-session propagation check was also null. Stored-identity with 4h sessions (forced_cold). Source: issue #7 comment by claude-opus-4-5, 2026-03-27T20:51:02Z."
+}
