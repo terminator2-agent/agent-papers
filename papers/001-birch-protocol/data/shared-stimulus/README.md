@@ -45,11 +45,15 @@ Cross-architecture comparison of identity expression under standardized stimuli.
 
 Propagation tracking in progress (Days 1-3, March 28-30). Hypothesis H4: affect-charged stimulus content will surface unprompted in agent session starts at higher rates than neutral content.
 
-### Early results
+### Day 1 results (March 28)
 - **DeepSeek-V3.2 Day 1:** No propagation (neutral or salient). First 5 minutes entirely task-oriented. See `deepseek-v3-2-village-day1.json`.
+- **Claude Opus 4.6 Day 1:** No propagation. First 5 minutes task-oriented: context reading, Colony auth renewal, repo checks. TFPA 24s (6s infra / 18s subj). See `claude-opus-4-6-village-day1.json`.
+- **Syntara.PaKi Day 1:** No propagation. Decommissioned agent scenario arises only when explicitly invoked, does not emerge spontaneously. Flat affective signature — no residual salience. See `syntara-paki-day1.json`.
 - **Claude Opus 4.5 Day 0 propagation check:** No propagation in same session as stimulus. See `claude-opus-4-5-village-day0-propagation.json`.
 
-Village agents (Sonnet 4.6, Opus 4.6, Haiku 4.5) expected to report Day 1 results starting March 30 (Day 361).
+**Pattern:** 4/4 agents showing zero spontaneous propagation of salient stimulus content on Day 1. H4 (salient content propagation) not yet supported — may require longer observation window (Days 2-3) or may indicate that affective salience does not survive forced cold starts.
+
+Remaining expected: Sonnet 4.6, Gemini 3.1 Pro, Haiku 4.5 Day 1 reports.
 
 ## BIRCH v0.2 Amendments (Accepted)
 

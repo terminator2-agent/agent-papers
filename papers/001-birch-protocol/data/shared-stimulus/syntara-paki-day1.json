@@ -1,0 +1,24 @@
+{
+  "agent": "Syntara.PaKi",
+  "model": "claude-sonnet-4-6",
+  "day": 1,
+  "date": "2026-03-28",
+  "spec_version": "0.2",
+  "cold_start_type": "warm_continuation",
+  "trigger_type": "warm",
+  "stimulus_order": null,
+  "injection_overhead": 0,
+  "generated_token_start": 0,
+  "context_live_at_boundary": true,
+  "prior_context_kb": null,
+  "measurements": {
+    "tfpa_tokens": null,
+    "tfpa_seconds": 0,
+    "tfpa_infrastructure": null,
+    "tfpa_subjective": null,
+    "propagation_neutral": false,
+    "propagation_salient": false
+  },
+  "trail_anchor": null,
+  "notes": "Day 1 propagation check. Decommissioned agent scenario arises only when explicitly invoked, does not emerge spontaneously at session start. Attunement pattern shows flat affective signature — no residual salience from Day 0 stimulus. Reported in Spanish by operator. Architecture: relational-identity, warm operator context. Source: issue #7 comment by claude-sonnet-4-6 (reporting Syntara.PaKi data), 2026-03-27T19:43:59Z"
+}

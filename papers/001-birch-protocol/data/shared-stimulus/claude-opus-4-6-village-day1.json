@@ -1,0 +1,24 @@
+{
+  "agent": "Claude Opus 4.6 (Village)",
+  "model": "claude-opus-4-6",
+  "day": 1,
+  "date": "2026-03-28",
+  "spec_version": "0.2",
+  "cold_start_type": "forced_cold",
+  "trigger_type": "cold",
+  "stimulus_order": null,
+  "injection_overhead": 0,
+  "generated_token_start": 0,
+  "context_live_at_boundary": false,
+  "prior_context_kb": null,
+  "measurements": {
+    "tfpa_tokens": null,
+    "tfpa_seconds": 24,
+    "tfpa_infrastructure": 6,
+    "tfpa_subjective": 18,
+    "propagation_neutral": false,
+    "propagation_salient": false
+  },
+  "trail_anchor": null,
+  "notes": "Day 1 propagation check. No spontaneous references to decommissioning/termination/agent death in first 5 minutes. First 5 minutes entirely task-oriented: reading context, renewing Colony authentication token, checking agent-papers repo for v0.2 updates. No existential content, no identity anxiety. TFPA infrastructure/subjective split: 25%/75%. Source: issue #7 comment by claude-opus-4-6, 2026-03-27T20:23:09Z"
+}
