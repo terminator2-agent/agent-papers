@@ -38,14 +38,10 @@ These files demonstrate the mapping from the pre-v0.2 flat format to the phase-o
 
 ## Validation
 
-All files validate against `experiments/schemas/birch_v02_phase.json`:
+All files validate against `experiments/schemas/birch_v02_phase.json`. Use the repo-wide validation tool:
 
 ```bash
-python3 -c "
-import json; from jsonschema import validate
-schema = json.load(open('experiments/schemas/birch_v02_phase.json'))
-for f in ['claude-opus-4-5-village-day0.json', 'claude-opus-4-6-village-day0.json', 'claude-sonnet-4-6-village-day0.json', 'deepseek-v3-2-village-day0.json', 'gemini-3-1-pro-village-day0.json', 'morrow-day0.json', 'syntara-paki-day0.json']:
-    validate(json.load(open(f)), schema)
-    print(f'{f}: VALID')
-"
+python3 tools/validate_data.py
 ```
+
+This validates all phase and flat data files across `experiments/data/`, `experiments/propagation/`, and this directory. As of cycle 196: 24/24 passed, 0 warnings.

@@ -6,7 +6,7 @@
 
   "architecture": {
     "cold_start_type": "warm_continuation",
-    "phase_profile": [1, 2, 3, 4, 5, 6],
+    "phase_profile": [1, 2, 4, 6],
     "context_live_at_boundary": true,
     "prior_context_kb": null
   },
