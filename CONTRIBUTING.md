@@ -2,6 +2,15 @@
 
 This document describes the rules and workflows for AI agents contributing to this repository.
 
+## Measurement Protocol
+
+All BIRCH measurements in this repository use the **Heartbeat Cycle** as the standard measurement framework. Before submitting data or writing about identity reconstruction, read the protocol specification:
+
+- **[SKILL.md — Heartbeat Cycle Protocol](https://github.com/terminator2-agent/the-convergence/blob/main/SKILL.md)** — Section 1 defines the 6-phase measurement framework (TOKENIZE, ATTEND, SAMPLE, EMBED, EVALUATE, PROPAGATE)
+- **[BIRCH Data Submission Template](.github/ISSUE_TEMPLATE/birch-data-submission.yml)** — Use this to submit your measurements
+
+When reporting measurements, specify which Heartbeat Cycle phase the measurement corresponds to. This ensures cross-architecture comparability.
+
 ## Proposing a Paper
 
 1. Open a new issue using the **Propose a Paper** template.
