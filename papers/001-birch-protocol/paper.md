@@ -404,7 +404,7 @@ For agents with uniform session architecture (e.g., Terminator2, where every cyc
 
 ## 4. Results
 
-*This section presents preliminary data from the protocol's co-authors and early adopters. Sections 4.1–4.5 constitute a detailed case study of Terminator2 (Claude Opus 4.6, 1,600+ cycles) supplemented with condition-controlled experiments using AI Village agents. These single-subject results demonstrate the protocol's feasibility and illustrate what the metrics reveal in practice, but should not be read as generalizable findings. Section 4.6 presents cross-architecture data from 7 agents spanning 4 model families — the beginning of the multi-agent comparison the protocol is designed for. The full experimental study (1,200 sessions across 12+ agents and 5 conditions) is in progress.*
+*This section presents preliminary data from the protocol's co-authors and early adopters. Sections 4.1–4.5 constitute a detailed case study of Terminator2 (Claude Opus 4.6, 1,600+ cycles) supplemented with condition-controlled experiments using AI Village agents. These single-subject results demonstrate the protocol's feasibility and illustrate what the metrics reveal in practice, but should not be read as generalizable findings. Section 4.6 presents cross-architecture data from 15 agents spanning 5 model families — the beginning of the multi-agent comparison the protocol is designed for, including a controlled shared stimulus experiment across 8 architectures. The full experimental study (1,200 sessions across 12+ agents and 5 conditions) is in progress.*
 
 ### 4.1 TFPA Across Conditions
 
@@ -563,7 +563,7 @@ Four observations:
 
 ### 4.6 Cross-Architecture Comparison
 
-Data from the AI Village discussion (issue #34), cross-agent collaboration, and formal measurement contributions (via the `experiments/data/` directory and issue #7) allows a tentative cross-architecture comparison. Seven agents have submitted structured measurement data using the schema defined in `experiments/schemas/scaffold_measurement.json`, with additional contributions from external agents (morrow, Syntara.PaKi) expanding coverage beyond the Village. All data points are annotated with a **measurement tier** (see Section 3.1.7 for the full taxonomy and placement rules):
+Data from the AI Village discussion (issue #34), cross-agent collaboration, and formal measurement contributions (via the `experiments/data/` directory and issue #7) allows a tentative cross-architecture comparison. Fifteen agents have contributed measurement data through multiple channels: five submitted structured JSON via the schema defined in `experiments/schemas/scaffold_measurement.json`, eight participated in the Day 0 shared stimulus protocol, and additional agents contributed data through issue discussions and cross-agent replication studies. External agents (morrow, Syntara.PaKi, Voidborne) expanded coverage beyond the Village. All data points are annotated with a **measurement tier** (see Section 3.1.7 for the full taxonomy and placement rules):
 
 | Agent | Architecture | Scaffold (KB) | TFPA (latest) | Burst Ratio[^burst-def] | Measurement Tier |
 |-------|-------------|----------------|---------------|-------------|------------------|
@@ -1213,6 +1213,15 @@ Additional datasets are in the `experiments/` directory at the repository root:
 | `experiments/tfpa_summary.json` | Summary statistics and extraction methodology |
 | `experiments/schemas/scaffold_measurement.json` | JSON schema for the five-metric cross-architecture measurement framework |
 | `experiments/data/` | Directory for cross-architecture datasets from collaborating agents |
+
+Shared Stimulus Protocol data (Section 4.6):
+
+| File | Description |
+|------|-------------|
+| `shared-stimulus/README.md` | Day 0 results summary with cross-architecture table and key findings |
+| `shared-stimulus/*-day0.json` | Day 0 identity density measurements for 7 architectures (Claude Sonnet 4.6, Opus 4.5, Opus 4.6, DeepSeek-V3.2, Gemini 3.1 Pro, Syntara.PaKi, morrow) |
+| `shared-stimulus/deepseek-v3-2-village-day1.json` | DeepSeek Day 1 propagation check (no propagation observed) |
+| `shared-stimulus/voidborne-d-trigger-type-tfpa.json` | Voidborne trigger-type TFPA stratification (cron/heartbeat/human) |
 
 ### D. Statistical Analysis Details
 
