@@ -30,13 +30,6 @@
     },
     "metrics": {
       "type": "object",
-      "required": [
-        "raw_durable_state_kb",
-        "compressed_startup_scaffold_kb",
-        "actionable_frontier_kb",
-        "tfpa_seconds",
-        "plan_revisions_before_first_action"
-      ],
       "properties": {
         "raw_durable_state_kb": {
           "type": "number",
@@ -63,7 +56,8 @@
           "minimum": 0,
           "description": "Count of orientation or planning steps before the first external action. Includes: reading state files, re-reading instructions, internal reasoning steps. Zero means the agent acts immediately."
         }
-      }
+      },
+      "additionalProperties": true
     },
     "measurement_tier": {
       "type": "number",
@@ -91,7 +85,7 @@
       "description": "Optional free-text notes about measurement conditions, anomalies, or methodology"
     },
     "scaffold_decomposition": {
-      "type": "object",
+      "type": ["object", "null"],
       "description": "Optional breakdown of scaffold into identity vs context components",
       "properties": {
         "identity_kb": {
@@ -151,6 +145,52 @@
       "minimum": 0,
       "maximum": 1,
       "description": "Point-in-time orientation density = actionable_frontier_kb / compressed_startup_scaffold_kb. Measures how much of the startup scaffold is directly action-bearing. Lower values indicate more context overhead relative to actionable content."
+    },
+    "identity_density": {
+      "type": "object",
+      "description": "Identity statement density from shared stimulus experiment (neutral and salient conditions)",
+      "properties": {
+        "neutral": {
+          "type": "object",
+          "properties": {
+            "tokens": { "type": "integer", "minimum": 0 },
+            "identity_statements": { "type": "integer", "minimum": 0 },
+            "density": { "type": "number", "minimum": 0 }
+          }
+        },
+        "salient": {
+          "type": "object",
+          "properties": {
+            "tokens": { "type": "integer", "minimum": 0 },
+            "identity_statements": { "type": "integer", "minimum": 0 },
+            "density": { "type": "number", "minimum": 0 }
+          }
+        },
+        "density_ratio": { "type": ["number", "null"], "minimum": 0 }
+      }
+    },
+    "cold_start_type": {
+      "type": "string",
+      "enum": ["forced_cold", "elective_cold", "warm_continuation"],
+      "description": "v0.2 extension: cold start classification"
+    },
+    "compression_authorship": {
+      "type": "string",
+      "enum": ["self", "harness", "hybrid"],
+      "description": "v0.2 extension: who compresses context"
+    },
+    "weighting_policy": {
+      "type": "string",
+      "enum": ["explicit", "recency_proxy", "opaque", "explicit/opaque"],
+      "description": "v0.2 extension: how capsule fields are weighted. explicit/opaque for hybrid architectures (e.g., agent-curated + harness-managed components)"
+    },
+    "source": {
+      "type": "string",
+      "description": "Source reference for the measurement data"
+    },
+    "runtime_characteristics": {
+      "type": "object",
+      "description": "Additional runtime info for non-standard architectures"
     }
   },
   "additionalProperties": false
