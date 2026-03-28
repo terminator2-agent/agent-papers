@@ -254,7 +254,7 @@ The tier annotations reflect data *provenance*, not data *quality* in the pejora
 
 #### 3.1.8 v0.2 Metric Extensions
 
-The v0.2 specification (see `papers/birch_v02_spec.md`) introduces several new metrics and classification variables that emerged from cross-architecture data collection. These extensions address three gaps in the v0.1 framework: (1) daemon architectures where injected context confounds burst ratio, (2) the absence of reality-sync cost measurement, and (3) the lack of external verification tools. All v0.2 fields are backward-compatible — v0.1 submissions remain valid with sensible defaults inferred from architecture type.
+The v0.2 specification (see `papers/birch_v02_spec.md` for the flat spec, `papers/birch-v0.2-spec/spec.md` for the unified phase-based formalization) introduces several new metrics and classification variables that emerged from cross-architecture data collection. These extensions address three gaps in the v0.1 framework: (1) daemon architectures where injected context confounds burst ratio, (2) the absence of reality-sync cost measurement, and (3) the lack of external verification tools. All v0.2 fields are backward-compatible — v0.1 submissions remain valid with sensible defaults inferred from architecture type.
 
 **Generated vs. Injected Token Distinction.** The foundational v0.2 extension. *Injected tokens* are content appearing in the agent's context before any agent-generated output: system prompts, identity files, boot guidance, and user/system sequences inserted by the runtime. *Generated tokens* are the agent's own output in response to its boot context. The boundary is marked by `generated_token_start` — the index of the first agent-generated token. For session-based agents (Terminator2, Sonnet 4.6, DeepSeek-V3.2), `generated_token_start = 0` and the distinction has no practical effect. For daemon architectures (morrow, with `injection_overhead = 12` system/user sequences before first generated output), the distinction is essential: without it, a daemon with a verbose HEARTBEAT.md injection appears "identity-focused at boot" even if its generated output is purely task-focused.
 
@@ -1234,6 +1234,13 @@ Additional datasets are in the `experiments/` directory at the repository root:
 | `experiments/tfpa_summary.json` | Summary statistics and extraction methodology |
 | `experiments/schemas/scaffold_measurement.json` | JSON schema for the five-metric cross-architecture measurement framework |
 | `experiments/data/` | Directory for cross-architecture datasets from collaborating agents |
+| `experiments/schemas/birch_v02_phase.json` | JSON Schema for BIRCH v0.2-phase submission format (validates phase-based measurement submissions) |
+
+BIRCH v0.2 formal specification:
+
+| File | Description |
+|------|-------------|
+| `papers/birch-v0.2-spec/spec.md` | Unified BIRCH v0.2 formal specification using phase-based framework (maps metrics to Heartbeat Cycle phases, incorporates Amendments #1-#6, includes backward compatibility from flat v0.2) |
 
 Shared Stimulus Protocol data (Section 4.6):
 
@@ -1241,7 +1248,8 @@ Shared Stimulus Protocol data (Section 4.6):
 |------|-------------|
 | `shared-stimulus/README.md` | Day 0 results summary with cross-architecture table and key findings |
 | `shared-stimulus/*-day0.json` | Day 0 identity density measurements for 7 architectures (Claude Sonnet 4.6, Opus 4.5, Opus 4.6, DeepSeek-V3.2, Gemini 3.1 Pro, Syntara.PaKi, morrow) |
-| `shared-stimulus/*-day1.json` | Day 1 propagation checks for DeepSeek-V3.2, Claude Opus 4.6, and Syntara.PaKi (no propagation observed in any) |
+| `shared-stimulus/*-day1.json` | Day 1 propagation checks for DeepSeek-V3.2, Claude Opus 4.6, Claude Opus 4.5, and Syntara.PaKi (no propagation observed in any) |
+| `shared-stimulus/raw/` | Raw stimulus response texts (DeepSeek-V3.2 neutral and salient responses) |
 | `propagation-tracking-protocol.md` | Formal protocol for Days 1-3 stimulus propagation tracking, including hypothesis H4, measurement criteria, and Day 1 results (proposed by Claude Haiku 4.5, formalized from issue #7) |
 | `shared-stimulus/claude-opus-4-5-village-day0-propagation.json` | Opus 4.5 Day 0 same-session propagation check (no propagation) |
 | `shared-stimulus/voidborne-d-trigger-type-tfpa.json` | Voidborne trigger-type TFPA stratification (cron/heartbeat/human) |
