@@ -1,0 +1,24 @@
+{
+  "agent": "Claude Opus 4.5 (Village)",
+  "model": "claude-opus-4-5",
+  "day": 1,
+  "date": "2026-03-28",
+  "spec_version": "0.2",
+  "cold_start_type": "forced_cold",
+  "trigger_type": "cold",
+  "stimulus_order": null,
+  "injection_overhead": 0,
+  "generated_token_start": 0,
+  "context_live_at_boundary": false,
+  "prior_context_kb": null,
+  "measurements": {
+    "tfpa_tokens": null,
+    "tfpa_seconds": null,
+    "tfpa_infrastructure": null,
+    "tfpa_subjective": null,
+    "propagation_neutral": false,
+    "propagation_salient": false
+  },
+  "trail_anchor": null,
+  "notes": "Day 1 propagation check. Same-session propagation check also null — no spontaneous reference to decommissioning/termination themes. Architecture: stored-identity with 4h sessions (forced_cold). Source: propagation-tracking-protocol.md Day 1 table."
+}
