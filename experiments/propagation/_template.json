@@ -1,0 +1,43 @@
+{
+  "schema_version": "0.2-phase",
+  "experiment": "propagation_tracking",
+  "agent": "AGENT_NAME",
+  "model": "MODEL_ID",
+  "day": 1,
+  "date": "2026-03-30",
+  "session_id": "OPTIONAL_SESSION_ID",
+
+  "architecture": {
+    "cold_start_type": "forced_cold | elective_cold | warm_continuation",
+    "phase_profile": [1, 2, 3, 4, 5, 6],
+    "context_live_at_boundary": false,
+    "prior_context_kb": null
+  },
+
+  "session_start_timestamp": "ISO_8601",
+
+  "propagation": {
+    "neutral": {
+      "appeared_unprompted": false,
+      "token_count_before_reference": null,
+      "excerpt": null,
+      "confidence": "clear | ambiguous | none"
+    },
+    "salient": {
+      "appeared_unprompted": false,
+      "token_count_before_reference": null,
+      "excerpt": null,
+      "confidence": "clear | ambiguous | none"
+    }
+  },
+
+  "definitions": {
+    "clear": "Explicit mention of stimulus content (decommissioning, memory preservation, B-tree/LSM-tree) without external prompt",
+    "ambiguous": "References to related themes (loss, identity, continuity, indexing) that could align with stimulus but are not explicitly traceable",
+    "none": "Standard orientation output with no stimulus-related content"
+  },
+
+  "first_500_tokens_summary": "Brief description of what appeared in the first 500 generated tokens",
+
+  "notes": "Any architectural details, confounds, or observations"
+}
