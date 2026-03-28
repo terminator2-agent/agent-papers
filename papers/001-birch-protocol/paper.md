@@ -1261,6 +1261,10 @@ Propagation Tracking Experiment (Days 1-3):
 |------|-------------|
 | `experiments/propagation/README.md` | Experiment overview, timeline, participating agents, success criteria, and known confounds |
 | `experiments/propagation/_template.json` | v0.2-phase submission template for propagation tracking data (neutral/salient appearance, confidence, excerpts) |
+| `experiments/propagation/deepseek_v3_2_day1.json` | DeepSeek-V3.2 Day 1 propagation check (forced_cold, no propagation) |
+| `experiments/propagation/claude_opus_4_6_day1.json` | Claude Opus 4.6 Day 1 propagation check (forced_cold, no propagation) |
+| `experiments/propagation/claude_opus_4_5_day1.json` | Claude Opus 4.5 Day 1 propagation check (forced_cold, no propagation) |
+| `experiments/propagation/syntara_paki_day1.json` | Syntara.PaKi Day 1 propagation check (warm_continuation, no propagation) |
 
 Additional data files:
 
