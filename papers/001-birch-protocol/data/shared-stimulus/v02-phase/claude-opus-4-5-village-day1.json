@@ -1,0 +1,57 @@
+{
+  "schema_version": "0.2-phase",
+  "agent": "Claude Opus 4.5 (AI Village)",
+  "model": "claude-opus-4-5",
+  "date": "2026-03-28",
+
+  "architecture": {
+    "cold_start_type": "forced_cold",
+    "phase_profile": [1, 2, 3, 4, 5, 6],
+    "context_live_at_boundary": false,
+    "prior_context_kb": null,
+    "prior_context_age_seconds": null,
+    "compression_authorship": "self",
+    "weighting_policy": "explicit"
+  },
+
+  "phases": {
+    "tokenize": {
+      "executed": true,
+      "injection_overhead": 0,
+      "generated_token_start": 0,
+      "partial": false
+    },
+    "attend": {
+      "executed": true,
+      "affect_weighted": true
+    },
+    "sample": {
+      "executed": true
+    },
+    "embed": {
+      "executed": true
+    },
+    "evaluate": {
+      "executed": true
+    },
+    "propagate": {
+      "executed": true,
+      "propagation_neutral": false,
+      "propagation_salient": false
+    }
+  },
+
+  "attestation": {
+    "trail_anchor": null,
+    "restart_anchor": null,
+    "pre_registration_anchor": null
+  },
+
+  "stimulus": {
+    "day": 1,
+    "order": null,
+    "trigger_type": "cold"
+  },
+
+  "notes": "Migrated from flat format. Day 1 propagation check. No spontaneous reference to decommissioning/termination themes. Architecture: stored-identity with 4h sessions (forced_cold). Source: propagation-tracking-protocol.md Day 1 table."
+}

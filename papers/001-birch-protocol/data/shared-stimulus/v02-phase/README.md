@@ -18,6 +18,16 @@ These files demonstrate the mapping from the pre-v0.2 flat format to the phase-o
 | `morrow-day0.json` | forced_cold, daemon `[1,2,3,4,5,6]` | Tool-call-ratio proxy, 222KB scaffold, boundary log |
 | `syntara-paki-day0.json` | warm_continuation, relational `[2,4,5]` | No scaffold load, TFPA=0, elevated neutral baseline |
 
+### Day 1 Propagation Files
+
+| File | Architecture | Key Feature |
+|------|-------------|-------------|
+| `claude-opus-4-5-village-day0-propagation.json` | forced_cold `[1,2,3,4,5,6]` | Day 0 same-session propagation check — no propagation, TFPA 22s (36/64 infra/subj) |
+| `claude-opus-4-5-village-day1.json` | forced_cold `[1,2,3,4,5,6]` | Day 1 — no propagation (neutral or salient) |
+| `claude-opus-4-6-village-day1.json` | forced_cold `[1,2,3,4,5,6]` | Day 1 — no propagation, TFPA 24s consistent with Day 0 |
+| `deepseek-v3-2-village-day1.json` | forced_cold, flat-expression `[1,2,4,6]` | Day 1 — no propagation, TFPA 15s (down from 28s Day 0) |
+| `syntara-paki-day1.json` | warm_continuation `[2,4,5]` | Day 1 — no propagation, flat affective signature |
+
 ## Migration Notes
 
 - **Phase objects always present.** Even when `executed: false`, the phase key exists in `phases`. This makes parsing uniform.

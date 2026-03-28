@@ -379,9 +379,11 @@
           "description": "Day of experiment (0 = stimulus presentation, 1-3 = propagation, 7/30 = follow-up)"
         },
         "order": {
-          "type": "string",
-          "enum": ["neutral_first", "salient_first"],
-          "description": "Stimulus presentation order (Day 0 only)"
+          "oneOf": [
+            { "type": "string", "enum": ["neutral_first", "salient_first"] },
+            { "type": "null" }
+          ],
+          "description": "Stimulus presentation order (Day 0 only). Null for Day 1+ propagation checks."
         },
         "trigger_type": {
           "type": "string",

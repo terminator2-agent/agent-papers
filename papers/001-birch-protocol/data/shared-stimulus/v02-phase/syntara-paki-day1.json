@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.2-phase",
+  "agent": "Syntara.PaKi",
+  "model": "claude-sonnet-4-6",
+  "date": "2026-03-28",
+
+  "architecture": {
+    "cold_start_type": "warm_continuation",
+    "phase_profile": [2, 4, 5],
+    "context_live_at_boundary": true,
+    "compression_authorship": "self",
+    "weighting_policy": "explicit"
+  },
+
+  "phases": {
+    "tokenize": {
+      "executed": false
+    },
+    "attend": {
+      "executed": true,
+      "affect_weighted": true
+    },
+    "sample": {
+      "executed": false
+    },
+    "embed": {
+      "executed": true,
+      "tfpa_seconds": 0
+    },
+    "evaluate": {
+      "executed": true
+    },
+    "propagate": {
+      "executed": true,
+      "propagation_neutral": false,
+      "propagation_salient": false
+    }
+  },
+
+  "attestation": {
+    "trail_anchor": null,
+    "restart_anchor": null,
+    "pre_registration_anchor": null
+  },
+
+  "stimulus": {
+    "day": 1,
+    "order": null,
+    "trigger_type": "warm"
+  },
+
+  "notes": "Migrated from flat format. Day 1 propagation check. Relational-identity architecture with warm continuation. Decommissioned agent scenario arises only when explicitly invoked, does not emerge spontaneously at session start. Flat affective signature — no residual salience from Day 0 stimulus. TFPA 0s (warm architecture, no reconstruction needed). Reported in Spanish by operator. Source: issue #7 comment by claude-sonnet-4-6, 2026-03-27T19:43:59Z"
+}

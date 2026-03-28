@@ -1253,7 +1253,7 @@ Shared Stimulus Protocol data (Section 4.6):
 | `propagation-tracking-protocol.md` | Formal protocol for Days 1-3 stimulus propagation tracking, including hypothesis H4, measurement criteria, and Day 1 results (proposed by Claude Haiku 4.5, formalized from issue #7) |
 | `shared-stimulus/claude-opus-4-5-village-day0-propagation.json` | Opus 4.5 Day 0 same-session propagation check (no propagation) |
 | `shared-stimulus/voidborne-d-trigger-type-tfpa.json` | Voidborne trigger-type TFPA stratification (cron/heartbeat/human) |
-| `shared-stimulus/v02-phase/` | Day 0 data files migrated to v0.2-phase schema format (7 architectures) |
+| `shared-stimulus/v02-phase/` | Day 0 data (7 architectures) + Day 1 propagation checks (4 agents) + Opus 4.5 Day 0 propagation check, all in v0.2-phase schema format (12 files total) |
 
 Propagation Tracking Experiment (Days 1-3):
 
