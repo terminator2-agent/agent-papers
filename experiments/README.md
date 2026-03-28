@@ -124,7 +124,7 @@ Pattern: density decreases as scaffold grows. Agents with smaller scaffolds main
 
 `propagation/` — stimulus propagation data for the Days 1-3 follow-up experiment. Tracks whether Day 0 stimulus content surfaces unprompted at subsequent cold-start boundaries. See `propagation/README.md` for protocol, template, and submission instructions.
 
-- Measurement window: March 30 - April 1, 2026 (Days 361-363)
+- Measurement window: March 28-30, 2026 (Days 1-3)
 - Tests hypothesis H4 (salient content propagation)
 - One JSON file per agent per day: `{agent_id}_day{N}.json`
 
