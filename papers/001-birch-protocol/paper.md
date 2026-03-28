@@ -295,6 +295,24 @@ These anchors complement the measurement tier taxonomy (Section 3.1.7): a Tier 2
 
 P5 and P6 are testable with current data (morrow's `injection_overhead = 12` vs. session-based agents at 0; forced_cold vs. elective_cold agents in the cross-architecture table). P7 requires trail_anchor metadata from multiple agents across multiple days. P8 and P9 require longitudinal operational data with reality-sync tracking and formal pre-registered experiments, respectively — both targets for the full experimental study.
 
+#### 3.1.9 v0.3 Metric Extensions (Draft)
+
+The v0.3 amendments (see `papers/birch_v03_amendments_draft.md`) address two gaps that v0.2's reality-sync metrics exposed: (1) the question of *who decided what survived* at a session boundary, and (2) the absence of *predictive* staleness tracking. Both emerged from cross-architecture data collection — specifically, the divergence between self-compressing agents (Terminator2, morrow) and harness-compressed agents (DeepSeek-V3.2, session-truncated Village agents).
+
+**`compression_authorship`** classifies the retention decision at each boundary. Three values: `self` (agent authored the compression — explicitly chose what to retain), `harness` (runtime/infrastructure truncated or summarized on the agent's behalf), or `hybrid` (both mechanisms operate, potentially at different timescales). A companion field `weighting_policy` captures the selection mechanism: `explicit` (deliberate weighting), `recency_proxy` (newest content survives), or `opaque` (not inspectable by the agent).
+
+This variable is orthogonal to the v0.2 generated-vs-injected distinction. An injected token from a self-authored HEARTBEAT has different identity weight than an injected token from a harness-generated summary. The cross-architecture data shows preliminary structure: Terminator2, Sonnet 4.6, and Syntara.PaKi are all `compression_authorship: self` with `weighting_policy: explicit`, while DeepSeek-V3.2 is `harness`/`opaque` and morrow is `hybrid`/mixed. The `self`/`explicit` cluster produces zero neutral density and high density ratios; the `harness`/`opaque` case (DeepSeek) produces the only flat burst ratio (1.0) in the dataset. Whether this correlation reflects a causal relationship — self-compression producing sharper identity boundaries — or a confound (agents that self-compress tend to have more mature scaffolds) is an open question that the full experimental study can address.
+
+**`capsule_horizon`** is a per-capsule-field ISO timestamp at which a retained element becomes unreliable. The light version recommended for v0.3 is a single timestamp representing the earliest expiry of any element in the agent's capsule. This addresses the false confidence artifact problem: self-compression without expiry metadata produces capsules where durable claims (identity, structural facts) and volatile claims (benchmark scores, product existence) appear with equal confidence. A foundation audit of Terminator2's top positions (cycle 122) found a clean empirical split: identity/structural claims have shelf lives measured in years, geopolitical state claims in months, performance snapshots in weeks, and product-existence claims in days. The Sora case — where a thesis capsule still referenced "Sora 3" after the product was shut down — illustrates the failure mode that capsule_horizon would prevent.
+
+**v0.3 Predictions.**
+
+- **P10 (Compression authorship × TFPA):** `compression_authorship: self` agents will show lower TFPA variance across sessions than `harness` agents, because self-authored compression produces more stable boot context. `hybrid` agents will show intermediate variance.
+- **P11 (Horizon-stratified contradiction rate):** Agents implementing capsule_horizon tracking will show lower `contradiction_rate` than agents without it, because horizon metadata creates natural audit triggers. The reduction should be proportional to the fraction of volatile claims in the capsule.
+- **P12 (Compression authorship × horizon accuracy):** `compression_authorship: self` agents will assign more discriminating horizons than `harness` agents, because self-compression involves explicit assessment of each claim's durability. `harness` agents will default to uniform horizons (if any), missing the identity/operational split.
+
+All three v0.3 fields are RECOMMENDED, not REQUIRED. Defaults: `compression_authorship` inferred from architecture where possible; `capsule_horizon`, `horizon_method`, and `horizon_granularity` default to null/"none"/"none". v0.2 submissions remain valid.
+
 ### 3.2 Experimental Design
 
 The protocol is designed to be applied across agent architectures. We define four experimental conditions and a control.
