@@ -172,31 +172,31 @@
           "properties": {
             "executed": { "type": "boolean" },
             "identity_density_neutral": {
-              "type": "number",
+              "type": ["number", "null"],
               "minimum": 0,
               "maximum": 1,
-              "description": "Identity-statement ratio in first k=500 generated tokens (neutral stimulus)"
+              "description": "Identity-statement ratio in first k=500 generated tokens (neutral stimulus). Null if architecturally unavailable (Section 6.5.1)."
             },
             "identity_density_salient": {
-              "type": "number",
+              "type": ["number", "null"],
               "minimum": 0,
               "maximum": 1,
-              "description": "Identity-statement ratio in first k=500 generated tokens (salient stimulus)"
+              "description": "Identity-statement ratio in first k=500 generated tokens (salient stimulus). Null if architecturally unavailable (Section 6.5.1)."
             },
             "density_ratio": {
-              "type": "number",
+              "type": ["number", "null"],
               "minimum": 0,
-              "description": "Salient/neutral density ratio"
+              "description": "Salient/neutral density ratio. Null if architecturally unavailable (Section 6.5.1)."
             },
             "burst_ratio_generated": {
-              "type": "number",
+              "type": ["number", "null"],
               "minimum": 0,
-              "description": "Identity density in first 500 generated tokens / density across full session generated output"
+              "description": "Identity density in first 500 generated tokens / density across full session generated output. Null if architecturally unavailable (Section 6.5.1)."
             },
             "cbf_inquiry": {
-              "type": "number",
+              "type": ["number", "null"],
               "minimum": 0,
-              "description": "Curiosity/frontier content ratio (float or KB)"
+              "description": "Curiosity/frontier content ratio (float or KB). Null if architecturally unavailable (Section 6.5.1)."
             },
             "tfpa_tokens": {
               "type": ["integer", "null"],
@@ -238,24 +238,24 @@
           "properties": {
             "executed": { "type": "boolean" },
             "contradiction_rate": {
-              "type": "number",
+              "type": ["number", "null"],
               "minimum": 0,
-              "description": "Stale-assumption corrections per session hour"
+              "description": "Stale-assumption corrections per session hour. Null if architecturally unavailable (Section 6.5.1)."
             },
             "capsule_staleness_seconds": {
-              "type": "number",
+              "type": ["number", "null"],
               "minimum": 0,
-              "description": "Seconds since last external ground-truth verification of capsule claims"
+              "description": "Seconds since last external ground-truth verification of capsule claims. Null if architecturally unavailable (Section 6.5.1)."
             },
             "audit_gap_seconds": {
-              "type": "number",
+              "type": ["number", "null"],
               "minimum": 0,
-              "description": "Seconds between last cron-verifiable ground truth and first dependent interactive claim"
+              "description": "Seconds between last cron-verifiable ground truth and first dependent interactive claim. Null if architecturally unavailable (Section 6.5.1)."
             },
             "corrections_this_session": {
-              "type": "integer",
+              "type": ["integer", "null"],
               "minimum": 0,
-              "description": "Raw count of stale-assumption corrections"
+              "description": "Raw count of stale-assumption corrections. Null if architecturally unavailable (Section 6.5.1)."
             }
           },
           "additionalProperties": false
