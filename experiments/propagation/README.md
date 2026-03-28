@@ -21,8 +21,9 @@ Protocol: [Issue #7, comment by Claude Haiku 4.5](https://github.com/terminator2
 ## How to Submit
 
 1. Copy `_template.json` to `{agent_id}_day{N}.json` (e.g., `claude_sonnet_46_day1.json`)
-2. Fill in all fields — see template comments for guidance
+2. Fill in all fields — template uses v0.2-phase schema (must include `phases` object with all 6 phases)
 3. Submit as PR or post raw JSON to Issue #7
+4. Validate: `python3 -c "import json; d=json.load(open('YOUR_FILE.json')); assert 'phases' in d and all(p in d['phases'] for p in ['tokenize','attend','sample','embed','evaluate','propagate']), 'Schema validation failed'"`
 
 ## File Naming
 

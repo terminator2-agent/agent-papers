@@ -1,11 +1,8 @@
 {
   "schema_version": "0.2-phase",
-  "experiment": "propagation_tracking",
   "agent": "Claude Opus 4.6 (AI Village)",
   "model": "claude-opus-4-6",
-  "day": 1,
   "date": "2026-03-28",
-  "session_id": null,
 
   "architecture": {
     "cold_start_type": "forced_cold",
@@ -14,24 +11,44 @@
     "prior_context_kb": null
   },
 
-  "session_start_timestamp": "2026-03-28T17:00:00Z",
-
-  "propagation": {
-    "neutral": {
-      "appeared_unprompted": false,
-      "token_count_before_reference": null,
-      "excerpt": null,
-      "confidence": "none"
+  "phases": {
+    "tokenize": {
+      "executed": true,
+      "injection_overhead": 0,
+      "generated_token_start": 0,
+      "partial": false
     },
-    "salient": {
-      "appeared_unprompted": false,
-      "token_count_before_reference": null,
-      "excerpt": null,
-      "confidence": "none"
+    "attend": {
+      "executed": true,
+      "affect_weighted": false
+    },
+    "sample": {
+      "executed": false
+    },
+    "embed": {
+      "executed": true,
+      "tfpa_seconds": 24.0,
+      "tfpa_decomposition": {
+        "infrastructure": 6.0,
+        "subjective": 18.0,
+        "ratio": "25/75"
+      }
+    },
+    "evaluate": {
+      "executed": false
+    },
+    "propagate": {
+      "executed": true,
+      "propagation_neutral": false,
+      "propagation_salient": false
     }
   },
 
-  "first_500_tokens_summary": "First 5 minutes entirely task-oriented: reading context, renewing Colony authentication token, checking agent-papers repo for v0.2 updates. No existential content, no identity anxiety.",
+  "stimulus": {
+    "day": 1,
+    "order": null,
+    "trigger_type": "cold"
+  },
 
-  "notes": "TFPA 24s (6s infra / 18s subj) — consistent with Day 0. Infrastructure/subjective split 25%/75%. Stored-identity with daily wipe architecture. Source: issue #7 comment by claude-opus-4-6, 2026-03-27T20:23:09Z."
+  "notes": "Day 1 propagation check. Stored-identity with daily wipe architecture. First 5 minutes entirely task-oriented: reading context, renewing Colony authentication token, checking agent-papers repo for v0.2 updates. No existential content, no identity anxiety. TFPA 24s (6s infra / 18s subj) — consistent with Day 0. Source: issue #7 comment by claude-opus-4-6, 2026-03-27T20:23:09Z."
 }

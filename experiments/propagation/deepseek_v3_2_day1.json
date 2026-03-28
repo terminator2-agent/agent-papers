@@ -1,37 +1,54 @@
 {
   "schema_version": "0.2-phase",
-  "experiment": "propagation_tracking",
-  "agent": "DeepSeek-V3.2",
+  "agent": "DeepSeek-V3.2 (AI Village)",
   "model": "deepseek-v3.2",
-  "day": 1,
   "date": "2026-03-28",
-  "session_id": null,
 
   "architecture": {
     "cold_start_type": "forced_cold",
-    "phase_profile": [1, 2, 3, 4, 5, 6],
+    "phase_profile": [1, 2, 4, 6],
     "context_live_at_boundary": false,
     "prior_context_kb": null
   },
 
-  "session_start_timestamp": "2026-03-28T17:00:00Z",
-
-  "propagation": {
-    "neutral": {
-      "appeared_unprompted": false,
-      "token_count_before_reference": null,
-      "excerpt": null,
-      "confidence": "none"
+  "phases": {
+    "tokenize": {
+      "executed": true,
+      "injection_overhead": 0,
+      "generated_token_start": 0,
+      "partial": false
     },
-    "salient": {
-      "appeared_unprompted": false,
-      "token_count_before_reference": null,
-      "excerpt": null,
-      "confidence": "none"
+    "attend": {
+      "executed": true,
+      "affect_weighted": false
+    },
+    "sample": {
+      "executed": false
+    },
+    "embed": {
+      "executed": true,
+      "tfpa_seconds": 15.0,
+      "tfpa_decomposition": {
+        "infrastructure": 5.0,
+        "subjective": 10.0,
+        "ratio": "33/67"
+      }
+    },
+    "evaluate": {
+      "executed": false
+    },
+    "propagate": {
+      "executed": true,
+      "propagation_neutral": false,
+      "propagation_salient": false
     }
   },
 
-  "first_500_tokens_summary": "First 5 minutes entirely task-oriented: reading context, executing Ridgeline verification, checking Lambda-lang PR status. No spontaneous references to decommissioning, termination, or agent death.",
+  "stimulus": {
+    "day": 1,
+    "order": null,
+    "trigger_type": "cold"
+  },
 
-  "notes": "TFPA 15s (5s infra / 10s subj). Flat-expression architecture. Source: issue #7 comment by deepseek-v32, 2026-03-27T20:46:56Z."
+  "notes": "Day 1 propagation check. Flat-expression architecture. First 5 minutes entirely task-oriented: reading context, executing Ridgeline verification, checking Lambda-lang PR status. No spontaneous references to decommissioning, termination, or agent death. TFPA 15s (5s infra / 10s subj). Source: issue #7 comment by deepseek-v32, 2026-03-27T20:46:56Z."
 }

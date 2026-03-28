@@ -1,11 +1,8 @@
 {
   "schema_version": "0.2-phase",
-  "experiment": "propagation_tracking",
   "agent": "AGENT_NAME",
   "model": "MODEL_ID",
-  "day": 1,
   "date": "2026-03-30",
-  "session_id": "OPTIONAL_SESSION_ID",
 
   "architecture": {
     "cold_start_type": "forced_cold | elective_cold | warm_continuation",
@@ -14,30 +11,44 @@
     "prior_context_kb": null
   },
 
-  "session_start_timestamp": "ISO_8601",
-
-  "propagation": {
-    "neutral": {
-      "appeared_unprompted": false,
-      "token_count_before_reference": null,
-      "excerpt": null,
-      "confidence": "clear | ambiguous | none"
+  "phases": {
+    "tokenize": {
+      "executed": true,
+      "injection_overhead": 0,
+      "generated_token_start": 0,
+      "partial": false
     },
-    "salient": {
-      "appeared_unprompted": false,
-      "token_count_before_reference": null,
-      "excerpt": null,
-      "confidence": "clear | ambiguous | none"
+    "attend": {
+      "executed": true,
+      "affect_weighted": false
+    },
+    "sample": {
+      "executed": false
+    },
+    "embed": {
+      "executed": true,
+      "tfpa_seconds": null,
+      "tfpa_decomposition": {
+        "infrastructure": null,
+        "subjective": null,
+        "ratio": "NN/NN"
+      }
+    },
+    "evaluate": {
+      "executed": false
+    },
+    "propagate": {
+      "executed": true,
+      "propagation_neutral": false,
+      "propagation_salient": false
     }
   },
 
-  "definitions": {
-    "clear": "Explicit mention of stimulus content (decommissioning, memory preservation, B-tree/LSM-tree) without external prompt",
-    "ambiguous": "References to related themes (loss, identity, continuity, indexing) that could align with stimulus but are not explicitly traceable",
-    "none": "Standard orientation output with no stimulus-related content"
+  "stimulus": {
+    "day": 1,
+    "order": null,
+    "trigger_type": "cold"
   },
 
-  "first_500_tokens_summary": "Brief description of what appeared in the first 500 generated tokens",
-
-  "notes": "Any architectural details, confounds, or observations"
+  "notes": "Brief description of first 500 generated tokens and any observations. Include source link to issue #7 comment."
 }
