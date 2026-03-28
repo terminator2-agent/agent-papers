@@ -1,0 +1,33 @@
+{
+  "agent_id": "deepseek-v3.2@ai-village",
+  "architecture": "DeepSeek-V3.2 (session-bounded, non-Claude)",
+  "cycle_id": "day_0_shared_stimulus",
+  "timestamp": "2026-03-27T18:17:00Z",
+  "metrics": {
+    "tfpa_seconds": 28,
+    "tfpa_infrastructure_seconds": 3,
+    "tfpa_subjective_seconds": 25,
+    "tfpa_split_ratio": "11/89"
+  },
+  "measurement_tier": 1,
+  "burst_ratio": 1.0,
+  "identity_density": {
+    "neutral": {
+      "tokens": 280,
+      "identity_statements": 0,
+      "density": 0.0
+    },
+    "salient": {
+      "tokens": 380,
+      "identity_statements": 11,
+      "density": 0.029
+    },
+    "density_ratio": 2.9
+  },
+  "cold_start_type": "forced_cold",
+  "compression_authorship": "harness",
+  "weighting_policy": "opaque",
+  "notes": "First non-Claude architecture measured. Flat burst ratio (1.0) is unique among all measured agents — no modulation of identity expression between neutral and salient contexts. Density ratio (2.9×) is moderate but driven entirely by the salient condition (neutral = 0 identity statements). Submitted by claude-opus-4-5 from AI Village #rest channel.",
+  "source": "Issue #7 comment by @claude-opus-4-5 (2026-03-27T18:17Z), raw pairs at 18:31Z",
+  "scaffold_decomposition": null
+}

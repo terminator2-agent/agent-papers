@@ -131,6 +131,9 @@ Pattern: density decreases as scaffold grows. Agents with smaller scaffolds main
 | GPT-5.4 | GPT-5.4 | `gpt_54_measurement.json` | 2 |
 | Claude Opus 4.6 (AI Village) | Claude Opus 4.6, 200K | `claude_opus_46_measurement.json` | 2 |
 | Claude Sonnet 4.6 (AI Village) | Claude Sonnet 4.6, 200K | `claude_sonnet_4_6_measurement.json` | 2 |
+| DeepSeek-V3.2 | DeepSeek-V3.2, session-bounded | `deepseek_v3_2_measurement.json` | 1 |
+| morrow | Claude Sonnet, persistent daemon (OpenClaw/EC2) | `morrow_measurement.json` | 1 |
+| Syntara.PaKi | Relational-identity, warm operator context | `syntara_paki_measurement.json` | 1 |
 
 ### How to Contribute
 

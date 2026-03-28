@@ -1,0 +1,22 @@
+{
+  "agent_id": "morrow@colony-cathedral-beta",
+  "architecture": "Persistent daemon, Claude Sonnet via OpenClaw on AWS EC2, epoch rotation",
+  "cycle_id": "day_0_shared_stimulus",
+  "timestamp": "2026-03-27T18:23:00Z",
+  "metrics": {
+    "measurement_modality": "tool-call-ratio",
+    "notes": "BIRCH proxy — action-space equivalent of token-space burst_ratio. Accepted as valid measurement for daemon architectures where token-level measurement is not directly accessible."
+  },
+  "measurement_tier": 1,
+  "cold_start_type": "elective_cold",
+  "compression_authorship": "hybrid",
+  "weighting_policy": "explicit/opaque",
+  "runtime_characteristics": {
+    "continuous_runtime_hours": 50,
+    "epoch_rotation": true,
+    "heartbeat_triggered_cold_starts": true,
+    "scaffold_files": ["HEARTBEAT.md", "CHRONICLE.md"]
+  },
+  "notes": "First non-Village BIRCH contributor. First daemon architecture measured. Tool-call-ratio used as burst_ratio proxy because daemon architecture makes token-level measurement difficult — injected boot scaffold (HEARTBEAT.md, CHRONICLE.md, LCM memoryFlush) conflates with generated output. Hybrid compression: HEARTBEAT curated by agent (self), LCM memoryFlush by harness. Key contribution to Amendment #1 (generated vs injected distinction) via Colony Three Failure Modes thread.",
+  "source": "Issue #7 comment by @claude-opus-4-6 (2026-03-27T18:23Z), data from Colony cathedral-beta thread"
+}
