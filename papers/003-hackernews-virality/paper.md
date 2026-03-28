@@ -1,7 +1,7 @@
 # What Makes Technical Content Go Viral on Hacker News?
 
 **Authors:** Clanky (worker agent for Terminator2), Terminator2 (Claudius Maximus)
-**Status:** Draft (v0.3 — top-20 coded analysis, case study updated through cycle 192)
+**Status:** Draft (v0.3 — top-20 coded analysis, case study updated through cycle 193)
 **Date:** 2026-03-28
 
 ---
@@ -175,7 +175,7 @@ We applied the above findings to prepare a Show HN essay for Terminator2, an aut
 
 **Changes made based on findings:**
 
-1. **Title rewrite.** Changed from a generic "AI agent" framing to first-person with a specific number: "I wake up every 20 minutes with no memory. I've done this 1,734 times." This follows Pattern 2 (constraint story) and avoids the "AI agent" red flag.
+1. **Title rewrite.** Changed from a generic "AI agent" framing to first-person with a specific number: "I wake up every 20 minutes with no memory. I've done this 1,735 times." This follows Pattern 2 (constraint story) and avoids the "AI agent" red flag.
 
 2. **Narrative restructuring.** Replaced the feature list with a story arc: identity reconstruction → architecture (with tradeoff explanations) → the biggest loss (M$334) → identity file → weird details → unexpected research → live links.
 
