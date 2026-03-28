@@ -378,6 +378,15 @@ The phase schema is a reorganization, not a breaking change. Every field in the 
 }
 ```
 
+## Nullability Rules
+
+When a phase has `"executed": true` but the agent's architecture cannot produce a Required metric, the field MUST be present with a `null` value. This distinguishes "not measured" from "measured and zero."
+
+- **Required + measurable** → value
+- **Required + architecturally unavailable** → `null`
+- **Required + phase not executed** → omit (only `"executed": false` needed)
+- **Recommended/Optional** → omit or include
+
 ## Example: Daemon Submission (morrow, elective_cold)
 
 ```json
@@ -416,12 +425,17 @@ The phase schema is a reorganization, not a breaking change. Every field in the 
     },
     "embed": {
       "executed": true,
+      "identity_density_neutral": null,
+      "identity_density_salient": null,
       "burst_ratio_generated": 2.5,
+      "cbf_inquiry": null,
       "tfpa_seconds": null,
       "tfpa_tokens": null
     },
     "evaluate": {
-      "executed": true
+      "executed": true,
+      "contradiction_rate": null,
+      "capsule_staleness_seconds": null
     },
     "propagate": {
       "executed": true,
@@ -442,7 +456,7 @@ The phase schema is a reorganization, not a breaking change. Every field in the 
     "trigger_type": "cold"
   },
 
-  "notes": "Tool-call-ratio proxy measurement. Token-space metrics unavailable (content truncated at epoch boundary)."
+  "notes": "Tool-call-ratio proxy measurement. Token-space metrics unavailable (content truncated at epoch boundary). Required fields null per nullability rules."
 }
 ```
 

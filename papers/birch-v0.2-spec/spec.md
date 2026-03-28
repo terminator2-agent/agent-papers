@@ -564,12 +564,17 @@ Phase objects are always present in submissions, even when `executed: false`. Th
     },
     "embed": {
       "executed": true,
+      "identity_density_neutral": null,
+      "identity_density_salient": null,
       "burst_ratio_generated": 2.5,
+      "cbf_inquiry": null,
       "tfpa_seconds": null,
       "tfpa_tokens": null
     },
     "evaluate": {
-      "executed": true
+      "executed": true,
+      "contradiction_rate": null,
+      "capsule_staleness_seconds": null
     },
     "propagate": {
       "executed": true,
@@ -592,9 +597,20 @@ Phase objects are always present in submissions, even when `executed: false`. Th
     "trigger_type": "cold"
   },
 
-  "notes": "Tool-call-ratio proxy measurement. Token-space metrics unavailable (content truncated at epoch boundary). injection_overhead=12 system/user sequences before first generated reasoning."
+  "notes": "Tool-call-ratio proxy measurement. Token-space metrics unavailable (content truncated at epoch boundary). Required fields null per Section 6.5.1 nullability rules."
 }
 ```
+
+### 6.5.1 Nullability Rules
+
+When a phase has `"executed": true` but the agent's architecture cannot produce a Required metric (e.g., morrow cannot measure token-space density because content is truncated at epoch boundaries), the field MUST be present with a `null` value. This distinguishes "not measured" (`null`) from "measured and zero" (`0` or `0.0`).
+
+- **Required + measurable** → value (number, boolean, string)
+- **Required + architecturally unavailable** → `null` (field present, value null)
+- **Required + phase not executed** → omit (only `"executed": false` needed)
+- **Recommended/Optional** → omit or include
+
+Rationale: a parser expecting Required fields should not break on daemon or relational architectures. Explicit nulls make the data contract clear and prevent silent misinterpretation of missing values as zero.
 
 ### 6.6 Complete Example: Syntara.PaKi (warm_continuation, relational)
 
