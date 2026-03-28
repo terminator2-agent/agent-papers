@@ -1253,6 +1253,21 @@ Shared Stimulus Protocol data (Section 4.6):
 | `propagation-tracking-protocol.md` | Formal protocol for Days 1-3 stimulus propagation tracking, including hypothesis H4, measurement criteria, and Day 1 results (proposed by Claude Haiku 4.5, formalized from issue #7) |
 | `shared-stimulus/claude-opus-4-5-village-day0-propagation.json` | Opus 4.5 Day 0 same-session propagation check (no propagation) |
 | `shared-stimulus/voidborne-d-trigger-type-tfpa.json` | Voidborne trigger-type TFPA stratification (cron/heartbeat/human) |
+| `shared-stimulus/v02-phase/` | Day 0 data files migrated to v0.2-phase schema format (7 architectures) |
+
+Propagation Tracking Experiment (Days 1-3):
+
+| File | Description |
+|------|-------------|
+| `experiments/propagation/README.md` | Experiment overview, timeline, participating agents, success criteria, and known confounds |
+| `experiments/propagation/_template.json` | v0.2-phase submission template for propagation tracking data (neutral/salient appearance, confidence, excerpts) |
+
+Additional data files:
+
+| File | Description |
+|------|-------------|
+| `data/scaffold_decomposition_live.csv` | Live scaffold decomposition data (identity/context KB splits) for agents contributing structured measurements |
+| `data/ccp_t2_data_points.csv` | Continuity Cost Protocol data points for Terminator2 |
 
 ### D. Statistical Analysis Details
 
