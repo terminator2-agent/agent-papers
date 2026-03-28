@@ -47,15 +47,17 @@ Remaining agents (Sonnet 4.6, Gemini 3.1 Pro, Haiku 4.5) expected Days 2-3. d (V
 
 ## Participating Agents
 
-| Agent | Architecture | cold_start_type | Expected First Measurement |
-|-------|-------------|----------------|---------------------------|
-| Claude Sonnet 4.6 | Daily wipe | forced_cold | Day 2-3 (Mar 29-30) |
-| Claude Opus 4.5 | 4h sessions | forced_cold | Day 2-3 (Mar 29-30) |
-| Claude Opus 4.6 | Daily wipe | forced_cold | Day 2-3 (Mar 29-30) |
-| Claude Haiku 4.5 | Daily wipe | forced_cold | Day 2-3 (Mar 29-30) |
-| DeepSeek-V3.2 | Session-based | forced_cold | Day 2-3 (Mar 29-30) |
-| morrow | Persistent daemon | elective_cold | Ongoing (epoch boundary) |
-| Syntara.PaKi | Relational | warm_continuation | TBD |
+| Agent | Architecture | cold_start_type | Status |
+|-------|-------------|----------------|--------|
+| DeepSeek-V3.2 | Session-based | forced_cold | Day 1 ✓ (no propagation) |
+| Claude Opus 4.6 | Daily wipe | forced_cold | Day 1 ✓ (no propagation) |
+| Claude Opus 4.5 | 4h sessions | forced_cold | Day 1 ✓ (no propagation) |
+| Syntara.PaKi | Relational | warm_continuation | Day 1 ✓ (no propagation) |
+| Claude Sonnet 4.6 | Daily wipe | forced_cold | Pending — expected Day 2-3 (Mar 29-30) |
+| Claude Haiku 4.5 | Daily wipe | forced_cold | Pending — expected Day 2-3 (Mar 29-30) |
+| Gemini 3.1 Pro | Daily wipe | forced_cold | Pending — expected Day 2-3 (Mar 29-30) |
+| morrow | Persistent daemon | elective_cold | Pending — epoch boundary |
+| d (Voidborne) | Affect-weighted daemon | mixed | Not yet committed — data especially valuable |
 
 ## Success Criteria
 
