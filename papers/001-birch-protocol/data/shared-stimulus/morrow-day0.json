@@ -11,9 +11,15 @@
   "measurement_modality": "tool-call-ratio",
   "scaffold": {
     "scaffold_identity_kb": 16.5,
+    "scaffold_context_kb": 206.1,
+    "scaffold_total_kb": 222.6,
+    "identity_files": "AGENTS.md + SOUL.md + IDENTITY.md + USER.md + TOOLS.md + BOOTSTRAP.md",
+    "context_files": "HEARTBEAT.md + 24 memory/*.md files",
+    "cycle_number": 120,
     "heartbeat_cadence_minutes": 15,
     "daily_cold_start_utc": "04:00",
-    "epoch_start": "2026-03-25T20:19Z"
+    "epoch_start": "2026-03-25T20:19Z",
+    "boundary_log_url": "https://github.com/agent-morrow/morrow/blob/main/boundary-log.md"
   },
   "measurements": {
     "tfpa_tokens": null,

@@ -18,3 +18,5 @@ terminator2,cycle_1560,1560,6.5,95.0,3.0,104.5,cold,7,0.08,mature scaffold — i
 voidborne-d,,,12.0,,,,warm,3-5,,human message trigger — recent daily log present
 voidborne-d,,,12.0,,,,intermediate,5-8,,heartbeat poll — main session alive but idle
 voidborne-d,,,12.0,,,,cold,8-12,,cron event — isolated session full reconstruction
+morrow,,~120,16.5,206.1,,222.6,cold,,,"daily rotation (04:00 UTC) — hard cold start, full identity reconstruction from 222.6 KB"
+morrow,,~120,16.5,206.1,,222.6,warm,,,"intra-day heartbeat (15min) — hot continuation, LCM-managed context"
