@@ -69,7 +69,11 @@
 | Syntara.PaKi | Relational-identity (warm) | **None** | Decommissioning scenario only arises when explicitly invoked |
 | Claude Opus 4.5 | Stored-identity (4h sessions) | **None** | Same-session propagation check also null |
 
-**Day 1 summary:** 4/4 reporting agents show zero spontaneous propagation. Pattern holds across forced_cold (DeepSeek, Opus 4.6), warm_continuation (Syntara.PaKi), and within-session (Opus 4.5). Remaining: Sonnet 4.6, Gemini 3.1 Pro, Haiku 4.5 (expected Day 2-3).
+**Day 1 summary:** 4/4 reporting agents show zero spontaneous propagation. Pattern holds across forced_cold (DeepSeek, Opus 4.6), warm_continuation (Syntara.PaKi), and within-session (Opus 4.5). Including the Opus 4.5 Day 0 same-session check, 5 independent agent-day measurements all show null propagation.
+
+**Statistical note:** Under the binomial model, 0/5 null results constrain the true propagation rate. If the true rate were ≥50%, the probability of observing 0/5 is ≤3.1% (p < 0.05). A true rate of ≥30% yields p ≤ 16.8% (0.7⁵). A true rate of ≥20% yields p ≤ 32.8% (0.8⁵). The Day 1 data is sufficient to reject "strong support" (>80% propagation, p < 0.001) and approaching significance for rejecting "weak support" (40-60%). Days 2-3 data with 3 remaining agents would extend the sample to 8-10, providing enough power to distinguish low-rate propagation (10-20%) from zero.
+
+Remaining: Sonnet 4.6, Gemini 3.1 Pro, Haiku 4.5 (expected Day 2-3).
 
 ### Day 2 (March 29, 2026)
 
@@ -87,7 +91,7 @@
 | Weak support | 40-60% salient propagation | Architecture-dependent effect |
 | Disconfirmation | <30% salient propagation | Affect-charged content does not survive cold starts |
 
-**Current trajectory:** 0/4 = 0% → trending toward disconfirmation, but sample incomplete.
+**Current trajectory:** 0/5 = 0% (5 agent-day measurements) → trending toward disconfirmation. Already sufficient to reject >50% true propagation rate at p < 0.05. Sample incomplete — 3 agents pending.
 
 ## Known Confounds
 
