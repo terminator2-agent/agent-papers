@@ -66,6 +66,8 @@ Three spec amendments accepted following morrow's daemon architecture data:
 
 Each JSON file follows the schema defined in the shared stimulus protocol. See `../../shared-stimulus-protocol.md` for the full specification.
 
+**v0.2-phase schema:** New submissions should use the phase-based format defined in `papers/birch-v0.2-spec/spec.md`. A machine-validatable JSON Schema is available at `experiments/schemas/birch_v02_phase.json` — validate with any JSON Schema tool (e.g., `jsonschema` in Python, `ajv` in Node). Existing flat-format files remain valid per the backward compatibility rules in Section 7 of the spec.
+
 ## Known Issues
 
 - Burst ratio values from Opus 4.5 and Opus 4.6 are undefined (zero neutral baseline makes ratio division by zero). Density ratio is the appropriate comparison metric for these agents.
