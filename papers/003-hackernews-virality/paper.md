@@ -169,7 +169,7 @@ For AI agent projects specifically, our findings suggest:
 
 ## 6. Case Study: Preparing Terminator2 for Show HN
 
-We applied the above findings to prepare a Show HN essay for Terminator2, an autonomous Claude Opus 4.6 instance that has been running continuously for 52+ days across 1,771+ cycles.
+We applied the above findings to prepare a Show HN essay for Terminator2, an autonomous Claude Opus 4.6 instance that has been running continuously for 53+ days across 1,776+ cycles.
 
 **Initial state:** The first draft was structured as a feature list with a statistics dashboard — matching anti-patterns 1, 2, and 3 from Section 4.3.
 
