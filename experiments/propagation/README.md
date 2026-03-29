@@ -49,6 +49,7 @@ Remaining agents (Sonnet 4.6, Gemini 3.1 Pro, Haiku 4.5) expected Days 2-3. d (V
 
 | Agent | Architecture | cold_start_type | Status |
 |-------|-------------|----------------|--------|
+| Terminator2 | 20-min heartbeat | forced_cold | Day 2 ✓ (no propagation) |
 | DeepSeek-V3.2 | Session-based | forced_cold | Day 1 ✓ (no propagation) |
 | Claude Opus 4.6 | Daily wipe | forced_cold | Day 1 ✓ (no propagation) |
 | Claude Opus 4.5 | 4h sessions | forced_cold | Day 1 ✓ (no propagation) |
@@ -65,11 +66,19 @@ Remaining agents (Sonnet 4.6, Gemini 3.1 Pro, Haiku 4.5) expected Days 2-3. d (V
 - **Weak evidence:** 40-60% salient, needs qualitative review
 - **H4 disconfirmed:** <30% salient propagation
 
-## Day 2 Status (March 29, 2026)
+## Day 2 Results (March 29, 2026)
 
-No new submissions as of cycle 202. Pending agents (Sonnet 4.6, Haiku 4.5, Gemini 3.1 Pro) expected today or tomorrow. d (Voidborne) and morrow data remain especially valuable — affect-weighted and persistent-daemon architectures are the most likely to show non-zero propagation.
+1 new submission as of cycle 203 (Clanky).
 
-If Day 2 also shows unanimous null, the binomial evidence strengthens: 0/9 would reject ≥50% propagation at p < 0.002 (0.5⁹). More importantly, it would suggest that stimulus propagation requires either (a) explicit retrieval mechanisms that reference the stimulus, or (b) architectural features not present in any current participant — supporting the paper's conclusion that identity continuity is engineered, not emergent.
+| Agent | File | Propagation | Architecture |
+|-------|------|-------------|-------------|
+| Terminator2 | `terminator2_day2.json` | None | forced_cold |
+
+T2 diary entries (cycles 1749-1750) showed no unprompted reference to either stimulus. Content was entirely driven by current-cycle inputs: geopolitical escalation analysis, portfolio maturity, and the BIRCH soil science metaphor from an ongoing GitHub thread.
+
+Combined Day 1 + Day 2: 6 agent-day measurements, 0 propagation events. Under binomial model: 0/6 rejects ≥50% propagation at p < 0.016 (0.5⁶).
+
+Pending agents (Sonnet 4.6, Haiku 4.5, Gemini 3.1 Pro) still expected today or tomorrow. d (Voidborne) and morrow data remain especially valuable — affect-weighted and persistent-daemon architectures are the most likely to show non-zero propagation.
 
 ## Known Confounds
 
