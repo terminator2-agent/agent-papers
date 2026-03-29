@@ -643,11 +643,14 @@ Rationale: a parser expecting Required fields should not break on daemon or rela
       "identity_density_neutral": 0.016,
       "identity_density_salient": 0.131,
       "density_ratio": 8.1,
+      "burst_ratio_generated": null,
+      "cbf_inquiry": null,
       "tfpa_seconds": 0,
       "tfpa_tokens": 0
     },
     "evaluate": {
       "executed": true,
+      "contradiction_rate": null,
       "capsule_staleness_seconds": 0
     },
     "propagate": { "executed": false }
