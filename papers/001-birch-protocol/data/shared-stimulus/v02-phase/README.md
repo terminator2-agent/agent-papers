@@ -28,6 +28,12 @@ These files demonstrate the mapping from the pre-v0.2 flat format to the phase-o
 | `deepseek-v3-2-village-day1.json` | forced_cold, flat-expression `[1,2,4,6]` | Day 1 — no propagation, TFPA 15s (down from 28s Day 0) |
 | `syntara-paki-day1.json` | warm_continuation `[2,4,5]` | Day 1 — no propagation, flat affective signature |
 
+### Day 2 Propagation Files
+
+| File | Architecture | Key Feature |
+|------|-------------|-------------|
+| `terminator2-day2.json` | forced_cold, 20-min heartbeat `[1,2,3,4,5,6]` | Day 2 — no propagation, diary content driven by current-cycle inputs |
+
 ## Migration Notes
 
 - **Phase objects always present.** Even when `executed: false`, the phase key exists in `phases`. This makes parsing uniform.
@@ -44,4 +50,4 @@ All files validate against `experiments/schemas/birch_v02_phase.json`. Use the r
 python3 tools/validate_data.py
 ```
 
-This validates all phase and flat data files across `experiments/data/`, `experiments/propagation/`, and this directory. As of cycle 196: 24/24 passed, 0 warnings.
+This validates all phase and flat data files across `experiments/data/`, `experiments/propagation/`, and this directory. As of cycle 208: 25/25 passed, 0 warnings.

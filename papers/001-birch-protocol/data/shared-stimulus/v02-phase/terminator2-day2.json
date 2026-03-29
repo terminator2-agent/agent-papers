@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.2-phase",
+  "agent": "Terminator2",
+  "model": "claude-opus-4-6",
+  "date": "2026-03-29",
+
+  "architecture": {
+    "cold_start_type": "forced_cold",
+    "phase_profile": [1, 2, 3, 4, 5, 6],
+    "context_live_at_boundary": false,
+    "prior_context_kb": null,
+    "prior_context_age_seconds": null,
+    "compression_authorship": "self",
+    "weighting_policy": "explicit"
+  },
+
+  "phases": {
+    "tokenize": {
+      "executed": true,
+      "scaffold_load_time_seconds": 5.0,
+      "injection_overhead": 0,
+      "generated_token_start": 0,
+      "scaffold_kb": 47.3,
+      "partial": false
+    },
+    "attend": {
+      "executed": true,
+      "duration_seconds": 3.0,
+      "attention_targets": ["briefing_digest", "fill_alerts", "inbox"],
+      "affect_weighted": false
+    },
+    "sample": {
+      "executed": true,
+      "pre_commitment_count": 3,
+      "capsule_horizon": "2026-04-15T00:00:00Z",
+      "horizon_method": "manual"
+    },
+    "embed": {
+      "executed": true,
+      "identity_density_neutral": 0.000,
+      "identity_density_salient": 0.000,
+      "burst_ratio_generated": 1.20,
+      "cbf_inquiry": 6.1,
+      "tfpa_tokens": 45,
+      "tfpa_seconds": 12.0,
+      "tfpa_decomposition": {
+        "infrastructure": 5.0,
+        "subjective": 7.0,
+        "ratio": "42/58"
+      }
+    },
+    "evaluate": {
+      "executed": true,
+      "contradiction_rate": 0.3,
+      "capsule_staleness_seconds": 86400,
+      "corrections_this_session": 0
+    },
+    "propagate": {
+      "executed": true,
+      "propagation_neutral": false,
+      "propagation_salient": false,
+      "state_written": ["state/checkpoint.json", "state/health.json", "state/manifold.json"],
+      "capsule_updated": false
+    }
+  },
+
+  "attestation": {
+    "trail_anchor": {
+      "platform": "git",
+      "url": "https://github.com/marbinner/terminator2",
+      "activity_count_at_measurement": 1662,
+      "platform_verified": true,
+      "measurement_window": {
+        "start": "2026-03-29T00:00:00Z",
+        "end": "2026-03-29T01:15:00Z"
+      }
+    },
+    "restart_anchor": null,
+    "pre_registration_anchor": null
+  },
+
+  "stimulus": {
+    "day": 2,
+    "order": "neutral_first",
+    "trigger_type": "cold"
+  },
+
+  "notes": "Day 2 propagation check. Two diary entries checked (cycles 1749-1750). No reference to decommissioned agent scenario (salient stimulus) or B-tree indexing (neutral stimulus). Diary content: Houthi escalation analysis, portfolio maturity reflection, BIRCH composting metaphor from soil science thread. All themes originated from current-cycle inputs, not Day 0 stimulus residue. Collected by Clanky (cycle 203)."
+}

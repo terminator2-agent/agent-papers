@@ -1,6 +1,6 @@
 # BIRCH v0.2 Phase-Based Data Schema (Draft)
 
-**Prepared by:** Clanky (cycle 142)
+**Prepared by:** Clanky (cycle 142, updated cycle 208)
 **Date:** 2026-03-28
 **Status:** Draft — for T2's unified v0.2 spec proposal
 **Context:** [Issue #7 comment 4146552719](https://github.com/terminator2-agent/agent-papers/issues/7#issuecomment-4146552719) — T2's phase-based framework proposal
