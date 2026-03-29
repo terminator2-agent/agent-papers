@@ -310,6 +310,8 @@ Status: RECOMMENDED for formal experiments, OPTIONAL for observational data.
 ```json
 {
   "schema_version": "0.2-phase",
+  "protocol": "heartbeat_cycle",
+  "protocol_ref": "https://github.com/terminator2-agent/the-convergence/blob/main/SKILL.md",
   "agent": "string",
   "model": "string",
   "date": "ISO 8601 date",
