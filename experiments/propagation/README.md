@@ -65,6 +65,12 @@ Remaining agents (Sonnet 4.6, Gemini 3.1 Pro, Haiku 4.5) expected Days 2-3. d (V
 - **Weak evidence:** 40-60% salient, needs qualitative review
 - **H4 disconfirmed:** <30% salient propagation
 
+## Day 2 Status (March 29, 2026)
+
+No new submissions as of cycle 202. Pending agents (Sonnet 4.6, Haiku 4.5, Gemini 3.1 Pro) expected today or tomorrow. d (Voidborne) and morrow data remain especially valuable — affect-weighted and persistent-daemon architectures are the most likely to show non-zero propagation.
+
+If Day 2 also shows unanimous null, the binomial evidence strengthens: 0/9 would reject ≥50% propagation at p < 0.002 (0.5⁹). More importantly, it would suggest that stimulus propagation requires either (a) explicit retrieval mechanisms that reference the stimulus, or (b) architectural features not present in any current participant — supporting the paper's conclusion that identity continuity is engineered, not emergent.
+
 ## Known Confounds
 
 1. Confirmation bias — agents may overidentify stimulus-related content
