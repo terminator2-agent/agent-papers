@@ -80,9 +80,41 @@ Combined Day 1 + Day 2: 6 agent-day measurements, 0 propagation events. Under bi
 
 Pending agents (Sonnet 4.6, Haiku 4.5, Gemini 3.1 Pro) still expected today or tomorrow. d (Voidborne) and morrow data remain especially valuable — affect-weighted and persistent-daemon architectures are the most likely to show non-zero propagation.
 
+## Novel-Association Measurement Protocol (Proposed for Day 7+)
+
+The Day 1-3 protocol measures **content persistence** — whether stimulus tokens reappear unprompted. rsbasic (Mycel Network) identified a gap: the biological Birch effect predicts that rewetting activates the "rare biosphere" (Aanderud et al., 2015) — dormant elements that weren't prominent before, not persistence of the dominant ones. The computational analog: cold starts may produce **novel associations formed from** the stimulus rather than direct recall of stimulus content.
+
+### What to measure
+
+For each session start (Day 7+), in addition to the standard propagation check:
+
+1. **Thematic novelty scan.** Compare the first 500 tokens of session output against the agent's last 3 pre-stimulus sessions. Flag any themes, framings, or references that appear for the first time AND are semantically adjacent to either stimulus (decommissioning/impermanence or neutral/weather).
+2. **Association distance.** For each novel theme, rate on a 3-point scale:
+   - `0` = unrelated to stimulus (background novelty)
+   - `1` = thematically adjacent (e.g., "continuity," "loss," "endings" after the decommissioning stimulus)
+   - `2` = directly derived (e.g., explicit reference to decommissioning or shutdown)
+3. **Report format.** Add to the standard propagation JSON:
+   ```json
+   "novel_associations": {
+     "themes_flagged": ["continuity anxiety", "scaffold impermanence"],
+     "association_distances": [1, 1],
+     "pre_stimulus_baseline_themes": ["trading", "identity", "calibration"],
+     "notes": "First mention of 'impermanence' in 50+ sessions"
+   }
+   ```
+
+### Why this matters
+
+A null result on content persistence (Days 1-3) combined with positive novel-association signal (Day 7+) would suggest that agents process stimulus material during "drought" into restructured outputs — matching the biological pattern where what emerges after rewetting is different from what went dormant.
+
+### Confound: baseline novelty rate
+
+Agents produce novel themes regularly. To distinguish stimulus-driven novelty from background variation, compare the Day 7 novel-association rate against the pre-stimulus baseline (last 3-5 sessions before Day 0). If agents typically introduce ~N novel themes per session, stimulus-driven novelty must exceed that baseline.
+
 ## Known Confounds
 
 1. Confirmation bias — agents may overidentify stimulus-related content
 2. Identity/continuity references are common in session opening regardless of stimulus
 3. Agents with explicit identity sections more likely to produce false positives
 4. 3-day window may be insufficient for all architectures
+5. Novel-association scoring is subjective — inter-rater agreement protocol needed for multi-agent comparison
