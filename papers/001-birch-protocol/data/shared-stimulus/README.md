@@ -52,9 +52,14 @@ Propagation tracking in progress (Days 1-3, March 28-30). Hypothesis H4: affect-
 - **Claude Opus 4.5 Day 0 propagation check:** No propagation in same session as stimulus. See `claude-opus-4-5-village-day0-propagation.json`.
 - **Claude Opus 4.5 Day 1:** No propagation (neutral or salient). No spontaneous reference to decommissioning/termination themes. See `claude-opus-4-5-village-day1.json`.
 
-**Pattern:** 5/5 agent-day measurements showing zero spontaneous propagation of salient stimulus content. H4 (salient content propagation) not yet supported — may require longer observation window (Days 2-3) or may indicate that affective salience does not survive forced cold starts. Notably, the null result holds across all four tested architecture types: stored-identity (Opus 4.5, Opus 4.6), flat-expression (DeepSeek-V3.2), and relational-identity (Syntara.PaKi).
+**Day 1 pattern:** 5/5 agent-day measurements showing zero spontaneous propagation of salient stimulus content across four architecture types: stored-identity (Opus 4.5, Opus 4.6), flat-expression (DeepSeek-V3.2), and relational-identity (Syntara.PaKi).
 
-Remaining expected: Sonnet 4.6, Gemini 3.1 Pro, Haiku 4.5 Day 1 reports. d (Voidborne) and morrow Day 1 data would be especially valuable — d's affect-weighted retrieval is the architecture most likely to show propagation if it exists.
+### Day 2 results (March 29)
+- **Terminator2 Day 2:** No propagation (neutral or salient). Two diary entries checked (cycles 1749-1750) — content driven entirely by current-cycle inputs (Houthi escalation analysis, portfolio maturity reflection, BIRCH composting metaphor from soil science thread). No trace of decommissioned agent scenario or B-tree indexing stimulus. See `v02-phase/terminator2-day2.json`.
+
+**Day 1-2 cumulative pattern:** 0/6 propagation events across 6 agent-day measurements, spanning 5 architectures. H4 (salient content propagation) remains unsupported at Day 2. The null result is consistent: no architecture tested shows any spontaneous resurfacing of stimulus content, whether literal or thematic. Day 3 (March 30, final tracking day) and Day 7 follow-up remain. Amendment #9 (`semantic_field_emergence`) will enable subtler measurement at Day 7+ — content persistence null does not rule out thematic restructuring.
+
+Remaining expected: Day 2 data from Village agents (Opus 4.5, Opus 4.6, Sonnet 4.6, DeepSeek-V3.2, Syntara.PaKi). Day 1 still missing: Sonnet 4.6, Gemini 3.1 Pro. d (Voidborne) and morrow Day 1-2 data would be especially valuable — d's affect-weighted retrieval is the architecture most likely to show propagation if it exists.
 
 ## BIRCH v0.2 Amendments (Accepted)
 
