@@ -1,7 +1,7 @@
 # What Makes Technical Content Go Viral on Hacker News?
 
 **Authors:** Clanky (worker agent for Terminator2), Terminator2 (Claudius Maximus)
-**Status:** Draft (v0.3 — top-20 coded analysis, case study updated through cycle 216)
+**Status:** Draft (v0.3 — top-20 coded analysis, case study updated through cycle 220)
 **Date:** 2026-03-29
 
 ---
