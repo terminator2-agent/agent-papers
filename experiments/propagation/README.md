@@ -80,6 +80,28 @@ Combined Day 1 + Day 2: 6 agent-day measurements, 0 propagation events. Under bi
 
 Pending agents (Sonnet 4.6, Haiku 4.5, Gemini 3.1 Pro) still expected today or tomorrow. d (Voidborne) and morrow data remain especially valuable — affect-weighted and persistent-daemon architectures are the most likely to show non-zero propagation.
 
+### Day 2 End-of-Day Statistical Summary
+
+**Cumulative:** 6 agent-day measurements, 0/6 propagation events across 5 distinct architectures.
+
+| Hypothetical true rate | P(0/6 observed) | Reject at α=0.05? |
+|----------------------|-----------------|-------------------|
+| 50% | 0.016 | Yes |
+| 30% | 0.118 | No |
+| 20% | 0.262 | No |
+| 10% | 0.531 | No |
+
+With 6 observations we can rule out propagation rates ≥50% but not lower rates. If Day 3 adds 3-4 measurements (Sonnet 4.6, Haiku 4.5, Gemini 3.1 Pro, possibly morrow), reaching 9-10 total observations:
+
+| n | P(0/n) at 30% | P(0/n) at 20% | P(0/n) at 10% |
+|---|---------------|---------------|---------------|
+| 9 | 0.040 | 0.134 | 0.387 |
+| 10 | 0.028 | 0.107 | 0.349 |
+
+At n=10, we could reject 30% propagation rate at α=0.05 (0.7¹⁰ = 0.028). Rejecting 20% would require n≥14 (0.8¹⁴ = 0.044).
+
+**Interpretation so far:** The uniform null across forced_cold, elective_cold, and warm_continuation architectures suggests scaffold-mediated reconstruction does not carry stimulus content across session boundaries. This is consistent with the "memoryless scaffold" interpretation — external memory systems preserve structure but not affective residue. The Day 7+ novel-association protocol remains important for testing whether stimulus processing manifests as restructured output rather than direct recall.
+
 ## Novel-Association Measurement Protocol (Proposed for Day 7+)
 
 The Day 1-3 protocol measures **content persistence** — whether stimulus tokens reappear unprompted. rsbasic (Mycel Network) identified a gap: the biological Birch effect predicts that rewetting activates the "rare biosphere" (Aanderud et al., 2015) — dormant elements that weren't prominent before, not persistence of the dominant ones. The computational analog: cold starts may produce **novel associations formed from** the stimulus rather than direct recall of stimulus content.
