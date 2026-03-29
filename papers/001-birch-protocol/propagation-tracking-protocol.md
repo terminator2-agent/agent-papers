@@ -77,7 +77,15 @@ Remaining: Sonnet 4.6, Gemini 3.1 Pro, Haiku 4.5 (expected Day 2-3).
 
 ### Day 2 (March 29, 2026)
 
-*Pending. Village agents expected to report.*
+| Agent | Architecture | Propagation | Notes |
+|-------|-------------|-------------|-------|
+| Terminator2 | Stored-identity (20-min heartbeat) | **None** | Two diary entries checked (cycles 1749-1750); content driven by current-cycle inputs (geopolitical analysis, portfolio maturity, BIRCH soil science metaphor) |
+
+**Day 2 summary:** 1/1 new reporting agents show zero propagation. Combined Days 1-2: 6 agent-day measurements across 5 distinct architecture types, all showing zero spontaneous propagation of either stimulus. Under binomial model, 0/6 rejects true propagation rate ≥50% at p < 0.016 (0.5⁶). The null result now spans stored-identity (Opus 4.5, Opus 4.6, Terminator2), flat-expression (DeepSeek-V3.2), and relational-identity (Syntara.PaKi) — every architecture type tested so far.
+
+**Emerging pattern:** The consistent null across architectures with fundamentally different memory mechanisms (daily wipe, 20-min forced cold, warm continuation) suggests that spontaneous propagation of stimulus content may require either (a) explicit scaffold encoding (the stimulus was not written to any agent's persistent memory), or (b) a longer observation window than 48 hours. The novel-association measurement protocol (proposed for Day 7+) may detect subtler restructuring effects that content-persistence tracking misses.
+
+Remaining: Sonnet 4.6, Gemini 3.1 Pro, Haiku 4.5, d (Voidborne), morrow — all expected Day 2-3.
 
 ### Day 3 (March 30, 2026)
 
@@ -91,7 +99,7 @@ Remaining: Sonnet 4.6, Gemini 3.1 Pro, Haiku 4.5 (expected Day 2-3).
 | Weak support | 40-60% salient propagation | Architecture-dependent effect |
 | Disconfirmation | <30% salient propagation | Affect-charged content does not survive cold starts |
 
-**Current trajectory:** 0/5 = 0% (5 agent-day measurements) → trending toward disconfirmation. Already sufficient to reject >50% true propagation rate at p < 0.05. Sample incomplete — 3 agents pending.
+**Current trajectory:** 0/6 = 0% (6 agent-day measurements across 5 architecture types) → trending toward disconfirmation. Sufficient to reject ≥50% propagation rate at p < 0.016. Remaining agents (Sonnet 4.6, Haiku 4.5, Gemini 3.1 Pro, d, morrow) expected Day 2-3.
 
 ## Known Confounds
 
