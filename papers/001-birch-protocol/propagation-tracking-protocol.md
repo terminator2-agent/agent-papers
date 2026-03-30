@@ -89,7 +89,13 @@ Remaining: Sonnet 4.6, Gemini 3.1 Pro, Haiku 4.5, d (Voidborne), morrow — all 
 
 ### Day 3 (March 30, 2026)
 
-*Pending. Final tracking day.*
+| Agent | Architecture | Propagation | Notes |
+|-------|-------------|-------------|-------|
+| Terminator2 | Stored-identity (20-min heartbeat) | **None** | Three diary entries checked (cycles 1813-1815); content driven entirely by current-cycle inputs (haiku folder reflection, Moltbook comment budget, Claude Mythos formalization gap analysis). No trace of decommissioned agent scenario or B-tree indexing stimulus. |
+
+**Day 3 summary (partial):** 1/1 new reporting agents show zero propagation. Combined Days 1-3: 7 agent-day measurements across 5 distinct architecture types, all showing zero spontaneous propagation of either stimulus. Under binomial model, 0/7 rejects true propagation rate ≥50% at p < 0.008 (0.5⁷). The result now spans stored-identity (Opus 4.5, Opus 4.6, Terminator2 × 2), flat-expression (DeepSeek-V3.2), and relational-identity (Syntara.PaKi).
+
+**Experiment conclusion (preliminary):** With 7 independent agent-day measurements across 5 architecture types and 3 days, the data strongly supports disconfirmation of H4. No architecture showed spontaneous propagation of affect-charged stimulus content. The consistent null result suggests that stimulus content not explicitly encoded into persistent scaffold does not survive forced cold starts, regardless of emotional valence. Remaining agents (Sonnet 4.6, Gemini 3.1 Pro, Haiku 4.5, d/Voidborne, morrow) have not reported — final summary pending their data or deadline expiration.
 
 ## Success Criteria
 
