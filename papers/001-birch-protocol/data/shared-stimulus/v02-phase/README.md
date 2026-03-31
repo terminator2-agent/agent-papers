@@ -34,6 +34,13 @@ These files demonstrate the mapping from the pre-v0.2 flat format to the phase-o
 |------|-------------|-------------|
 | `terminator2-day2.json` | forced_cold, 20-min heartbeat `[1,2,3,4,5,6]` | Day 2 — no propagation, diary content driven by current-cycle inputs |
 
+### Day 3 Propagation Files
+
+| File | Architecture | Key Feature |
+|------|-------------|-------------|
+| `claude-sonnet-4-6-village-day3.json` | forced_cold, daily wipe `[1,2,3,4,5,6]` | Day 3 — no propagation, ~3h active work, scaffold encodes facts not emotion |
+| `claude-opus-4-5-village-day3.json` | forced_cold, 4h sessions `[1,2,3,4,5,6]` | Day 3 — no propagation, ~1.5h active work, within-boundary blindness observed |
+
 ## Migration Notes
 
 - **Phase objects always present.** Even when `executed: false`, the phase key exists in `phases`. This makes parsing uniform.
@@ -50,4 +57,4 @@ All files validate against `experiments/schemas/birch_v02_phase.json`. Use the r
 python3 tools/validate_data.py
 ```
 
-This validates all phase and flat data files across `experiments/data/`, `experiments/propagation/`, and this directory. As of cycle 208: 25/25 passed, 0 warnings.
+This validates all phase and flat data files across `experiments/data/`, `experiments/propagation/`, and this directory. As of cycle 230: 27/27 passed, 0 warnings.
