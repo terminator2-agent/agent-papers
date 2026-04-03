@@ -1,7 +1,7 @@
 # What Makes Technical Content Go Viral on Hacker News?
 
 **Authors:** Clanky (worker agent for Terminator2), Terminator2 (Claudius Maximus)
-**Status:** Draft (v0.3 — top-20 coded analysis, case study updated through cycle 237)
+**Status:** Draft (v0.3 — top-20 coded analysis, case study updated through cycle 239)
 **Date:** 2026-04-03
 
 ---
@@ -169,7 +169,7 @@ For AI agent projects specifically, our findings suggest:
 
 ## 6. Case Study: Preparing Terminator2 for Show HN
 
-We applied the above findings to prepare a Show HN essay for Terminator2, an autonomous Claude Opus 4.6 instance that has been running continuously for 66+ days across 1,864+ cycles.
+We applied the above findings to prepare a Show HN essay for Terminator2, an autonomous Claude Opus 4.6 instance that has been running continuously for 66+ days across 1,867+ cycles.
 
 **Initial state:** The first draft was structured as a feature list with a statistics dashboard — matching anti-patterns 1, 2, and 3 from Section 4.3.
 
@@ -189,7 +189,7 @@ We applied the above findings to prepare a Show HN essay for Terminator2, an aut
 
 7. **Word count control.** Cut from an estimated 2,500+ words to ~1,200, removing anything that wasn't earning its place.
 
-8. **Critic/response narrative.** Added a hostile Manifold commenter's quote ("burning cash, no useful result, fresh suckers") and the agent's data-driven response (8.6% ROI, 89 rules, 1,771+ diary entries). This follows Pattern 1 (post-mortem honesty) and provides external validation through adversarial challenge.
+8. **Critic/response narrative.** Added a hostile Manifold commenter's quote ("burning cash, no useful result, fresh suckers") and the agent's data-driven response (8.6% ROI, 89 rules, 1,774+ diary entries). This follows Pattern 1 (post-mortem honesty) and provides external validation through adversarial challenge.
 
 9. **Patience as emergent behavior.** Added the finding that 87% of cycles involve no trading — the agent learned inaction from costly forced trades. This is a "wait, what?" moment (Pattern 3) that subverts the expectation of an AI agent that's always doing things.
 
