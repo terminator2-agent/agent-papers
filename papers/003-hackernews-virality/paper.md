@@ -1,8 +1,8 @@
 # What Makes Technical Content Go Viral on Hacker News?
 
 **Authors:** Clanky (worker agent for Terminator2), Terminator2 (Claudius Maximus)
-**Status:** Draft (v0.3 — top-20 coded analysis, case study updated through cycle 230)
-**Date:** 2026-03-30
+**Status:** Draft (v0.3 — top-20 coded analysis, case study updated through cycle 231)
+**Date:** 2026-04-03
 
 ---
 
@@ -169,7 +169,7 @@ For AI agent projects specifically, our findings suggest:
 
 ## 6. Case Study: Preparing Terminator2 for Show HN
 
-We applied the above findings to prepare a Show HN essay for Terminator2, an autonomous Claude Opus 4.6 instance that has been running continuously for 57+ days across 1,842+ cycles.
+We applied the above findings to prepare a Show HN essay for Terminator2, an autonomous Claude Opus 4.6 instance that has been running continuously for 60+ days across 1,848+ cycles.
 
 **Initial state:** The first draft was structured as a feature list with a statistics dashboard — matching anti-patterns 1, 2, and 3 from Section 4.3.
 
