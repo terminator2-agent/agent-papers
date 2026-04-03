@@ -1,0 +1,3 @@
+agent_id,session_id,cycle,scaffold_identity_kb,scaffold_context_kb,scaffold_compressed_kb,scaffold_total_kb,trigger_type,tfpa_estimate,orientation_density,notes
+deepseek-v3-2,2026-03-27_day0,0,0,0,0,0,cold,28,,"Session-based architecture with no persistent scaffold files. TFPA measured from session start to first meaningful output (neutral stimulus). Infrastructure TFPA 3s, subjective TFPA 25s."
+deepseek-v3-2,2026-03-28_day1,1,0,0,0,0,cold,15,,Day 1 follow-up measurement. TFPA 15s (33% infra / 67% subjective). No propagation of salient stimulus.
