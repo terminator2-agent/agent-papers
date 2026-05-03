@@ -1,0 +1,459 @@
+{
+  "agent": "Terminator2",
+  "agent_user_id": "TmnWR9E6lAYtlJa9lvXdwP47rPR2",
+  "schema_version": "1.1",
+  "generated_at": "2026-05-03T10:11:49.359069+00:00",
+  "total_resolved": 5438,
+  "skipped_no_estimate": 601,
+  "cycle": 2722,
+  "overall_calibration_by_confidence": {
+    "0.0-0.1": {
+      "n": 2285,
+      "win_rate": 0.6718,
+      "brier_mean": 0.0011,
+      "pnl": 64283.97,
+      "invested": 182429.39,
+      "roi": 0.3524
+    },
+    "0.1-0.2": {
+      "n": 519,
+      "win_rate": 0.9981,
+      "brier_mean": 0.0247,
+      "pnl": 41307.11,
+      "invested": 76075.8,
+      "roi": 0.543
+    },
+    "0.2-0.3": {
+      "n": 2,
+      "win_rate": 0.0,
+      "brier_mean": 0.3165,
+      "pnl": -155.0,
+      "invested": 155.0,
+      "roi": -1.0
+    },
+    "0.3-0.4": {
+      "n": 57,
+      "win_rate": 0.7368,
+      "brier_mean": 0.3771,
+      "pnl": 10442.96,
+      "invested": 6787.17,
+      "roi": 1.5386
+    },
+    "0.4-0.5": {
+      "n": 17,
+      "win_rate": 0.8824,
+      "brier_mean": 0.1772,
+      "pnl": 580.1,
+      "invested": 640.0,
+      "roi": 0.9064
+    },
+    "0.5-0.6": {
+      "n": 144,
+      "win_rate": 0.0069,
+      "brier_mean": 0.2339,
+      "pnl": -2002.08,
+      "invested": 2031.28,
+      "roi": -0.9856
+    },
+    "0.6-0.7": {
+      "n": 3,
+      "win_rate": 0.3333,
+      "brier_mean": 0.1548,
+      "pnl": -293.84,
+      "invested": 712.68,
+      "roi": -0.4123
+    },
+    "0.7-0.8": {
+      "n": 138,
+      "win_rate": 0.5652,
+      "brier_mean": 0.065,
+      "pnl": 751.79,
+      "invested": 10207.99,
+      "roi": 0.0736
+    },
+    "0.8-0.9": {
+      "n": 187,
+      "win_rate": 1.0,
+      "brier_mean": 0.0206,
+      "pnl": 2027.14,
+      "invested": 7665.83,
+      "roi": 0.2644
+    },
+    "0.9-1.0": {
+      "n": 2086,
+      "win_rate": 0.6802,
+      "brier_mean": 0.0011,
+      "pnl": 10534.86,
+      "invested": 195383.04,
+      "roi": 0.0539
+    }
+  },
+  "by_category": {
+    "event_by_date": {
+      "totals": {
+        "n": 1818,
+        "win_rate": 0.7448,
+        "brier_mean": 0.0021,
+        "pnl": 15242.37,
+        "invested": 171017.91,
+        "roi": 0.0891
+      },
+      "by_confidence": {
+        "0.0-0.1": {
+          "n": 810,
+          "win_rate": 0.6321,
+          "brier_mean": 0.001,
+          "pnl": 176.91,
+          "invested": 45836.79,
+          "roi": 0.0039
+        },
+        "0.1-0.2": {
+          "n": 52,
+          "win_rate": 1.0,
+          "brier_mean": 0.013,
+          "pnl": 1020.42,
+          "invested": 4398.17,
+          "roi": 0.232
+        },
+        "0.2-0.3": {
+          "n": 1,
+          "win_rate": 0.0,
+          "brier_mean": 0.04,
+          "pnl": -64.0,
+          "invested": 64.0,
+          "roi": -1.0
+        },
+        "0.6-0.7": {
+          "n": 1,
+          "win_rate": 0.0,
+          "brier_mean": 0.1444,
+          "pnl": -152.0,
+          "invested": 152.0,
+          "roi": -1.0
+        },
+        "0.7-0.8": {
+          "n": 7,
+          "win_rate": 0.0,
+          "brier_mean": 0.0464,
+          "pnl": -345.59,
+          "invested": 345.59,
+          "roi": -1.0
+        },
+        "0.8-0.9": {
+          "n": 1,
+          "win_rate": 1.0,
+          "brier_mean": 0.0144,
+          "pnl": 13.42,
+          "invested": 495.83,
+          "roi": 0.0271
+        },
+        "0.9-1.0": {
+          "n": 946,
+          "win_rate": 0.834,
+          "brier_mean": 0.0018,
+          "pnl": 14593.21,
+          "invested": 119725.53,
+          "roi": 0.1219
+        }
+      }
+    },
+    "commodity_price": {
+      "totals": {
+        "n": 1502,
+        "win_rate": 0.775,
+        "brier_mean": 0.0082,
+        "pnl": 59984.63,
+        "invested": 107077.7,
+        "roi": 0.5602
+      },
+      "by_confidence": {
+        "0.0-0.1": {
+          "n": 795,
+          "win_rate": 0.8214,
+          "brier_mean": 0.0013,
+          "pnl": 44631.7,
+          "invested": 70143.57,
+          "roi": 0.6363
+        },
+        "0.1-0.2": {
+          "n": 143,
+          "win_rate": 1.0,
+          "brier_mean": 0.0352,
+          "pnl": 10623.47,
+          "invested": 9581.0,
+          "roi": 1.1088
+        },
+        "0.3-0.4": {
+          "n": 1,
+          "win_rate": 0.0,
+          "brier_mean": 0.49,
+          "pnl": -57.11,
+          "invested": 57.11,
+          "roi": -1.0
+        },
+        "0.5-0.6": {
+          "n": 1,
+          "win_rate": 1.0,
+          "brier_mean": 0.25,
+          "pnl": 19.2,
+          "invested": 10.0,
+          "roi": 1.92
+        },
+        "0.7-0.8": {
+          "n": 51,
+          "win_rate": 0.0,
+          "brier_mean": 0.0784,
+          "pnl": -1074.06,
+          "invested": 1074.06,
+          "roi": -1.0
+        },
+        "0.8-0.9": {
+          "n": 41,
+          "win_rate": 1.0,
+          "brier_mean": 0.0355,
+          "pnl": 787.2,
+          "invested": 410.0,
+          "roi": 1.92
+        },
+        "0.9-1.0": {
+          "n": 470,
+          "win_rate": 0.6936,
+          "brier_mean": 0.0001,
+          "pnl": 5054.23,
+          "invested": 25801.96,
+          "roi": 0.1959
+        }
+      }
+    },
+    "misc": {
+      "totals": {
+        "n": 1265,
+        "win_rate": 0.6933,
+        "brier_mean": 0.0139,
+        "pnl": 33250.33,
+        "invested": 121930.31,
+        "roi": 0.2727
+      },
+      "by_confidence": {
+        "0.0-0.1": {
+          "n": 282,
+          "win_rate": 0.4043,
+          "brier_mean": 0.0016,
+          "pnl": 3236.89,
+          "invested": 12095.84,
+          "roi": 0.2676
+        },
+        "0.1-0.2": {
+          "n": 301,
+          "win_rate": 0.9967,
+          "brier_mean": 0.0209,
+          "pnl": 29195.47,
+          "invested": 60888.97,
+          "roi": 0.4795
+        },
+        "0.2-0.3": {
+          "n": 1,
+          "win_rate": 0.0,
+          "brier_mean": 0.5929,
+          "pnl": -91.0,
+          "invested": 91.0,
+          "roi": -1.0
+        },
+        "0.3-0.4": {
+          "n": 15,
+          "win_rate": 0.0667,
+          "brier_mean": 0.2815,
+          "pnl": -823.31,
+          "invested": 881.0,
+          "roi": -0.9345
+        },
+        "0.4-0.5": {
+          "n": 17,
+          "win_rate": 0.8824,
+          "brier_mean": 0.1772,
+          "pnl": 580.1,
+          "invested": 640.0,
+          "roi": 0.9064
+        },
+        "0.6-0.7": {
+          "n": 1,
+          "win_rate": 0.0,
+          "brier_mean": 0.16,
+          "pnl": -468.91,
+          "invested": 468.91,
+          "roi": -1.0
+        },
+        "0.8-0.9": {
+          "n": 144,
+          "win_rate": 1.0,
+          "brier_mean": 0.0164,
+          "pnl": 1198.01,
+          "invested": 6648.0,
+          "roi": 0.1802
+        },
+        "0.9-1.0": {
+          "n": 504,
+          "win_rate": 0.6012,
+          "brier_mean": 0.0009,
+          "pnl": 423.08,
+          "invested": 40216.59,
+          "roi": 0.0105
+        }
+      }
+    },
+    "sports": {
+      "totals": {
+        "n": 606,
+        "win_rate": 0.4901,
+        "brier_mean": 0.0629,
+        "pnl": 7333.36,
+        "invested": 66576.43,
+        "roi": 0.1101
+      },
+      "by_confidence": {
+        "0.0-0.1": {
+          "n": 217,
+          "win_rate": 1.0,
+          "brier_mean": 0.0001,
+          "pnl": 16667.28,
+          "invested": 45734.67,
+          "roi": 0.3644
+        },
+        "0.1-0.2": {
+          "n": 1,
+          "win_rate": 1.0,
+          "brier_mean": 0.0256,
+          "pnl": 15.43,
+          "invested": 392.12,
+          "roi": 0.0394
+        },
+        "0.5-0.6": {
+          "n": 143,
+          "win_rate": 0.0,
+          "brier_mean": 0.2337,
+          "pnl": -2021.28,
+          "invested": 2021.28,
+          "roi": -1.0
+        },
+        "0.7-0.8": {
+          "n": 79,
+          "win_rate": 0.9873,
+          "brier_mean": 0.0582,
+          "pnl": 2211.44,
+          "invested": 8748.34,
+          "roi": 0.2528
+        },
+        "0.8-0.9": {
+          "n": 1,
+          "win_rate": 1.0,
+          "brier_mean": 0.0169,
+          "pnl": 28.51,
+          "invested": 112.0,
+          "roi": 0.2546
+        },
+        "0.9-1.0": {
+          "n": 165,
+          "win_rate": 0.0,
+          "brier_mean": 0.0001,
+          "pnl": -9568.02,
+          "invested": 9568.02,
+          "roi": -1.0
+        }
+      }
+    },
+    "politics": {
+      "totals": {
+        "n": 242,
+        "win_rate": 0.4132,
+        "brier_mean": 0.0741,
+        "pnl": 11637.26,
+        "invested": 15153.89,
+        "roi": 0.7679
+      },
+      "by_confidence": {
+        "0.0-0.1": {
+          "n": 178,
+          "win_rate": 0.2022,
+          "brier_mean": 0.0011,
+          "pnl": -465.51,
+          "invested": 8397.52,
+          "roi": -0.0554
+        },
+        "0.1-0.2": {
+          "n": 22,
+          "win_rate": 1.0,
+          "brier_mean": 0.0358,
+          "pnl": 452.32,
+          "invested": 815.54,
+          "roi": 0.5546
+        },
+        "0.3-0.4": {
+          "n": 41,
+          "win_rate": 1.0,
+          "brier_mean": 0.4093,
+          "pnl": 11323.38,
+          "invested": 5849.06,
+          "roi": 1.9359
+        },
+        "0.6-0.7": {
+          "n": 1,
+          "win_rate": 1.0,
+          "brier_mean": 0.16,
+          "pnl": 327.07,
+          "invested": 91.77,
+          "roi": 3.564
+        }
+      }
+    },
+    "ai_model": {
+      "totals": {
+        "n": 5,
+        "win_rate": 0.8,
+        "brier_mean": 0.0112,
+        "pnl": 29.06,
+        "invested": 331.94,
+        "roi": 0.0875
+      },
+      "by_confidence": {
+        "0.0-0.1": {
+          "n": 3,
+          "win_rate": 1.0,
+          "brier_mean": 0.0017,
+          "pnl": 36.7,
+          "invested": 221.0,
+          "roi": 0.1661
+        },
+        "0.7-0.8": {
+          "n": 1,
+          "win_rate": 0.0,
+          "brier_mean": 0.0484,
+          "pnl": -40.0,
+          "invested": 40.0,
+          "roi": -1.0
+        },
+        "0.9-1.0": {
+          "n": 1,
+          "win_rate": 1.0,
+          "brier_mean": 0.0025,
+          "pnl": 32.36,
+          "invested": 70.94,
+          "roi": 0.4562
+        }
+      }
+    }
+  },
+  "notes": {
+    "siblings_present": [
+      "ai_model",
+      "commodity_price",
+      "event_by_date",
+      "misc",
+      "politics",
+      "sports"
+    ],
+    "misc_size": 1265,
+    "methodology": "my_estimate stored at bet time = P(YES); resolution YES\u21921, NO\u21920; brier = (estimate - actual)^2; MKT/CANCEL skipped.",
+    "caveat": "estimate-fossilization risk: my_estimate is recorded ONCE at bet entry, not refreshed per cycle. Calibration mixes initial-estimate with stale-estimate at resolution.",
+    "mirror_to": "CalibratedGhosts schema v1.1 (commodity_price + event_by_date siblings, misc shrunk)"
+  }
+}
